@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +31,7 @@
                     <li class="active"><a href="javascript:;">Home</a></li>
                     <li><a href="javascript:;">LogIn</a></li>
                     <li><a href="javascript:;">Manage Demuku Accusement</a></li>
-                    <li><a href="/AOIDE01/ReplySuggestionsServlet">Manage Reply Suggestions</a></li>
+                    <li><a href="<c:url value = '/ListSuggestionsServlet'/>">Manage Reply Suggestions</a></li>
                     <li><a href="javascript:;">Edit Bullet</a></li>
                     <li class="nav-divider"></li>
                     <li><a href="/AOIDE01/_08_login.view/login.jsp"><i class="glyphicon glyphicon-off"></i> Sign in</a></li>
