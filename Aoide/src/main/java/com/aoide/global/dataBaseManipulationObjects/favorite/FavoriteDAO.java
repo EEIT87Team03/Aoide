@@ -1,4 +1,4 @@
-ackage com.aoide.global.dataBaseManipulationObjects.favorite;
+package com.aoide.global.dataBaseManipulationObjects.favorite;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
