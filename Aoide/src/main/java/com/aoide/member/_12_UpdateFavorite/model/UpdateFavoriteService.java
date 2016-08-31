@@ -21,7 +21,8 @@ public class UpdateFavoriteService {
 		favoriteDAO.insert(new FavoriteVO(memberId, songId));
 	}
 	
-	public void updateSongFavoriteCounts(SongVO song){
+	public void updateSongFavoriteCounts(int songId){
+		SongVO song = songDAO.findByPrimaryKey(songId);
 		song.setFavoriteCounts((song.getFavoriteCounts() + 1 ));
 		songDAO.update(song);
 	}
