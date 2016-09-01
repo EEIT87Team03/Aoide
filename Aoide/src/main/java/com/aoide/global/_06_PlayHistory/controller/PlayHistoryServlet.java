@@ -1,4 +1,4 @@
-package com.aoide.global._06_PlayHistory;
+package com.aoide.global._06_PlayHistory.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,19 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ABC
+ * Servlet implementation class PlayHistoryServlet
  */
-@WebServlet("/ABC")
-public class ABC extends HttpServlet {
+@WebServlet("/PlayHistoryServlet")
+public class PlayHistoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ABC() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
