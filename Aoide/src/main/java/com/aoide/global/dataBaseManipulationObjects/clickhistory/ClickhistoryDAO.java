@@ -1,4 +1,4 @@
-ackage com.aoide.global.dataBaseManipulationObjects.clickhistory;
+package com.aoide.global.dataBaseManipulationObjects.clickhistory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -275,29 +275,29 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 		
 		//insert
 		
-		ClickhistoryVO clickhistoryVO1 = new ClickhistoryVO();
-		clickhistoryVO1.setClickhistoryId(1);
-		clickhistoryVO1.setSongId(1);
-		clickhistoryVO1.setDate(java.sql.Date.valueOf("2016-01-01"));
-		dao.insert(clickhistoryVO1);
+//		ClickhistoryVO clickhistoryVO1 = new ClickhistoryVO();
+//		clickhistoryVO1.setClickhistoryId(1);
+//		clickhistoryVO1.setSongId(1);
+//		clickhistoryVO1.setDate(java.sql.Date.valueOf("2016-01-01"));
+//		dao.insert(clickhistoryVO1);
 
 		
 		//modify
 		
-		ClickhistoryVO clickhistoryVO2 = new ClickhistoryVO();
-		clickhistoryVO2.setClickhistoryId(2);
-		clickhistoryVO2.setSongId(2);
-		clickhistoryVO2.setDate(java.sql.Date.valueOf("2016-02-02"));
-		dao.update(clickhistoryVO2);
+//		ClickhistoryVO clickhistoryVO2 = new ClickhistoryVO();
+//		clickhistoryVO2.setClickhistoryId(2);
+//		clickhistoryVO2.setSongId(2);
+//		clickhistoryVO2.setDate(java.sql.Date.valueOf("2016-02-02"));
+//		dao.update(clickhistoryVO2);
 
 		
 		//delete
 		
-		ClickhistoryVO clickhistoryVO3 = new ClickhistoryVO();
-		clickhistoryVO3.setClickhistoryId(3);
-		clickhistoryVO3.setSongId(3);
-		clickhistoryVO3.setDate(java.sql.Date.valueOf("2016-03-03"));
-		dao.delete(1);
+//		ClickhistoryVO clickhistoryVO3 = new ClickhistoryVO();
+//		clickhistoryVO3.setClickhistoryId(3);
+//		clickhistoryVO3.setSongId(3);
+//		clickhistoryVO3.setDate(java.sql.Date.valueOf("2016-03-03"));
+//		dao.delete(1);
 		
 		
 		
