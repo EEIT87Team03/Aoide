@@ -20,14 +20,14 @@ public class PlayHistoryService {
 	
 	public List<ClickhistoryVO> getAllClickhistory(){
 		
-		List<ClickhistoryVO> clickhistorys = new ArrayList();
+		List<ClickhistoryVO> clickhistorysList = new ArrayList();
 		
 		for(ClickhistoryVO clickhistoryVO : clickhistoryDAO.getAll()){
 			
-			clickhistorys.add(clickhistoryVO);
+			clickhistorysList.add(clickhistoryVO);
 			
 		}
-		return clickhistorys;
+		return clickhistorysList;
 		
 		
 	}

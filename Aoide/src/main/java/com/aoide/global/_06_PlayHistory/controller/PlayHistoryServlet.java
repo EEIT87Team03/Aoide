@@ -20,9 +20,9 @@ public class PlayHistoryServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<ClickhistoryVO> clickhistorys = new PlayHistoryService().getAllClickhistory();
+		List<ClickhistoryVO> clickhistorysList = new PlayHistoryService().getAllClickhistory();
 		
-		for(ClickhistoryVO clickhistory : clickhistorys){
+		for(ClickhistoryVO clickhistory : clickhistorysList){
 			
 			System.out.println(clickhistory.getClickhistoryId());
 			System.out.println(clickhistory.getSongId());
@@ -33,8 +33,10 @@ public class PlayHistoryServlet extends HttpServlet {
 
 		System.out.println("123");
 		
+		request.getSession().setAttribute("clickhistorysList", clickhistorysList);
 		
-		
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath + "/_06_PlayHistory.view/showPlayHistory.jsp");
 		
 	}
 
