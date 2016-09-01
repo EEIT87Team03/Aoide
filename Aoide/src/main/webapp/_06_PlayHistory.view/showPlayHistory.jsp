@@ -36,8 +36,8 @@
 								<c:forEach var = "clickhistory" items="${clickhistorysList}" varStatus="loop">
 									<tr>
 										<td>${clickhistory.clickhistoryId}</td>
-<%-- 										<td>${clickhistorysList[loop.count-1].clickhistoryId}</td> --%>
-										<td>${clickhistory.songId}</td>
+										<td>${songIdList[loop.count-1]}</td>
+<%-- 										<td>${clickhistory.songId}</td> --%>
 										<td>${clickhistory.date}</td>
 									</tr>
 								</c:forEach>
