@@ -27,12 +27,10 @@ public class CreateReplyPageServlet extends HttpServlet {
 		
 		// get the suggestion id
 		request.setCharacterEncoding("UTF-8");
-		String idStr = request.getParameter("id");
-		if(idStr != null){
+		String idStr = request.getParameter("id").trim();
+		if(idStr != null && idStr.length() != 0){
 			id = Integer.parseInt(idStr);
 		}
-		
-		System.out.println("id = " + id);
 		
 		// get the suggestionVO by id from session
 		session = request.getSession();

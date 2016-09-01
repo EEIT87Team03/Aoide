@@ -4,7 +4,7 @@ import java.util.List;
 
 
 public interface SuggestionDAO {
-	public void insert(SuggestionVO suggestionVO);
+	public Integer insert(SuggestionVO suggestionVO);
 	public void update(SuggestionVO suggestionVO);
 	public void delete(Integer suggestion_id);
 	public SuggestionVO findByPrimaryKey(Integer suggestion_id);

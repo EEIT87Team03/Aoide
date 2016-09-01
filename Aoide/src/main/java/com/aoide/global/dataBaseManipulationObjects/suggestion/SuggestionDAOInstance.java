@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +16,8 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 	private static final String INSERT_STMT = new StringBuffer()
 													.append("INSERT INTO suggestion(")
 													.append("suggestion_content_file,")
-													.append("title,")
-													.append("reply_content_file)")
-													.append("VALUES(?,?,?)")
+													.append("title) ")
+													.append("VALUES(?,?)")
 													.toString();
 			
 	private static final String UPDATE_STMT = new StringBuffer()
@@ -62,21 +62,25 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 	// Method
 	
 	@Override
-	public void insert(SuggestionVO suggestionVO) {
+	public Integer insert(SuggestionVO suggestionVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet keys = null;
+		Integer id = null;
 
 		try {
-
 			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(INSERT_STMT);
+			pstmt = con.prepareStatement(INSERT_STMT, Statement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setString(1, suggestionVO.getSuggestionContentFile());
 			pstmt.setString(2, suggestionVO.getTitle());
-			pstmt.setString(3, suggestionVO.getReplyContentFile());
-
 			pstmt.executeUpdate();
-
+			// get generated key
+			keys = pstmt.getGeneratedKeys();
+			if(keys.next()){
+				id = (Integer)keys.getInt(1);
+			}
+			
 			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. "
@@ -97,8 +101,16 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 					e.printStackTrace(System.err);
 				}
 			}
+			if (keys != null){
+				try{
+					keys.close();
+				}catch(Exception e){
+					e.printStackTrace(System.err);
+				}
+			}
+			
 		}
-
+		return id;
 	}
 
 	@Override
