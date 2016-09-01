@@ -11,7 +11,7 @@ import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
 public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 
-	private static final String INSERT_STMT = "INSERT INTO Clickhistory (clickhistory_Id,song_Id,date) VALUES(?,?,?)";
+	private static final String INSERT_STMT = "INSERT INTO Clickhistory (song_Id,date) VALUES(?,?)";
 	private static final String UPDATE = "UPDATE Clickhistory set chlickhistory_Id=?,song_Id=? date=? ";
 	private static final String DELETE = "DELETE FROM Chlickhistory where chlickhistory_Id=?";
 	private static final String GET_ALL_STMT = "SELECT clickhistory_id,song_id,date FROM Clickhistory ORDER BY clickhistory_id";
@@ -27,9 +27,9 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 			conn = ConnectionBean.getConnection();
 			ptmt = conn.prepareStatement(INSERT_STMT);
 
-			ptmt.setInt(1, clickhistoryVO.getClickhistoryId());
-			ptmt.setInt(2, clickhistoryVO.getSongId());
-			ptmt.setDate(3,clickhistoryVO.getDate());
+//			ptmt.setInt(1, clickhistoryVO.getClickhistoryId());
+			ptmt.setInt(1, clickhistoryVO.getSongId());
+			ptmt.setDate(2,clickhistoryVO.getDate());
 
 			ptmt.executeUpdate();
 

@@ -22,11 +22,20 @@ public class PlayHistoryServlet extends HttpServlet {
 		
 		List<ClickhistoryVO> clickhistorysList = new PlayHistoryService().getAllClickhistory();
 		
+		ClickhistoryVO new_clickhistoryVO = new ClickhistoryVO();
+		new_clickhistoryVO.setDate(java.sql.Date.valueOf("2019-12-25"));
+		new_clickhistoryVO.setSongId(2);
+		
+		new PlayHistoryService().insetNewClickHistory(new_clickhistoryVO);
+		
+		
 		for(ClickhistoryVO clickhistory : clickhistorysList){
 			
 			System.out.println(clickhistory.getClickhistoryId());
 			System.out.println(clickhistory.getSongId());
 			System.out.println(clickhistory.getDate());	
+			
+			
 			
 			
 		}

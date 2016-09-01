@@ -33,6 +33,13 @@ public class PlayHistoryService {
 	}
 
 
+	public void insetNewClickHistory(ClickhistoryVO new_clickhistoryVO) {
+		
+		clickhistoryDAO.insert(new_clickhistoryVO);
+		
+	}
+
+
 	
 	
 	
