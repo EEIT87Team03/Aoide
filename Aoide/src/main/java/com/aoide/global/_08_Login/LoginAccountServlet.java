@@ -24,7 +24,7 @@ public class LoginAccountServlet extends HttpServlet {
 												throws ServletException, IOException 
 	{
 		
-		response.getWriter().append("Served at: ").append( request.getContextPath() );
+		doPost( request, response );
 	}
 
 	
@@ -45,7 +45,7 @@ public class LoginAccountServlet extends HttpServlet {
 		else
 		{
 			response.sendRedirect(
-					request.getContextPath() + "/login.html" );
+					request.getContextPath() + "/_08_login.view/login.html" );
 		}
 	}
 
