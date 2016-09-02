@@ -11,7 +11,7 @@ import java.util.List;
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
 
-public class SuggestionDAOInstance implements SuggestionDAO {
+public class JdbcSuggestionDAO implements SuggestionDAO {
 	// Fields
 	private static final String INSERT_STMT = new StringBuffer()
 													.append("INSERT INTO suggestion(")
@@ -55,7 +55,7 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 			.toString();
 	
 	// Constructors
-	public SuggestionDAOInstance() {
+	public JdbcSuggestionDAO() {
 		
 	}
 
