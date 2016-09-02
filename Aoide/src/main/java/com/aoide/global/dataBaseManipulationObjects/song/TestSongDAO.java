@@ -8,7 +8,7 @@ import java.util.List;
 public class TestSongDAO {
 
 	public static void main(String[] args) {
-			SongDAO dao = new SongDAO();
+			JdbcSongDAO dao = new JdbcSongDAO();
 			
 			
 			// �s�W

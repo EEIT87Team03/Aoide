@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.suggestion.SuggestionDAO;
-import com.aoide.global.dataBaseManipulationObjects.suggestion.SuggestionDAOInstance;
+import com.aoide.global.dataBaseManipulationObjects.suggestion.JdbcSuggestionDAO;
 import com.aoide.global.dataBaseManipulationObjects.suggestion.TestSuggestionDAO;
 import com.aoide.global.dataBaseManipulationObjects.suggestion.SuggestionVO;
 
 public class SuggestionService {
 
 	// Fields
-	SuggestionDAO suggestionDAO = new SuggestionDAOInstance();
+	SuggestionDAO suggestionDAO = new JdbcSuggestionDAO();
 	
 	
 	// Constructors

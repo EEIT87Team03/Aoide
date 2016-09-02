@@ -1,4 +1,4 @@
-package com.aoide.global.dataBaseManipulationObjects.clickhistory;
+package com.aoide.global.dataBaseManipulationObjects.clickHistory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
-public class ClickhistoryDAO implements ClickhistoryDAO_interface {
+public class JdbcClickHistoryDAO implements ClickHistoryDAO {
 
 	private static final String INSERT_STMT = "INSERT INTO Clickhistory (song_Id,date) VALUES(?,?)";
 	private static final String UPDATE = "UPDATE Clickhistory set chlickhistory_Id=?,song_Id=? date=? ";
@@ -18,7 +18,7 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 	private static final String GET_ONE_STMT = "SELECT clickhistory_id,song_id,date FROM Clickhistory where clickhistory_id=? ";
 
 	@Override
-	public void insert(ClickhistoryVO clickhistoryVO) {
+	public void insert(ClickHistoryVO clickhistoryVO) {
 
 		Connection conn = null;
 		PreparedStatement ptmt = null;
@@ -63,7 +63,7 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 	}
 
 	@Override
-	public void update(ClickhistoryVO clickhistoryVO) {
+	public void update(ClickHistoryVO clickhistoryVO) {
 		
 		Connection conn = null;
 		PreparedStatement ptmt = null;
@@ -150,9 +150,9 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 	}
 		
 	@Override
-	public ClickhistoryVO findByPrimaryKey(Integer clickhistoryId) {
+	public ClickHistoryVO findByPrimaryKey(Integer clickhistoryId) {
 		
-		ClickhistoryVO clickhistoryVO = null;
+		ClickHistoryVO clickhistoryVO = null;
 		Connection conn = null;
 		PreparedStatement ptmt = null;
 		ResultSet rs = null;
@@ -166,7 +166,7 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 			rs = ptmt.executeQuery();
 			
 			while (rs.next()){
-				clickhistoryVO = new ClickhistoryVO();
+				clickhistoryVO = new ClickHistoryVO();
 				clickhistoryVO.setClickhistoryId(rs.getInt("clickhistory_id"));
 				clickhistoryVO.setSongId(rs.getInt("song_id"));
 				clickhistoryVO.setDate(rs.getDate("date"));
@@ -209,10 +209,10 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 	
 	
 	@Override
-	public List<ClickhistoryVO> getAll() {
-		List<ClickhistoryVO>list = new ArrayList<ClickhistoryVO>();
+	public List<ClickHistoryVO> getAll() {
+		List<ClickHistoryVO>list = new ArrayList<ClickHistoryVO>();
 		
-		ClickhistoryVO clickhistoryVO = null;
+		ClickHistoryVO clickhistoryVO = null;
 		Connection conn = null;
 		PreparedStatement ptmt = null;
 		ResultSet rs = null;
@@ -223,7 +223,7 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 	    	rs = ptmt.executeQuery();
 	    	
 	    	while(rs.next()){
-	    		clickhistoryVO = new ClickhistoryVO();
+	    		clickhistoryVO = new ClickHistoryVO();
 				clickhistoryVO.setClickhistoryId(rs.getInt("clickhistory_id"));
 				clickhistoryVO.setSongId(rs.getInt("song_id"));
 				clickhistoryVO.setDate(rs.getDate("date"));
@@ -271,7 +271,7 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 	}
 	public static void main(String[]args){
 		
-		ClickhistoryDAO dao = new ClickhistoryDAO();
+		JdbcClickHistoryDAO dao = new JdbcClickHistoryDAO();
 		
 		//insert
 		
@@ -302,8 +302,8 @@ public class ClickhistoryDAO implements ClickhistoryDAO_interface {
 		
 		
 		//check
-		    List<ClickhistoryVO>list = dao.getAll();
-		    for(ClickhistoryVO chlick : list){
+		    List<ClickHistoryVO>list = dao.getAll();
+		    for(ClickHistoryVO chlick : list){
 	        System.out.println(chlick.getClickhistoryId());
 			System.out.println(chlick.getSongId());
 			System.out.println(chlick.getDate());			

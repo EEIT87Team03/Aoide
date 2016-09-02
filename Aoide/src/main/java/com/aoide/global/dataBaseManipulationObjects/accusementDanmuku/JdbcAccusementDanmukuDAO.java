@@ -1,4 +1,4 @@
-package com.aoide.global.dataBaseManipulationObjects.tokenRecord;
+package com.aoide.global.dataBaseManipulationObjects.accusementDanmuku;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,73 +9,52 @@ import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
-public class TokenRecordDAOInstance implements TokenRecordDAO{
-	
+public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
+	// Fields
 	private static final String INSERT_STMT = new StringBuffer()
-													.append("INSERT INTO ")
-													.append("token_record")
-													.append("(")
-													.append("recipient_id,")
-													.append("token_volume,")
-													.append("sponsor_balance,")
-													.append("recipien_balance")
-													.append(") ")
-													.append("VALUES(?,?,?,?)")
-													.toString();
-	
-	
+			.append("INSERT INTO accusement_danmuku(")
+			.append("accuse_id,")
+			.append("accused_id,")
+			.append("content_file)")
+			.append("VALUES(?,?,?)")
+			.toString();
+
 	private static final String UPDATE_STMT = new StringBuffer()
-													.append("UPDATE ")
-													.append("token_record ")
-													.append("SET ")
-													.append("token_volume = ? ")
-													.append("WHERE ")
-													.append("token_record_id = ?")
-													.toString();
-	
-	
-	private static final String DELETE_STMT = new StringBuffer()
-													.append("DELETE FROM ")
-													.append("token_record ")
-													.append("WHERE ")
-													.append("token_record_id = ?")
-													.toString();
-	
+			.append("UPDATE accusement_danmuku ")
+			.append("SET ")
+			.append("accuse_id = ?,")
+			.append("accused_id = ?,")
+			.append("content_file = ? ")
+			.append("WHERE accusement_danmuku_id = ?")
+			.toString();
+
+	private static final String DELETE_STMT = "DELETE FROM accusement_danmuku WHERE accusement_danmuku_id = ?";
 	private static final String GET_ONE_STMT = new StringBuffer()
-													.append("SELECT")
-													.append(" token_record_id,")
-													.append("date,")
-													.append("recipient_id,")
-													.append("token_volume,")
-													.append("sponsor_balance,")
-													.append("recipien_balance ")
-													.append("FROM ")
-													.append("token_record ")
-													.append("WHERE ")
-													.append("token_record_id = ?")
-													.toString();
-	
+			.append("SELECT ") 
+			.append("accusement_danmuku_id,") 
+			.append("date,") 
+			.append("accuse_id,") 
+			.append("accused_id,") 
+			.append("content_file ") 
+			.append("FROM accusement_danmuku ") 
+			.append("WHERE accusement_danmuku_id = ?")
+			.toString();
+
 	private static final String GET_ALL_STMT = new StringBuffer()
-													.append("SELECT ")
-													.append("token_record_id,")
-													.append("date,")
-													.append("recipient_id,")
-													.append("token_volume,")
-													.append("sponsor_balance,")
-													.append("recipien_balance ")
-													.append("FROM ")
-													.append("token_record ")
-													.append("ORDER BY ")
-													.append("token_record_id")
-													.toString();
-													
+			.append("SELECT ") 
+			.append("accusement_danmuku_id,") 
+			.append("date,") 
+			.append("accuse_id,") 
+			.append("accused_id,") 
+			.append("content_file ") 
+			.append("FROM accusement_danmuku") 
+			.toString();
+
 	
-	public TokenRecordDAOInstance(){
-		
-	}
 	
+	// Methods
 	@Override
-	public void insert(TokenRecordVO TokenRecordVO) {
+	public void insert(AccusementDanmukuVO accusementDanmukuVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -84,10 +63,9 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(INSERT_STMT);
 			
-			pstmt.setInt(1, TokenRecordVO.getRecipientId());
-			pstmt.setInt(2, TokenRecordVO.getTokenVolume());
-			pstmt.setInt(3, TokenRecordVO.getSponsorBalance());
-			pstmt.setInt(4, TokenRecordVO.getRecipienBalance());
+			pstmt.setInt(1, accusementDanmukuVO.getAccuseId());
+			pstmt.setInt(2, accusementDanmukuVO.getAccusedId());
+			pstmt.setString(3, accusementDanmukuVO.getContentFile());
 
 			pstmt.executeUpdate();
 
@@ -116,7 +94,7 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 	}
 
 	@Override
-	public void update(TokenRecordVO TokenRecordVO) {
+	public void update(AccusementDanmukuVO accusementDanmukuVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -125,9 +103,10 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(UPDATE_STMT);
 
-			pstmt.setInt(1, TokenRecordVO.getTokenVolume());
-			pstmt.setInt(2, TokenRecordVO.getTokenRecordId());
-
+			pstmt.setInt(1, accusementDanmukuVO.getAccuseId());
+			pstmt.setInt(2, accusementDanmukuVO.getAccusedId());
+			pstmt.setString(3, accusementDanmukuVO.getContentFile());
+			pstmt.setInt(4, accusementDanmukuVO.getAccusementDanmukuId());
 
 			pstmt.executeUpdate();
 
@@ -152,11 +131,10 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 				}
 			}
 		}
-
 	}
 
 	@Override
-	public void delete(Integer token_record_id) {
+	public void delete(Integer accusementDanmukuId) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -164,7 +142,7 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(DELETE_STMT);
-			pstmt.setInt(1, token_record_id);
+			pstmt.setInt(1, accusementDanmukuId);
 			pstmt.executeUpdate();
 
 			// Handle any SQL errors
@@ -188,12 +166,11 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 				}
 			}
 		}
-
 	}
 
 	@Override
-	public TokenRecordVO findByPrimaryKey(Integer token_record_id) {
-		TokenRecordVO tokenRecordVO = null;
+	public AccusementDanmukuVO findByPrimaryKey(Integer accusementDanmukuId) {
+		AccusementDanmukuVO accusementDanmukuVO = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -202,25 +179,23 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(GET_ONE_STMT);
-			pstmt.setInt(1, token_record_id);
+			pstmt.setInt(1, accusementDanmukuId);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				// empVo 也稱為 Domain objects
-				tokenRecordVO = new TokenRecordVO();
-				tokenRecordVO.setTokenRecordId(rs.getInt("token_record_id"));
-				tokenRecordVO.setDate(rs.getDate("date"));
-				tokenRecordVO.setRecipientId(rs.getInt("recipient_id"));
-				tokenRecordVO.setTokenVolume(rs.getInt("token_volume"));
-				tokenRecordVO.setsponsorBalance(rs.getInt("sponsor_balance"));
-				tokenRecordVO.setRecipienBalance(rs.getInt("recipien_balance"));
+				// empVo �]�٬� Domain objects
+				accusementDanmukuVO = new AccusementDanmukuVO();
+				accusementDanmukuVO.setAccusementDanmukuId(rs.getInt("accusement_danmuku_id"));
+				accusementDanmukuVO.setDate(rs.getTimestamp("date"));
+				accusementDanmukuVO.setAccuseId(rs.getInt("accuse_id"));
+				accusementDanmukuVO.setAccusedId(rs.getInt("accused_id"));
+				accusementDanmukuVO.setContentFile(rs.getString("content_file"));
 								
 			}
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			se.printStackTrace();
 			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
@@ -245,14 +220,13 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 				}
 			}
 		}
-		return tokenRecordVO;
-
+		return accusementDanmukuVO;
 	}
 
 	@Override
-	public List<TokenRecordVO> getAll() {
-		List<TokenRecordVO> list = new ArrayList<TokenRecordVO>();
-		TokenRecordVO tokenRecordVO = null;
+	public List<AccusementDanmukuVO> getAll() {
+		List<AccusementDanmukuVO> list = new ArrayList<AccusementDanmukuVO>();
+		AccusementDanmukuVO accusementDanmukuVO = null;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -265,15 +239,14 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				// empVO 也稱為 Domain objects
-				tokenRecordVO = new TokenRecordVO();
-				tokenRecordVO.setTokenRecordId(rs.getInt("token_record_id"));
-				tokenRecordVO.setDate(rs.getDate("date"));
-				tokenRecordVO.setRecipientId(rs.getInt("recipient_id"));
-				tokenRecordVO.setTokenVolume(rs.getInt("token_volume"));
-				tokenRecordVO.setsponsorBalance(rs.getInt("sponsor_balance"));
-				tokenRecordVO.setRecipienBalance(rs.getInt("recipien_balance"));
-				list.add(tokenRecordVO); // Store the row in the list
+				// empVO �]�٬� Domain objects
+				accusementDanmukuVO = new AccusementDanmukuVO();
+				accusementDanmukuVO.setAccusementDanmukuId(rs.getInt("accusement_danmuku_id"));
+				accusementDanmukuVO.setDate(rs.getTimestamp("date"));
+				accusementDanmukuVO.setAccuseId(rs.getInt("accuse_id"));
+				accusementDanmukuVO.setAccusedId(rs.getInt("accused_id"));
+				accusementDanmukuVO.setContentFile(rs.getString("content_file"));
+				list.add(accusementDanmukuVO); // Store the row in the list
 			}
 
 			// Handle any SQL errors
@@ -307,8 +280,13 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 		return list;
 
 	}
+
 	public static void main(String[] args) {
-		System.out.print(GET_ONE_STMT);
+		System.out.println(INSERT_STMT);
+		System.out.println(UPDATE_STMT);
+		System.out.println(DELETE_STMT);
+		System.out.println(GET_ONE_STMT);
+		System.out.println(GET_ALL_STMT);
 	}
 
 }

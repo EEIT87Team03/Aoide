@@ -1,15 +1,15 @@
-package com.aoide.global.dataBaseManipulationObjects.taskrecord;
+package com.aoide.global.dataBaseManipulationObjects.taskRecord;
 
 import java.sql.Date;
 
-public class TaskrecordVO {
+public class TaskRecordVO {
 	private Integer taskId;
 	private Integer memberId;
 	private Date completeDate;
 	
-	public TaskrecordVO() {
+	public TaskRecordVO() {
 	}
-	public TaskrecordVO(Integer taskId, Integer memberId, Date completeDate ) {
+	public TaskRecordVO(Integer taskId, Integer memberId, Date completeDate ) {
 		this.taskId = taskId;
 		this.memberId = memberId;
 		this.completeDate = completeDate;

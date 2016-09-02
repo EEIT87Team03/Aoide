@@ -1,74 +1,86 @@
-package com.aoide.global.dataBaseManipulationObjects.accusementDanmuku;
+package com.aoide.global.dataBaseManipulationObjects.suggestion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
-public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
+
+public class JdbcSuggestionDAO implements SuggestionDAO {
 	// Fields
 	private static final String INSERT_STMT = new StringBuffer()
-			.append("INSERT INTO accusement_danmuku(")
-			.append("accuse_id,")
-			.append("accused_id,")
-			.append("content_file)")
-			.append("VALUES(?,?,?)")
-			.toString();
-
+													.append("INSERT INTO suggestion(")
+													.append("suggestion_content_file,")
+													.append("title) ")
+													.append("VALUES(?,?)")
+													.toString();
+			
 	private static final String UPDATE_STMT = new StringBuffer()
-			.append("UPDATE accusement_danmuku ")
-			.append("SET ")
-			.append("accuse_id = ?,")
-			.append("accused_id = ?,")
-			.append("content_file = ? ")
-			.append("WHERE accusement_danmuku_id = ?")
-			.toString();
+													.append("UPDATE suggestion ")
+													.append("SET ")
+													.append("suggestion_content_file = ?,")
+													.append("reply_content_file = ?,")
+													.append("reply_state = ? ")
+													.append("WHERE suggestion_id = ?")
+													.toString();
 
-	private static final String DELETE_STMT = "DELETE FROM accusement_danmuku WHERE accusement_danmuku_id = ?";
+	private static final String DELETE_STMT = "DELETE FROM suggestion WHERE suggestion_id = ?";
 	private static final String GET_ONE_STMT = new StringBuffer()
-			.append("SELECT ") 
-			.append("accusement_danmuku_id,") 
-			.append("date,") 
-			.append("accuse_id,") 
-			.append("accused_id,") 
-			.append("content_file ") 
-			.append("FROM accusement_danmuku ") 
-			.append("WHERE accusement_danmuku_id = ?")
-			.toString();
-
+													.append("SELECT ") 
+													.append("suggestion_id,") 
+													.append("suggest_date,") 
+													.append("title,") 
+													.append("suggestion_content_file,") 
+													.append("reply_content_file,") 
+													.append("reply_state,") 
+													.append("reply_date ") 
+													.append("FROM suggestion ") 
+													.append("WHERE suggestion_id = ?")
+													.toString();
 	private static final String GET_ALL_STMT = new StringBuffer()
 			.append("SELECT ") 
-			.append("accusement_danmuku_id,") 
-			.append("date,") 
-			.append("accuse_id,") 
-			.append("accused_id,") 
-			.append("content_file ") 
-			.append("FROM accusement_danmuku") 
+			.append("suggestion_id,") 
+			.append("suggest_date,") 
+			.append("title,") 
+			.append("suggestion_content_file,") 
+			.append("reply_content_file,") 
+			.append("reply_state,") 
+			.append("reply_date ") 
+			.append("FROM suggestion") 
 			.toString();
+	
+	// Constructors
+	public JdbcSuggestionDAO() {
+		
+	}
 
+	// Method
 	
-	
-	// Methods
 	@Override
-	public void insert(AccusementDanmukuVO accusementDanmukuVO) {
+	public Integer insert(SuggestionVO suggestionVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet keys = null;
+		Integer id = null;
 
 		try {
-
 			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(INSERT_STMT);
+			pstmt = con.prepareStatement(INSERT_STMT, Statement.RETURN_GENERATED_KEYS);
 			
-			pstmt.setInt(1, accusementDanmukuVO.getAccuseId());
-			pstmt.setInt(2, accusementDanmukuVO.getAccusedId());
-			pstmt.setString(3, accusementDanmukuVO.getContentFile());
-
+			pstmt.setString(1, suggestionVO.getSuggestionContentFile());
+			pstmt.setString(2, suggestionVO.getTitle());
 			pstmt.executeUpdate();
-
+			// get generated key
+			keys = pstmt.getGeneratedKeys();
+			if(keys.next()){
+				id = (Integer)keys.getInt(1);
+			}
+			
 			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. "
@@ -89,12 +101,20 @@ public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
 					e.printStackTrace(System.err);
 				}
 			}
+			if (keys != null){
+				try{
+					keys.close();
+				}catch(Exception e){
+					e.printStackTrace(System.err);
+				}
+			}
+			
 		}
-
+		return id;
 	}
 
 	@Override
-	public void update(AccusementDanmukuVO accusementDanmukuVO) {
+	public void update(SuggestionVO suggestionVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -103,10 +123,11 @@ public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(UPDATE_STMT);
 
-			pstmt.setInt(1, accusementDanmukuVO.getAccuseId());
-			pstmt.setInt(2, accusementDanmukuVO.getAccusedId());
-			pstmt.setString(3, accusementDanmukuVO.getContentFile());
-			pstmt.setInt(4, accusementDanmukuVO.getAccusementDanmukuId());
+			pstmt.setString(1, suggestionVO.getSuggestionContentFile());
+			pstmt.setString(2, suggestionVO.getReplyContentFile());
+			pstmt.setInt(3, suggestionVO.getReplyState());
+			pstmt.setInt(4, suggestionVO.getSuggestionId());
+
 
 			pstmt.executeUpdate();
 
@@ -131,10 +152,11 @@ public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
 				}
 			}
 		}
+
 	}
 
 	@Override
-	public void delete(Integer accusementDanmukuId) {
+	public void delete(Integer suggestionId) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -142,7 +164,7 @@ public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(DELETE_STMT);
-			pstmt.setInt(1, accusementDanmukuId);
+			pstmt.setInt(1, suggestionId);
 			pstmt.executeUpdate();
 
 			// Handle any SQL errors
@@ -166,11 +188,12 @@ public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
 				}
 			}
 		}
+
 	}
 
 	@Override
-	public AccusementDanmukuVO findByPrimaryKey(Integer accusementDanmukuId) {
-		AccusementDanmukuVO accusementDanmukuVO = null;
+	public SuggestionVO findByPrimaryKey(Integer suggestionId) {
+		SuggestionVO suggestionVO = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -179,17 +202,19 @@ public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(GET_ONE_STMT);
-			pstmt.setInt(1, accusementDanmukuId);
+			pstmt.setInt(1, suggestionId);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				// empVo �]�٬� Domain objects
-				accusementDanmukuVO = new AccusementDanmukuVO();
-				accusementDanmukuVO.setAccusementDanmukuId(rs.getInt("accusement_danmuku_id"));
-				accusementDanmukuVO.setDate(rs.getTimestamp("date"));
-				accusementDanmukuVO.setAccuseId(rs.getInt("accuse_id"));
-				accusementDanmukuVO.setAccusedId(rs.getInt("accused_id"));
-				accusementDanmukuVO.setContentFile(rs.getString("content_file"));
+				suggestionVO = new SuggestionVO();
+				suggestionVO.setSuggestionId(rs.getInt("suggestion_id"));
+				suggestionVO.setSuggestDate(rs.getDate("suggest_date"));
+				suggestionVO.setTitle(rs.getString("title"));
+				suggestionVO.setSuggestionContentFile(rs.getString("suggestion_content_file"));
+				suggestionVO.setReplyContentFile(rs.getString("reply_content_file"));
+				suggestionVO.setReplyState(rs.getInt("reply_state"));
+				suggestionVO.setReplyDate(rs.getDate("reply_date"));
 								
 			}
 
@@ -220,13 +245,14 @@ public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
 				}
 			}
 		}
-		return accusementDanmukuVO;
+		return suggestionVO;
+
 	}
 
 	@Override
-	public List<AccusementDanmukuVO> getAll() {
-		List<AccusementDanmukuVO> list = new ArrayList<AccusementDanmukuVO>();
-		AccusementDanmukuVO accusementDanmukuVO = null;
+	public List<SuggestionVO> getAll() {
+		List<SuggestionVO> list = new ArrayList<SuggestionVO>();
+		SuggestionVO suggestionVO = null;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -240,13 +266,15 @@ public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
 
 			while (rs.next()) {
 				// empVO �]�٬� Domain objects
-				accusementDanmukuVO = new AccusementDanmukuVO();
-				accusementDanmukuVO.setAccusementDanmukuId(rs.getInt("accusement_danmuku_id"));
-				accusementDanmukuVO.setDate(rs.getTimestamp("date"));
-				accusementDanmukuVO.setAccuseId(rs.getInt("accuse_id"));
-				accusementDanmukuVO.setAccusedId(rs.getInt("accused_id"));
-				accusementDanmukuVO.setContentFile(rs.getString("content_file"));
-				list.add(accusementDanmukuVO); // Store the row in the list
+				suggestionVO = new SuggestionVO();
+				suggestionVO.setSuggestionId(rs.getInt("suggestion_id"));
+				suggestionVO.setSuggestDate(rs.getDate("suggest_date"));
+				suggestionVO.setTitle(rs.getString("title"));
+				suggestionVO.setSuggestionContentFile(rs.getString("suggestion_content_file"));
+				suggestionVO.setReplyContentFile(rs.getString("reply_content_file"));
+				suggestionVO.setReplyState(rs.getInt("reply_state"));
+				suggestionVO.setReplyDate(rs.getDate("reply_date"));
+				list.add(suggestionVO); // Store the row in the list
 			}
 
 			// Handle any SQL errors
@@ -280,7 +308,7 @@ public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
 		return list;
 
 	}
-
+	
 	public static void main(String[] args) {
 		System.out.println(INSERT_STMT);
 		System.out.println(UPDATE_STMT);

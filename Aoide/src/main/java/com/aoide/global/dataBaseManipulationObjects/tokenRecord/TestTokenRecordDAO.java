@@ -6,7 +6,7 @@ public class TestTokenRecordDAO {
 
 	public static void main(String[] args) {
 		
-		TokenRecordDAOInstance dao = new TokenRecordDAOInstance();
+		JdbcTokenRecordDAO dao = new JdbcTokenRecordDAO();
 		
 		// TODO Auto-generated method stub
 		

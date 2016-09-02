@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
-public class CashRecordDAOInstance implements CashRecordDAO{
+public class JdbcCashRecordDAO implements CashRecordDAO{
 	
 	private static final String INSERT_STMT = 
 			"INSERT INTO cash_record (sponsor_id,recipient_id,cash_volume,token_volume,type) VALUES (?,?,?,?,?)";

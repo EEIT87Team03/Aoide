@@ -6,7 +6,7 @@ import java.util.List;
 public class TestSuggestionDAO {
 
 	public static void main(String[] args) {
-			SuggestionDAO dao = new SuggestionDAOInstance();
+			SuggestionDAO dao = new JdbcSuggestionDAO();
 			
 			
 			// �s�W

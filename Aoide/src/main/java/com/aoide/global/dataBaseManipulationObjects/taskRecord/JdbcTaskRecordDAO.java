@@ -1,4 +1,4 @@
-package com.aoide.global.dataBaseManipulationObjects.taskrecord;
+package com.aoide.global.dataBaseManipulationObjects.taskRecord;
 
 
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
-public class TaskrecordDAO implements TaskrecordDAO_Inteface {
+public class JdbcTaskRecordDAO implements TaskRecordDAO {
 //	String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 //	String url = "jdbc:sqlserver://localhost:????;DatabaseName=AOIDE";
 //	String userid = "sa";
@@ -44,7 +44,7 @@ public class TaskrecordDAO implements TaskrecordDAO_Inteface {
 	private static final String DELETE_STMT = "DELETE FROM taskrecord WHERE task_id = ? AND member_id = ?";
 	
 	@Override
-	public void insert(TaskrecordVO taskrecordVO) {
+	public void insert(TaskRecordVO taskrecordVO) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -88,7 +88,7 @@ public class TaskrecordDAO implements TaskrecordDAO_Inteface {
 		}
 	
 	@Override
-	public void update(TaskrecordVO taskrecordVO1, TaskrecordVO taskrecordVO2) {
+	public void update(TaskRecordVO taskrecordVO1, TaskRecordVO taskrecordVO2) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -176,9 +176,9 @@ public class TaskrecordDAO implements TaskrecordDAO_Inteface {
 	}
 
 	@Override
-	public TaskrecordVO findByPrimaryKey(Integer taskId,Integer memberId) {
+	public TaskRecordVO findByPrimaryKey(Integer taskId,Integer memberId) {
 
-		TaskrecordVO taskrecordVO = null;
+		TaskRecordVO taskrecordVO = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -195,7 +195,7 @@ public class TaskrecordDAO implements TaskrecordDAO_Inteface {
 
 			while (rs.next()) {
 				// empVo �]�٬� Domain objects
-				taskrecordVO = new TaskrecordVO();
+				taskrecordVO = new TaskRecordVO();
 				taskrecordVO.setTaskId(rs.getInt("task_id"));
 				taskrecordVO.setMemberId(rs.getInt("member_id"));
 				
@@ -237,9 +237,9 @@ public class TaskrecordDAO implements TaskrecordDAO_Inteface {
 	}
 
 	@Override
-	public List<TaskrecordVO> getAll() {
-		List<TaskrecordVO> list = new ArrayList<TaskrecordVO>();
-		TaskrecordVO taskrecordVO = null;
+	public List<TaskRecordVO> getAll() {
+		List<TaskRecordVO> list = new ArrayList<TaskRecordVO>();
+		TaskRecordVO taskrecordVO = null;
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -255,7 +255,7 @@ public class TaskrecordDAO implements TaskrecordDAO_Inteface {
 
 			while (rs.next()) {
 				// empVO �]�٬� Domain objects
-				taskrecordVO = new TaskrecordVO();
+				taskrecordVO = new TaskRecordVO();
 				taskrecordVO.setTaskId(rs.getInt("task_id"));
 				taskrecordVO.setMemberId(rs.getInt("member_id"));
 				

@@ -5,7 +5,7 @@ import java.util.List;
 public class TestAccusementDanmukuDAO {
 
 	public static void main(String[] args) {
-		AccusementDanmukuDAOInstance dao = new AccusementDanmukuDAOInstance();
+		JdbcAccusementDanmukuDAO dao = new JdbcAccusementDanmukuDAO();
 		
 		
 		// �s�W

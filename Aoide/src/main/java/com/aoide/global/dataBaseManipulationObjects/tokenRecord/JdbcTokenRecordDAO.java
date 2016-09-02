@@ -1,86 +1,96 @@
-package com.aoide.global.dataBaseManipulationObjects.suggestion;
+package com.aoide.global.dataBaseManipulationObjects.tokenRecord;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
-
-public class SuggestionDAOInstance implements SuggestionDAO {
-	// Fields
-	private static final String INSERT_STMT = new StringBuffer()
-													.append("INSERT INTO suggestion(")
-													.append("suggestion_content_file,")
-													.append("title) ")
-													.append("VALUES(?,?)")
-													.toString();
-			
-	private static final String UPDATE_STMT = new StringBuffer()
-													.append("UPDATE suggestion ")
-													.append("SET ")
-													.append("suggestion_content_file = ?,")
-													.append("reply_content_file = ?,")
-													.append("reply_state = ? ")
-													.append("WHERE suggestion_id = ?")
-													.toString();
-
-	private static final String DELETE_STMT = "DELETE FROM suggestion WHERE suggestion_id = ?";
-	private static final String GET_ONE_STMT = new StringBuffer()
-													.append("SELECT ") 
-													.append("suggestion_id,") 
-													.append("suggest_date,") 
-													.append("title,") 
-													.append("suggestion_content_file,") 
-													.append("reply_content_file,") 
-													.append("reply_state,") 
-													.append("reply_date ") 
-													.append("FROM suggestion ") 
-													.append("WHERE suggestion_id = ?")
-													.toString();
-	private static final String GET_ALL_STMT = new StringBuffer()
-			.append("SELECT ") 
-			.append("suggestion_id,") 
-			.append("suggest_date,") 
-			.append("title,") 
-			.append("suggestion_content_file,") 
-			.append("reply_content_file,") 
-			.append("reply_state,") 
-			.append("reply_date ") 
-			.append("FROM suggestion") 
-			.toString();
+public class JdbcTokenRecordDAO implements TokenRecordDAO{
 	
-	// Constructors
-	public SuggestionDAOInstance() {
+	private static final String INSERT_STMT = new StringBuffer()
+													.append("INSERT INTO ")
+													.append("token_record")
+													.append("(")
+													.append("recipient_id,")
+													.append("token_volume,")
+													.append("sponsor_balance,")
+													.append("recipien_balance")
+													.append(") ")
+													.append("VALUES(?,?,?,?)")
+													.toString();
+	
+	
+	private static final String UPDATE_STMT = new StringBuffer()
+													.append("UPDATE ")
+													.append("token_record ")
+													.append("SET ")
+													.append("token_volume = ? ")
+													.append("WHERE ")
+													.append("token_record_id = ?")
+													.toString();
+	
+	
+	private static final String DELETE_STMT = new StringBuffer()
+													.append("DELETE FROM ")
+													.append("token_record ")
+													.append("WHERE ")
+													.append("token_record_id = ?")
+													.toString();
+	
+	private static final String GET_ONE_STMT = new StringBuffer()
+													.append("SELECT")
+													.append(" token_record_id,")
+													.append("date,")
+													.append("recipient_id,")
+													.append("token_volume,")
+													.append("sponsor_balance,")
+													.append("recipien_balance ")
+													.append("FROM ")
+													.append("token_record ")
+													.append("WHERE ")
+													.append("token_record_id = ?")
+													.toString();
+	
+	private static final String GET_ALL_STMT = new StringBuffer()
+													.append("SELECT ")
+													.append("token_record_id,")
+													.append("date,")
+													.append("recipient_id,")
+													.append("token_volume,")
+													.append("sponsor_balance,")
+													.append("recipien_balance ")
+													.append("FROM ")
+													.append("token_record ")
+													.append("ORDER BY ")
+													.append("token_record_id")
+													.toString();
+													
+	
+	public JdbcTokenRecordDAO(){
 		
 	}
-
-	// Method
 	
 	@Override
-	public Integer insert(SuggestionVO suggestionVO) {
+	public void insert(TokenRecordVO TokenRecordVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		ResultSet keys = null;
-		Integer id = null;
 
 		try {
+
 			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(INSERT_STMT, Statement.RETURN_GENERATED_KEYS);
+			pstmt = con.prepareStatement(INSERT_STMT);
 			
-			pstmt.setString(1, suggestionVO.getSuggestionContentFile());
-			pstmt.setString(2, suggestionVO.getTitle());
+			pstmt.setInt(1, TokenRecordVO.getRecipientId());
+			pstmt.setInt(2, TokenRecordVO.getTokenVolume());
+			pstmt.setInt(3, TokenRecordVO.getSponsorBalance());
+			pstmt.setInt(4, TokenRecordVO.getRecipienBalance());
+
 			pstmt.executeUpdate();
-			// get generated key
-			keys = pstmt.getGeneratedKeys();
-			if(keys.next()){
-				id = (Integer)keys.getInt(1);
-			}
-			
+
 			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. "
@@ -101,20 +111,12 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 					e.printStackTrace(System.err);
 				}
 			}
-			if (keys != null){
-				try{
-					keys.close();
-				}catch(Exception e){
-					e.printStackTrace(System.err);
-				}
-			}
-			
 		}
-		return id;
+
 	}
 
 	@Override
-	public void update(SuggestionVO suggestionVO) {
+	public void update(TokenRecordVO TokenRecordVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -123,10 +125,8 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(UPDATE_STMT);
 
-			pstmt.setString(1, suggestionVO.getSuggestionContentFile());
-			pstmt.setString(2, suggestionVO.getReplyContentFile());
-			pstmt.setInt(3, suggestionVO.getReplyState());
-			pstmt.setInt(4, suggestionVO.getSuggestionId());
+			pstmt.setInt(1, TokenRecordVO.getTokenVolume());
+			pstmt.setInt(2, TokenRecordVO.getTokenRecordId());
 
 
 			pstmt.executeUpdate();
@@ -156,7 +156,7 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 	}
 
 	@Override
-	public void delete(Integer suggestionId) {
+	public void delete(Integer token_record_id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -164,7 +164,7 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(DELETE_STMT);
-			pstmt.setInt(1, suggestionId);
+			pstmt.setInt(1, token_record_id);
 			pstmt.executeUpdate();
 
 			// Handle any SQL errors
@@ -192,8 +192,8 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 	}
 
 	@Override
-	public SuggestionVO findByPrimaryKey(Integer suggestionId) {
-		SuggestionVO suggestionVO = null;
+	public TokenRecordVO findByPrimaryKey(Integer token_record_id) {
+		TokenRecordVO tokenRecordVO = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -202,25 +202,25 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(GET_ONE_STMT);
-			pstmt.setInt(1, suggestionId);
+			pstmt.setInt(1, token_record_id);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				// empVo �]�٬� Domain objects
-				suggestionVO = new SuggestionVO();
-				suggestionVO.setSuggestionId(rs.getInt("suggestion_id"));
-				suggestionVO.setSuggestDate(rs.getDate("suggest_date"));
-				suggestionVO.setTitle(rs.getString("title"));
-				suggestionVO.setSuggestionContentFile(rs.getString("suggestion_content_file"));
-				suggestionVO.setReplyContentFile(rs.getString("reply_content_file"));
-				suggestionVO.setReplyState(rs.getInt("reply_state"));
-				suggestionVO.setReplyDate(rs.getDate("reply_date"));
+				// empVo 也稱為 Domain objects
+				tokenRecordVO = new TokenRecordVO();
+				tokenRecordVO.setTokenRecordId(rs.getInt("token_record_id"));
+				tokenRecordVO.setDate(rs.getDate("date"));
+				tokenRecordVO.setRecipientId(rs.getInt("recipient_id"));
+				tokenRecordVO.setTokenVolume(rs.getInt("token_volume"));
+				tokenRecordVO.setsponsorBalance(rs.getInt("sponsor_balance"));
+				tokenRecordVO.setRecipienBalance(rs.getInt("recipien_balance"));
 								
 			}
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			se.printStackTrace();
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
@@ -245,14 +245,14 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 				}
 			}
 		}
-		return suggestionVO;
+		return tokenRecordVO;
 
 	}
 
 	@Override
-	public List<SuggestionVO> getAll() {
-		List<SuggestionVO> list = new ArrayList<SuggestionVO>();
-		SuggestionVO suggestionVO = null;
+	public List<TokenRecordVO> getAll() {
+		List<TokenRecordVO> list = new ArrayList<TokenRecordVO>();
+		TokenRecordVO tokenRecordVO = null;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -265,16 +265,15 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				// empVO �]�٬� Domain objects
-				suggestionVO = new SuggestionVO();
-				suggestionVO.setSuggestionId(rs.getInt("suggestion_id"));
-				suggestionVO.setSuggestDate(rs.getDate("suggest_date"));
-				suggestionVO.setTitle(rs.getString("title"));
-				suggestionVO.setSuggestionContentFile(rs.getString("suggestion_content_file"));
-				suggestionVO.setReplyContentFile(rs.getString("reply_content_file"));
-				suggestionVO.setReplyState(rs.getInt("reply_state"));
-				suggestionVO.setReplyDate(rs.getDate("reply_date"));
-				list.add(suggestionVO); // Store the row in the list
+				// empVO 也稱為 Domain objects
+				tokenRecordVO = new TokenRecordVO();
+				tokenRecordVO.setTokenRecordId(rs.getInt("token_record_id"));
+				tokenRecordVO.setDate(rs.getDate("date"));
+				tokenRecordVO.setRecipientId(rs.getInt("recipient_id"));
+				tokenRecordVO.setTokenVolume(rs.getInt("token_volume"));
+				tokenRecordVO.setsponsorBalance(rs.getInt("sponsor_balance"));
+				tokenRecordVO.setRecipienBalance(rs.getInt("recipien_balance"));
+				list.add(tokenRecordVO); // Store the row in the list
 			}
 
 			// Handle any SQL errors
@@ -308,13 +307,8 @@ public class SuggestionDAOInstance implements SuggestionDAO {
 		return list;
 
 	}
-	
 	public static void main(String[] args) {
-		System.out.println(INSERT_STMT);
-		System.out.println(UPDATE_STMT);
-		System.out.println(DELETE_STMT);
-		System.out.println(GET_ONE_STMT);
-		System.out.println(GET_ALL_STMT);
+		System.out.print(GET_ONE_STMT);
 	}
 
 }

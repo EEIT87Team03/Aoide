@@ -1,11 +1,11 @@
-package com.aoide.global.dataBaseManipulationObjects.taskrecord;
+package com.aoide.global.dataBaseManipulationObjects.taskRecord;
 
 import java.util.List;
 
-public class TestTaskrecordDAO {
+public class TestTaskRecordDAO {
 
 	public static void main(String[] args) {
-		TaskrecordDAO dao = new TaskrecordDAO();
+		JdbcTaskRecordDAO dao = new JdbcTaskRecordDAO();
 		
      	// �s�W
 //		TaskrecordVO taskrecordVO1 = new TaskrecordVO();
@@ -39,8 +39,8 @@ public class TestTaskrecordDAO {
 //        System.out.println("---------------------");
 
 		// �d��
-		List<TaskrecordVO> list = dao.getAll();
-		for (TaskrecordVO aTaskrecordVO : list) {
+		List<TaskRecordVO> list = dao.getAll();
+		for (TaskRecordVO aTaskrecordVO : list) {
 			System.out.print(aTaskrecordVO.getTaskId() + ",");
 			System.out.print(aTaskrecordVO.getMemberId() + ",");
 			System.out.print(aTaskrecordVO.getCompleteDate() + ",");

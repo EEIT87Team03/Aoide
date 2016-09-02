@@ -6,7 +6,7 @@ import java.util.List;
 public class TestTaskDAO {
 
 	public static void main(String[] args) {
-		TaskDAO dao = new TaskDAO();
+		JdbcTaskDAO dao = new JdbcTaskDAO();
 		
 		
 		// �s�W

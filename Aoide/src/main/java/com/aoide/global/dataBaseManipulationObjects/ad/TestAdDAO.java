@@ -5,7 +5,7 @@ import java.util.List;
 public class TestAdDAO {
 
 	public static void main(String[] args) {
-		AdDAO dao = new AdDAO();
+		JdbcAdDAO dao = new JdbcAdDAO();
 		
 		
 //		// �s�W
