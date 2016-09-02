@@ -2,6 +2,7 @@ package com.aoide.global.dataBaseManipulationObjects;
 
 import java.sql.Connection;
 
+import com.aoide.global.dataBaseManipulationObjects.album.AlbumDAO;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberDAO;
 
 public abstract class AbstractDaoFactory 
@@ -13,5 +14,5 @@ public abstract class AbstractDaoFactory
 		this.conn = con;
 	}
 	public abstract MemberDAO createMemberDAO();
-	
+	public abstract AlbumDAO createAlbumDAO();
 }
