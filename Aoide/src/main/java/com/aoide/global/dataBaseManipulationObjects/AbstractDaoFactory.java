@@ -8,6 +8,10 @@ public abstract class AbstractDaoFactory
 {
 	protected Connection conn;
 	
+	public AbstractDaoFactory( Connection con)
+	{
+		this.conn = con;
+	}
 	public abstract MemberDAO createMemberDAO();
 	
 }
