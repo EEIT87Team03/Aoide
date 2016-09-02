@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.global._06_PlayHistory.model.PlayHistoryService;
-import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickHistoryVO;
+import com.aoide.global.dataBaseManipulationObjects.clickHistory.ClickHistoryVO;
 
 
 @WebServlet("/PlayHistoryServlet")

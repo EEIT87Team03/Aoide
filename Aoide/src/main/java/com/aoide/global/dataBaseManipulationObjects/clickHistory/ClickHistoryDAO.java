@@ -1,4 +1,4 @@
-package com.aoide.global.dataBaseManipulationObjects.clickhistory;
+package com.aoide.global.dataBaseManipulationObjects.clickHistory;
 
 import java.util.*;
 
