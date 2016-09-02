@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.global._06_PlayHistory.model.PlayHistoryService;
-import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickhistoryVO;
+import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickHistoryVO;
 
 
 @WebServlet("/PlayHistoryServlet")
@@ -30,12 +30,12 @@ public class PlayHistoryServlet extends HttpServlet {
 		
 		
 		//呼叫PlayHistoryService().getAllClickhistory()將從資料庫獲取全部的ClickhistoryVO物件
-		List<ClickhistoryVO> clickhistorysList = new PlayHistoryService().getAllClickhistory();
+		List<ClickHistoryVO> clickhistorysList = new PlayHistoryService().getAllClickhistory();
 		
 		//用上面方法獲取的ClickhistoryVO List 並用迴圈遍歷擷取SongId
 		//以SongId來呼叫PlayHistoryService().getSongNameBySongId(clickhistorys.getSongId())以獲得歌曲名字
 		List<String> songNameList = new ArrayList();
-		for(ClickhistoryVO clickhistorys : clickhistorysList){
+		for(ClickHistoryVO clickhistorys : clickhistorysList){
 			
 			String songName = new PlayHistoryService().getSongNameBySongId(clickhistorys.getSongId());
 			songNameList.add(songName);

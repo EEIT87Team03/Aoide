@@ -3,16 +3,16 @@ package com.aoide.global._06_PlayHistory.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickhistoryDAO;
-import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickhistoryDAO_interface;
-import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickhistoryVO;
+import com.aoide.global.dataBaseManipulationObjects.clickhistory.JdbcClickHistoryDAO;
+import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickHistoryDAO;
+import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickHistoryVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongDAO_Inteface;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongDAO;
 
 public class PlayHistoryService {
 	
-	ClickhistoryDAO_interface clickhistoryDAO = new ClickhistoryDAO();
+	ClickHistoryDAO clickhistoryDAO = new JdbcClickHistoryDAO();
 	SongDAO_Inteface SongDAO = new SongDAO(); 
 	
 	
@@ -22,11 +22,11 @@ public class PlayHistoryService {
 	};
 	
 	
-	public List<ClickhistoryVO> getAllClickhistory(){
+	public List<ClickHistoryVO> getAllClickhistory(){
 		
-		List<ClickhistoryVO> clickhistorysList = new ArrayList();
+		List<ClickHistoryVO> clickhistorysList = new ArrayList();
 		
-		for(ClickhistoryVO clickhistoryVO : clickhistoryDAO.getAll()){
+		for(ClickHistoryVO clickhistoryVO : clickhistoryDAO.getAll()){
 			
 			clickhistorysList.add(clickhistoryVO);
 			
@@ -37,7 +37,7 @@ public class PlayHistoryService {
 	}
 
 
-	public void insetNewClickHistory(ClickhistoryVO new_clickhistoryVO) {
+	public void insetNewClickHistory(ClickHistoryVO new_clickhistoryVO) {
 		
 		clickhistoryDAO.insert(new_clickhistoryVO);
 		

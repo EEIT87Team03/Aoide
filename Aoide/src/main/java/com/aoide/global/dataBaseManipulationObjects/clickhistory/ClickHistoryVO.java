@@ -2,13 +2,13 @@ package com.aoide.global.dataBaseManipulationObjects.clickhistory;
 
 import java.sql.Date;
 
-public class ClickhistoryVO implements java.io.Serializable{
+public class ClickHistoryVO implements java.io.Serializable{
 	
 	private Integer chlickhistoryId;
 	private Integer songId;
 	private Date date;
 	
-	public ClickhistoryVO(int chlickhistoryId,int songId,Date date){
+	public ClickHistoryVO(int chlickhistoryId,int songId,Date date){
 		
 		this.chlickhistoryId = chlickhistoryId;
 		
@@ -18,7 +18,7 @@ public class ClickhistoryVO implements java.io.Serializable{
 		
 	}
 	
-    public ClickhistoryVO(){
+    public ClickHistoryVO(){
 		
 		
 	}
