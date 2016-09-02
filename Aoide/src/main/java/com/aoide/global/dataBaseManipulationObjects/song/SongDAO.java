@@ -10,6 +10,8 @@ import java.util.List;
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
 public class SongDAO implements SongDAO_Inteface {
+	
+	
 	// Fields
 	private static final String INSERT_STMT = "INSERT INTO song(song_file, name, song_type,	song_language, member_id, album_id, introduction_file, cover_file, lyrics_file,	update_date, lastclick_date, clicks, favorite_counts, shares)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	private static final String UPDATE_STMT = new StringBuffer()
