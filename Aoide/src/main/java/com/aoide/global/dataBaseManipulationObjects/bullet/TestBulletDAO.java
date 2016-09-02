@@ -5,7 +5,7 @@ import java.util.List;
 public class TestBulletDAO {
 
 	public static void main(String[] args) {
-		BulletDAO dao = new BulletDAO();
+		JdbcBulletDAO dao = new JdbcBulletDAO();
 		
 		
 		// 新增
