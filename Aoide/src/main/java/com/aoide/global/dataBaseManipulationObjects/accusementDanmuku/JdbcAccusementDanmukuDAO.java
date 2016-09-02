@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
-public class AccusementDanmukuDAOInstance implements AccusementDanmukuDAO {
+public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 	// Fields
 	private static final String INSERT_STMT = new StringBuffer()
 			.append("INSERT INTO accusement_danmuku(")
