@@ -23,7 +23,10 @@ public class CheckTokenServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<TokenRecordVO> tokenRecordList = new CheckTokenService().getAllTokenRecordByMemberId();
+		//從JSP來的值，測試給1
+		Integer recipientId = 1;
+		
+		List<TokenRecordVO> tokenRecordList = new CheckTokenService().getAllTokenRecordByMemberId(recipientId);
 		
 		request.getSession().setAttribute("tokenRecordList", tokenRecordList);
 		

@@ -9,12 +9,16 @@ import com.aoide.global.dataBaseManipulationObjects.tokenRecord.TokenRecordVO;
 
 public class CheckTokenService {
 	
-	TokenRecordDAO tokenrecordDAO = new JdbcTokenRecordDAO();
+	TokenRecordDAO tokenRecordDAO = new JdbcTokenRecordDAO();
 
-	public List<TokenRecordVO> getAllTokenRecordByMemberId() {
+	public List<TokenRecordVO> getAllTokenRecordByMemberId(Integer recipientId) {
 		
 		List<TokenRecordVO> tokenrecordVOList= new ArrayList();
 		
+		for(TokenRecordVO tokenRecordVO : tokenRecordDAO.findByRecipientId(recipientId)){
+			
+			
+		}
 		
 		return null;
 	}

@@ -55,6 +55,20 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 													.append("token_record_id = ?")
 													.toString();
 	
+	private static final String GET_ALL_BY_RECIPIENTID_STMT = new StringBuffer()
+													.append("SELECT")
+													.append(" token_record_id,")
+													.append("date,")
+													.append("recipient_id,")
+													.append("token_volume,")
+													.append("sponsor_balance,")
+													.append("recipien_balance ")
+													.append("FROM ")
+													.append("token_record ")
+													.append("WHERE ")
+													.append("recipient_id = ?")
+													.toString();
+	
 	private static final String GET_ALL_STMT = new StringBuffer()
 													.append("SELECT ")
 													.append("token_record_id,")
@@ -307,8 +321,64 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 		return list;
 
 	}
-	public static void main(String[] args) {
-		System.out.print(GET_ONE_STMT);
+
+	@Override
+	public List<TokenRecordVO> findByRecipientId(Integer recipientId) {
+		List<TokenRecordVO> list = new ArrayList<TokenRecordVO>();
+		TokenRecordVO tokenRecordVO = null;
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			conn = ConnectionBean.getConnection();
+			pstmt = conn.prepareStatement(GET_ALL_BY_RECIPIENTID_STMT);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				// empVO 也稱為 Domain objects
+				tokenRecordVO = new TokenRecordVO();
+				tokenRecordVO.setTokenRecordId(rs.getInt("token_record_id"));
+				tokenRecordVO.setDate(rs.getDate("date"));
+				tokenRecordVO.setRecipientId(rs.getInt("recipient_id"));
+				tokenRecordVO.setTokenVolume(rs.getInt("token_volume"));
+				tokenRecordVO.setsponsorBalance(rs.getInt("sponsor_balance"));
+				tokenRecordVO.setRecipienBalance(rs.getInt("recipien_balance"));
+				list.add(tokenRecordVO); // Store the row in the list
+			}
+
+			// Handle any SQL errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return list;
+
 	}
 
 }

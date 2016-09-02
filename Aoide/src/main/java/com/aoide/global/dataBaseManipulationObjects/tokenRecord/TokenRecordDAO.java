@@ -7,6 +7,7 @@ public interface TokenRecordDAO {
 	public void insert(TokenRecordVO TokenRecordVO);
 	public void update(TokenRecordVO TokenRecordVO);
 	public void delete(Integer token_record_id);
+	public List<TokenRecordVO> findByRecipientId(Integer recipientId);
 	public TokenRecordVO findByPrimaryKey(Integer token_record_id);
 	public List<TokenRecordVO> getAll();
 }
