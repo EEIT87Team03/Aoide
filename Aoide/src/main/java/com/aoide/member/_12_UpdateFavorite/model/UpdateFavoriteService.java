@@ -2,18 +2,18 @@ package com.aoide.member._12_UpdateFavorite.model;
 
 import com.aoide.global.dataBaseManipulationObjects.favorite.JdbcFavoriteDAO;
 import com.aoide.global.dataBaseManipulationObjects.favorite.FavoriteVO;
-import com.aoide.global.dataBaseManipulationObjects.song.SongDAO;
+import com.aoide.global.dataBaseManipulationObjects.song.JdbcSongDAO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
 public class UpdateFavoriteService {
 	// Fields
 	JdbcFavoriteDAO favoriteDAO = null;
-	SongDAO songDAO = null;
+	JdbcSongDAO songDAO = null;
 	
 	// Constructors
 	public UpdateFavoriteService(){
 		this.favoriteDAO = new JdbcFavoriteDAO();
-		this.songDAO = new SongDAO();
+		this.songDAO = new JdbcSongDAO();
 	}
 	
 	// Methods

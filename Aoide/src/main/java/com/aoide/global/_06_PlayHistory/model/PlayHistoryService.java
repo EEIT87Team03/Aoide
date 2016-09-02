@@ -6,14 +6,14 @@ import java.util.List;
 import com.aoide.global.dataBaseManipulationObjects.clickhistory.JdbcClickHistoryDAO;
 import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickHistoryDAO;
 import com.aoide.global.dataBaseManipulationObjects.clickhistory.ClickHistoryVO;
-import com.aoide.global.dataBaseManipulationObjects.song.SongDAO_Inteface;
-import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongDAO;
+import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
+import com.aoide.global.dataBaseManipulationObjects.song.JdbcSongDAO;
 
 public class PlayHistoryService {
 	
 	ClickHistoryDAO clickhistoryDAO = new JdbcClickHistoryDAO();
-	SongDAO_Inteface SongDAO = new SongDAO(); 
+	SongDAO SongDAO = new JdbcSongDAO(); 
 	
 	
 	public PlayHistoryService(){
