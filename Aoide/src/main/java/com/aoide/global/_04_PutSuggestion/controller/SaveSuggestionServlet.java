@@ -42,10 +42,8 @@ public class SaveSuggestionServlet extends HttpServlet {
 			enteredText.put("title", title);
 		}
 		
-		System.out.println("content: " + content);
 		if(!Validator.isValidString(content)){
 			errorMsg.put("emptyContentMsg", "Please enter suggetion");
-			System.out.println("in if content");
 		}else{
 			enteredText.put("content", content);
 		}
@@ -63,8 +61,8 @@ public class SaveSuggestionServlet extends HttpServlet {
 			
 		}else{
 		// If input empty forward to enterSuggestion.jsp
-			session.setAttribute("errorMsg", errorMsg);
-			session.setAttribute("enteredText", enteredText);
+			request.setAttribute("errorMsg", errorMsg);
+			request.setAttribute("enteredText", enteredText);
 			request.getRequestDispatcher("/_04_PutSuggestion.view/enterSuggestion.jsp").forward(request, response);
 		}
 
