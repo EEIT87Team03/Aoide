@@ -2,16 +2,13 @@ package com.aoide.global.dataBaseManipulationObjects.album;
 
 import java.sql.Blob;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.AutoInvoker;
-import com.aoide.global.dataBaseManipulationObjects.DataSourceProxy;
 
 public class JdbcAlbumDAO implements AlbumDAO 
 {
@@ -50,8 +47,7 @@ public class JdbcAlbumDAO implements AlbumDAO
 	{
 		int insertionCount = 0;
 		
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = AutoInvoker.invoke( conn, INSERT_STMT, vo ) )
+		try( PreparedStatement pstmt = AutoInvoker.invoke( conn, INSERT_STMT, vo ) )
 		{
 			insertionCount = pstmt.executeUpdate();
 		}
@@ -67,8 +63,7 @@ public class JdbcAlbumDAO implements AlbumDAO
 	{
 		int updateCount = 0;
 		
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = AutoInvoker.invoke( conn, UPDATE_STMT, vo ) )
+		try( PreparedStatement pstmt = AutoInvoker.invoke( conn, UPDATE_STMT, vo ) )
 		{
 			updateCount = pstmt.executeUpdate();
 		}
@@ -84,8 +79,7 @@ public class JdbcAlbumDAO implements AlbumDAO
 	{
 		int deletionCount = 0;
 		
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, DELETE_STMT, albumId ) )
+		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, DELETE_STMT, albumId ) )
 		{
 			deletionCount = pstmt.executeUpdate();
 		}
@@ -121,8 +115,7 @@ public class JdbcAlbumDAO implements AlbumDAO
 	public List< AlbumVO > getAll() 
 	{
 		List< AlbumVO > voList = new ArrayList<>();
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = conn.prepareStatement( GET_ALL_STMT );
+		try( PreparedStatement pstmt = conn.prepareStatement( GET_ALL_STMT );
 			 ResultSet rs = pstmt.executeQuery() )
 		{	
 			while ( rs.next() ) 
