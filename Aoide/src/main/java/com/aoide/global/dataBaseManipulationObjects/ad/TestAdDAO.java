@@ -1,4 +1,4 @@
-ackage com.aoide.global.dataBaseManipulationObjects.ad;
+package com.aoide.global.dataBaseManipulationObjects.ad;
 
 import java.util.List;
 

@@ -1,14 +1,14 @@
 package com.aoide.global.dataBaseManipulationObjects.member;
 
-import java.math.BigDecimal;
+import java.io.ByteArrayInputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.aoide.global.dataBaseManipulationObjects.AutoInvoker;
 
 public class JdbcMemberDAO implements MemberDAO 
 {
@@ -38,14 +38,19 @@ public class JdbcMemberDAO implements MemberDAO
 			+ "[picture], [introduction_file_path], [class_type], [ban_state] ,[bank_info] "
 			+ "FROM member ORDER BY [member_id]";
 	
+	private Connection conn;
+	
+	public JdbcMemberDAO( Connection conn )
+	{
+		this.conn = conn;
+	}
 	
 	@Override
 	public int insert( MemberVO vo ) 
 	{
 		int insertionCount = 0;
 		
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = AutoInvoker.invoke( conn, INSERT_STMT, vo ) )
+		try( PreparedStatement pstmt = AutoInvoker.invoke( conn, INSERT_STMT, vo ) )
 		{
 			insertionCount = pstmt.executeUpdate();
 		}
@@ -61,8 +66,7 @@ public class JdbcMemberDAO implements MemberDAO
 	{
 		int updateCount = 0;
 		
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = AutoInvoker.invoke( conn, UPDATE_STMT, vo ) )
+		try( PreparedStatement pstmt = AutoInvoker.invoke( conn, UPDATE_STMT, vo ) )
 		{
 			updateCount = pstmt.executeUpdate();
 		}
@@ -78,8 +82,7 @@ public class JdbcMemberDAO implements MemberDAO
 	{
 		int deletionCount = 0;
 		
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, DELETE_STMT, account ) )
+		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, DELETE_STMT, account ) )
 		{
 			deletionCount = pstmt.executeUpdate();
 		}
@@ -93,11 +96,9 @@ public class JdbcMemberDAO implements MemberDAO
 	@Override
 	public MemberVO findByPrimaryKey( String account )
 	{
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_ONE_STMT, account );
+		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_ONE_STMT, account );
 			 ResultSet rs = pstmt.executeQuery()	)
 		{
-			
 			if ( rs.next() ) 
 			{
 				return ( MemberVO ) AutoInvoker.inject( rs,  new MemberVO() );
@@ -116,9 +117,8 @@ public class JdbcMemberDAO implements MemberDAO
 	public List< MemberVO > getAll()
 	{
 		List< MemberVO > voList = new ArrayList<>();
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = conn.prepareStatement( GET_ALL_STMT );
-			 ResultSet rs = pstmt.executeQuery() )
+		try( PreparedStatement pstmt = conn.prepareStatement( GET_ALL_STMT );
+			 ResultSet rs = pstmt.executeQuery() )	 
 		{
 			while ( rs.next() ) 
 			{
@@ -132,35 +132,4 @@ public class JdbcMemberDAO implements MemberDAO
 		return voList;
 	}
 	
-	public static void main( String[] args )
-	{
-/*			MemberVO m = new MemberVO();
-			m.setMemberId( 2 );
-			m.setAccount( "KKKwhiteBirdBeauty" );
-			m.setPassword( "28825252" );
-			m.setName( "白鳥美麗" );
-			m.setEmail( "fattyCutty@outlook.com" );
-			m.setRegisterState( 0 );
-			m.setLoginCount( 50 );
-			m.setLastLoginDate( Timestamp.valueOf( "2016-08-20 20:37:31.940" ) );
-			m.setTokenTotal( new BigDecimal( 350) );
-			m.setPicture( null );
-			m.setIntroductionFilePath( "C:/introduction/file" );
-			m.setClassType( 0 );
-			m.setBanState( false );
-			m.setBankInfo( "fffffffirst bank" );
-*/		
-			
-			
-			MemberDAO dao = new JdbcMemberDAO();
-//			List< MemberVO > voList = dao.getAll();
-//			for( MemberVO vo : voList )
-//			{
-//				System.out.println( vo );
-//			}
-//			System.out.println( dao.delete( "playcard" ) );
-//			System.out.println( dao.insert( m ) );
-//			System.out.println( dao.update( m ) );
-			System.out.println( dao.findByPrimaryKey( "whiteBirdBeauty" ) );
-	}
 }

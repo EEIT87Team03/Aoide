@@ -5,27 +5,27 @@ import java.sql.Date;
 
 public class AlbumVO implements Serializable 
 {
-	private int albumId;
-	private int memberId;
+	private Integer albumId;
+	private Integer memberId;
 	private String name;
 	private String introductionFilePath;
 	private Date updateDate;
 	private String coverFilePath;
 	
-	public int getAlbumId() 
+	public Integer getAlbumId() 
 	{
 		return albumId;
 	}
-	public void setAlbumId(int albumId) 
+	public void setAlbumId( Integer albumId ) 
 	{
 		this.albumId = albumId;
 	}
 	
-	public int getMemberId() 
+	public Integer getMemberId() 
 	{
 		return memberId;
 	}
-	public void setMemberId(int memberId) 
+	public void setMemberId( Integer memberId ) 
 	{
 		this.memberId = memberId;
 	}
@@ -33,7 +33,8 @@ public class AlbumVO implements Serializable
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	public void setName( String name ) 
+	{
 		this.name = name;
 	}
 	

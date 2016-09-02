@@ -1,11 +1,17 @@
 package com.aoide.global.dataBaseManipulationObjects.album;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.aoide.global.dataBaseManipulationObjects.AutoInvoker;
+import com.aoide.global.dataBaseManipulationObjects.DataSourceProxy;
 
 public class JdbcAlbumDAO implements AlbumDAO 
 {
@@ -31,6 +37,13 @@ public class JdbcAlbumDAO implements AlbumDAO
 			"SELECT [album_id] ,[member_id], [name], "
 			+ "[introduction_file_path], [update_date], [cover_file_path] "
 			+ "FROM album ORDER BY [album_id]";
+	
+	private Connection conn;
+	
+	public JdbcAlbumDAO( Connection con )
+	{
+		this.conn = con;
+	}
 	
 	@Override
 	public int insert( AlbumVO vo ) 
@@ -86,8 +99,7 @@ public class JdbcAlbumDAO implements AlbumDAO
 	@Override
 	public AlbumVO findByPrimaryKey( int albumId ) 
 	{
-		try( Connection conn = DataSourceProxy.getConnection(); 
-			 PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_ONE_STMT, albumId );
+		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_ONE_STMT, albumId );
 			 ResultSet rs = pstmt.executeQuery() )
 		{
 			
@@ -125,26 +137,4 @@ public class JdbcAlbumDAO implements AlbumDAO
 		return voList;
 	}
 	
-	public static void main( String[] args )
-	{
-		AlbumVO vo = new AlbumVO();
-		vo.setAlbumId( 12 );
-		vo.setMemberId( 4 );
-		vo.setName( "TTTTT" );
-		vo.setIntroductionFilePath( "專輯介紹" );
-		vo.setUpdateDate( Date.valueOf( "2016-08-30" ) );
-		vo.setCoverFilePath( "/contextPath/img/cover/" );
-		
-		JdbcAlbumDAO dao = new JdbcAlbumDAO();
-		
-		//System.out.println( dao.insert( vo ) );
-		//System.out.println( dao.update( vo ) );
-		//System.out.println( dao.delete( 13 ) );
-		System.out.println( dao.findByPrimaryKey( 9 ) );
-		List< AlbumVO > voList = dao.getAll();
-		for( AlbumVO avo : voList )
-		{
-			System.out.println( avo );
-		}
-	}
 }

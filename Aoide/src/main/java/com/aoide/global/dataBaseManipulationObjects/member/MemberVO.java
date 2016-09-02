@@ -1,6 +1,5 @@
 package com.aoide.global.dataBaseManipulationObjects.member;
 
-import java.io.File;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -11,41 +10,44 @@ public class MemberVO implements java.io.Serializable
 	private String password;
 	private String name; 
 	private String email;
-	private int registerState;		
-	private int loginCount;	
+	private Integer registerState;		
+	private Integer loginCount;	
 	private Timestamp lastLoginDate; 	
 	private BigDecimal tokenTotal; 	
 	private byte[] picture; 
 	private String introductionFilePath; 
-	private int classType;		
-	private boolean banState; 		
+	private Integer classType;		
+	private Boolean banState; 		
 	private String bankInfo;
 	
-	public int getMemberId() {
+	public Integer getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(int memberId) {
+	public void setMemberId( Integer memberId) {
 		this.memberId = memberId;
 	}
 	
 	public String getAccount() {
 		return account;
 	}
-	public void setAccount(String account) {
+	public void setAccount(String account) 
+	{
 		this.account = account;
 	}
 	
-	public String getPassword() {
+	public String getPassword() 
+	{
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword( String password ) 
+	{
 		this.password = password;
 	}
 	
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) 
+	public void setName( String name ) 
 	{
 		this.name = name;
 	}
@@ -53,76 +55,88 @@ public class MemberVO implements java.io.Serializable
 	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) 
+	public void setEmail( String email ) 
 	{
 		this.email = email;
 	}
 	
-	public int getRegisterState() {
+	public Integer getRegisterState() 
+	{
 		return registerState;
 	}
-	public void setRegisterState(int registerState) 
+	public void setRegisterState( Integer registerState ) 
 	{
 		this.registerState = registerState;
 	}
 	
-	public int getLoginCount() {
+	public Integer getLoginCount() 
+	{
 		return loginCount;
 	}
-	public void setLoginCount(int loginCount) 
+	public void setLoginCount( Integer loginCount ) 
 	{
 		this.loginCount = loginCount;
 	}
 	
-	public Timestamp getLastLoginDate() {
+	public Timestamp getLastLoginDate() 
+	{
 		return lastLoginDate;
 	}
-	public void setLastLoginDate(Timestamp lastLoginDate) 
+	public void setLastLoginDate( Timestamp lastLoginDate ) 
 	{
 		this.lastLoginDate = lastLoginDate;
 	}
 	
-	public BigDecimal getTokenTotal() {
+	public BigDecimal getTokenTotal() 
+	{
 		return tokenTotal;
 	}
-	public void setTokenTotal( BigDecimal tokenTotal) 
+	public void setTokenTotal( BigDecimal tokenTotal ) 
 	{
 		this.tokenTotal = tokenTotal;
 	}
 	
-	public byte[] getPicture() {
+	public byte[] getPicture() 
+	{
 		return picture;
 	}
-	public void setPicture( byte[] picture)
+	public void setPicture( byte[] picture )
 	{
 		this.picture = picture;
 	}
 	
-	public String getIntroductionFilePath() {
+	public String getIntroductionFilePath() 
+	{
 		return introductionFilePath;
 	}
-	public void setIntroductionFilePath( String introductionFile) {
+	public void setIntroductionFilePath( String introductionFile ) 
+	{
 		this.introductionFilePath = introductionFile;
 	}
 	
-	public int getClassType() {
+	public Integer getClassType() 
+	{
 		return classType;
 	}
-	public void setClassType( Integer classType) {
+	public void setClassType( Integer classType ) 
+	{
 		this.classType = classType;
 	}
 	
-	public boolean isBanState() {
+	public Boolean getBanState() 
+	{
 		return banState;
 	}
-	public void setBanState(boolean banState) {
+	public void setBanState( Boolean banState) {
 		this.banState = banState;
 	}
 	
-	public String getBankInfo() {
+	public String getBankInfo() 
+	{
 		return bankInfo;
 	}
-	public void setBankInfo(String bankInfo) {
+	public void setBankInfo( String bankInfo ) 
+	{
 		this.bankInfo = bankInfo;
 	} 
 	
