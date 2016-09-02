@@ -1,4 +1,4 @@
-ackage com.aoide.global.dataBaseManipulationObjects.score;
+package com.aoide.global.dataBaseManipulationObjects.score;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

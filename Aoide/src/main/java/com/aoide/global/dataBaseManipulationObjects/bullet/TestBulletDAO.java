@@ -1,4 +1,4 @@
-ckage com.aoide.global.dataBaseManipulationObjects.bullet;
+package com.aoide.global.dataBaseManipulationObjects.bullet;
 
 import java.util.List;
 
