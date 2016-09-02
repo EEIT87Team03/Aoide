@@ -13,14 +13,14 @@ public class CheckTokenService {
 
 	public List<TokenRecordVO> getAllTokenRecordByMemberId(Integer recipientId) {
 		
-		List<TokenRecordVO> tokenrecordVOList= new ArrayList();
+		List<TokenRecordVO> tokenRecordVoList= new ArrayList();
 		
 		for(TokenRecordVO tokenRecordVO : tokenRecordDAO.findByRecipientId(recipientId)){
 			
-			
+			tokenRecordVoList.add(tokenRecordVO);
 		}
 		
-		return null;
+		return tokenRecordVoList;
 	}
 
 

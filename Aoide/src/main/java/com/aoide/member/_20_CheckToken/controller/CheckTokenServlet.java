@@ -31,7 +31,7 @@ public class CheckTokenServlet extends HttpServlet {
 		request.getSession().setAttribute("tokenRecordList", tokenRecordList);
 		
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath);
+		response.sendRedirect(contextPath + "/_20_CheckToken.view/showTokenRecord.jsp");
 		
 	}
 

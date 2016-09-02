@@ -27,17 +27,19 @@
     					<table class="table">
     						<thead>
     							<tr>
-									<th>播放歷史ID</th>
-									<th>播放歌曲ID</th>
-									<th>撥放日期</th>
+									<th>交易紀錄ID</th>
+									<th>交易日期</th>
+									<th>交易點數</th>
+									<th>交易後餘額</th>
 								</tr>
     						</thead>
     						<tbody>
-								<c:forEach var = "clickhistory" items="${clickhistorysList}" varStatus="loop">
+								<c:forEach var = "tokenRecord" items="${tokenRecordList}" varStatus="loop">
 									<tr>
-										<td>${clickhistory.clickhistoryId}</td>
-										<td>${songIdList[loop.count-1]}</td>
-										<td>${clickhistory.date}</td>
+										<td>${tokenRecord.tokenRecordId}</td>
+										<td>${tokenRecord.date}</td>
+										<td>${tokenRecord.tokenVolume}</td>
+										<td>${tokenRecord.recipienBalance}</td>
 									</tr>
 								</c:forEach>
     						</tbody>

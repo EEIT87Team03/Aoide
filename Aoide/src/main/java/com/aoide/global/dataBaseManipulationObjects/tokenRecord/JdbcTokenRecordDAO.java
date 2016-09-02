@@ -277,6 +277,7 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 			conn = ConnectionBean.getConnection();
 			pstmt = conn.prepareStatement(GET_ALL_STMT);
 			rs = pstmt.executeQuery();
+			
 
 			while (rs.next()) {
 				// empVO 也稱為 Domain objects
@@ -335,6 +336,7 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 
 			conn = ConnectionBean.getConnection();
 			pstmt = conn.prepareStatement(GET_ALL_BY_RECIPIENTID_STMT);
+			pstmt.setInt(1, recipientId);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
