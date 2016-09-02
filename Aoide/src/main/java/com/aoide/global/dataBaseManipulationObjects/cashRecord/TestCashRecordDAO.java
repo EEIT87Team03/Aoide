@@ -6,7 +6,7 @@ public class TestCashRecordDAO {
 
 	public static void main(String[] args) {
 		
-		CashRecordDAOInstance dao = new CashRecordDAOInstance();
+		JdbcCashRecordDAO dao = new JdbcCashRecordDAO();
 		
 		// TODO Auto-generated method stub
 		
