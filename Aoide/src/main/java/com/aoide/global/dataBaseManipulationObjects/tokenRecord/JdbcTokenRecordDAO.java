@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
-public class TokenRecordDAOInstance implements TokenRecordDAO{
+public class JdbcTokenRecordDAO implements TokenRecordDAO{
 	
 	private static final String INSERT_STMT = new StringBuffer()
 													.append("INSERT INTO ")
@@ -70,7 +70,7 @@ public class TokenRecordDAOInstance implements TokenRecordDAO{
 													.toString();
 													
 	
-	public TokenRecordDAOInstance(){
+	public JdbcTokenRecordDAO(){
 		
 	}
 	
