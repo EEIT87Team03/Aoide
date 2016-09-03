@@ -1,6 +1,5 @@
 package com.aoide.global.dataBaseManipulationObjects.album;
 
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

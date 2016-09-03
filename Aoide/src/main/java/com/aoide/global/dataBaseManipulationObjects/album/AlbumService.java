@@ -3,16 +3,25 @@ package com.aoide.global.dataBaseManipulationObjects.album;
 import java.sql.Connection;
 import java.util.List;
 
+import com.aoide.global.dataBaseManipulationObjects.AbstractDaoFactory;
 import com.aoide.global.dataBaseManipulationObjects.DataSourceProxy;
+import com.aoide.global.dataBaseManipulationObjects.JdbcDaoFactory;
 
 public class AlbumService 
 {
+	private AbstractDaoFactory daoFactory;
+	
+	public AlbumService()
+	{
+		daoFactory = new JdbcDaoFactory();
+	}
+	
 	public int createNewAlbum( AlbumVO vo )
 	{
 		int caeationCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			AlbumDAO adao = new JdbcAlbumDAO( conn );
+			AlbumDAO adao = daoFactory.createAlbumDAO( conn );
 			caeationCount = adao.insert( vo );
 		}
 		catch( Exception e )
@@ -27,7 +36,7 @@ public class AlbumService
 		int updateCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			AlbumDAO adao = new JdbcAlbumDAO( conn );
+			AlbumDAO adao = daoFactory.createAlbumDAO( conn );
 			updateCount = adao.update( vo );
 		}
 		catch( Exception e )
@@ -42,7 +51,7 @@ public class AlbumService
 		int deletionCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			AlbumDAO adao = new JdbcAlbumDAO( conn );
+			AlbumDAO adao = daoFactory.createAlbumDAO( conn );
 			deletionCount = adao.delete( albumId );
 		}
 		catch( Exception e )
@@ -56,7 +65,7 @@ public class AlbumService
 	{
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			AlbumDAO adao = new JdbcAlbumDAO( conn );
+			AlbumDAO adao = daoFactory.createAlbumDAO( conn );
 			return adao.findByPrimaryKey( id );
 		}
 		catch( Exception e )
@@ -66,12 +75,12 @@ public class AlbumService
 		return null;
 	}
 	
-	public List< AlbumVO > getMembersList()
+	public List< AlbumVO > getAlbumsList()
 	{
 		List< AlbumVO > list = null;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			AlbumDAO adao = new JdbcAlbumDAO( conn );
+			AlbumDAO adao = daoFactory.createAlbumDAO( conn );
 			list =  adao.getAll();
 		}
 		catch( Exception e )
