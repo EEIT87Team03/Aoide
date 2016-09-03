@@ -4,20 +4,20 @@ import java.sql.Timestamp;
 
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 
-public class _HibernateAccusementDanmukuVO {
+public class HibernateAccusementDanmukuVO {
 	// Fields
-	private int accusementDanmukuId; 
+	private Integer accusementDanmukuId; 
 	private Timestamp date;
 	private MemberVO accuse;      
 	private MemberVO accused;     
 	private String contentFile;
 	
 	// Constructors
-	public _HibernateAccusementDanmukuVO() {
+	public HibernateAccusementDanmukuVO() {
 	
 	}
 
-	public _HibernateAccusementDanmukuVO(int accusementDanmukuId, Timestamp date, MemberVO accuse, MemberVO accused,
+	public HibernateAccusementDanmukuVO(Integer accusementDanmukuId, Timestamp date, MemberVO accuse, MemberVO accused,
 			String contentFile) {
 		super();
 		this.accusementDanmukuId = accusementDanmukuId;
@@ -28,11 +28,11 @@ public class _HibernateAccusementDanmukuVO {
 	}
 	// Methods
 
-	public int getAccusementDanmukuId() {
+	public Integer getAccusementDanmukuId() {
 		return accusementDanmukuId;
 	}
 
-	public void setAccusementDanmukuId(int accusementDanmukuId) {
+	public void setAccusementDanmukuId(Integer accusementDanmukuId) {
 		this.accusementDanmukuId = accusementDanmukuId;
 	}
 
