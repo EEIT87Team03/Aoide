@@ -5,14 +5,8 @@ import java.sql.Connection;
 import com.aoide.global.dataBaseManipulationObjects.album.AlbumDAO;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberDAO;
 
-public abstract class AbstractDaoFactory 
+public interface AbstractDaoFactory 
 {
-	protected Connection conn;
-	
-	public AbstractDaoFactory( Connection con)
-	{
-		this.conn = con;
-	}
-	public abstract MemberDAO createMemberDAO();
-	public abstract AlbumDAO createAlbumDAO();
+	public MemberDAO createMemberDAO( Connection con );
+	public AlbumDAO createAlbumDAO( Connection con );
 }

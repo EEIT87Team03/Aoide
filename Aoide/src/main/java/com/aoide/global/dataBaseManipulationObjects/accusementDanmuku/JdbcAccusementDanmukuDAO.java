@@ -13,40 +13,40 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 	// Fields
 	private static final String INSERT_STMT = new StringBuffer()
 			.append("INSERT INTO accusement_danmuku(")
-			.append("accuse_id,")
-			.append("accused_id,")
-			.append("content_file)")
+			.append("[accuse_id],")
+			.append("[accused_id],")
+			.append("[content_file])")
 			.append("VALUES(?,?,?)")
 			.toString();
 
 	private static final String UPDATE_STMT = new StringBuffer()
 			.append("UPDATE accusement_danmuku ")
 			.append("SET ")
-			.append("accuse_id = ?,")
-			.append("accused_id = ?,")
-			.append("content_file = ? ")
-			.append("WHERE accusement_danmuku_id = ?")
+			.append("[accuse_id] = ?,")
+			.append("[accused_id] = ?,")
+			.append("[content_file] = ? ")
+			.append("WHERE [accusement_danmuku_id] = ?")
 			.toString();
 
 	private static final String DELETE_STMT = "DELETE FROM accusement_danmuku WHERE accusement_danmuku_id = ?";
 	private static final String GET_ONE_STMT = new StringBuffer()
 			.append("SELECT ") 
-			.append("accusement_danmuku_id,") 
-			.append("date,") 
-			.append("accuse_id,") 
-			.append("accused_id,") 
-			.append("content_file ") 
+			.append("[accusement_danmuku_id],") 
+			.append("[date],") 
+			.append("[accuse_id],") 
+			.append("[accused_id],") 
+			.append("[content_file] ") 
 			.append("FROM accusement_danmuku ") 
-			.append("WHERE accusement_danmuku_id = ?")
+			.append("WHERE [accusement_danmuku_id] = ?")
 			.toString();
 
 	private static final String GET_ALL_STMT = new StringBuffer()
 			.append("SELECT ") 
-			.append("accusement_danmuku_id,") 
-			.append("date,") 
-			.append("accuse_id,") 
-			.append("accused_id,") 
-			.append("content_file ") 
+			.append("[accusement_danmuku_id],") 
+			.append("[date],") 
+			.append("[accuse_id],") 
+			.append("[accused_id],") 
+			.append("[content_file] ") 
 			.append("FROM accusement_danmuku") 
 			.toString();
 

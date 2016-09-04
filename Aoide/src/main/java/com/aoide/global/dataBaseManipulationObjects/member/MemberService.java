@@ -2,17 +2,19 @@ package com.aoide.global.dataBaseManipulationObjects.member;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.aoide.global.dataBaseManipulationObjects.AbstractDaoFactory;
 import com.aoide.global.dataBaseManipulationObjects.DataSourceProxy;
+import com.aoide.global.dataBaseManipulationObjects.JdbcDaoFactory;
 
 public class MemberService 
 {
+	private AbstractDaoFactory daoFactory;
 	public MemberService()
 	{
-		
+		daoFactory = new JdbcDaoFactory();
 	}
 	
 	public int createMemberAccount( MemberVO vo )
@@ -20,7 +22,7 @@ public class MemberService
 		int caeationCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			MemberDAO mdao = new JdbcMemberDAO( conn );
+			MemberDAO mdao = daoFactory.createMemberDAO( conn );
 			caeationCount = mdao.insert( vo );
 		}
 		catch( Exception e )
@@ -35,7 +37,7 @@ public class MemberService
 		int updateCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			MemberDAO mdao = new JdbcMemberDAO( conn );
+			MemberDAO mdao = daoFactory.createMemberDAO( conn );
 			updateCount = mdao.update( vo );
 		}
 		catch( Exception e )
@@ -50,7 +52,7 @@ public class MemberService
 		int deletionCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			MemberDAO mdao = new JdbcMemberDAO( conn );
+			MemberDAO mdao = daoFactory.createMemberDAO( conn );
 			deletionCount = mdao.delete( account );
 		}
 		catch( Exception e )
@@ -64,7 +66,7 @@ public class MemberService
 	{
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			MemberDAO mdao = new JdbcMemberDAO( conn );
+			MemberDAO mdao = daoFactory.createMemberDAO( conn );
 			return mdao.findByPrimaryKey( account );
 		}
 		catch( Exception e )
@@ -79,7 +81,7 @@ public class MemberService
 		List< MemberVO > list = null;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			MemberDAO mdao = new JdbcMemberDAO( conn );
+			MemberDAO mdao = daoFactory.createMemberDAO( conn );
 			list =  mdao.getAll();
 		}
 		catch( Exception e )
@@ -107,12 +109,12 @@ public class MemberService
 		m.setBanState( true );
 		m.setBankInfo( "first bank" );
 		
-		MemberService ms = new MemberService();
+		//MemberService ms = new MemberService();
 		
 		//System.out.println( ms.createMemberAccount( m ) );
 		//System.out.println( ms.updateMemberData( m ) );
 		//System.out.println( ms.deleteMemberAccount( "smallBirdBeauty" ) );
-		System.out.println( ms.getMemberBean( "whiteBirdBeauty" ) );
+		//System.out.println( ms.getMemberBean( "whiteBirdBeauty" ) );
 		//System.out.println( ms.getMembersList() );
 		
 	}
