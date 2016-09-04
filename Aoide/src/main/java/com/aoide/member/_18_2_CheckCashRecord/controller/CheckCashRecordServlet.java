@@ -26,10 +26,11 @@ public class CheckCashRecordServlet extends HttpServlet {
 		//只要其ID與 sponsor_id 或 recipiemt_id 相符即回傳資料
 		List<CashRecordVO> cashRecordList = new CheckCashRecordService().getAllCashRecord(id);
 		
-		for(CashRecordVO cashRecordVO : cashRecordList){
-			
-			System.out.println(cashRecordVO.getCashRecordId());
-		}
+		request.getSession().setAttribute("cashRecordList", cashRecordList);
+		
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath + "/_18_2_CheckCashRecord.view/ShowCashRecord.jsp");
+		
 	}
 
 	
