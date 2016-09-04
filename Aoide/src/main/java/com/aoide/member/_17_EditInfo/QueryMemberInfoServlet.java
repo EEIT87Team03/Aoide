@@ -45,7 +45,7 @@ public class QueryMemberInfoServlet extends HttpServlet
 		else
 		{
 			response.sendRedirect(
-					request.getContextPath() + "/login.html" );
+					request.getContextPath() + "/_08_login.view/login.html" );
 		}
 	}
 
