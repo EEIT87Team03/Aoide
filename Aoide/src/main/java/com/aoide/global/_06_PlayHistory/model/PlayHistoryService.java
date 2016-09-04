@@ -13,7 +13,7 @@ import com.aoide.global.dataBaseManipulationObjects.song.JdbcSongDAO;
 public class PlayHistoryService {
 	
 	ClickHistoryDAO clickHistoryDAO = new JdbcClickHistoryDAO();
-	SongDAO SongDAO = new JdbcSongDAO(); 
+	SongDAO songDAO = new JdbcSongDAO(); 
 	
 	
 	public PlayHistoryService(){
@@ -46,7 +46,7 @@ public class PlayHistoryService {
 
 	public String getSongNameBySongId(Integer songId) {
 		
-		SongVO songVO = SongDAO.findByPrimaryKey(songId);
+		SongVO songVO = songDAO.findByPrimaryKey(songId);
 		
 		return songVO.getName();
 		

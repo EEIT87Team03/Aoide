@@ -1,11 +1,15 @@
 package com.aoide.global.dataBaseManipulationObjects.cashRecord;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JComboBox.KeySelectionManager;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
@@ -22,22 +26,31 @@ public class JdbcCashRecordDAO implements CashRecordDAO{
 	private static final String GET_ALL_STMT = 
 			"SELECT cash_record_id,date,sponsor_id,recipient_id,cash_volume,token_volume,type FROM cash_record ORDER BY cash_record_id";
 	@Override
-	public void insert(CashRecordVO CashRecordVO) {
+	public Integer insert(CashRecordVO CashRecordVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		
+		Integer id = null;
 
 		try {
 
 			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(INSERT_STMT);
+			pstmt = con.prepareStatement(INSERT_STMT,Statement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setInt(1, CashRecordVO.getSponsorId());
 			pstmt.setInt(2, CashRecordVO.getRecipientId());
 			pstmt.setInt(3, CashRecordVO.getCashVolume());
 			pstmt.setInt(4, CashRecordVO.getTokenVolume());
 			pstmt.setInt(5, CashRecordVO.getType());
-
+			
 			pstmt.executeUpdate();
+			
+			ResultSet keys = pstmt.getGeneratedKeys();
+			if(keys.next()){
+				id = (Integer) keys.getInt(1);	
+			}
+			return id;
+			
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
@@ -60,6 +73,9 @@ public class JdbcCashRecordDAO implements CashRecordDAO{
 				}
 			}
 		}
+		
+		
+		
 
 	}
 	@Override
