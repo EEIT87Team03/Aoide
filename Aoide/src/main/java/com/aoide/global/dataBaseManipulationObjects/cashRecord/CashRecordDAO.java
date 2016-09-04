@@ -7,5 +7,6 @@ public interface CashRecordDAO {
 	public void update(CashRecordVO CashRecordVO);
 	public void delete(Integer cashRecordId);
 	public CashRecordVO findByPrimaryKey(Integer cashRecordId);
+	public List<CashRecordVO> findById(Integer id);
 	public List<CashRecordVO> getAll();
 }

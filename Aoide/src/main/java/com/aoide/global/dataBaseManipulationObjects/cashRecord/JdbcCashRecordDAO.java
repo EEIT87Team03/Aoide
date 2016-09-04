@@ -23,6 +23,8 @@ public class JdbcCashRecordDAO implements CashRecordDAO{
 			"DELETE FROM cash_record WHERE cash_record_id = ?";
 	private static final String GET_ONE_STMT =
 			"SELECT cash_record_id,date,sponsor_id,recipient_id,cash_volume,token_volume,type FROM cash_record WHERE cash_record_id = ?";
+	private static final String GET_BY_ID =
+			"SELECT cash_record_id,date,sponsor_id,recipient_id,cash_volume,token_volume,type FROM cash_record WHERE sponsor_id = ? OR recipient_id = ?";	
 	private static final String GET_ALL_STMT = 
 			"SELECT cash_record_id,date,sponsor_id,recipient_id,cash_volume,token_volume,type FROM cash_record ORDER BY cash_record_id";
 	@Override
@@ -269,8 +271,67 @@ public class JdbcCashRecordDAO implements CashRecordDAO{
 		return list;
 
 	}
-	public static void main(String[] args) {
-		System.out.print(GET_ONE_STMT);
+	
+	@Override
+	public List<CashRecordVO> findById(Integer id) {
+		List<CashRecordVO> list = new ArrayList<CashRecordVO>();
+		CashRecordVO cashRecordVO = null;
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			conn = ConnectionBean.getConnection();
+			pstmt = conn.prepareStatement(GET_BY_ID);
+			pstmt.setInt(1, id);
+			pstmt.setInt(2, id);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				// empVO 也稱為 Domain objects
+				cashRecordVO = new CashRecordVO();
+				cashRecordVO.setCashRecordId(rs.getInt("cash_record_id"));
+				cashRecordVO.setDate(rs.getDate("date"));
+				cashRecordVO.setSponsorId(rs.getInt("sponsor_id"));
+				cashRecordVO.setRecipientId(rs.getInt("recipient_id"));
+				cashRecordVO.setCashVolume(rs.getInt("cash_volume"));
+				cashRecordVO.setTokenVolume(rs.getInt("token_volume"));
+				cashRecordVO.setType(rs.getInt("type"));
+				list.add(cashRecordVO); // Store the row in the list
+			}
+
+			// Handle any SQL errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return list;
+
 	}
 	
 	
