@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="dist/js/jquery.barrager.min.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="dist/css/barrager.css">
 <meta charset="UTF-8">
 <title>Aoide Chat Room</title>
 </head>
@@ -27,6 +31,17 @@
     			function ( event )
     			{
     				var message = event.data;
+    				
+    				var item = {
+    			            info: message, //文字 
+    			            href: 'https://www.google.com.tw', //链接 
+    			            close: true, //显示关闭按钮 
+    			            speed: 10, //延迟,单位秒,默认6 
+    			            color: '#000000', //颜色,默认白色 
+    			            old_ie_color: '#ffffff', //ie低版兼容色,不能与网页背景相同,默认黑色 
+    			        }
+    				
+    				$('body').barrager(item);
     				
     				if ( message.indexOf( "[INIT]" ) == 0 )
     				{
