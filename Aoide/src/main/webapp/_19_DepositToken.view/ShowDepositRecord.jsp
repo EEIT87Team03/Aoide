@@ -32,6 +32,7 @@
 									<th>贊助者ID</th>
 									<th>被贊助者ID</th>
 									<th>贊助金額</th>
+									<th>獲得點數</th>
 								</tr>
     						</thead>
     						<tbody>
