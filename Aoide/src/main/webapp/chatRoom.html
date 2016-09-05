@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Aoide Chat Room</title>
+</head>
+<body>
+	<div id = "chatRoom">
+		<textarea id = "output" name = "output" rows = "15" cols = "50" readonly></textarea>
+		<textarea id = "users" name = "users" rows ="15"  cols = "15" readonly></textarea>
+		<br/>
+		<input type = "text" id = "input" name = "input" size = "40">
+		<input type = "button" id = "send" value = "Send">
+	</div>
+	<script>
+		var wsUri = "ws://localhost:8080/AoideTest/chat";
+    	var clientSocket = new WebSocket( wsUri );
+    	var username = "";
+    	clientSocket.onopen = 
+    			function()
+    			{
+    				username = prompt( "Please enter your name", "Anonymous" );
+    				clientSocket.send( "[LOGIN] " + username );
+    	 		};
+    	 		
+    	clientSocket.onmessage = 
+    			function ( event )
+    			{
+    				var message = event.data;
+    				
+    				if ( message.indexOf( "[INIT]" ) == 0 )
+    				{
+    					setUserList( message.slice( 7, message.length ) );
+    				}
+    				else
+    				{
+    					if ( message.indexOf( "[JOIN]" ) == 0 )
+        				{
+        					addToUserList( message.slice( 7, message.length ) );
+        				}
+        				else if ( message.indexOf( "[LEFT]" ) == 0 )
+        				{
+        					removeFromUserList( message.slice( 7, message.length ) );
+        				}
+    					displayText( message );
+    				}
+        		};
+        clientSocket.onclose = 
+            		function()
+            		{
+        				displayText( "[Connection problem occur]" );
+        				displayText( "[Ready State] " + clientSocket.readyState );
+            			clientSocket.send( "[LOGOUT] " + username );
+            			removeFromUserList( username );
+            	 	};
+        clientSocket.onerror =
+                	function( event )
+                	{
+        				displayText( "[Connection problem occurs]" );
+        				displayText( clientSocket.readyState );
+                		clientSocket.send( "[LOGOUT] " + username );
+                		removeFromUserList( username );
+                	};
+        		
+        document.getElementById( "send" ).onclick = function()
+        											{
+        												var text = document.getElementById( "input" ).value;
+        												clientSocket.send( username + " : " + text );
+        											};
+        											      											
+        function displayText( message )
+        {
+        	var text = document.createTextNode( message + "\n" );
+        	var displayArea = document.getElementById( "output" );
+        	displayArea.appendChild( text );
+        }
+        
+        function setUserList( listString )
+        {
+        	var userList = document.createTextNode( listString );
+			document.getElementById( "users" ).appendChild( userList );
+        }
+        
+        function addToUserList( username )
+        {
+        	var user = document.createTextNode( username + "\n" );
+			document.getElementById( "users" ).appendChild( user );
+        }
+        
+        function removeFromUserList( username )
+        {
+        	var userList = document.getElementById( "users" ).value;
+        	document.getElementById( "users" ).value= userList.replace( username + "\n", "" );
+        }
+        
+	</script>
+</body>
+</html>

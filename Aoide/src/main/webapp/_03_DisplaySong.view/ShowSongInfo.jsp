@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>_20_CheckToken</title>
+<title>_18_Donation</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -27,21 +27,23 @@
     					<table class="table">
     						<thead>
     							<tr>
-									<th>交易紀錄ID</th>
-									<th>交易日期</th>
-									<th>交易點數</th>
-									<th>交易後餘額</th>
+									<th>歌曲ID</th>
+									<th>歌曲名稱</th>
+									<th>作曲者ID</th>
+									<th>專輯ID</th>
+									<th>上傳日期</th>
 								</tr>
     						</thead>
     						<tbody>
-								<c:forEach var = "tokenRecord" items="${tokenRecordList}" varStatus="loop">
+								
 									<tr>
-										<td>${tokenRecord.tokenRecordId}</td>
-										<td>${tokenRecord.date}</td>
-										<td>${tokenRecord.tokenVolume}</td>
-										<td>${tokenRecord.recipienBalance}</td>
+										<td>${songVO.songId}</td>
+										<td>${songVO.name}</td>
+										<td>${songVO.memberId}</td>
+										<td>${songVO.albumId}</td>
+										<td>${songVO.updateDate}</td>
 									</tr>
-								</c:forEach>
+								
     						</tbody>
     					</table>
 		    				

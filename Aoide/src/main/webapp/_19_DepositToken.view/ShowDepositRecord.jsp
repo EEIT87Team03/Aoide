@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>_20_CheckToken</title>
+<title>_19_DepositToken</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -27,21 +27,27 @@
     					<table class="table">
     						<thead>
     							<tr>
-									<th>交易紀錄ID</th>
+									<th>交易ID</th>
 									<th>交易日期</th>
-									<th>交易點數</th>
-									<th>交易後餘額</th>
+									<th>贊助者ID</th>
+									<th>被贊助者ID</th>
+									<th>贊助金額</th>
+									<th>獲得點數</th>
 								</tr>
     						</thead>
     						<tbody>
-								<c:forEach var = "tokenRecord" items="${tokenRecordList}" varStatus="loop">
+								
 									<tr>
-										<td>${tokenRecord.tokenRecordId}</td>
-										<td>${tokenRecord.date}</td>
-										<td>${tokenRecord.tokenVolume}</td>
-										<td>${tokenRecord.recipienBalance}</td>
+										<td>${cashRecordVO.cashRecordId}</td>
+										<td>${cashRecordVO.date}</td>
+										<td>${cashRecordVO.sponsorId}</td>
+										<td>${cashRecordVO.recipientId}</td>
+										<td>${cashRecordVO.cashVolume}</td>
+										<td>${cashRecordVO.tokenVolume}</td>
 									</tr>
-								</c:forEach>
+								
+									
+								
     						</tbody>
     					</table>
 		    				

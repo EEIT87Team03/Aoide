@@ -17,7 +17,7 @@ public class JdbcDaoFactory implements AbstractDaoFactory
 	}
 
 	@Override
-	public AlbumDAO createAlbumDAO( Connection con) 
+	public AlbumDAO createAlbumDAO( Connection con ) 
 	{
 		return new JdbcAlbumDAO( con );
 	}
