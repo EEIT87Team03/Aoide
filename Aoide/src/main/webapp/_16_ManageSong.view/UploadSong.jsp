@@ -6,16 +6,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>上傳歌曲</title>
+<script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
 </head>
 <body>
-<form action="<c:url value ='/UploadSongServlet'/>" method="post">
+<form action="<c:url value ='/UploadSongServlet'/>" method="post" enctype="multipart/form-data">
 	上傳歌曲：<input type="file" name="songFile"><p>
 	上傳封面圖片：<input type="file" name="coverFile"><p>
 	歌名：<input type="text" name="name"><p>
 	類型：<input type="text" name="songType"><p>
 	語言：<input type="text" name="songLanguage"><p>
-	歌曲簡介：<textarea name="introductionFile"></textarea><p>
-	歌詞：<textarea name="lyricsFile"></textarea><p>
+	歌曲簡介：<textarea name="introductionFile" id="introductionFile"></textarea>
+		   <script>CKEDITOR.replace('introductionFile');</script><p>
+	歌詞：<textarea name="lyricsFile" id="lyricsFile"></textarea>
+		   <script>CKEDITOR.replace('lyricsFile');</script><p>
 	<input type="submit" value="送出">
 </form>
 </body>
