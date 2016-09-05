@@ -50,7 +50,7 @@ public class PretendLogin implements Filter {
 		m.setBanState( false );
 		m.setBankInfo( "fffffffirst bank" );
 		
-		((HttpServletRequest)request).getSession().setAttribute("loginMember", m);
+		((HttpServletRequest)request).getSession().setAttribute("member", m);
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}
