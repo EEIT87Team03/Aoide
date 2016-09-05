@@ -12,8 +12,8 @@ import com.aoide.global.dataBaseManipulationObjects.song.JdbcSongDAO;
 
 public class PlayHistoryService {
 	
-	ClickHistoryDAO clickhistoryDAO = new JdbcClickHistoryDAO();
-	SongDAO SongDAO = new JdbcSongDAO(); 
+	ClickHistoryDAO clickHistoryDAO = new JdbcClickHistoryDAO();
+	SongDAO songDAO = new JdbcSongDAO(); 
 	
 	
 	public PlayHistoryService(){
@@ -24,14 +24,14 @@ public class PlayHistoryService {
 	
 	public List<ClickHistoryVO> getAllClickhistory(){
 		
-		List<ClickHistoryVO> clickhistorysList = new ArrayList();
+		List<ClickHistoryVO> clickHistorysList = new ArrayList();
 		
-		for(ClickHistoryVO clickhistoryVO : clickhistoryDAO.getAll()){
+		for(ClickHistoryVO clickHistoryVO : clickHistoryDAO.getAll()){
 			
-			clickhistorysList.add(clickhistoryVO);
+			clickHistorysList.add(clickHistoryVO);
 			
 		}
-		return clickhistorysList;
+		return clickHistorysList;
 		
 		
 	}
@@ -39,14 +39,14 @@ public class PlayHistoryService {
 
 	public void insetNewClickHistory(ClickHistoryVO new_clickhistoryVO) {
 		
-		clickhistoryDAO.insert(new_clickhistoryVO);
+		clickHistoryDAO.insert(new_clickhistoryVO);
 		
 	}
 
 
 	public String getSongNameBySongId(Integer songId) {
 		
-		SongVO songVO = SongDAO.findByPrimaryKey(songId);
+		SongVO songVO = songDAO.findByPrimaryKey(songId);
 		
 		return songVO.getName();
 		

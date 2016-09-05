@@ -15,7 +15,8 @@ import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 public class LoginAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-    public LoginAccountServlet() {
+    public LoginAccountServlet() 
+    {
         super();
         
     }

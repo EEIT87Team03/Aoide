@@ -7,24 +7,19 @@ import com.aoide.global.dataBaseManipulationObjects.album.JdbcAlbumDAO;
 import com.aoide.global.dataBaseManipulationObjects.member.JdbcMemberDAO;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberDAO;
 
-public class JdbcDaoFactory extends AbstractDaoFactory 
+public class JdbcDaoFactory implements AbstractDaoFactory 
 {
 
-	public JdbcDaoFactory( Connection con ) 
+	@Override
+	public MemberDAO createMemberDAO( Connection con ) 
 	{
-		super( con );
+		return new JdbcMemberDAO( con );
 	}
 
 	@Override
-	public MemberDAO createMemberDAO() 
+	public AlbumDAO createAlbumDAO( Connection con ) 
 	{
-		return new JdbcMemberDAO( conn );
-	}
-
-	@Override
-	public AlbumDAO createAlbumDAO() 
-	{
-		return new JdbcAlbumDAO( conn );
+		return new JdbcAlbumDAO( con );
 	}
 
 }
