@@ -12,7 +12,7 @@ public class SongVO {
 	private String songType;
 	private String songLanguage;
 	private int memberId;
-	private int albumId;
+	private int albumId = 1;
 	private String introductionFile;
 	private String coverFile;
 	private String lyricsFile;

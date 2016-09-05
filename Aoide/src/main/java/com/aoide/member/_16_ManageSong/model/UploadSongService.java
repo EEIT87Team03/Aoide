@@ -9,13 +9,23 @@ import com.aoide.global.dataBaseManipulationObjects.song.JdbcSongDAO;
 
 public class UploadSongService {
 	SongDAO songDAO = new JdbcSongDAO();
+	private JdbcSongDAO dao = null;
 	
 	public UploadSongService() {
-		
+		this.dao = new JdbcSongDAO();
 	}
 	
-	public void insertUploadSong(SongVO songVO){
-		songDAO.insert(songVO);
+	public Integer insertUploadSong(SongVO songVO){
+		return songDAO.insert(songVO);
 		
+	}
+
+	public void updatePath(SongVO song) {
+		dao.update(song);
+		
+	}
+
+	public SongVO checkUpload(Integer id) {
+		return dao.findByPrimaryKey(id);
 	}
 }

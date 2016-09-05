@@ -4,14 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 
 public class JdbcSongDAO implements SongDAO {
-	
-	
 	// Fields
 	private static final String INSERT_STMT = "INSERT INTO song(song_file, name, song_type,	song_language, member_id, album_id, introduction_file, cover_file, lyrics_file,	update_date, lastclick_date, clicks, favorite_counts, shares)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	private static final String UPDATE_STMT = new StringBuffer()
@@ -83,14 +82,15 @@ public class JdbcSongDAO implements SongDAO {
 	// Method
 	
 	@Override
-	public void insert(SongVO songVO) {
+	public Integer insert(SongVO songVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		Integer id =null;
 
 		try {
 
 			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(INSERT_STMT);
+			pstmt = con.prepareStatement(INSERT_STMT,Statement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setString(1, songVO.getSongFile());
 			pstmt.setString(2, songVO.getName());
@@ -106,8 +106,15 @@ public class JdbcSongDAO implements SongDAO {
 			pstmt.setInt(12, songVO.getClicks());
 			pstmt.setInt(13, songVO.getFavoriteCounts());
 			pstmt.setInt(14, songVO.getShares());
-
+			
 			pstmt.executeUpdate();
+			
+			ResultSet keys = null;
+			keys = pstmt.getGeneratedKeys();
+			
+			if (keys.next()){
+				id = (Integer)keys.getInt(1);
+			}
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
@@ -130,7 +137,7 @@ public class JdbcSongDAO implements SongDAO {
 				}
 			}
 		}
-
+		return id;
 	}
 
 	@Override
