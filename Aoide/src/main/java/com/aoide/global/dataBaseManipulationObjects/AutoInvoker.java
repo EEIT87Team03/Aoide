@@ -191,7 +191,7 @@ public class AutoInvoker
 	public static Object inject( ResultSet rs, Object vo ) 
 			throws SQLException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException 
 	{
-		Class voClass = vo.getClass();
+		Class< ? extends Object > voClass = vo.getClass();
 		
 		ResultSetMetaData md = rs.getMetaData();
 		int columnCount = md.getColumnCount();
@@ -205,7 +205,7 @@ public class AutoInvoker
 			voSetter.invoke( vo, param );
 		}*/
 		Method[] methods = voClass.getMethods();
-		Map< String, Class[] > map = new HashMap<>();
+		Map< String, Class< ? >[] > map = new HashMap<>();
 		
 		for ( int j = 0; j < methods.length; j++ )
 		{
