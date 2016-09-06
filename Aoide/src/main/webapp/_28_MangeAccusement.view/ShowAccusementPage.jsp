@@ -35,12 +35,12 @@
 								</tr>
     						</thead>
     						<tbody>
-								<c:forEach var = "accusementDanmukuVOList" items="${accusementDanmukuVOList}">
+								<c:forEach var = "accusementDanmukuVOList" items="${accusementDanmukuVOList}" varStatus="loop">
 									<tr>
 										<td>${accusementDanmukuVOList.accusementDanmukuId}</td>
 										<td>${accusementDanmukuVOList.date}</td>
-										<td>${accusementDanmukuVOList.accuseId}</td>
-										<td>${accusementDanmukuVOList.accusedId}</td>
+										<td>${accuseIdList[loop.count-1]}</td>
+										<td>${accusedIdList[loop.count-1]}</td>
 										<td>${accusementDanmukuVOList.contentFile}</td>
 									</tr>
 								</c:forEach>

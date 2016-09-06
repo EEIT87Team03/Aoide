@@ -1,6 +1,7 @@
 package com.aoide.manager._28_MangeAccusement.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -20,8 +21,24 @@ public class MangeAccusementServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<AccusementDanmukuVO> accusementDanmukuVOList = new MangeAccusementService().getAllAccusement();
-		
 		request.getSession().setAttribute("accusementDanmukuVOList", accusementDanmukuVOList);
+		
+		//遍歷accusementDanmukuVOList獲取檢舉人ID與被檢舉人ID，用來將其轉換成帳號名稱
+		List<String> accuseIdList = new ArrayList();
+		List<String> accusedIdList = new ArrayList();
+		
+		
+		for(AccusementDanmukuVO accusementDanmukuVO: accusementDanmukuVOList ){
+			String accuseName = new MangeAccusementService().getAccuseName(accusementDanmukuVO.getAccuseId());
+			accuseIdList.add(accuseName);
+			String accusedName = new MangeAccusementService().getAccusedName(accusementDanmukuVO.getAccusedId());
+			accusedIdList.add(accusedName);
+		}
+		request.getSession().setAttribute("accuseIdList", accuseIdList);
+		request.getSession().setAttribute("accusedIdList", accusedIdList);
+		
+		
+		 
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath+"/_28_MangeAccusement.view/ShowAccusementPage.jsp");
 	}
