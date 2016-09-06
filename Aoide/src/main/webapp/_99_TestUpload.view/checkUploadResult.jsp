@@ -11,6 +11,11 @@
 	<p>SongId : ${song.songId}</p>
 	<p>SongName : ${song.name}</p>
 	<p>SongFile : ${song.songFile}</p>
-	<audio src="<c:url value='${song.songFile}'/>">Play</audio>
+<%-- 	<audio src="<c:url value='${song.songFile}'/>">Play</audio> --%>
+	<audio controls>
+	  <source src="horse.ogg" type="audio/ogg">
+<%-- 	  <source src="<c:url value='${song.songFile}'/>" type="audio/mpeg"> --%>
+	  <source src="${song.songFile}" type="audio/mpeg">
+	</audio>
 </body>
 </html>
