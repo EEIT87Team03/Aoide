@@ -24,6 +24,8 @@
 					<div class="panel-footer">
 				    	<form action="<c:url value='/SaveAccuseDanmukuServlet'/>" method="post">
 				            <textarea name="replyContent" id="replyContent" rows="10" cols="80">
+				           			被檢舉人ID: ${accused_id}<br>
+				           			被檢舉的彈幕內容:${accused_text}<br>
 				                	檢舉原因:..........................................
 				            </textarea>
 				            <script>
