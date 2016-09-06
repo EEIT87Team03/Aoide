@@ -1,4 +1,4 @@
-package com.aoide.member._21_EnterDanmuku.controller;
+package com.aoide.member._30_AccuseDanmukuServlet.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.aoide.global.dataBaseManipulationObjects.accusementDanmuku.AccusementDanmukuVO;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.suggestion.SuggestionVO;
-import com.aoide.member._21_EnterDanmuku.model.GetAccuseDanmukuService;
-import com.aoide.member._21_EnterDanmuku.model.SaveAccuseDanmukuService;
+import com.aoide.member._30_AccuseDanmukuServlet.model.GetAccuseDanmukuService;
+import com.aoide.member._30_AccuseDanmukuServlet.model.SaveAccuseDanmukuService;
 
 /**
  * Servlet implementation class SaveAccuseDanmukuServlet

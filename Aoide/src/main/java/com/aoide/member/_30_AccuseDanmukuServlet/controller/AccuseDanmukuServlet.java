@@ -1,4 +1,4 @@
-package com.aoide.member._21_EnterDanmuku.controller;
+package com.aoide.member._30_AccuseDanmukuServlet.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

@@ -1,4 +1,4 @@
-package com.aoide.member._21_EnterDanmuku.model;
+package com.aoide.member._30_AccuseDanmukuServlet.model;
 
 import com.aoide.global.dataBaseManipulationObjects.accusementDanmuku.AccusementDanmukuDAO;
 import com.aoide.global.dataBaseManipulationObjects.accusementDanmuku.AccusementDanmukuVO;
