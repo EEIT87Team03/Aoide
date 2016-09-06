@@ -1,21 +1,29 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!--  
 <script type="text/javascript" src="static/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="dist/js/jquery.barrager.js"></script>
 <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="dist/css/barrager.css">
-<meta charset="UTF-8">
-<title>Aoide Chat Room</title>
+-->
+<script type="text/javascript" src="danmmu/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="danmmu/js/jquery.barrager.js"></script>
+<link rel="stylesheet" type="text/css" href="danmmu/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="danmmu/css/barrager.css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>彈幕之間</title>
 </head>
 <body>
+
 	<div id = "chatRoom">
-		<textarea id = "output" name = "output" rows = "15" cols = "50" readonly></textarea>
-		<textarea id = "users" name = "users" rows ="15"  cols = "15" readonly></textarea>
-		<br/>
 		<input type = "text" id = "input" name = "input" size = "40">
 		<input type = "button" id = "send" value = "Send">
 	</div>
+	
 	<script>
 		var wsUri = "ws://localhost:8080/Aoide/danmu";
     	var clientSocket = new WebSocket( wsUri );
@@ -93,5 +101,6 @@
         }
         
 	</script>
+
 </body>
 </html>
