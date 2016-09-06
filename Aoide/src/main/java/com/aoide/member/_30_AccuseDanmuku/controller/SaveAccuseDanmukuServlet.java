@@ -1,4 +1,4 @@
-package com.aoide.member._30_AccuseDanmukuServlet.controller;
+package com.aoide.member._30_AccuseDanmuku.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.aoide.global.dataBaseManipulationObjects.accusementDanmuku.AccusementDanmukuVO;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.suggestion.SuggestionVO;
-import com.aoide.member._30_AccuseDanmukuServlet.model.GetAccuseDanmukuService;
-import com.aoide.member._30_AccuseDanmukuServlet.model.SaveAccuseDanmukuService;
+import com.aoide.member._30_AccuseDanmuku.model.GetAccuseDanmukuService;
+import com.aoide.member._30_AccuseDanmuku.model.SaveAccuseDanmukuService;
 
 /**
  * Servlet implementation class SaveAccuseDanmukuServlet
@@ -55,7 +55,7 @@ public class SaveAccuseDanmukuServlet extends HttpServlet {
 		request.getSession().setAttribute("accusementDanmukuVO", accusementDanmukuVO);
 		
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_21_EnterDanmuku.view/AccuseSucessPage.jsp");
+		response.sendRedirect(contextPath + "/_30_AccuseDanmuku.view/AccuseSucessPage.jsp");
 		
 		
 		

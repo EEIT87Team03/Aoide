@@ -1,19 +1,17 @@
-package com.aoide.member._30_AccuseDanmukuServlet.model;
+package com.aoide.member._30_AccuseDanmuku.model;
 
 import com.aoide.global.dataBaseManipulationObjects.accusementDanmuku.AccusementDanmukuDAO;
 import com.aoide.global.dataBaseManipulationObjects.accusementDanmuku.AccusementDanmukuVO;
 import com.aoide.global.dataBaseManipulationObjects.accusementDanmuku.JdbcAccusementDanmukuDAO;
 
-public class SaveAccuseDanmukuService {
+public class GetAccuseDanmukuService {
 	
 	AccusementDanmukuDAO accusementDanmukuDAO = new JdbcAccusementDanmukuDAO();
 
-	public Integer InsertNewAccusementDanmuku(AccusementDanmukuVO accusementDanmukuVO) {
+	public AccusementDanmukuVO GetAccusementDanmukuByPK(Integer accusement_danmuku_id) {
 		
-		Integer accusement_danmuku_id = accusementDanmukuDAO.insert(accusementDanmukuVO);
+		return accusementDanmukuDAO.findByPrimaryKey(accusement_danmuku_id);
 		
-		// TODO Auto-generated method stub
-		return accusement_danmuku_id;
 	}
 
 }

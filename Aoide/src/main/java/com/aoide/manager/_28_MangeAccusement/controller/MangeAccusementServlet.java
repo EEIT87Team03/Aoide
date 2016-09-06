@@ -1,31 +1,32 @@
-package com.aoide.member._30_AccuseDanmukuServlet.controller;
+package com.aoide.manager._28_MangeAccusement.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.aoide.global.dataBaseManipulationObjects.accusementDanmuku.AccusementDanmukuVO;
+import com.aoide.manager._28_MangeAccusement.model.MangeAccusementService;
 
-@WebServlet("/AccuseDanmukuServlet")
-public class AccuseDanmukuServlet extends HttpServlet {
+
+@WebServlet("/MangeAccusementServlet")
+public class MangeAccusementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<AccusementDanmukuVO> accusementDanmukuVOList = new MangeAccusementService().getAllAccusement();
 		
-		System.out.println("現在被檢舉的彈幕會員ID:"+request.getParameter("id"));
-		System.out.println("現在被檢舉的彈幕內容:"+request.getParameter("text"));
-		
+		request.getSession().setAttribute("accusementDanmukuVOList", accusementDanmukuVOList);
 		String contextPath = request.getContextPath();
-		
-		request.getSession().setAttribute("accused_id", request.getParameter("id"));
-		request.getSession().setAttribute("accused_text", request.getParameter("text"));
-		
-		response.sendRedirect(contextPath + "/_21_EnterDanmuku.view/AccuseDanmmuPage.jsp");
-		
+		response.sendRedirect(contextPath+"/_28_MangeAccusement.view/ShowAccusementPage.jsp");
 	}
+	
+	
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
