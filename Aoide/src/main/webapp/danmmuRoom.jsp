@@ -49,7 +49,7 @@
     				
     				 var item = {
     			            info: message, //彈幕文字
-    			            href: '/Aoide/PlayHistoryServlet?id='+memberId, //點選彈幕的連結網址
+    			            href: '/Aoide/AccuseDanmukuServlet?id=' + memberId + '&text=' + message , //點選彈幕的連結網址
     			            close: true, //是否顯示關閉的按鈕
     			            speed: 10, //延遲(秒)預設為6
     			            color: '#000000', //顏色，預設白色
