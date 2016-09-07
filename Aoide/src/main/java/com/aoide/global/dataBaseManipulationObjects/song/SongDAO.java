@@ -8,4 +8,5 @@ public interface SongDAO {
 	public void delete(Integer songId);
 	public SongVO findByPrimaryKey(Integer songId);
 	public List<SongVO> getAll();
+	public List<SongVO> getName(String search);
 }

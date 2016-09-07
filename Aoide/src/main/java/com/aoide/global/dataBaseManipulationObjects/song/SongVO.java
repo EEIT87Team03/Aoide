@@ -26,11 +26,21 @@ public class SongVO {
 	public SongVO() {
 	}
 	
-	public SongVO(int songId, String songFile, String name, String songType,
-			String songLanguage, int memberId, int albumId,
-			String introductionFile, String coverFile, String lyricsFile,
-			Date updateDate, Timestamp lastclickDate, int clicks,
-			int favoriteCounts, int shares) {
+	public SongVO(int songId,
+				  String songFile,
+				  String name,
+				  String songType,
+				  String songLanguage,
+				  int memberId,
+				  int albumId,
+				  String introductionFile,
+				  String coverFile,
+				  String lyricsFile,
+				  Date updateDate,
+				  Timestamp lastclickDate,
+				  int clicks,
+				  int favoriteCounts,
+				  int shares) {
 		super();
 		this.songId = songId;
 		this.songFile = songFile;
@@ -169,5 +179,4 @@ public class SongVO {
 	public void setShares(int shares) {
 		this.shares = shares;
 	}
-	
 }
