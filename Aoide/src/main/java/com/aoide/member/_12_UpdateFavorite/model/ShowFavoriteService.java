@@ -7,11 +7,14 @@ import java.util.List;
 import com.aoide.global.dataBaseManipulationObjects.favorite.FavoriteDAO;
 import com.aoide.global.dataBaseManipulationObjects.favorite.FavoriteVO;
 import com.aoide.global.dataBaseManipulationObjects.song.JdbcSongDAO;
+import com.aoide.global.dataBaseManipulationObjects.song.SongDAO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
 public class ShowFavoriteService {
 	
+	
 	FavoriteDAO favoriteDAO = new JdbcFavoriteDAO();
+	SongDAO songDAO = new JdbcSongDAO();
 	
 	public List<FavoriteVO> getFavoriteById(Integer memberId) {
 		
@@ -19,6 +22,13 @@ public class ShowFavoriteService {
 		
 		// TODO Auto-generated method stub
 		return favoriteDAO.finByMemberId(memberId);
+	}
+
+	public String getSongNameBySongId(Integer songId) {
+		
+		SongVO songVO = songDAO.findByPrimaryKey(songId);
+		
+		return songVO.getName();
 	}
 	
 	

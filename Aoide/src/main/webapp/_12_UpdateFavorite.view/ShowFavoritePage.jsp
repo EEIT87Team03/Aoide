@@ -28,14 +28,14 @@
     						<thead>
     							<tr>
 									<th>會員ID</th>
-									<th>歌曲ID</th>
+									<th>歌曲名稱</th>
 								</tr>
     						</thead>
     						<tbody>
 								<c:forEach var = "favoriteVOList" items="${favoriteVOList}" varStatus="loop">
 									<tr>
 										<td>${favoriteVOList.memberId}</td>
-										<td>${favoriteVOList.songId}</td>
+										<td>${songIdList[loop.count-1]}</td>
 									</tr>
 								</c:forEach>
     						</tbody>
