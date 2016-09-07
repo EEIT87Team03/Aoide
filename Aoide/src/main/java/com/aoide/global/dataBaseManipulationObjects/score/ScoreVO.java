@@ -15,7 +15,7 @@ public class ScoreVO {
 	private String  comment;
 	
 	
-	public ScoreVO (int memberId,int songId,Date date,int scoreValue,String comment)
+	public ScoreVO (int memberId,int songId,Date date,String comment)
 	
 	{ this.memberId = memberId;
 	
@@ -23,7 +23,7 @@ public class ScoreVO {
 	  
 	  this.date = date ;
       
-	  this.scoreValue = scoreValue ;
+	 
 	  
 	  this.comment = comment ;
 		

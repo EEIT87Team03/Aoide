@@ -1,30 +1,26 @@
 package com.aoide.member._12_UpdateFavorite.model;
 
-import com.aoide.global.dataBaseManipulationObjects.favorite.JdbcFavoriteDAO;
+import com.aoide.global.dataBaseManipulationObjects.favorite.FavoriteDAO;
 import com.aoide.global.dataBaseManipulationObjects.favorite.FavoriteVO;
-import com.aoide.global.dataBaseManipulationObjects.song.JdbcSongDAO;
-import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
+import com.aoide.global.dataBaseManipulationObjects.favorite.JdbcFavoriteDAO;
 
 public class UpdateFavoriteService {
-	// Fields
-	JdbcFavoriteDAO favoriteDAO = null;
-	JdbcSongDAO songDAO = null;
 	
-	// Constructors
-	public UpdateFavoriteService(){
-		this.favoriteDAO = new JdbcFavoriteDAO();
-		this.songDAO = new JdbcSongDAO();
+	FavoriteDAO favoriteDAO = new JdbcFavoriteDAO();
+	FavoriteVO new_favoriteVO = new FavoriteVO();
+
+	public void delectFavorite(Integer memberId, Integer songId) {
+		
+		favoriteDAO.delete(memberId, songId);
+		
 	}
-	
-	// Methods
-	public void updateFavoriteList(int memberId, int songId){
-		favoriteDAO.insert(new FavoriteVO(memberId, songId));
+
+	public void insertFavorite(Integer memberId, Integer songId) {
+		
+		new_favoriteVO.setMemberId(memberId);
+		new_favoriteVO.setSongId(songId);
+		favoriteDAO.insert(new_favoriteVO);
+		
 	}
-	
-	public void updateSongFavoriteCounts(int songId){
-		SongVO song = songDAO.findByPrimaryKey(songId);
-		song.setFavoriteCounts((song.getFavoriteCounts() + 1 ));
-		songDAO.update(song);
-	}
-	
+
 }

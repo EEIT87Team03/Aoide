@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>管理歌曲</title>
+<title>上傳成功</title>
 </head>
 <body>
-	<a href="UploadSong.jsp">上傳歌曲</a>
+	<img src="${albumVO.CoverFilePath}" width="300" height="300">
 	<p>
-	<a href="<c:url value = '/ListSongServlet'/>">編輯歌曲</a>
+		專輯名稱：${albumVO.name}
+	<p>
+		歌曲簡介：${albumVO.IntroductionFilePath}
+	<p>
+		上傳日期：${albumVO.updateDate}
 </body>
 </html>

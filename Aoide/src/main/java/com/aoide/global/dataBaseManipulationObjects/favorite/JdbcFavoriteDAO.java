@@ -14,13 +14,12 @@ import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 public class JdbcFavoriteDAO implements FavoriteDAO{
 	
 	
-	private static final String INSERT_STMT = "INSERT INTO Favorite(member_id,song_id) VALUES(?,?)";
+	private static final String INSERT_STMT = "INSERT INTO Favorite (member_id,song_id) VALUES(?,?)";
 	private static final String UPDATE = "UPDATE Favorite set member_id=?,song_id=?";
-	private static final String DELETE = "DELETE FROM Favorite where (member_id=?,song_id=?)";
+	private static final String DELETE = "DELETE FROM Favorite where member_id = ? AND song_id = ? ";
 	private static final String GET_ALL_STMT = "SELECT member_id,song_id FROM Favorite order by member_id";
-	private static final String GET_ONE_STMT = "SELECT member_id,song_id FROM Favorite where member_id=?";
-
-	
+	private static final String GET_ONE_STMT = "SELECT member_id,song_id FROM Favorite where member_id=? AND song_id = ?";
+	private static final String GET_BY_MEMBER_ID = "SELECT member_id,song_id FROM Favorite where member_id=?";
 
 	@Override
 	public void insert(FavoriteVO favoriteVO) {
@@ -316,6 +315,67 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
 		
 		
 	}
+
+
+
+
+        @Override
+    	public List<FavoriteVO> finByMemberId(Integer memberId){
+        List<FavoriteVO>list = new ArrayList<FavoriteVO>();
+    		
+            FavoriteVO favoriteVO = null;
+    		Connection conn = null;
+    		PreparedStatement ptmt = null;
+    		ResultSet rs = null;
+    		
+    	    try{
+    	    	conn = ConnectionBean.getConnection();
+    	    	ptmt = conn.prepareStatement(GET_BY_MEMBER_ID);
+    	    	ptmt.setInt(1, memberId);
+    	    	rs = ptmt.executeQuery();
+    	    	
+    	    	while(rs.next()){
+    	    		favoriteVO = new FavoriteVO();
+    	    		favoriteVO.setMemberId(rs.getInt("member_id"));
+    	    		favoriteVO.setSongId(rs.getInt("song_id"));
+    	   
+    				list.add(favoriteVO);
+    				
+    	        }
+    			
+    	    } catch (SQLException e) {
+    			throw new RuntimeException("Can't Use this Database."
+    					+ e.getMessage());
+
+
+    			} finally {
+    				if (ptmt != null) {
+    					try {
+    						ptmt.close();
+    					} catch (SQLException e1) {
+    						e1.printStackTrace(System.err);
+
+    					}
+
+    					if (conn != null) {
+    						try {
+    							conn.close();
+
+    						} catch (Exception e) {
+    							e.printStackTrace(System.err);
+
+    						}
+
+    					}
+
+    				}
+    			}
+
+    	
+    		return list;	
+    		
+    	
+    	}
 	
 	
 	

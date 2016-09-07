@@ -5,11 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>管理歌曲</title>
+<title>搜尋歌曲</title>
 </head>
 <body>
-	<a href="UploadSong.jsp">上傳歌曲</a>
-	<p>
-	<a href="<c:url value = '/ListSongServlet'/>">編輯歌曲</a>
+	<form action="<c:url value ='/SearchSongServlet'/>" method="post">
+		搜尋歌曲：<input type="text" name="searchSong">
+		<p>
+		<input type="submit" value="送出">
+	</form>
 </body>
 </html>

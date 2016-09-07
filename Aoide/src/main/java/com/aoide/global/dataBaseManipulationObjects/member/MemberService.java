@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.AbstractDaoFactory;
+import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 import com.aoide.global.dataBaseManipulationObjects.DataSourceProxy;
 import com.aoide.global.dataBaseManipulationObjects.JdbcDaoFactory;
 

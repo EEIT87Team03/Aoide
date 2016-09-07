@@ -13,85 +13,104 @@ import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 public class JdbcSongDAO implements SongDAO {
 	// Fields
 	private static final String INSERT_STMT = "INSERT INTO song(song_file, name, song_type,	song_language, member_id, album_id, introduction_file, cover_file, lyrics_file,	update_date, lastclick_date, clicks, favorite_counts, shares)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-	private static final String UPDATE_STMT = new StringBuffer()
-													.append("UPDATE song ")
-													.append("SET ")
-													.append("song_file = ?,")
-													.append("name = ?,")
-													.append("song_type = ?,")
-													.append("song_language = ?,")
-													.append("member_id = ?,")
-													.append("album_id = ?,")
-													.append("introduction_file = ?,")
-													.append("cover_file = ?,")
-													.append("lyrics_file = ?,")
-													.append("update_date = ?,")
-													.append("lastclick_date = ?,")
-													.append("clicks = ?,")
-													.append("favorite_counts = ?,")
-													.append("shares = ? ")
-													.append("WHERE song_id = ?")
-													.toString();
+	
+	private static final String UPDATE_STMT = new StringBuffer().append("UPDATE song ")
+																.append("SET ")
+																.append("song_file = ?,")
+																.append("name = ?,")
+																.append("song_type = ?,")
+																.append("song_language = ?,")
+																.append("member_id = ?,")
+																.append("album_id = ?,")
+																.append("introduction_file = ?,")
+																.append("cover_file = ?,")
+																.append("lyrics_file = ?,")
+																.append("update_date = ?,")
+																.append("lastclick_date = ?,")
+																.append("clicks = ?,")
+																.append("favorite_counts = ?,")
+																.append("shares = ? ")
+																.append("WHERE song_id = ?")
+																.toString();
 
 	private static final String DELETE_STMT = "DELETE FROM song WHERE song_id = ?";
-	private static final String GET_ONE_STMT = new StringBuffer()
-													.append("SELECT ") 
-													.append("song_id,") 
-													.append("song_file,")
-													.append("name,")
-													.append("song_type,")
-													.append("song_language,")
-													.append("member_id,")
-													.append("album_id,")
-													.append("introduction_file,")
-													.append("cover_file,")
-													.append("lyrics_file,")
-													.append("update_date,")
-													.append("lastclick_date,")
-													.append("clicks,")
-													.append("favorite_counts,")
-													.append("shares ")
-													.append("FROM song ") 
-													.append("WHERE song_id = ?")
-													.toString();
-	private static final String GET_ALL_STMT = new StringBuffer()
-	.append("SELECT ") 
-	.append("song_id,") 
-	.append("song_file,")
-	.append("name,")
-	.append("song_type,")
-	.append("song_language,")
-	.append("member_id,")
-	.append("album_id,")
-	.append("introduction_file,")
-	.append("cover_file,")
-	.append("lyrics_file,")
-	.append("update_date,")
-	.append("lastclick_date,")
-	.append("clicks,")
-	.append("favorite_counts,")
-	.append("shares ")
-	.append("FROM song ") 
-	.toString();
 	
+	private static final String GET_ONE_STMT = new StringBuffer().append("SELECT ")
+																 .append("song_id,")
+																 .append("song_file,")
+																 .append("name,")
+																 .append("song_type,")
+																 .append("song_language,")
+																 .append("member_id,")
+																 .append("album_id,")
+																 .append("introduction_file,")
+																 .append("cover_file,")
+																 .append("lyrics_file,")
+																 .append("update_date,")
+																 .append("lastclick_date,")
+																 .append("clicks,")
+																 .append("favorite_counts,")
+																 .append("shares ")
+																 .append("FROM song ")
+																 .append("WHERE song_id = ?")
+																 .toString();
+	
+	private static final String GET_ALL_STMT = new StringBuffer().append("SELECT ")
+																 .append("song_id,")
+																 .append("song_file,")
+																 .append("name,")
+																 .append("song_type,")
+																 .append("song_language,")
+																 .append("member_id,")
+																 .append("album_id,")
+																 .append("introduction_file,")
+																 .append("cover_file,")
+																 .append("lyrics_file,")
+																 .append("update_date,")
+																 .append("lastclick_date,")
+																 .append("clicks,")
+																 .append("favorite_counts,")
+																 .append("shares ")
+																 .append("FROM song ")
+																 .toString();
+	
+	private static final String GET_NAME_STMT = new StringBuffer().append("SELECT ")
+																  .append("song_id,")
+																  .append("song_file,")
+																  .append("name,")
+																  .append("song_type,")
+																  .append("song_language,")
+																  .append("member_id,")
+																  .append("album_id,")
+																  .append("introduction_file,")
+																  .append("cover_file,")
+																  .append("lyrics_file,")
+																  .append("update_date,")
+																  .append("lastclick_date,")
+																  .append("clicks,")
+																  .append("favorite_counts,")
+																  .append("shares ")
+																  .append("FROM song ")
+																  .append("WHERE name like ?")
+																  .toString();
+
 	// Constructors
 	public JdbcSongDAO() {
-		
+
 	}
 
 	// Method
-	
 	@Override
 	public Integer insert(SongVO songVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		Integer id =null;
+		Integer id = null;
 
 		try {
 
 			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(INSERT_STMT,Statement.RETURN_GENERATED_KEYS);
-			
+			pstmt = con.prepareStatement(INSERT_STMT, Statement.RETURN_GENERATED_KEYS);
+
 			pstmt.setString(1, songVO.getSongFile());
 			pstmt.setString(2, songVO.getName());
 			pstmt.setString(3, songVO.getSongType());
@@ -106,20 +125,19 @@ public class JdbcSongDAO implements SongDAO {
 			pstmt.setInt(12, songVO.getClicks());
 			pstmt.setInt(13, songVO.getFavoriteCounts());
 			pstmt.setInt(14, songVO.getShares());
-			
+
 			pstmt.executeUpdate();
-			
+
 			ResultSet keys = null;
 			keys = pstmt.getGeneratedKeys();
-			
-			if (keys.next()){
-				id = (Integer)keys.getInt(1);
+
+			if (keys.next()) {
+				id = (Integer) keys.getInt(1);
 			}
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
@@ -149,7 +167,7 @@ public class JdbcSongDAO implements SongDAO {
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(UPDATE_STMT);
-			
+
 			pstmt.setString(1, songVO.getSongFile());
 			pstmt.setString(2, songVO.getName());
 			pstmt.setString(3, songVO.getSongType());
@@ -170,8 +188,7 @@ public class JdbcSongDAO implements SongDAO {
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
@@ -206,8 +223,7 @@ public class JdbcSongDAO implements SongDAO {
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
@@ -264,8 +280,7 @@ public class JdbcSongDAO implements SongDAO {
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
@@ -332,8 +347,7 @@ public class JdbcSongDAO implements SongDAO {
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
+			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
@@ -361,9 +375,77 @@ public class JdbcSongDAO implements SongDAO {
 		return list;
 
 	}
-	
+
+	public List<SongVO> getName(String search) {
+		List<SongVO> list = new ArrayList<SongVO>();
+		SongVO songVO = null;
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			conn = ConnectionBean.getConnection();
+			pstmt = conn.prepareStatement(GET_NAME_STMT);
+			search = '%' + search + '%';
+			pstmt.setString(1, search);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				// empVO �]�٬� Domain objects
+				songVO = new SongVO();
+				songVO.setSongId(rs.getInt("song_id"));
+				songVO.setSongFile(rs.getString("song_file"));
+				songVO.setName(rs.getString("name"));
+				songVO.setSongType(rs.getString("song_type"));
+				songVO.setSongLanguage(rs.getString("song_language"));
+				songVO.setMemberId(rs.getInt("member_id"));
+				songVO.setAlbumId(rs.getInt("album_id"));
+				songVO.setIntroductionFile(rs.getString("introduction_file"));
+				songVO.setCoverFile(rs.getString("cover_file"));
+				songVO.setLyricsFile(rs.getString("lyrics_file"));
+				songVO.setUpdateDate(rs.getDate("update_date"));
+				songVO.setLastclickDate(rs.getTimestamp("lastclick_date"));
+				songVO.setClicks(rs.getInt("clicks"));
+				songVO.setFavoriteCounts(rs.getInt("favorite_counts"));
+				songVO.setShares(rs.getInt("shares"));
+				list.add(songVO); // Store the row in the list
+			}
+
+			// Handle any SQL errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return list;
+
+	}
+
 	public static void main(String[] args) {
-		System.out.println(GET_ONE_STMT);
+		System.out.println(GET_NAME_STMT);
 	}
 
 }
