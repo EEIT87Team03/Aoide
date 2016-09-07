@@ -141,7 +141,7 @@ public class JdbcMemberDAO implements MemberDAO
 	}
 
 	@Override
-	public MemberVO findByMemberId(Integer memberId)
+	public MemberVO findByMemberId( Integer memberId )
 	{
 		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_BY_MEMBER_ID, memberId );
 			 ResultSet rs = pstmt.executeQuery()	)
