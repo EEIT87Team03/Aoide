@@ -1,102 +1,122 @@
 package com.aoide.global.dataBaseManipulationObjects.taskRecord;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
+import com.aoide.global.dataBaseManipulationObjects.suggestion.SuggestionVO;
 
 public class JdbcTaskRecordDAO implements TaskRecordDAO {
-//	String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-//	String url = "jdbc:sqlserver://localhost:????;DatabaseName=AOIDE";
-//	String userid = "sa";
-//	String passwd = "sa123456";
-	
-	private static final String INSERT_STMT = "INSERT INTO taskrecord(task_id, member_id) VALUES(?,?)";
-	private static final String UPDATE_STMT = new StringBuffer().append("UPDATE taskrecord ")
-			                                                    .append("SET ")
-			                                                    .append("task_id = ?, ")
-			                                                    .append("member_id = ? ") 
-	                                                            .append("WHERE task_id = ? AND member_id = ?")
-	                                                            .toString();
-			                                  
-			                          
-	private static final String GET_ONE_STMT = new StringBuffer().append("SELECT ")
-                                                                 .append("task_id, ")
-                                                                 .append("member_id, ")
-                                                                 .append("complete_date ")
-                                                                 .append("FROM taskrecord ")
-                                                                 .append("WHERE task_id = ? AND member_id = ?")
-                                                                 .toString();
-    			
-			
-	private static final String GET_ALL_STMT = new StringBuffer().append("SELECT ")
-            													 .append("task_id, ")
-                                                                 .append("member_id, ")
-                                                                 .append("complete_date ")
-                                                                 .append("FROM taskrecord")
-                                                                 .toString();
-				
+	// String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	// String url = "jdbc:sqlserver://localhost:????;DatabaseName=AOIDE";
+	// String userid = "sa";
+	// String passwd = "sa123456";
+
+	private static final String INSERT_STMT = new StringBuffer()
+			                                 .append("INSERT INTO taskrecord(")
+			                                 .append("task_id,")
+			                                 .append("member_id) ")
+			                                 .append("VALUES(?,?)")
+			                                 .toString();
+
+	private static final String UPDATE_STMT = new StringBuffer()
+	                                         .append("UPDATE taskrecord ")
+                                             .append("SET ")
+                                             .append("task_id = ?,")
+                                             .append("member_id = ? ") 
+                                             .append("WHERE task_id = ? AND member_id = ?")
+                                             .toString();
+
 	private static final String DELETE_STMT = "DELETE FROM taskrecord WHERE task_id = ? AND member_id = ?";
 	
-	@Override
-	public void insert(TaskRecordVO taskrecordVO) {
+	private static final String GET_ONE_STMT = new StringBuffer()
+	                                         .append("SELECT ")
+                                             .append("task_id,")
+                                             .append("member_id,")
+                                             .append("complete_date ")
+                                             .append("FROM taskrecord ")
+                                             .append("WHERE task_id = ? AND member_id = ?")
+                                             .toString();
+	
+	private static final String GET_ALL_STMT = new StringBuffer()
+	                                         .append("SELECT ")
+                                             .append("task_id,")
+                                             .append("member_id,")
+                                             .append("complete_date ")
+                                             .append("FROM taskrecord ")
+                                             .toString();
+	// Constructors
+	public JdbcTaskRecordDAO() {
 
+	}
+
+	// Method
+	@Override
+	public Integer insert(TaskRecordVO taskrecordVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet keys = null;
+		Integer id = null;
 
 		try {
-
-//			Class.forName(driver);
-//			con = DriverManager.getConnection(url, userid, passwd);
 			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(INSERT_STMT);
+			pstmt = con.prepareStatement(INSERT_STMT,
+					Statement.RETURN_GENERATED_KEYS);
 
 			pstmt.setInt(1, taskrecordVO.getTaskId());
 			pstmt.setInt(2, taskrecordVO.getMemberId());
-		
-			pstmt.executeUpdate();
-			
-		}catch (SQLException se) {
-				throw new RuntimeException("A database error occured. "
-						+ se.getMessage());
-//				// Handle any SQL errors
-//			} catch (SQLException se) {
-//				throw new RuntimeException("A database error occured. "
-//						+ se.getMessage());
-				// Clean up JDBC resources
-			} finally {
-				if (pstmt != null) {
-					try {
-						pstmt.close();
-					} catch (SQLException se) {
-						se.printStackTrace(System.err);
-					}
-				}
-				if (con != null) {
-					try {
-						con.close();
-					} catch (Exception e) {
-						e.printStackTrace(System.err);
-					}
+		    pstmt.executeUpdate();
+		    
+			// get generated key
+			keys = pstmt.getGeneratedKeys();
+			if (keys.next()) {
+				id = (Integer) keys.getInt(1);
+			}
+
+			// Handle any SQL errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
 				}
 			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+			if (keys != null) {
+				try {
+					keys.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+
 		}
-	
+		return id;
+	}
+
 	@Override
 	public void update(TaskRecordVO taskrecordVO1, TaskRecordVO taskrecordVO2) {
-
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try {
 
-//			Class.forName(driver);
-//			con = DriverManager.getConnection(url, userid, passwd);
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(UPDATE_STMT);
 
@@ -105,15 +125,12 @@ public class JdbcTaskRecordDAO implements TaskRecordDAO {
 			pstmt.setInt(1, taskrecordVO2.getTaskId());
 			pstmt.setInt(2, taskrecordVO2.getMemberId());
 			pstmt.executeUpdate();
-		
-		}catch (SQLException se) {
+
+			// Handle any SQL errors
+		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. "
 					+ se.getMessage());
-//			// Handle any SQL errors
-//		} catch (SQLException se) {
-//			throw new RuntimeException("A database error occured. "
-//					+ se.getMessage());
-//			// Clean up JDBC resources
+			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
 				try {
@@ -130,32 +147,28 @@ public class JdbcTaskRecordDAO implements TaskRecordDAO {
 				}
 			}
 		}
-    }
-	@Override
-	public void delete(Integer task_id,Integer member_id) {
 
+	}
+
+	@Override
+	public void delete(Integer taskId,Integer memberId) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try {
 
-//			Class.forName(driver);
-//			con = DriverManager.getConnection(url, userid, passwd);
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(DELETE_STMT);
-            pstmt.setInt(1, task_id);
-            pstmt.setInt(2, member_id);
-            pstmt.executeUpdate();
+			 
+			pstmt.setInt(1, taskId);
+	        pstmt.setInt(2, memberId);
+	        pstmt.executeUpdate();
 
-			// Handle any driver errors
+			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. " 
+			throw new RuntimeException("A database error occured. "
 					+ se.getMessage());
-//			// Handle any SQL errors
-//		} catch (SQLException se) {
-//			throw new RuntimeException("A database error occured. "
-//					+ se.getMessage());
-//			// Clean up JDBC resources
+			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
 				try {
@@ -177,7 +190,6 @@ public class JdbcTaskRecordDAO implements TaskRecordDAO {
 
 	@Override
 	public TaskRecordVO findByPrimaryKey(Integer taskId,Integer memberId) {
-
 		TaskRecordVO taskrecordVO = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -185,31 +197,24 @@ public class JdbcTaskRecordDAO implements TaskRecordDAO {
 
 		try {
 
-//			Class.forName(driver);
-//			con = DriverManager.getConnection(url, userid, passwd);
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(GET_ONE_STMT);
+
             pstmt.setInt(1, taskId);
-            pstmt.setInt(2, memberId);
-            rs = pstmt.executeQuery();
+	        pstmt.setInt(2, memberId);
+	        rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				// empVo �]�٬� Domain objects
 				taskrecordVO = new TaskRecordVO();
 				taskrecordVO.setTaskId(rs.getInt("task_id"));
-				taskrecordVO.setMemberId(rs.getInt("member_id"));
-				
+				taskrecordVO.setMemberId(rs.getInt("member_id"));			
 			}
 
-			// Handle any driver errors
+			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. "
-					+ se.getMessage());
-//			// Handle any SQL errors
-//		} catch (SQLException se) {
-//			throw new RuntimeException("A database error occured. "
-//					+ se.getMessage());
-//			// Clean up JDBC resources
+			se.printStackTrace();
+			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
 				try {
@@ -234,6 +239,7 @@ public class JdbcTaskRecordDAO implements TaskRecordDAO {
 			}
 		}
 		return taskrecordVO;
+
 	}
 
 	@Override
@@ -241,16 +247,14 @@ public class JdbcTaskRecordDAO implements TaskRecordDAO {
 		List<TaskRecordVO> list = new ArrayList<TaskRecordVO>();
 		TaskRecordVO taskrecordVO = null;
 
-		Connection con = null;
+		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		try {
 
-//			Class.forName(driver);
-//			con = DriverManager.getConnection(url, userid, passwd);
-			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(GET_ALL_STMT);
+			conn = ConnectionBean.getConnection();
+			pstmt = conn.prepareStatement(GET_ALL_STMT);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -258,19 +262,14 @@ public class JdbcTaskRecordDAO implements TaskRecordDAO {
 				taskrecordVO = new TaskRecordVO();
 				taskrecordVO.setTaskId(rs.getInt("task_id"));
 				taskrecordVO.setMemberId(rs.getInt("member_id"));
-				
 				list.add(taskrecordVO); // Store the row in the list
 			}
 
-			// Handle any driver errors
+			// Handle any SQL errors
 		} catch (SQLException se) {
-			throw new RuntimeException("Couldn't load database driver. "
+			throw new RuntimeException("A database error occured. "
 					+ se.getMessage());
-//			// Handle any SQL errors
-//		} catch (SQLException se) {
-//			throw new RuntimeException("A database error occured. "
-//					+ se.getMessage());
-//			// Clean up JDBC resources
+			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
 				try {
@@ -286,18 +285,24 @@ public class JdbcTaskRecordDAO implements TaskRecordDAO {
 					se.printStackTrace(System.err);
 				}
 			}
-			if (con != null) {
+			if (conn != null) {
 				try {
-					con.close();
+					conn.close();
 				} catch (Exception e) {
 					e.printStackTrace(System.err);
 				}
 			}
 		}
 		return list;
+
 	}
 
 	public static void main(String[] args) {
+		System.out.println(INSERT_STMT);
 		System.out.println(UPDATE_STMT);
-	} 
+		System.out.println(DELETE_STMT);
+		System.out.println(GET_ONE_STMT);
+		System.out.println(GET_ALL_STMT);
+	}
+
 }

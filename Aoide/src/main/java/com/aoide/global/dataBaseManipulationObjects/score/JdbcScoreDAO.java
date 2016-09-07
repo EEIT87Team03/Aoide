@@ -193,11 +193,11 @@ public class JdbcScoreDAO implements ScoreDAO {
 			
 			while (rs.next()){
 				scoreVO = new ScoreVO();
-	    		scoreVO.setMemberId(rs.getInt("memberId"));
-	    		scoreVO.setSongId(rs.getInt("songId"));
+	    		scoreVO.setMemberId(rs.getInt("member_id"));
+	    		scoreVO.setSongId(rs.getInt("song_id"));
 	    		scoreVO.setDate(rs.getDate("date"));
-	    		scoreVO.setScoreValue(rs.getInt("scoreValue"));
-	    		scoreVO.setComment(rs.getString("commemt"));
+	    		scoreVO.setScoreValue(rs.getInt("score_value"));
+	    		scoreVO.setComment(rs.getString("comment_file"));
 				
 			       }
 				
@@ -253,11 +253,11 @@ public class JdbcScoreDAO implements ScoreDAO {
 	    	
 	    	while(rs.next()){
 	    		scoreVO = new ScoreVO();
-	    		scoreVO.setMemberId(rs.getInt("memberId"));
-	    		scoreVO.setSongId(rs.getInt("songId"));
+	    		scoreVO.setMemberId(rs.getInt("member_id"));
+	    		scoreVO.setSongId(rs.getInt("song_id"));
 	    		scoreVO.setDate(rs.getDate("date"));
-	    		scoreVO.setScoreValue(rs.getInt("scoreValue"));
-	    		scoreVO.setComment(rs.getString("commemt"));
+	    		scoreVO.setScoreValue(rs.getInt("score_value"));
+	    		scoreVO.setComment(rs.getString("comment_file"));
 	    		
 	    		
 	    		

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,24 +52,27 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 			.toString();
 
 	
-	
+	Integer id = null;
 	// Methods
 	@Override
-	public void insert(AccusementDanmukuVO accusementDanmukuVO) {
+	public Integer insert(AccusementDanmukuVO accusementDanmukuVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try {
 
 			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(INSERT_STMT);
+			pstmt = con.prepareStatement(INSERT_STMT, Statement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setInt(1, accusementDanmukuVO.getAccuseId());
 			pstmt.setInt(2, accusementDanmukuVO.getAccusedId());
 			pstmt.setString(3, accusementDanmukuVO.getContentFile());
 
 			pstmt.executeUpdate();
-
+			
+			ResultSet keys = pstmt.getGeneratedKeys();
+			if ( keys.next() ) {  id = (Integer) keys.getInt(1);  }
+			return id;
 			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. "

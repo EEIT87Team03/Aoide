@@ -18,7 +18,7 @@ public class TestPretendLoginFilter extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberVO member = (MemberVO) request.getSession().getAttribute("loginMember");
+		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
 		System.out.println(member.getMemberId());
 		System.out.println(member.getAccount());
 		System.out.println(member.getTokenTotal());
