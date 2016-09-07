@@ -61,7 +61,7 @@ public class BroadcastMessageServer
 		} 
 		catch ( Exception ex )
 		{
-			System.out.println("Error updating a client : " + ex.getMessage() );
+			System.out.println("Error updating a client : 1" + ex.getMessage() );
 		}
 	}
 	
@@ -75,7 +75,7 @@ public class BroadcastMessageServer
 			} 
 			catch ( Exception ex) 
 			{
-		        System.out.println("Error updating a client : " + ex.getMessage() );
+		        System.out.println("Error updating a client : 2" + ex.getMessage() );
 		    }
 		}
 	}

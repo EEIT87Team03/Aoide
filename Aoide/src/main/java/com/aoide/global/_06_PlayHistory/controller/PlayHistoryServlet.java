@@ -29,6 +29,7 @@ public class PlayHistoryServlet extends HttpServlet {
 //		new PlayHistoryService().insetNewClickHistory(new_clickhistoryVO);
 		
 		
+		
 		//呼叫PlayHistoryService().getAllClickhistory()將從資料庫獲取全部的ClickhistoryVO物件
 		List<ClickHistoryVO> clickhistorysList = new PlayHistoryService().getAllClickhistory();
 		

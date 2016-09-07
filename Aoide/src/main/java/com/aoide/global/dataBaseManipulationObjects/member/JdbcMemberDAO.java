@@ -38,6 +38,12 @@ public class JdbcMemberDAO implements MemberDAO
 			+ "[picture], [introduction_file_path], [class_type], [ban_state] ,[bank_info] "
 			+ "FROM member ORDER BY [member_id]";
 	
+	private static final String GET_BY_MEMBER_ID =
+			"SELECT [member_id] ,[account], [password], [name], [email], "
+			+ "[register_state], [login_count], [last_login_date], [token_total], "
+			+ "[picture], [introduction_file_path], [class_type], [ban_state] ,[bank_info] "
+			+ "FROM member WHERE [member_id] = ?";
+	
 	private Connection conn;
 	
 	public JdbcMemberDAO( Connection conn )
@@ -45,6 +51,8 @@ public class JdbcMemberDAO implements MemberDAO
 		this.conn = conn;
 	}
 	
+	
+
 	@Override
 	public int insert( MemberVO vo ) 
 	{
@@ -130,6 +138,26 @@ public class JdbcMemberDAO implements MemberDAO
 			e.printStackTrace();
 		}
 		return voList;
+	}
+
+	@Override
+	public MemberVO findByMemberId(Integer memberId)
+	{
+		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_BY_MEMBER_ID, memberId );
+			 ResultSet rs = pstmt.executeQuery()	)
+		{
+			if ( rs.next() ) 
+			{
+				return ( MemberVO ) AutoInvoker.inject( rs,  new MemberVO() );
+			}
+			
+		}
+		catch( Exception e )
+		{
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 }
