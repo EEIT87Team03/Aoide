@@ -60,7 +60,6 @@ public class JdbcSuggestionDAO implements SuggestionDAO {
 	}
 
 	// Method
-	
 	@Override
 	public Integer insert(SuggestionVO suggestionVO) {
 		Connection con = null;

@@ -33,6 +33,11 @@ public class TestUploadServlet extends HttpServlet {
 		//reference   https://docs.oracle.com/javaee/7/tutorial/servlets016.htm
 		
 	    final Part part = request.getPart("songFile");
+	    
+	    // get file size and content type
+	    System.out.println("type: " + part.getContentType()); // audio/mp3 image/jpeg
+	    System.out.println("size: " + part.getSize()); // byte
+	    
 	    final String fileName = getFileName(part).trim();
 	    int index = fileName.lastIndexOf('.');
 	    String fileNameExtension = fileName.substring(index); // get .mp3
@@ -44,7 +49,7 @@ public class TestUploadServlet extends HttpServlet {
 	    
 	    UploadService service = new UploadService();
 
-		// call service to name and tempPath into DB and get the id of the song
+		// call service to save name and tempPath into DB and get the id of the song
 	    String name = request.getParameter("name");
 	    SongVO song = new SongVO();
 	    song.setMemberId(1);
@@ -88,12 +93,21 @@ public class TestUploadServlet extends HttpServlet {
 	    song.setAlbumId(1);
 	    service.updatePath(song);
 		// call service to check the song in DB by id
-	    song = service.checkUpload(id);
 	    
-	    // go to checkUploadResult.jsp
+	    
+	    
+	    song = service.checkUpload(id);
+	    try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	    // go to DisplayResultServlet
 	    request.getSession().setAttribute("song", song);
-	    String contextPath = request.getContextPath();
-	    response.sendRedirect(contextPath + "/_99_TestUpload.view/checkUploadResult.jsp");
+	    request.getRequestDispatcher("/DisplayResultServlet").forward(request, response);
+	    
 	}
 	
 	

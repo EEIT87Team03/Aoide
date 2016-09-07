@@ -5,15 +5,15 @@ import java.sql.Date;
 	public class BulletVO {
 		private Integer bulletId;
 		private Date date;
-		private String tiltle;
+		private String title;
 		private String contentFile;
 		
 		public BulletVO() {
 		}
-		public BulletVO(Integer bulletId, Date date, String tiltle , String contentFile) {
+		public BulletVO(Integer bulletId, Date date, String title , String contentFile) {
 			this.bulletId = bulletId;
 			this.date = date;
-			this.tiltle = tiltle;
+			this.title = title;
 			this.contentFile = contentFile;
 		}
 
@@ -28,12 +28,12 @@ import java.sql.Date;
 			}
 			public void setDate(Date date) {
 				this.date = date;
+			}	
+			public String getTitle() {
+				return title;
 			}
-			public String getTiltle() {
-				return tiltle;
-			}
-			public void setTiltle(String tiltle) {
-				this.tiltle = tiltle;
+			public void setTitle(String title) {
+				this.title = title;
 			}
 			public String getContentFile() {
 				return contentFile;
@@ -41,4 +41,5 @@ import java.sql.Date;
 			public void setContentFile(String contentFile) {
 				this.contentFile = contentFile;
 			}
+
     }
