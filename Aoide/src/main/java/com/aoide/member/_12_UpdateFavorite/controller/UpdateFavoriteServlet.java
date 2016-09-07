@@ -39,14 +39,8 @@ public class UpdateFavoriteServlet extends HttpServlet {
 				System.out.println("該玩家以收藏該首歌，改為刪除此歌的收藏紀錄");
 				new UpdateFavoriteService().delectFavorite(memberId,songId);
 				
-				//使用UpdateFavoriteService().getFavoriteById(member.getMemberId())獲得特定ID的FavoriteVO物件串
-				List<FavoriteVO> new_favoriteVOList = new ShowFavoriteService().getFavoriteById(member.getMemberId());
-				
-				//將FavoriteVO物件串放入Session物件中
-				request.getSession().setAttribute("favoriteVOList", new_favoriteVOList);
-				
-				String context = request.getContextPath();
-				response.sendRedirect(context + "/_12_UpdateFavorite.view/ShowFavoritePage.jsp");
+				//呼叫ShowFavoriteServlet.member進行顯示
+				response.sendRedirect("/Aoide//ShowFavoriteServlet.member");
 				return;
 			};
 			
@@ -55,20 +49,14 @@ public class UpdateFavoriteServlet extends HttpServlet {
 		System.out.println("資料庫裡該玩家沒有收藏該首歌，將新增一筆資料入資料庫");
 		new UpdateFavoriteService().insertFavorite(memberId,songId);
 		
-		//使用UpdateFavoriteService().getFavoriteById(member.getMemberId())獲得特定ID的FavoriteVO物件串
-		List<FavoriteVO> new_favoriteVOList = new ShowFavoriteService().getFavoriteById(member.getMemberId());
-		
-		//將FavoriteVO物件串放入Session物件中
-		request.getSession().setAttribute("favoriteVOList", new_favoriteVOList);
-		
-		
-		String context = request.getContextPath();
-		response.sendRedirect(context + "/_12_UpdateFavorite.view/ShowFavoritePage.jsp");
+		//呼叫ShowFavoriteServlet.member進行顯示
+		response.sendRedirect("/Aoide/ShowFavoriteServlet.member");
 		return;
 		
 	}
 
-	
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
