@@ -36,17 +36,17 @@ public class AutoInvoker
 		List< String > propertyNames = analyze( sql );
 		
 		int parmCount = sqlMetaData.getParameterCount();
-		System.out.println( "parmCount = " + parmCount );
+//		System.out.println( "parmCount = " + parmCount );
 		
 		if ( ( propertyNames != null ) && ( propertyNames.size() == parmCount ) )
 		{
 			int propertyCount = propertyNames.size();
-			System.out.println( "propertyCount = " + propertyCount );
+//			System.out.println( "propertyCount = " + propertyCount );
 			
 			for( int i = 0; i < propertyCount; i++ )
 			{
 				Method voGetter = voClass.getMethod( "get" + propertyNames.get( i ) );
-				System.out.println( "vo." + voGetter.getName() + "() = " + voGetter.invoke( vo ) );
+//				System.out.println( "vo." + voGetter.getName() + "() = " + voGetter.invoke( vo ) );
 				
 				if( ( voGetter.getReturnType() == byte[].class ) && ( voGetter.invoke( vo ) != null ) )
 				{
@@ -129,7 +129,7 @@ public class AutoInvoker
 			}
 		}
 		
-		System.out.println( "unMatchedQuestionMark = " + unMatchedQuestionMark );
+//		System.out.println( "unMatchedQuestionMark = " + unMatchedQuestionMark );
 			
 		return propertyNames;
 	}
@@ -214,7 +214,7 @@ public class AutoInvoker
 			Method voSetter = voClass.getMethod( setterName, map.get( setterName ) ); 
 			
 			voSetter.invoke( vo, rs.getObject( i ) );
-			System.out.println( "vo." + setterName + "( " + rs.getObject( i ) + " )" );
+//			System.out.println( "vo." + setterName + "( " + rs.getObject( i ) + " )" );
 		}
 		return vo;
 	}

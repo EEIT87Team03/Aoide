@@ -181,8 +181,8 @@ public class HibernateAccusementDanmukuDAO {
 				accusementDanmukuVO = ( AccusementDanmukuVO ) AutoInvoker.inject( rs,  new AccusementDanmukuVO() );
 				Integer accuseId = accusementDanmukuVO.getAccuseId();
 				Integer accusedId = accusementDanmukuVO.getAccusedId();
-				System.out.println("accuseId: " + accuseId);
-				System.out.println("accusedId: " + accusedId);
+//				System.out.println("accuseId: " + accuseId);
+//				System.out.println("accusedId: " + accusedId);
 				
 				// get accuse by memberId
 				MemberVO accuse = null;

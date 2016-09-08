@@ -21,6 +21,7 @@ public class ListSuggestionsServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// System.out.println("In ReplySuggestionsServlet doGet()");
 		// get the suggestion list from service
 		List<SuggestionVO> unreplySuggestions = new SuggestionService().getUnreplySuggestions();

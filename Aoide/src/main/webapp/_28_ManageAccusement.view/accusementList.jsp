@@ -29,11 +29,12 @@
 									</div>
 									<div class="panel-body">
 										<p>Accused:${aAccusement.accused.account}</p>
+										<p>BanState:${aAccusement.accused.banState}</p>
 									    ${aAccusement.contentFile}
 									    <p>Accuse:${aAccusement.accuse.account}</p>
 									</div>
 									<div class="panel-footer">
-										<a href="<c:url value=''/>" class="btn btn-success btn-sm" role="button">Ban</a>
+										<a href="<c:url value='/BanMemberServlet?accusedAccount=${aAccusement.accused.account}'/>" class="btn btn-success btn-sm" role="button">Ban</a>
 		    							<a href="<c:url value='/RemoveAccusement?accusementId=${ aAccusement.accusementDanmukuId}&accusedAccount=${aAccusement.accused.account}'/>" class="btn btn-danger btn-sm" role="button">Release</a>
 									</div>
 								</div>
