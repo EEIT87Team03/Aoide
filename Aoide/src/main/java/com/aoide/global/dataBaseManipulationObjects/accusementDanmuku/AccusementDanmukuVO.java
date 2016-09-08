@@ -1,8 +1,9 @@
 package com.aoide.global.dataBaseManipulationObjects.accusementDanmuku;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class AccusementDanmukuVO {
+public class AccusementDanmukuVO implements Serializable{
 	   
 	// Fields
 	private int accusementDanmukuId; 

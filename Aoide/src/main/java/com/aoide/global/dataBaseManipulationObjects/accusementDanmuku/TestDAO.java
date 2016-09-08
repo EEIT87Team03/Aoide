@@ -44,7 +44,7 @@ public class TestDAO {
 					                    .append("/ accused name: ").append(accused.getName())
 					                    .append("\n").toString();
 		}
-		
+	
 		
 	}// end main
 
