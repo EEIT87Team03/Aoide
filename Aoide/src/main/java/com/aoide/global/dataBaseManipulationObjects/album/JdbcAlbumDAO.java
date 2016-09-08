@@ -13,29 +13,29 @@ public class JdbcAlbumDAO implements AlbumDAO
 {
 	private static final String INSERT_STMT = 
 			"INSERT INTO album "
-			+ "( [member_id], [name], [performer], [introduction_file_path], [cover_file_path] ) " 
+			+ "( [member_id], [name], [artist], [introduction_file_path], [cover_file_path] ) " 
 			+ "VALUES ( ?, ?, ?, ?, ? )";
 		
 	private static final String UPDATE_STMT = 
 			"UPDATE album SET "
-			+ "[name] = ?, [performer] = ?, [introduction_file_path] = ?, [update_date] = ?, [cover_file_path] = ? "
+			+ "[name] = ?, [artist] = ?, [introduction_file_path] = ?, [update_date] = ?, [cover_file_path] = ? "
 			+ "WHERE [album_id] = ?";
 		
 	private static final String DELETE_STMT = 
 			"DELETE FROM album WHERE [album_id] = ?";
 	
 	private static final String SEARCH_STMT = 
-			"SELECT [album_id] ,[member_id], [name], [performer], "
+			"SELECT [album_id] ,[member_id], [name], [artist], "
 			+ "[introduction_file_path], [update_date], [cover_file_path] "
 			+ "FROM album WHERE [name] LIKE ?";
 		
 	private static final String GET_ONE_STMT = 
-			"SELECT [album_id] ,[member_id], [name], [performer], "
+			"SELECT [album_id] ,[member_id], [name], [artist], "
 			+ "[introduction_file_path], [update_date], [cover_file_path] "
 			+ "FROM album WHERE [album_id] = ?";
 		
 	private static final String GET_ALL_STMT = 
-			"SELECT [album_id] ,[member_id], [name], [performer], "
+			"SELECT [album_id] ,[member_id], [name], [artist], "
 			+ "[introduction_file_path], [update_date], [cover_file_path] "
 			+ "FROM album ORDER BY [album_id]";
 	

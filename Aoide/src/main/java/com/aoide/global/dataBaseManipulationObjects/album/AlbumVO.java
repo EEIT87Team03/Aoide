@@ -8,7 +8,7 @@ public class AlbumVO implements Serializable
 	private Integer albumId;
 	private Integer memberId;
 	private String name;
-	private String performer;
+	private String artist;
 	private String introductionFilePath;
 	private Date updateDate;
 	private String coverFilePath;
@@ -39,13 +39,13 @@ public class AlbumVO implements Serializable
 		this.name = name;
 	}
 	
-	public String getPerformer() 
+	public String getArtist() 
 	{
-		return performer;
+		return artist;
 	}
-	public void setPerformer( String performer ) 
+	public void setArtist(String artist) 
 	{
-		this.performer = performer;
+		this.artist = artist;
 	}
 	
 	public String getIntroductionFilePath() 
