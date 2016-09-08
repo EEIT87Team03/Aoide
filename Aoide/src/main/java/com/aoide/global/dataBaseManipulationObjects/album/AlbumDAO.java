@@ -8,5 +8,6 @@ public interface AlbumDAO
 	public int update( AlbumVO newValueObject );
 	public int delete( int albumId );
 	public AlbumVO findByPrimaryKey( int albumId );
+	public List< AlbumVO > search( String name );
 	public List< AlbumVO > getAll();
 }
