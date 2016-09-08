@@ -61,10 +61,10 @@ public class UploadMemberPictureServlet extends HttpServlet
 				String encodedText = encoder.encodeToString( baos.toByteArray() );
 				userInfo.setPicture( encodedText );
 				
-				session.setAttribute( "member", userInfo );
-				ms.updateMemberData( userInfo );
+				session.setAttribute( "member", userInfo );		//update session attribute
+				ms.updateMemberData( userInfo );				//update database
 				
-				response.getWriter().write( "Upload Success" );
+				response.getWriter().write( "Upload Success" );	//output response to XMLHttpRequest
 			}
 			catch ( Exception e )
 			{
@@ -73,8 +73,7 @@ public class UploadMemberPictureServlet extends HttpServlet
 		}
 		else
 		{
-			response.sendRedirect(
-					request.getContextPath() + "/_08_login.view/login.html" );
+			response.getWriter().write( "Upload Fail" );
 		}
 	}
 	

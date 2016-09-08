@@ -75,7 +75,7 @@
 // 											img.onload = function(){ window.URL.revokeObjectURL( img.src ) }
 // 											img.style.height = img.style.width = "300px";
 // 											document.body.appendChild( img );
-											alert( xhr.responseText);
+											alert( xhr.responseText );
 										 }
 											
 									 };
