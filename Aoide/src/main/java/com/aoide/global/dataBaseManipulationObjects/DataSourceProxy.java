@@ -3,6 +3,7 @@ package com.aoide.global.dataBaseManipulationObjects;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -19,17 +20,28 @@ public class DataSourceProxy
 	private static String url;
 	private static String account;
 	private static String password ;
-	private static DataSource ds = null;
-	private static Properties props = null;
+	private static DataSource ds;
+	private static Properties props;
 	
 	
-	public static Connection getConnection()
+	public static Connection getConnection() 
 	{
 		Connection conn = null;		
-		try {
+		try
+		{
 			conn = getJndiConnection();
-		} catch ( Exception e) {
-			e.printStackTrace();
+			
+		} 
+		catch ( Exception e) 
+		{
+			try
+			{
+				conn = getJdbcConnection();
+			}
+			catch( Exception ex )
+			{
+				ex.printStackTrace();
+			}
 		}
 		
 		return conn;
@@ -40,8 +52,11 @@ public class DataSourceProxy
 			throws ClassNotFoundException, SQLException, FileNotFoundException, IOException
 	{
 		props = new Properties();
-		props.load( new FileInputStream( "src/com/aoide/util/jdbc.properties" ) );
-	
+		
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		props.load( classLoader.getResourceAsStream( "main/java/com/aoide/global/dataBaseManipulationObjects/jdbc.properties" ) );
+		
+		Class.forName( props.getProperty( "driverName" ) );
 		url = props.getProperty( "connUrl" );
 		account = props.getProperty( "dbAccount" );
 		password = props.getProperty( "dbPassword" );
@@ -53,9 +68,7 @@ public class DataSourceProxy
 		try 
 		{
 			Context ctx = new InitialContext();
-			ds = ( DataSource ) ctx.lookup("java:comp/env/jdbc/AOIDE");
-			
-
+			ds = ( DataSource ) ctx.lookup( "java:comp/env/jdbc/AOIDE" );
 		} 
 		catch ( Exception e ) 
 		{
