@@ -14,10 +14,22 @@
 				<td><span>${member.account}</span></td>
 			</tr>
 			<tr>
+				<td><label for = "name">Name : </label></td>
+				<td><span>${member.name}</span></td>
+			</tr>
+			<tr>
+				<td><label for = "email">Email : </label></td>
+				<td><span>${member.email}</span></td>
+			</tr>
+			<tr>
+				<td><label for = "lastLogin">Last Login : </label></td>
+				<td><span>${member.lastLoginDate}</span></td>
+			</tr>
+			<tr>
 				<td><label for = "picture">Picture : </label></td>
 				<td>
 					<div>
-						<img id = "current" src="data:image/*;base64,${member.picture}" alt="..." width="200" height="200">
+						<img id = "current" src="data:image/*;base64,${member.picture}" width="200" height="200">
 						<img src="#" id = "preview"  alt = "preview image" width = "200" height = "200" style = "display : none"/>
 					</div>	
 					<div>

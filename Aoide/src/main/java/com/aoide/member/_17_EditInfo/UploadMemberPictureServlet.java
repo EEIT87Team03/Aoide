@@ -44,7 +44,7 @@ public class UploadMemberPictureServlet extends HttpServlet
 		String fileName = getFileNameFromPart( file ).trim(); 
 		System.out.println( "File Name : " + fileName + "\tMIME : " + getServletContext().getMimeType( fileName ) );
 		
-		HttpSession session =  request.getSession();
+		HttpSession session = request.getSession();
 		MemberVO userInfo = ( MemberVO ) session.getAttribute( "member" );
 		if ( userInfo != null )
 		{
@@ -64,7 +64,7 @@ public class UploadMemberPictureServlet extends HttpServlet
 				session.setAttribute( "member", userInfo );
 				ms.updateMemberData( userInfo );
 				
-				response.getWriter().write( "upload success" );
+				response.getWriter().write( "Upload Success" );
 			}
 			catch ( Exception e )
 			{
