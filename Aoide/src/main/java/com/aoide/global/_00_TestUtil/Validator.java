@@ -12,7 +12,7 @@ public class Validator {
 		return isValidString(str) && str.matches("^(\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3})$");
 	}
 	public static boolean isValidAccount(String str){
-		return ((str != null) && (str.trim().length() != 0));
+		return ((str != null) && (str.trim().length() >= 5));
 	}
 	public static boolean isValidPassword(String str){
 		// ref http://regexlib.com/REDetails.aspx?regexp_id=2112
