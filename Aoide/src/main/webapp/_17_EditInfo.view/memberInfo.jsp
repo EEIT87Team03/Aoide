@@ -36,8 +36,8 @@
 						<img src="#" id = "preview"  alt = "preview image" width = "200" height = "200" style = "display : none"/>
 					</div>	
 					<div>
-						<input type = "file" id = "selectedFile" name = "selectedFile"><span id="status">
-						<input type = "button" id = "upload" value = "Upload"></span><span id="progress"></span>
+						<input type = "file" accept="image/*" id = "selectedFile" name = "selectedFile"><span id="status"></span>
+						<input type = "button" id = "upload" value = "Upload"><span id="progress"></span>
 					</div>
 				</td>
 			</tr>
@@ -67,7 +67,8 @@
 											//document.getElementById( "preview" ).src = event.target.result;
 											document.getElementById( "preview" ).style.display = "block";
 											document.getElementById( "current" ).style.display = "none";
-											document.getElementById("status").innerHTML = this.files[ 0 ].name;
+											document.getElementById( "status" ).innerHTML = this.files[ 0 ].name;
+											document.getElementById( "progress" ).innerHTML = "";
 										};
 						reader.readAsDataURL( selectedFile );
 					};

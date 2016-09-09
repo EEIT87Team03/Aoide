@@ -27,6 +27,8 @@ public class DataSourceProxy
 	public static Connection getConnection() 
 	{
 		Connection conn = null;		
+		Throwable exceptions = new Throwable();
+		
 		try
 		{
 			conn = getJndiConnection();
@@ -34,13 +36,19 @@ public class DataSourceProxy
 		} 
 		catch ( Exception e) 
 		{
+			exceptions.addSuppressed( e );
 			try
 			{
 				conn = getJdbcConnection();
 			}
 			catch( Exception ex )
 			{
-				ex.printStackTrace();
+				exceptions.addSuppressed( ex );
+			}
+			
+			for ( Throwable t : exceptions.getSuppressed() )
+			{
+				t.printStackTrace();
 			}
 		}
 		
@@ -63,17 +71,11 @@ public class DataSourceProxy
 		return DriverManager.getConnection( url, account, password );
 	}
 	
-	public static Connection getJndiConnection() throws ClassNotFoundException, SQLException
+	public static Connection getJndiConnection() throws ClassNotFoundException, SQLException, NamingException
 	{
-		try 
-		{
-			Context ctx = new InitialContext();
-			ds = ( DataSource ) ctx.lookup( "java:comp/env/jdbc/AOIDE" );
-		} 
-		catch ( Exception e ) 
-		{
-			e.printStackTrace();
-		}
+		Context ctx = new InitialContext();
+		ds = ( DataSource ) ctx.lookup( "java:comp/env/jdbc/AOIDE" );	
+		
 		return ds.getConnection();
 	}
 }

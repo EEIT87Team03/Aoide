@@ -1,6 +1,5 @@
 package com.aoide.global.dataBaseManipulationObjects.member;
 
-import java.io.ByteArrayInputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,13 +13,13 @@ public class JdbcMemberDAO implements MemberDAO
 {
 	private static final String INSERT_STMT = 
 			"INSERT INTO member "
-			+ "( [account], [password], [name], [email], [picture], [introduction_file_path], [bank_info] ) " 
+			+ "( [account], [password], [name], [email], [introduction_file_path], [bank_info], [picture] ) " 
 			+ "VALUES ( ?, ?, ?, ?, ?, ?, ? )";
 		
 	private static final String UPDATE_STMT = 
 			"UPDATE member SET "
 			+ "[password] = ?, [name] = ?, [email] = ?, [login_count] = ?, [last_login_date] = ?, "
-			+ "[token_total] = ?, [picture] = ?, [introduction_file_path] = ?, [bank_info] = ? "
+			+ "[token_total] = ?, [introduction_file_path] = ?, [bank_info] = ?, [picture] = ? "
 			+ "WHERE [account] = ?";
 		
 	private static final String DELETE_STMT = 
@@ -28,20 +27,20 @@ public class JdbcMemberDAO implements MemberDAO
 		
 	private static final String GET_ONE_STMT = 
 			"SELECT [member_id] ,[account], [password], [name], [email], "
-			+ "[register_state], [login_count], [last_login_date], [token_total],"
-			+ "[picture], [introduction_file_path], [class_type], [ban_state] ,[bank_info] "
+			+ "[register_state], [login_count], [last_login_date], [token_total], "
+			+ "[introduction_file_path], [class_type], [ban_state] ,[bank_info], [picture] "
 			+ "FROM member WHERE [account] = ?";
 		
 	private static final String GET_ALL_STMT = 
 			"SELECT [member_id] ,[account], [password], [name], [email], "
 			+ "[register_state], [login_count], [last_login_date], [token_total], "
-			+ "[picture], [introduction_file_path], [class_type], [ban_state] ,[bank_info] "
+			+ "[introduction_file_path], [class_type], [ban_state] ,[bank_info], [picture] "
 			+ "FROM member ORDER BY [member_id]";
 	
-	private static final String GET_BY_MEMBER_ID =
+	private static final String GET_ONE_BY_ID =
 			"SELECT [member_id] ,[account], [password], [name], [email], "
 			+ "[register_state], [login_count], [last_login_date], [token_total], "
-			+ "[picture], [introduction_file_path], [class_type], [ban_state] ,[bank_info] "
+			+ "[introduction_file_path], [class_type], [ban_state] ,[bank_info], [picture] "
 			+ "FROM member WHERE [member_id] = ?";
 	
 	private Connection conn;
@@ -143,7 +142,7 @@ public class JdbcMemberDAO implements MemberDAO
 	@Override
 	public MemberVO findByMemberId( Integer memberId )
 	{
-		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_BY_MEMBER_ID, memberId );
+		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_ONE_BY_ID, memberId );
 			 ResultSet rs = pstmt.executeQuery()	)
 		{
 			if ( rs.next() ) 
