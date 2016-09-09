@@ -12,7 +12,6 @@ public class SongVO {
 	private String songType;
 	private String songLanguage;
 	private int memberId;
-	private String singer;
 	private int albumId = 1;
 	private String introductionFile;
 	private String coverFile;
@@ -22,6 +21,9 @@ public class SongVO {
 	private int clicks;
 	private int favoriteCounts;
 	private int shares;
+	private double score;
+	private String length;
+	private String singer;
 	
 	// Constructors
 	public SongVO() {
@@ -33,7 +35,6 @@ public class SongVO {
 				  String songType,
 				  String songLanguage,
 				  int memberId,
-				  String singer,
 				  int albumId,
 				  String introductionFile,
 				  String coverFile,
@@ -42,7 +43,10 @@ public class SongVO {
 				  Timestamp lastclickDate,
 				  int clicks,
 				  int favoriteCounts,
-				  int shares) {
+				  int shares,
+				  double score,
+				  String length,
+				  String singer) {
 		super();
 		this.songId = songId;
 		this.songFile = songFile;
@@ -50,7 +54,6 @@ public class SongVO {
 		this.songType = songType;
 		this.songLanguage = songLanguage;
 		this.memberId = memberId;
-		this.singer = singer;
 		this.albumId = albumId;
 		this.introductionFile = introductionFile;
 		this.coverFile = coverFile;
@@ -60,6 +63,9 @@ public class SongVO {
 		this.clicks = clicks;
 		this.favoriteCounts = favoriteCounts;
 		this.shares = shares;
+		this.score = score;
+		this.length = length;
+		this.singer = singer;
 	}
 	
 	// Methods
@@ -109,14 +115,6 @@ public class SongVO {
 
 	public void setMemberId(int memberId) {
 		this.memberId = memberId;
-	}
-	
-	public String getSinger() {
-		return singer;
-	}
-
-	public void setSinger(String singer) {
-		this.singer = singer;
 	}
 
 	public int getAlbumId() {
@@ -189,5 +187,29 @@ public class SongVO {
 
 	public void setShares(int shares) {
 		this.shares = shares;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
+	public String getLength() {
+		return length;
+	}
+
+	public void setLength(String length) {
+		this.length = length;
+	}
+	
+	public String getSinger() {
+		return singer;
+	}
+
+	public void setSinger(String singer) {
+		this.singer = singer;
 	}
 }

@@ -17,6 +17,7 @@
 				<th>類型</th>
 				<th>語言</th>
 				<th>上傳日期</th>
+				<th>動作</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,6 +29,10 @@
 					<td>${mySong.songType}</td>
 					<td>${mySong.songLanguage}</td>
 					<td>${mySong.updateDate}</td>
+					<td>
+						<input type="button" value="編輯" onclick="location.href='<c:url value='/editSongServlet?id=${mySong.songId}'/>'">
+						<input type="button" value="刪除" onclick="location.href='<c:url value='/deleteSongServlet?id=${mySong.songId}'/>'">
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>

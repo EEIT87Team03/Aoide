@@ -58,7 +58,6 @@ public class UploadSongServlet extends HttpServlet {
 		String songLanguage = request.getParameter("songLanguage");
 		String introductionFile = request.getParameter("introductionFile");
 		String lyricsFile = request.getParameter("lyricsFile");
-		
 		Date updateDate = new Date(System.currentTimeMillis());
 
 		SongVO songVO = new SongVO();
