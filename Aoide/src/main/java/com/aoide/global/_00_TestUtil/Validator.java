@@ -28,6 +28,9 @@ public class Validator {
 	public static boolean isEmptyPart(Part part){
 		return part.getSize() == 0L;
 	}
+	public static boolean isPartOverSize(Part part, long size){ // size (byte)
+		return ( part.getSize() <= size );
+	}
 	
 	
 	
