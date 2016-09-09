@@ -9,8 +9,7 @@
 <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
 </head>
 <body>
-	<form action="<c:url value ='/EditBullet'/>" method="post"
-		>
+	<form action="<c:url value ='/EditBullet'/>" method="post">
 		
 <!-- 		date：<input type="text" name="date"><p> -->
 	    contentFile：<input type="text" name="contentFile"><p>
