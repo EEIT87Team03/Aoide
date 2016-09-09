@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Edit Member Info</title>
 </head>
 <body>
 	<div>
+	<form action="<c:url value='/EditInfoServlet'/>" method="post" >
 		<table>
 			<tr>
 				<td><label for = "account">Account : </label></td>
@@ -15,11 +18,11 @@
 			</tr>
 			<tr>
 				<td><label for = "name">Name : </label></td>
-				<td><span>${member.name}</span></td>
+				<td><input name="name" type="text" value="${member.name }">${errorMsg.nameError }</td>
 			</tr>
 			<tr>
 				<td><label for = "email">Email : </label></td>
-				<td><span>${member.email}</span></td>
+				<td><input  name="email" type="text" value="${member.email }">${errorMsg.emailError }</td>
 			</tr>
 			<tr>
 				<td><label for = "lastLogin">Last Login : </label></td>
@@ -39,6 +42,17 @@
 				</td>
 			</tr>
 		</table>
+		<p>Introduction: ${errorMsg.introductionError }</p>
+		<textarea name="introduction"  id="introduction" rows="10" cols="80" >
+           	${member.introductionFilePath}
+        </textarea>
+           <script>
+               // Replace the <textarea id="editor1"> with a CKEditor
+               // instance, using default configuration.
+               CKEDITOR.replace( 'introduction' );
+			</script>
+		<input type="submit" value="Submit">
+	</form>
 	</div>
 <script>
 	var xhr = null;
