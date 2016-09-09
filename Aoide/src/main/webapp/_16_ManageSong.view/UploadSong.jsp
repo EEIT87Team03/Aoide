@@ -15,6 +15,8 @@
 			<!-- 上傳封面圖片：<input type="file" name="coverFile"><p> -->
 			歌名：<input type="text" name="name">
 		<p>
+			演出者：<input type="text" name="singer">
+		<p>
 			類型：<input type="text" name="songType">
 		<p>
 			語言：<input type="text" name="songLanguage">

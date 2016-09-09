@@ -20,20 +20,38 @@ public class SearchSongServlet extends HttpServlet {
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {		
+		processRequest(request, response);		
+	}
+
+	private void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		String type = request.getParameter("searchType");
 		String search = request.getParameter("searchSong");
-
-		List<SongVO> searchResult = new SearchSongService().getSongName(search);
-
-		for (SongVO searchSong : searchResult) {
-			System.out.println(searchSong.getName());
+		
+		if(type.equalsIgnoreCase("name")){
+			List<SongVO> searchResult = new SearchSongService().getSongName(search);
+			for (SongVO searchSong : searchResult) {
+				System.out.println(searchSong.getName());
+			}
+			
+			request.getSession().setAttribute("type1", "歌名搜尋結果");
+			request.getSession().setAttribute("searchList", searchResult);
+			String contextPath = request.getContextPath();
+			response.sendRedirect(contextPath + "/_10_SearchSong.view/SearchSongResult.jsp");
+			
+		}else if(type.equalsIgnoreCase("singer")){
+			List<SongVO> searchResult = new SearchSongService().getSinger(search);
+			for (SongVO searchSong : searchResult) {
+				System.out.println(searchSong.getSinger());
+			}
+			
+			request.getSession().setAttribute("type1", "歌手搜尋結果");
+			request.getSession().setAttribute("searchList", searchResult);
+			String contextPath = request.getContextPath();
+			response.sendRedirect(contextPath + "/_10_SearchSong.view/SearchSongResult.jsp");
 		}
-
-		request.getSession().setAttribute("searchList", searchResult);
-		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_10_SearchSong.view/SearchSongResult.jsp");
 		
 	}
 

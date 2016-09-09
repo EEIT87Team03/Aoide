@@ -22,5 +22,15 @@ public class SearchSongService {
 		}
 		return searchResult;
 	}
+	
+	public List<SongVO> getSinger(String search) {
+		List<SongVO> searchResult = songDAO.getSinger(search);
+		for (SongVO searchSong : searchResult) {
+			if (searchSong.getSinger() == search) {
+				searchResult.add(searchSong);
+			}
+		}
+		return searchResult;
+	}
 
 }

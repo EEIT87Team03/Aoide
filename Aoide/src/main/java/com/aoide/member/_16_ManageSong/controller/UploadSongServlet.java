@@ -53,6 +53,7 @@ public class UploadSongServlet extends HttpServlet {
 
 		// call service to name and tempPath into DB and get the id of the song
 		String name = request.getParameter("name");
+		String singer = request.getParameter("singer");
 		String songType = request.getParameter("songType");
 		String songLanguage = request.getParameter("songLanguage");
 		String introductionFile = request.getParameter("introductionFile");
@@ -65,6 +66,7 @@ public class UploadSongServlet extends HttpServlet {
 		songVO.setSongFile("tempPath");
 		songVO.setCoverFile("/Aoide/files/song_cover_files/default.jpg");
 		songVO.setName(name);
+		songVO.setSinger(singer);
 		songVO.setSongType(songType);
 		songVO.setSongLanguage(songLanguage);
 		songVO.setMemberId(1);

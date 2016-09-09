@@ -13,6 +13,8 @@
 	<p>
 		歌名：${songVO.name}
 	<p>
+		演出者：${songVO.singer}
+	<p>
 		類型：${songVO.songType}
 	<p>
 		語言：${songVO.songLanguage}

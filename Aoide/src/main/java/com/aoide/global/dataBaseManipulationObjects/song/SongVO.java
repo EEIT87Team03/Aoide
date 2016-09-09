@@ -12,6 +12,7 @@ public class SongVO {
 	private String songType;
 	private String songLanguage;
 	private int memberId;
+	private String singer;
 	private int albumId = 1;
 	private String introductionFile;
 	private String coverFile;
@@ -32,6 +33,7 @@ public class SongVO {
 				  String songType,
 				  String songLanguage,
 				  int memberId,
+				  String singer,
 				  int albumId,
 				  String introductionFile,
 				  String coverFile,
@@ -48,6 +50,7 @@ public class SongVO {
 		this.songType = songType;
 		this.songLanguage = songLanguage;
 		this.memberId = memberId;
+		this.singer = singer;
 		this.albumId = albumId;
 		this.introductionFile = introductionFile;
 		this.coverFile = coverFile;
@@ -106,6 +109,14 @@ public class SongVO {
 
 	public void setMemberId(int memberId) {
 		this.memberId = memberId;
+	}
+	
+	public String getSinger() {
+		return singer;
+	}
+
+	public void setSinger(String singer) {
+		this.singer = singer;
 	}
 
 	public int getAlbumId() {
