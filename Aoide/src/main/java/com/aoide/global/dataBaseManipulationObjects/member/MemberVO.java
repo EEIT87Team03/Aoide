@@ -14,7 +14,7 @@ public class MemberVO implements java.io.Serializable
 	private Integer loginCount;	
 	private Timestamp lastLoginDate; 	
 	private BigDecimal tokenTotal; 	
-	private byte[] picture; 
+	private String picture; 
 	private String introductionFilePath; 
 	private Integer classType;		
 	private Boolean banState; 		
@@ -96,11 +96,11 @@ public class MemberVO implements java.io.Serializable
 		this.tokenTotal = tokenTotal;
 	}
 	
-	public byte[] getPicture() 
+	public String getPicture() 
 	{
 		return picture;
 	}
-	public void setPicture( byte[] picture )
+	public void setPicture( String picture )
 	{
 		this.picture = picture;
 	}

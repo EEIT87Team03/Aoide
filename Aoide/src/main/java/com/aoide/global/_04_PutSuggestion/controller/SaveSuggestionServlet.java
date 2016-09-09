@@ -58,12 +58,13 @@ public class SaveSuggestionServlet extends HttpServlet {
 			// go checkSuggetionResult.jsp
 			session.setAttribute("suggestion", suggestion);
 			response.sendRedirect(contextPath + "/_04_PutSuggestion.view/checkSuggetionResult.jsp");
-			
+			return;
 		}else{
 		// If input empty forward to enterSuggestion.jsp
 			request.setAttribute("errorMsg", errorMsg);
 			request.setAttribute("enteredText", enteredText);
 			request.getRequestDispatcher("/_04_PutSuggestion.view/enterSuggestion.jsp").forward(request, response);
+			return;
 		}
 
 		

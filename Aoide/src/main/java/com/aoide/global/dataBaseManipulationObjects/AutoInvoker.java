@@ -6,6 +6,7 @@ import java.util.Map.Entry;
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ParameterMetaData;
 import java.sql.PreparedStatement;
@@ -19,7 +20,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /*	
- *  [column _name] => vo.getColumnName()
+ *  [column _name] => vo.getColumnName() => pstmt.setObject()
  */
 public class AutoInvoker 
 {
@@ -28,42 +29,34 @@ public class AutoInvoker
 	public static PreparedStatement invoke( Connection conn, String sql, Object vo) 
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, SQLException
 	{
-		Class voClass = vo.getClass();
+		Class< ? extends Object > voClass = vo.getClass();
 		PreparedStatement pstmt = conn.prepareStatement( sql );
 		
 		ParameterMetaData sqlMetaData = pstmt.getParameterMetaData();
 		List< String > propertyNames = analyze( sql );
 		
 		int parmCount = sqlMetaData.getParameterCount();
-		System.out.println( "parmCount = " + parmCount );
+//		System.out.println( "parmCount = " + parmCount );
 		
 		if ( ( propertyNames != null ) && ( propertyNames.size() == parmCount ) )
 		{
 			int propertyCount = propertyNames.size();
-			System.out.println( "propertyCount = " + propertyCount );
+//			System.out.println( "propertyCount = " + propertyCount );
 			
 			for( int i = 0; i < propertyCount; i++ )
 			{
 				Method voGetter = voClass.getMethod( "get" + propertyNames.get( i ) );
-				System.out.println( "vo." + voGetter.getName() + "() = " + voGetter.invoke( vo ) );
+//				System.out.println( "vo." + voGetter.getName() + "() = " + voGetter.invoke( vo ) );
 				
-				if( voGetter.getReturnType() == byte[].class )
+				if( ( voGetter.getReturnType() == byte[].class ) && ( voGetter.invoke( vo ) != null ) )
 				{
-					if( voGetter.invoke( vo ) != null )
-					{	
-						pstmt.setBytes( i + 1,  ( byte[] ) voGetter.invoke( vo ) );
-					}
-					else
-					{	
-						pstmt.setBytes( i + 1, null );
-					}
+					pstmt.setBinaryStream( i + 1, new ByteArrayInputStream( ( byte[] ) voGetter.invoke( vo ) ) );
 				}
 				else
 				{
 					pstmt.setObject( i + 1, voGetter.invoke( vo ) );
 				}
 			}
-			
 		}
 		else
 		{
@@ -136,7 +129,7 @@ public class AutoInvoker
 			}
 		}
 		
-		System.out.println( "unMatchedQuestionMark = " + unMatchedQuestionMark );
+//		System.out.println( "unMatchedQuestionMark = " + unMatchedQuestionMark );
 			
 		return propertyNames;
 	}
@@ -188,6 +181,9 @@ public class AutoInvoker
 		return sb.toString();
 	}
 	
+/*	
+ *  rs.getObject( [column _name] ) => vo.setColumnName()
+ */
 	public static Object inject( ResultSet rs, Object vo ) 
 			throws SQLException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException 
 	{
@@ -214,12 +210,11 @@ public class AutoInvoker
 			
 		for ( int i = 1; i <= columnCount; i++ )
 		{
-			Method voSetter;
 			String setterName = "set" + buildProperty( md.getColumnName( i ) ) ;
+			Method voSetter = voClass.getMethod( setterName, map.get( setterName ) ); 
 			
-			voSetter = voClass.getMethod( setterName, map.get( setterName ) ); 
 			voSetter.invoke( vo, rs.getObject( i ) );
-			System.out.println( "vo." + setterName + "( " + rs.getObject( i ) + " )" );
+//			System.out.println( "vo." + setterName + "( " + rs.getObject( i ) + " )" );
 		}
 		return vo;
 	}

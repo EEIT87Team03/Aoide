@@ -1,6 +1,10 @@
 package com.aoide.member._17_EditInfo;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.Base64;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,12 +39,18 @@ public class QueryMemberInfoServlet extends HttpServlet
 	protected void doPost( HttpServletRequest request, HttpServletResponse response) 
 													throws ServletException, IOException 
 	{
+		Base64.Encoder encoder = Base64.getEncoder();
+		MemberService ms = new MemberService();
+		MemberVO bean = ms.getMemberBean( "whiteBirdBeauty" );
+		request.getSession().setAttribute( "member", bean );
+		//test data		
+		
 		HttpSession session =  request.getSession();
 		MemberVO memberBean = ( MemberVO ) session.getAttribute( "member" );
 		if ( memberBean != null )
 		{
 			response.sendRedirect(
-					request.getContextPath() + "/memberService.view/memberInfo.jsp" );
+					request.getContextPath() + "/memberInfo.jsp" );
 		}
 		else
 		{

@@ -75,6 +75,21 @@ public class AlbumService
 		return null;
 	}
 	
+	public List< AlbumVO > searchAlbum( String keyword )
+	{
+		List< AlbumVO > list = null;
+		try ( Connection conn = DataSourceProxy.getConnection() )
+		{
+			AlbumDAO adao = daoFactory.createAlbumDAO( conn );
+			list =  adao.search( keyword );
+		}
+		catch( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public List< AlbumVO > getAlbumsList()
 	{
 		List< AlbumVO > list = null;

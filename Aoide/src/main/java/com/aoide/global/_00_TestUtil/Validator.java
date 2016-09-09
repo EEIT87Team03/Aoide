@@ -20,10 +20,16 @@ public class Validator {
 		return isValidString(str) && str.matches("^([a-zA-Z0-9]{6,18}?)$");
 	}
 	public static boolean isImage(Part part){
-		return part.getContentType().trim().split("/")[0].equals("");
+		return part.getContentType().trim().split("/")[0].equals("image");
 	}
 	public static boolean isAudio(Part part){
-		return part.getContentType().trim().split("/")[0].equals("");
+		return part.getContentType().trim().split("/")[0].equals("audio");
+	}
+	public static boolean isEmptyPart(Part part){
+		return part.getSize() == 0L;
+	}
+	public static boolean isPartOverSize(Part part, long size){ // size (byte)
+		return ( part.getSize() <= size );
 	}
 	
 	

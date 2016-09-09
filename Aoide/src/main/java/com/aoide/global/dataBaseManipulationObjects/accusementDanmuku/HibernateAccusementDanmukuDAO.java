@@ -129,11 +129,11 @@ public class HibernateAccusementDanmukuDAO {
 		// get accuse by memberId
 		MemberVO accuse = null;
 		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_MEMBER_STMT, accuseId );
-				 ResultSet rs = pstmt.executeQuery()	)
+				 ResultSet rs1 = pstmt.executeQuery()	)
 			{
-				if ( rs.next() ) 
+				if ( rs1.next() ) 
 				{
-					accuse =  ( MemberVO ) AutoInvoker.inject( rs,  new MemberVO() );
+					accuse =  ( MemberVO ) AutoInvoker.inject( rs1,  new MemberVO() );
 				}
 			}
 			catch( Exception e )
@@ -144,11 +144,11 @@ public class HibernateAccusementDanmukuDAO {
 		// get accused by memberId			
 		MemberVO accused = null;
 		try( PreparedStatement pstmt = AutoInvoker.invokeByValues( conn, GET_MEMBER_STMT, accusedId );
-				 ResultSet rs = pstmt.executeQuery()	)
+				 ResultSet rs2 = pstmt.executeQuery()	)
 			{
-				if ( rs.next() ) 
+				if ( rs2.next() ) 
 				{
-					accused =  ( MemberVO ) AutoInvoker.inject( rs,  new MemberVO() );
+					accused =  ( MemberVO ) AutoInvoker.inject( rs2,  new MemberVO() );
 				}
 			}
 			catch( Exception e )
@@ -181,15 +181,17 @@ public class HibernateAccusementDanmukuDAO {
 				accusementDanmukuVO = ( AccusementDanmukuVO ) AutoInvoker.inject( rs,  new AccusementDanmukuVO() );
 				Integer accuseId = accusementDanmukuVO.getAccuseId();
 				Integer accusedId = accusementDanmukuVO.getAccusedId();
+//				System.out.println("accuseId: " + accuseId);
+//				System.out.println("accusedId: " + accusedId);
 				
 				// get accuse by memberId
 				MemberVO accuse = null;
 				try( PreparedStatement pstmt2 = AutoInvoker.invokeByValues( conn, GET_MEMBER_STMT, accuseId );
-						 ResultSet rs2 = pstmt.executeQuery()	)
+						 ResultSet rs1 = pstmt2.executeQuery()	)
 					{
-						if ( rs2.next() ) 
+						if ( rs1.next() ) 
 						{
-							accuse =  ( MemberVO ) AutoInvoker.inject( rs2,  new MemberVO() );
+							accuse =  ( MemberVO ) AutoInvoker.inject( rs1,  new MemberVO() );
 						}
 					}
 					catch( Exception e )
@@ -199,11 +201,11 @@ public class HibernateAccusementDanmukuDAO {
 				// get accused by memberId			
 				MemberVO accused = null;
 				try( PreparedStatement pstmt3 = AutoInvoker.invokeByValues( conn, GET_MEMBER_STMT, accusedId );
-						 ResultSet rs3 = pstmt.executeQuery()	)
+						 ResultSet rs3 = pstmt3.executeQuery()	)
 					{
-						if ( rs.next() ) 
+						if ( rs3.next() ) 
 						{
-							accused =  ( MemberVO ) AutoInvoker.inject( rs,  new MemberVO() );
+							accused =  ( MemberVO ) AutoInvoker.inject( rs3,  new MemberVO() );
 						}
 					}
 					catch( Exception e )
