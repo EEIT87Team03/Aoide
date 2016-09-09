@@ -1,9 +1,8 @@
 package com.aoide.global.dataBaseManipulationObjects;
 
-import java.io.FileInputStream;
+import java.io.FileInputStream; 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -62,7 +61,7 @@ public class DataSourceProxy
 		props = new Properties();
 		
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		props.load( classLoader.getResourceAsStream( "main/java/com/aoide/global/dataBaseManipulationObjects/jdbc.properties" ) );
+		props.load( classLoader.getResourceAsStream( "com/aoide/global/dataBaseManipulationObjects/jdbc.properties" ) );
 		
 		Class.forName( props.getProperty( "driverName" ) );
 		url = props.getProperty( "connUrl" );
