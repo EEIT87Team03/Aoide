@@ -19,7 +19,6 @@ public class TestSongDAO {
 			songVO1.setSongType("1");
 			songVO1.setSongLanguage("1");
 			songVO1.setMemberId(1);
-			songVO1.setSinger("abc");
 			songVO1.setAlbumId(1);
 			songVO1.setIntroductionFile("1");
 			songVO1.setCoverFile("DEFAULT");
@@ -29,6 +28,9 @@ public class TestSongDAO {
 			songVO1.setClicks(1);
 			songVO1.setFavoriteCounts(1);
 			songVO1.setShares(1);
+			songVO1.setScore(1.1);
+			songVO1.setLength("1");
+			songVO1.setSinger("abc");
 			dao.insert(songVO1);
 
 			// �ק�
@@ -39,7 +41,6 @@ public class TestSongDAO {
 			songVO2.setSongType("2");
 			songVO2.setSongLanguage("2");
 			songVO2.setMemberId(2);
-			songVO2.setSinger("fuck");
 			songVO2.setAlbumId(2);
 			songVO2.setIntroductionFile("2");
 			songVO2.setCoverFile("2");
@@ -49,21 +50,23 @@ public class TestSongDAO {
 			songVO2.setClicks(2);
 			songVO2.setFavoriteCounts(2);
 			songVO2.setShares(2);
+			songVO2.setScore(2.2);
+			songVO2.setLength("2");
+			songVO2.setSinger("fuck");
 			songVO2.setSongId(6);
 			dao.update(songVO2);
 
 			// �R��
-			dao.delete(8);
+			dao.delete(13);
 
 			// �d��
-			SongVO songVO3 = dao.findByPrimaryKey(5);
+			SongVO songVO3 = dao.findByPrimaryKey(8);
 			System.out.print(songVO3.getSongId() + ",");
 			System.out.print(songVO3.getSongFile() + ",");
 			System.out.print(songVO3.getName() + ",");
 			System.out.print(songVO3.getSongType() + ",");
 			System.out.print(songVO3.getSongLanguage() + ",");
 			System.out.print(songVO3.getMemberId() + ",");
-			System.out.print(songVO3.getSinger() + ",");
 			System.out.print(songVO3.getAlbumId() + ",");
 			System.out.print(songVO3.getIntroductionFile() + ",");
 			System.out.print(songVO3.getCoverFile() + ",");
@@ -73,6 +76,9 @@ public class TestSongDAO {
 			System.out.print(songVO3.getClicks() + ",");
 			System.out.print(songVO3.getFavoriteCounts() + ",");
 			System.out.println(songVO3.getShares() + ",");
+			System.out.print(songVO3.getScore() + ",");
+			System.out.print(songVO3.getLength() + ",");
+			System.out.println(songVO3.getSinger());
 			System.out.println("---------------------");
 
 			// �d��
@@ -84,7 +90,6 @@ public class TestSongDAO {
 				System.out.print(aSongVO.getSongType() + ",");
 				System.out.print(aSongVO.getSongLanguage() + ",");
 				System.out.print(aSongVO.getMemberId() + ",");
-				System.out.print(aSongVO.getSinger() + ",");
 				System.out.print(aSongVO.getAlbumId() + ",");
 				System.out.print(aSongVO.getIntroductionFile() + ",");
 				System.out.print(aSongVO.getCoverFile() + ",");
@@ -93,7 +98,10 @@ public class TestSongDAO {
 				System.out.print(aSongVO.getLastclickDate() + ",");
 				System.out.print(aSongVO.getClicks() + ",");
 				System.out.print(aSongVO.getFavoriteCounts() + ",");
-				System.out.println(aSongVO.getShares() + ",");
+				System.out.print(aSongVO.getShares() + ",");
+				System.out.print(aSongVO.getScore() + ",");
+				System.out.print(aSongVO.getLength() + ",");
+				System.out.println(aSongVO.getSinger());
 			}
 
 	}

@@ -23,5 +23,13 @@ public class ListSongService {
 		}
 		return mySongResult;
 	}
+	
+	public void updateSong(SongVO songVO) {
+		songDAO.update(songVO);
+	}
+	
+	public SongVO getSongById(Integer songId){
+		return songDAO.findByPrimaryKey(songId);
+	}
 
 }

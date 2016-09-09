@@ -27,7 +27,7 @@ public class ListSongServlet extends HttpServlet {
 		
 		request.getSession().setAttribute("mySongList", mySongResult);
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_16_ManageSong.view/EditSong.jsp");
+		response.sendRedirect(contextPath + "/_16_ManageSong.view/ListSong.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
