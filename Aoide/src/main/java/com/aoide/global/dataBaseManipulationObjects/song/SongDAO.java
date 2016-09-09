@@ -10,4 +10,8 @@ public interface SongDAO {
 	public List<SongVO> getAll();
 	public List<SongVO> getName(String search);
 	public List<SongVO> getSinger(String search);
+	
+	
+	
+	
 }
