@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
+import com.aoide.global.dataBaseManipulationObjects.score.ScoreVO;
 
 public class JdbcSongDAO implements SongDAO {
 	// Fields
@@ -129,13 +130,9 @@ public class JdbcSongDAO implements SongDAO {
 			  														.append("WHERE singer like ?")
 			  														.toString();
 
-	// Constructors
-	public JdbcSongDAO() {
 
-	}
 
 	// Method
-	@Override
 	public Integer insert(SongVO songVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -568,5 +565,9 @@ public class JdbcSongDAO implements SongDAO {
 	public static void main(String[] args) {
 		System.out.println(GET_NAME_STMT);
 	}
+
+
+
+
 
 }

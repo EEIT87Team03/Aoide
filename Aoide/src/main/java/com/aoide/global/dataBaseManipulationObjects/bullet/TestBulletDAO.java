@@ -24,7 +24,7 @@ public class TestBulletDAO {
 
 
 //		// 刪除
-//    	dao.delete(13);
+    	dao.delete(15);
 
 //		// 查詢
 //		BulletVO bulletVO3 = dao.findByPrimaryKey(1);
@@ -35,13 +35,13 @@ public class TestBulletDAO {
 //        System.out.println("---------------------");
 
 //		// 查詢
-		List<BulletVO> list = dao.getAll();
-		for (BulletVO aBulletVO : list) {
-			System.out.print(aBulletVO.getBulletId() + ",");
-			System.out.print(aBulletVO.getDate() + ",");
-			System.out.print(aBulletVO.getTitle() + ",");
-			System.out.print(aBulletVO.getContentFile() + ",");
-            System.out.println();
-		}
+//		List<BulletVO> list = dao.getAll();
+//		for (BulletVO aBulletVO : list) {
+//			System.out.print(aBulletVO.getBulletId() + ",");
+//			System.out.print(aBulletVO.getDate() + ",");
+//			System.out.print(aBulletVO.getTitle() + ",");
+//			System.out.print(aBulletVO.getContentFile() + ",");
+//            System.out.println();
+//		}
     }
 }

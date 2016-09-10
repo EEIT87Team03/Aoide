@@ -50,12 +50,12 @@ public class QueryMemberInfoServlet extends HttpServlet
 		if ( memberBean != null )
 		{
 			response.sendRedirect(
-					request.getContextPath() + "/_17_EditInfo.view/memberInfo.jsp" );
+					request.getContextPath() + "/views/member/_17_EditInfo.view/memberInfo.jsp" );
 		}
 		else
 		{
 			response.sendRedirect(
-					request.getContextPath() + "/_08_login.view/login.jsp" );
+					request.getContextPath() + "/views/member/_08_login.view/login.jsp" );
 		}
 	}
 

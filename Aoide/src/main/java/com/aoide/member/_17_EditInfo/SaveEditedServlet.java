@@ -27,6 +27,7 @@ public class SaveEditedServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// get the input and check
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
@@ -47,7 +48,7 @@ public class SaveEditedServlet extends HttpServlet {
 		// if the input empty go to memberInfo.jsp
 		if(!errorMsg.isEmpty()){
 			request.setAttribute("errorMsg", errorMsg);
-			request.getRequestDispatcher("/_17_EditInfo.view/memberInfo.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/member/_17_EditInfo.view/memberInfo.jsp").forward(request, response);
 			return;
 		}else{
 		// if the input valid call service to update put new memberBean in session
@@ -71,7 +72,7 @@ public class SaveEditedServlet extends HttpServlet {
 */
 			// go checkEdited.jsp
 			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/_17_EditInfo.view/checkEdited.jsp");
+			response.sendRedirect(contextPath + "/views/member/_17_EditInfo.view/checkEdited.jsp");
 			return;
 		}
 	}

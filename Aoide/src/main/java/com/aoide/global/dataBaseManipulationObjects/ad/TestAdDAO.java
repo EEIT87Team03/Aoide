@@ -9,9 +9,9 @@ public class TestAdDAO {
 		
 		
 //		// �s�W
-		AdVO adVO1 = new AdVO ();
-		adVO1.setAdImg("七八九");
-		dao.insert(adVO1);
+//		AdVO adVO1 = new AdVO ();
+//		adVO1.setAdImg("七八九");
+//		dao.insert(adVO1);
      
 		// �ק�
 //		AdVO adVO2 = new AdVO();
@@ -20,7 +20,7 @@ public class TestAdDAO {
 //		dao.update(adVO2);
 
 //		// �R��
-//		dao.delete(0);
+		dao.delete(2);
 		
 //		// �d��
 //		
