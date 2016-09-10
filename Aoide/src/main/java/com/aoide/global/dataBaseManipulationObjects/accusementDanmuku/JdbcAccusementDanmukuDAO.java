@@ -16,8 +16,10 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 			.append("INSERT INTO accusement_danmuku(")
 			.append("[accuse_id],")
 			.append("[accused_id],")
-			.append("[content_file])")
-			.append("VALUES(?,?,?)")
+			.append("[content_file],")
+			.append("[danmuku_content],")
+			.append("[state])")
+			.append("VALUES(?,?,?,?,?)")
 			.toString();
 
 	private static final String UPDATE_STMT = new StringBuffer()
@@ -25,7 +27,9 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 			.append("SET ")
 			.append("[accuse_id] = ?,")
 			.append("[accused_id] = ?,")
-			.append("[content_file] = ? ")
+			.append("[content_file] = ?, ")
+			.append("[danmuku_content] = ?, ")
+			.append("[state] = ? ")
 			.append("WHERE [accusement_danmuku_id] = ?")
 			.toString();
 
@@ -36,7 +40,9 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 			.append("[date],") 
 			.append("[accuse_id],") 
 			.append("[accused_id],") 
-			.append("[content_file] ") 
+			.append("[content_file], ") 
+			.append("[danmuku_content], ") 
+			.append("[state] ") 
 			.append("FROM accusement_danmuku ") 
 			.append("WHERE [accusement_danmuku_id] = ?")
 			.toString();
@@ -47,7 +53,9 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 			.append("[date],") 
 			.append("[accuse_id],") 
 			.append("[accused_id],") 
-			.append("[content_file] ") 
+			.append("[content_file], ") 
+			.append("[danmuku_content], ") 
+			.append("[state] ") 
 			.append("FROM accusement_danmuku") 
 			.toString();
 
@@ -67,6 +75,8 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 			pstmt.setInt(1, accusementDanmukuVO.getAccuseId());
 			pstmt.setInt(2, accusementDanmukuVO.getAccusedId());
 			pstmt.setString(3, accusementDanmukuVO.getContentFile());
+			pstmt.setString(4, accusementDanmukuVO.getDanmukuContent());
+			pstmt.setBoolean(5, accusementDanmukuVO.getState());
 
 			pstmt.executeUpdate();
 			
@@ -110,7 +120,10 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 			pstmt.setInt(1, accusementDanmukuVO.getAccuseId());
 			pstmt.setInt(2, accusementDanmukuVO.getAccusedId());
 			pstmt.setString(3, accusementDanmukuVO.getContentFile());
-			pstmt.setInt(4, accusementDanmukuVO.getAccusementDanmukuId());
+			pstmt.setString(4, accusementDanmukuVO.getDanmukuContent());
+			pstmt.setBoolean(5, accusementDanmukuVO.getState());
+			pstmt.setInt(6, accusementDanmukuVO.getAccusementDanmukuId());
+
 
 			pstmt.executeUpdate();
 
@@ -194,6 +207,8 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 				accusementDanmukuVO.setAccuseId(rs.getInt("accuse_id"));
 				accusementDanmukuVO.setAccusedId(rs.getInt("accused_id"));
 				accusementDanmukuVO.setContentFile(rs.getString("content_file"));
+				accusementDanmukuVO.setDanmukuContent(rs.getString("danmuku_content"));
+				accusementDanmukuVO.setState(rs.getBoolean("state"));
 								
 			}
 
@@ -250,6 +265,8 @@ public class JdbcAccusementDanmukuDAO implements AccusementDanmukuDAO {
 				accusementDanmukuVO.setAccuseId(rs.getInt("accuse_id"));
 				accusementDanmukuVO.setAccusedId(rs.getInt("accused_id"));
 				accusementDanmukuVO.setContentFile(rs.getString("content_file"));
+				accusementDanmukuVO.setDanmukuContent(rs.getString("danmuku_content"));
+				accusementDanmukuVO.setState(rs.getBoolean("state"));
 				list.add(accusementDanmukuVO); // Store the row in the list
 			}
 

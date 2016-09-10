@@ -47,15 +47,15 @@ public class TestUploadServlet extends HttpServlet {
 	    song.setMemberId(1);
 	    song.setName(name);
 	    song.setSongFile("tempPath");
-	    int id = service.saveUpload(song); 
+	    int id = service.saveUpload(song); // dao.insert(vo)
 		// make file name and path for storage
 	    String newFileName = "Songid" + id + fileNameExtension;
-	    String path = "C:/Aoide/repository/Aoide/src/main/webapp/files/song_file/" + newFileName;
+	    String path = "D:/song_files/" + newFileName;
 	    // try to save upload in given path
 	    UploadHelper.savePartIntoPath(part, path);
 		// call service to update the path in DB by id
 	    song.setSongId(id);
-	    String  srcPath = "/files/song_file/" + newFileName;
+	    String  srcPath = "/song/" + newFileName;
 	    song.setSongFile(srcPath);
 	    song.setAlbumId(1);
 	    service.updatePath(song);

@@ -43,6 +43,7 @@ public class TestDAO {
 					                    .append("/ accuse name: ").append(accuse.getName())
 					                    .append("/ accused name: ").append(accused.getName())
 					                    .append("\n").toString();
+			System.out.println(row);
 		}
 	
 		

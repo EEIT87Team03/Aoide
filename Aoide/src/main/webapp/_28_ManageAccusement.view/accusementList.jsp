@@ -28,6 +28,7 @@
 										<h3 class="panel-title">${aAccusement.accusementDanmukuId}   ${aAccusement.date}</h3>
 									</div>
 									<div class="panel-body">
+										<p>Danmuku:${aAccusement.danmukuContent}</p>
 										<p>Accused:${aAccusement.accused.account}</p>
 										<p>BanState:${aAccusement.accused.banState}</p>
 									    ${aAccusement.contentFile}

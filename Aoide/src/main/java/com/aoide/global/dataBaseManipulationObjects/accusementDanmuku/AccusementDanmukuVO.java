@@ -11,6 +11,8 @@ public class AccusementDanmukuVO implements Serializable{
 	private int accuseId;      
 	private int accusedId;     
 	private String contentFile;
+	private String danmukuContent;
+	private Boolean state;
 	
 	// Constructors
 	public AccusementDanmukuVO() {
@@ -66,6 +68,22 @@ public class AccusementDanmukuVO implements Serializable{
 
 	public void setContentFile(String contentFile) {
 		this.contentFile = contentFile;
+	}
+
+	public String getDanmukuContent() {
+		return danmukuContent;
+	}
+
+	public void setDanmukuContent(String danmukuContent) {
+		this.danmukuContent = danmukuContent;
+	}
+
+	public Boolean getState() {
+		return state;
+	}
+
+	public void setState(Boolean state) {
+		this.state = state;
 	}
 	   
 }

@@ -17,5 +17,8 @@
 <%-- 	  <source src="<c:url value='${song.songFile}'/>" type="audio/mpeg"> --%>
 	  <source src="${song.songFile}" type="audio/mpeg">
 	</audio>
+	<img alt="" src="${song.songFile}">
+	
+	
 </body>
 </html>
