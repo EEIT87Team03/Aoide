@@ -77,7 +77,7 @@ public class MemberService
 		return null;
 	}
 	
-	public List< MemberVO > getMembersList()
+	public List< MemberVO > getAllMemberBeans()
 	{
 		List< MemberVO > list = null;
 		try ( Connection conn = DataSourceProxy.getConnection() )

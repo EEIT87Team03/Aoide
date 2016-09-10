@@ -90,7 +90,7 @@ public class AlbumService
 		return list;
 	}
 	
-	public List< AlbumVO > getAlbumsList()
+	public List< AlbumVO > getAllAlbumBeans()
 	{
 		List< AlbumVO > list = null;
 		try ( Connection conn = DataSourceProxy.getConnection() )
