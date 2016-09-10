@@ -11,6 +11,8 @@ public class HibernateAccusementDanmukuVO {
 	private MemberVO accuse;      
 	private MemberVO accused;     
 	private String contentFile;
+	private String danmukuContent;
+	private Boolean state;
 	
 	// Constructors
 	public HibernateAccusementDanmukuVO() {
@@ -66,6 +68,22 @@ public class HibernateAccusementDanmukuVO {
 
 	public void setContentFile(String contentFile) {
 		this.contentFile = contentFile;
+	}
+
+	public String getDanmukuContent() {
+		return danmukuContent;
+	}
+
+	public void setDanmukuContent(String danmukuContent) {
+		this.danmukuContent = danmukuContent;
+	}
+
+	public Boolean getState() {
+		return state;
+	}
+
+	public void setState(Boolean state) {
+		this.state = state;
 	}
 
 }

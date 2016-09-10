@@ -41,7 +41,7 @@ public class QueryMemberInfoServlet extends HttpServlet
 	{
 		Base64.Encoder encoder = Base64.getEncoder();
 		MemberService ms = new MemberService();
-		MemberVO bean = ms.getMemberBean( "whiteBirdBeauty" );
+		MemberVO bean = ms.getMemberBean( "AoideOfficialAccount" );
 		request.getSession().setAttribute( "member", bean );
 		//test data		
 		

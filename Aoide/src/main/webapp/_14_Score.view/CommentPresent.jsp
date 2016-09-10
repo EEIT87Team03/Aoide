@@ -35,7 +35,7 @@
 								</tr>
     						</thead>
     						<tbody>
-								<c:forEach var="commentValue" items="${getScore}">
+ 								<c:forEach var="commentValue" items="${fucks}">  
 			    					<tr>
 			    					    <td>${commentValue.memberId}</td>
 			                            <td>${commentValue.date}</td>
@@ -43,13 +43,13 @@
 			    						<td>${commentValue.comment}</td>
 
 
-<%--                                          <td><a href="\main\webapp\index.jsp" value='/CommentServlet?id=${commentValue.songId}' class="btn btn-info" role="button">回首頁</a></td> --%>
+                                          <td><a href="http://localhost:8080/Aoide/index.jsp" value='/CommentServlet?id=${commentValue.memberId}' class="btn btn-info" role="button">回首頁</a></td> 
     
     
   </tr>  
  			    				        
  			   			 
-		    					</c:forEach>
+		    					</c:forEach>   
     						</tbody>
     					</table>
 		    				<small>&lt;&lt;<a href="${header['referer']}">回前頁</a>&gt;&gt;</small>

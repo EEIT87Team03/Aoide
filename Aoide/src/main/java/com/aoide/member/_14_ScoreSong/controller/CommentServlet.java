@@ -20,36 +20,36 @@ import com.aoide.member._14_ScoreSong.model.ScoreService;
 @WebServlet("/CommentServlet.member")
 public class CommentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
-    public CommentServlet() {
-        super();
-      
-    }
 
+	public CommentServlet() {
+		super();
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		// form ScoreVO take Comment_file column
+		List<ScoreVO> all_comment = new ScoreInService().getComment_D();
+		for (ScoreVO one : all_comment) {
+			one.getComment();
+			request.getSession().setAttribute("comments", one);
+
+		}
 		
-		
+		// select all memeber comment
+		List<ScoreVO> fuck = new ScoreService().getPoint();
+		request.getSession().setAttribute("fucks",
+				fuck);
 
-		// form ScoreVO take Comment_file column 
-	  List<ScoreVO> all_comment = new ScoreInService().getComment_D();
-	  for(ScoreVO one : all_comment){
-		     one.getComment();
-		     
-		     request.getSession().setAttribute("comments", one);
-
-	  }
-	  
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/_14_Score.view/CommentPresent.jsp");
 
 	}
-		
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
-		
 	}
 
 }

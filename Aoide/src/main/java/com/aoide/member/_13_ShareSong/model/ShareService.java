@@ -17,18 +17,18 @@ public class ShareService {
 	SongDAO songDAO = new JdbcSongDAO();
 
 	
-//	public SongVO updateshare(int shares) {
-
-//		SongVO share = songDAO.findByPrimaryKey(shares);
-//		share.setShares((share.getShares() + 1));
-//		songDAO.update(share);
-//		return share;
 
 
-		 
-//	}
+	
+	public Integer insert(SongVO songVO) {
+		return songDAO.insert(songVO);
+	} {
 
-
+		
+	}
+	
+	
+	
 	public SongVO findByKey(Integer shares) {
 		
 		SongVO share = songDAO.findByPrimaryKey(shares);

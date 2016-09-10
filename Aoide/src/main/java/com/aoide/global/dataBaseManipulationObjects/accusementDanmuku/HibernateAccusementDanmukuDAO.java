@@ -15,8 +15,9 @@ public class HibernateAccusementDanmukuDAO {
 			.append("INSERT INTO accusement_danmuku(")
 			.append("[accuse_id],")
 			.append("[accused_id],")
-			.append("[content_file])")
-			.append("VALUES(?,?,?)")
+			.append("[content_file],")
+			.append("[danmuku_content])")
+			.append("VALUES(?,?,?,?)")
 			.toString();
 
 	private static final String UPDATE_STMT = new StringBuffer()
@@ -25,6 +26,8 @@ public class HibernateAccusementDanmukuDAO {
 			.append("[accuse_id] = ?,")
 			.append("[accused_id] = ?,")
 			.append("[content_file] = ? ")
+			.append("[danmuku_content] = ? ")
+			.append("[state] = ? ")
 			.append("WHERE accusement_danmuku_id = ?")
 			.toString();
 
@@ -35,7 +38,9 @@ public class HibernateAccusementDanmukuDAO {
 			.append("[date],") 
 			.append("[accuse_id],") 
 			.append("[accused_id],") 
-			.append("[content_file] ") 
+			.append("[content_file], ") 
+			.append("[danmuku_content], ") 
+			.append("[state] ") 
 			.append("FROM accusement_danmuku ") 
 			.append("WHERE [accusement_danmuku_id] = ?")
 			.toString();
@@ -45,7 +50,9 @@ public class HibernateAccusementDanmukuDAO {
 			.append("[date],") 
 			.append("[accuse_id],") 
 			.append("[accused_id],") 
-			.append("[content_file] ") 
+			.append("[content_file], ")
+			.append("[danmuku_content], ") 
+			.append("[state] ") 
 			.append("FROM accusement_danmuku") 
 			.toString();
 	private static final String GET_MEMBER_STMT = 
@@ -162,6 +169,8 @@ public class HibernateAccusementDanmukuDAO {
 		hibernateVO.setAccusementDanmukuId(accusementDanmukuVO.getAccusementDanmukuId());
 		hibernateVO.setDate(accusementDanmukuVO.getDate());
 		hibernateVO.setContentFile(accusementDanmukuVO.getContentFile());
+		hibernateVO.setDanmukuContent(accusementDanmukuVO.getDanmukuContent());
+		hibernateVO.setState(accusementDanmukuVO.getState());
 		
 		return hibernateVO;
 	}
@@ -221,6 +230,8 @@ public class HibernateAccusementDanmukuDAO {
 				hibernateVO.setAccusementDanmukuId(accusementDanmukuVO.getAccusementDanmukuId());
 				hibernateVO.setDate(accusementDanmukuVO.getDate());
 				hibernateVO.setContentFile(accusementDanmukuVO.getContentFile());
+				hibernateVO.setDanmukuContent(accusementDanmukuVO.getDanmukuContent());
+				hibernateVO.setState(accusementDanmukuVO.getState());
 				
 				voList.add( hibernateVO );
 				

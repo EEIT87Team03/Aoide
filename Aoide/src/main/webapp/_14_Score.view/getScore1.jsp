@@ -29,9 +29,25 @@ function rate(obj, oEvent) {
 					
 
 				
-					document.getElementById("e").innerText = this._num + 1;
+// 					document.getElementById("e").innerText = this._num + 1;
 					
-					alert(this._num + 1);
+					
+					
+					
+					function setClick(event){
+						
+						document.onclick = showAlert;
+						var p =document.getElementById("e");
+						
+						
+						p.addEventListener("click",setClick,false);
+						
+			        
+						
+					}
+					
+					
+					
 				};
 			}
 
@@ -53,7 +69,26 @@ function rate(obj, oEvent) {
 		
 
 		</script>
+		<script type="text/javascript">
 		
+		
+		
+		function fuck(){
+			     
+			var g =document.getElementById("idStar1");
+				alert(g);
+				
+			   
+			     
+			    	var c  = document.getElementById("idStar1");
+			     
+			     {}
+			}
+		
+		
+	
+
+		</script>
 
 <title>評分評論</title>
 <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
@@ -89,59 +124,39 @@ function rate(obj, oEvent) {
 
 		</script>
     						
-    						<script>
-    						
-    						
-    						var gg = document.getElementById("FUCK2");
 
-    						alert(gg);
-    							 
-    					
-    						
-    			             var tag = document.getElementsByTagName("a");
-    			             var G = document.getElementsByTagName("a")[0].value
-    					
-    					
-    						
-    						
-    						
-    						
-    						
-    						</script>
-    						
-    						
-								<c:forEach var="iscore" items="${getScore}">
 			    					<tr>
-			    					    <td>${iscore.memberId}</td>
-			    						<td>${iscore.songId}</td>
-			    						<td>${iscore.date}</td>
+			    					    <td>${getScore.memberId}</td>
+			    						<td>${getScore.songId}</td>
+			    						<td>${getScore.date}</td>
 			    						<td><!-- 顯示star與取值 -->
 
 
-		   <form action="/GetScoreServlet?" ></form>
+		         <form action="/GetScoreServlet?" ></form>
 		         <p class="starWrapper" onmouseover="rate(this,event)"> 
 		         
-			     <a class="star1" onclick=""   ><img src="http://www.jb51.net/upload/20080508122008586.gif" id="1" title="很爛" /></a>
+			     <img id="idStar1" src="http://www.jb51.net/upload/20080508122008586.gif"  title="很爛"/>
 					
-			     <a class="star2" id="FUCK2"><img src="http://www.jb51.net/upload/20080508122008586.gif" title="一般" /></a>
+			     <img id="idStar2" src="http://www.jb51.net/upload/20080508122008586.gif" title="一般" />
 					
-				 <a class="star3" id="FUCK3" ><img src="http://www.jb51.net/upload/20080508122008586.gif" title="還好" /></a>
+				 <img id="idStar3" src="http://www.jb51.net/upload/20080508122008586.gif" title="還好" />
 					 
-				 <a class="star4" id="FUCK4" ><img src="http://www.jb51.net/upload/20080508122008586.gif" title="較好" /></a>
+				 <img id="idStar4" src="http://www.jb51.net/upload/20080508122008586.gif" title="較好" />
 					
-				 <a class="star5" id="FUCK5"><img src="http://www.jb51.net/upload/20080508122008586.gif" title="很好" /></a>
+				 <img id="idStar5" src="http://www.jb51.net/upload/20080508122008586.gif" title="很好" />
 			
-				 <input onclick="window.location='/Aoide/_14_Score.view/getScore1.jsp'"    class="btn btn-primary" type="submit" value="Submit">	</p>
-				</form>	
-				    &nbsp; &nbsp; 分數為: &nbsp;<span id="e"   style="width:120px;height:40px;font-size:14px;">Point</span></td>
-                   </form>         
+				
+				
+				   <br> &nbsp; &nbsp; 分數為: &nbsp;<span id="e" style="width:120px;height:40px;font-size:14px;">Point</span></td>
+                           
      <td>            
-
- 
+                     
+				            
+				       <button onclick="fuck()" type"button" value="fuckyou">fuckyou</p>     
+				            </td>
   
-
-</c:forEach>
-		    					<small>&lt;&lt;<a href="index.jsp">回首頁</a>&gt;&gt;</small>
+  <br>
+		    					<small>&lt;&lt;<a href="http://localhost:8080/Aoide/index.jsp">回首頁</a>&gt;&gt;</small>
 		    					<small>&lt;&lt;<a href="CommentPresent.jsp">其他短評</a>&gt;&gt;</small>
     						</tbody>
     					</table>
@@ -153,23 +168,6 @@ function rate(obj, oEvent) {
   			<div class="col-lg-1"></div>
 		</div>
 	</div>
-	
-           
-  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   }
 
-
-
-
-		
 </body>
 </html>

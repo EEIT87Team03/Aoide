@@ -29,10 +29,10 @@ public class ListFavoriteServlet extends HttpServlet {
 		
 		
 		
-		   int	memberId = 1;
-		   int  songId =1;
+     	   int	memberId = 2;
+		   int  songId =8;
 			
-			FavoriteVO favoritelist = new ListFavoriteService().findByPrimaryKey(memberId, memberId);
+			FavoriteVO favoritelist = new ListFavoriteService().findByPrimaryKey(memberId, songId);
 			request.getSession().setAttribute("favorite", favoritelist);
 			
 

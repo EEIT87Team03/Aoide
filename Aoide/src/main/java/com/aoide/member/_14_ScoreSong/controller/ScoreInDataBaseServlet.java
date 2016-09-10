@@ -43,39 +43,34 @@ public class ScoreInDataBaseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
+		Integer getStarResult = Integer.parseInt((String) request.getSession()
+				.getAttribute("e"));
+		
+	
+         
+		
+		
+		
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath + "/_14_Score.view/getScore1.jsp");
+		
+		
+		// test insert
+
+		ScoreVO new_scoreVO = new ScoreVO();
+
+		// new_scoreVO.setScoreValue("scoreName");
+		new_scoreVO.setMemberId(6);
+		new_scoreVO.setSongId(1);
+		new_scoreVO.setScoreValue(getStarResult);
+		// new_scoreVO.setComment("scoreName");
+
+		new ScoreInService().insert(new_scoreVO);
+
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		List<ScoreVO> commentIntocomment = new ScoreInService().getComment_D();
-		
-		request.getSession().setAttribute("commentIntocomments", commentIntocomment);
-		
-		
-		
-		
-		Integer getStarResult = Integer.parseInt((String) request.getSession().getAttribute("e"));
-	
-
-        //test insert
-		
-        
-		ScoreVO new_scoreVO = new ScoreVO();
-	
-//		new_scoreVO.setScoreValue("scoreName");
-		new_scoreVO.setMemberId(6);
-		new_scoreVO.setSongId(1);
-        new_scoreVO.setScoreValue(getStarResult);
-//		new_scoreVO.setComment("scoreName");
-	    
-
-
-     	new ScoreInService().insert(new_scoreVO);
-
-		
-		
-		String contextPath = request.getContextPath();
-	response.sendRedirect(contextPath + "/_14_Score.view/getScore1.jsp");
 	}
 }

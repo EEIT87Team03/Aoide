@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +18,11 @@
 			</tr>
 			<tr>
 				<td><label for = "name">Name : </label></td>
-				<td><input name="name" type="text" value="${member.name }">${errorMsg.nameError }</td>
+				<td><input name="name" type="text" value="${member.name}">${errorMsg.nameError}</td>
 			</tr>
 			<tr>
 				<td><label for = "email">Email : </label></td>
-				<td><input  name="email" type="text" value="${member.email }">${errorMsg.emailError }</td>
+				<td><input  name="email" type="text" value="${member.email}">${errorMsg.emailError}</td>
 			</tr>
 			<tr>
 				<td><label for = "lastLogin">Last Login : </label></td>
@@ -36,13 +36,13 @@
 						<img src="#" id = "preview"  alt = "preview image" width = "200" height = "200" style = "display : none"/>
 					</div>	
 					<div>
-						<input type = "file" id = "selectedFile" name = "selectedFile"><span id="status">
-						<input type = "button" id = "upload" value = "Upload"></span><span id="progress"></span>
+						<input type = "file" accept="image/*" id = "selectedFile" name = "selectedFile">
+						<input type = "button" id = "upload" value = "Upload"><span id="progress"></span>
 					</div>
 				</td>
 			</tr>
 		</table>
-		<p>Introduction: ${errorMsg.introductionError }</p>
+		<p>Introduction: ${errorMsg.introductionError}</p>
 		<textarea name="introduction"  id="introduction" rows="10" cols="80" >
            	${member.introductionFilePath}
         </textarea>
@@ -67,7 +67,7 @@
 											//document.getElementById( "preview" ).src = event.target.result;
 											document.getElementById( "preview" ).style.display = "block";
 											document.getElementById( "current" ).style.display = "none";
-											document.getElementById("status").innerHTML = this.files[ 0 ].name;
+											document.getElementById( "progress" ).innerHTML = "";
 										};
 						reader.readAsDataURL( selectedFile );
 					};

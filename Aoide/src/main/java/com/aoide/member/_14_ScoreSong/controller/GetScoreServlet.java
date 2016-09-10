@@ -27,15 +27,13 @@ public class GetScoreServlet extends HttpServlet implements Servlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-	     int memberId =1;
-	     int songId =5;
+	     int memberId =3;
+	     int songId =10;
 		
-		
+//	     List<ScoreVO> accomet =  new ScoreService().getwrittes();
 		ScoreVO point = new ScoreService().getScoreById(memberId, songId);
 //		List<ScoreVO> point =  new ScoreService().getPoint();
 		request.getSession().setAttribute("getScore", point);
-		
-	
 		
 
 		String contextPath = request.getContextPath();

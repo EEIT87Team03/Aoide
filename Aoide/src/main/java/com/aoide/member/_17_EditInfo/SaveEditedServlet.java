@@ -59,12 +59,16 @@ public class SaveEditedServlet extends HttpServlet {
 			member.setEmail(email);
 			member.setIntroductionFilePath(introduction);
 			MemberService service = new MemberService();
-			// save the update
+			
+			service.updateMemberData(member);
+			
+/*			// save the update
 			service.updateMemberData(member);
 			member = service.getMemberBean(account);
 			// reset member bean in session
 			session.removeAttribute("member");
 			session.setAttribute("member", member);
+*/
 			// go checkEdited.jsp
 			String contextPath = request.getContextPath();
 			response.sendRedirect(contextPath + "/_17_EditInfo.view/checkEdited.jsp");

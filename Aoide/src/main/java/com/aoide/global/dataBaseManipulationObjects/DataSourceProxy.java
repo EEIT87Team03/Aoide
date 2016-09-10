@@ -1,9 +1,8 @@
 package com.aoide.global.dataBaseManipulationObjects;
 
-import java.io.FileInputStream;
+import java.io.FileInputStream; 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -27,6 +26,8 @@ public class DataSourceProxy
 	public static Connection getConnection() 
 	{
 		Connection conn = null;		
+		Throwable exceptions = new Throwable();
+		
 		try
 		{
 			conn = getJndiConnection();
@@ -34,13 +35,19 @@ public class DataSourceProxy
 		} 
 		catch ( Exception e) 
 		{
+			exceptions.addSuppressed( e );
 			try
 			{
 				conn = getJdbcConnection();
 			}
 			catch( Exception ex )
 			{
-				ex.printStackTrace();
+				exceptions.addSuppressed( ex );
+			}
+			
+			for ( Throwable t : exceptions.getSuppressed() )
+			{
+				t.printStackTrace();
 			}
 		}
 		
@@ -54,7 +61,7 @@ public class DataSourceProxy
 		props = new Properties();
 		
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		props.load( classLoader.getResourceAsStream( "main/java/com/aoide/global/dataBaseManipulationObjects/jdbc.properties" ) );
+		props.load( classLoader.getResourceAsStream( "com/aoide/global/dataBaseManipulationObjects/jdbc.properties" ) );
 		
 		Class.forName( props.getProperty( "driverName" ) );
 		url = props.getProperty( "connUrl" );
@@ -63,17 +70,11 @@ public class DataSourceProxy
 		return DriverManager.getConnection( url, account, password );
 	}
 	
-	public static Connection getJndiConnection() throws ClassNotFoundException, SQLException
+	public static Connection getJndiConnection() throws ClassNotFoundException, SQLException, NamingException
 	{
-		try 
-		{
-			Context ctx = new InitialContext();
-			ds = ( DataSource ) ctx.lookup( "java:comp/env/jdbc/AOIDE" );
-		} 
-		catch ( Exception e ) 
-		{
-			e.printStackTrace();
-		}
+		Context ctx = new InitialContext();
+		ds = ( DataSource ) ctx.lookup( "java:comp/env/jdbc/AOIDE" );	
+		
 		return ds.getConnection();
 	}
 }
