@@ -57,13 +57,13 @@ public class SaveSuggestionServlet extends HttpServlet {
 			suggestion = service.getSuggestionById(suggestionId); 
 			// go checkSuggetionResult.jsp
 			session.setAttribute("suggestion", suggestion);
-			response.sendRedirect(contextPath + "/_04_PutSuggestion.view/checkSuggetionResult.jsp");
+			response.sendRedirect(contextPath + "/views/global/_04_PutSuggestion.view/checkSuggetionResult.jsp");
 			return;
 		}else{
 		// If input empty forward to enterSuggestion.jsp
 			request.setAttribute("errorMsg", errorMsg);
 			request.setAttribute("enteredText", enteredText);
-			request.getRequestDispatcher("/_04_PutSuggestion.view/enterSuggestion.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/global/_04_PutSuggestion.view/enterSuggestion.jsp").forward(request, response);
 			return;
 		}
 

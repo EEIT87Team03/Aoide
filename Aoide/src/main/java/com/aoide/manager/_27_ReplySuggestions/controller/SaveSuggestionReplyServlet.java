@@ -58,7 +58,7 @@ public class SaveSuggestionReplyServlet extends HttpServlet {
 		session.setAttribute("updatedSuggestion", updatedSuggestion);
 		// go to replyResult.jsp
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_27_ReplySuggestions.view/replyResult.jsp");
+		response.sendRedirect(contextPath + "/views/manager/_27_ReplySuggestions.view/replyResult.jsp");
 		
 	}
 
