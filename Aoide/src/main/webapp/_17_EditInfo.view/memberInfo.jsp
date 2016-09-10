@@ -50,7 +50,7 @@
                // Replace the <textarea id="editor1"> with a CKEditor
                // instance, using default configuration.
                CKEDITOR.replace( 'introduction' );
-			</script>
+		   </script>
 		<input type="submit" value="Submit">
 	</form>
 	</div>
@@ -110,7 +110,7 @@
 												//img.style.height = img.style.width = "300px";
 												//document.body.appendChild( img );
 												alert( "Upload Success" );
-											 }
+											}
 											else
 											{
 												alert( "Upload Fail" );
