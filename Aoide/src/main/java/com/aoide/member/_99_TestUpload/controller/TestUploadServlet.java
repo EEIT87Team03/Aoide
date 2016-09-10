@@ -50,7 +50,7 @@ public class TestUploadServlet extends HttpServlet {
 	    int id = service.saveUpload(song); // dao.insert(vo)
 		// make file name and path for storage
 	    String newFileName = "Songid" + id + fileNameExtension;
-	    String path = "D:/song_files/" + newFileName;
+	    String path = "../" + newFileName;
 	    // try to save upload in given path
 	    UploadHelper.savePartIntoPath(part, path);
 		// call service to update the path in DB by id
