@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div>
-	<form action="<c:url value='/EditInfoServlet'/>" method="post" >
+	<form action="<c:url value='/EditInfoServlet'/>" method="POST" >
 		<table>
 			<tr>
 				<td><label for = "account">Account : </label></td>
@@ -36,7 +36,7 @@
 						<img src="#" id = "preview"  alt = "preview image" width = "200" height = "200" style = "display : none"/>
 					</div>	
 					<div>
-						<input type = "file" accept="image/*" id = "selectedFile" name = "selectedFile">
+						<input type = "file" id = "selectedFile" accept="image/*" name = "selectedFile">
 						<input type = "button" id = "upload" value = "Upload"><span id="progress"></span>
 					</div>
 				</td>
@@ -56,55 +56,82 @@
 	</div>
 <script>
 	var xhr = null;
-	document.getElementById( "selectedFile" ).onchange = 
+	var imageType = /image.*/;
+	var selectedFileButton = document.getElementById( "selectedFile" );
+	var uploadFileButton = document.getElementById( "upload" );
+	var previewImage = document.getElementById( "preview" );
+	var currentImage = document.getElementById( "current" );
+	var displayProgressSpan = document.getElementById("progress");
+	
+	selectedFileButton.onchange = 
 					function()
 					{
 						var selectedFile = this.files[0];
-						var reader = new FileReader();	
-						reader.onload = function( event )
-										{
-											document.getElementById( "preview" ).src = reader.result;
-											//document.getElementById( "preview" ).src = event.target.result;
-											document.getElementById( "preview" ).style.display = "block";
-											document.getElementById( "current" ).style.display = "none";
-											document.getElementById( "progress" ).innerHTML = "";
-										};
-						reader.readAsDataURL( selectedFile );
+						if ( selectedFile.type.match( imageType ) ) 
+						{
+							uploadFileButton.disabled = false;
+							var reader = new FileReader();
+							reader.onload = function( event )
+											{
+												previewImage.src = reader.result;
+												//document.getElementById( "preview" ).src = event.target.result;
+												previewImage.style.display = "block";
+												currentImage.style.display = "none";
+												displayProgressSpan.innerHTML = "";
+											};
+							reader.readAsDataURL( selectedFile );
+						}
+						else
+						{
+							uploadFileButton.disabled = true;
+							alert( "Wrong File Type!!" );
+						}
+						
 					};
-	document.getElementById( "upload" ).onclick =	
+	uploadFileButton.onclick =	
 					function()
 					{
-						var selectedFile = document.getElementById( "selectedFile" ).files[0];
-						var formData = new FormData();
-			            formData.append( "file", selectedFile );
-
-						xhr = new XMLHttpRequest();
-						xhr.upload.addEventListener( "progress", onProgressHandler, false );
-						xhr.onload = function()
-									 { 
-										if ( this.status == 200 )
-										{
-// 											var img = document.createElement( "img" );
-// 											img.src = window.URL.createObjectURL( this.response );
-// 											img.onload = function(){ window.URL.revokeObjectURL( img.src ) }
-// 											img.style.height = img.style.width = "300px";
-// 											document.body.appendChild( img );
-											alert( xhr.responseText );
-										 }
-											
-									 };
-					    xhr.open( "POST", "UploadImage" );
-						//xhr.responseType = "blob";
-						xhr.send( formData );
-				
+						var selectedFile = selectedFileButton.files[0];
+						
+						if ( selectedFile != null )
+						{
+							var formData = new FormData();
+				            formData.append( "file", selectedFile );
+	
+							xhr = new XMLHttpRequest();
+							xhr.upload.addEventListener( "progress", onProgressHandler, false );
+							xhr.onload = function()
+										 { 
+											if ( ( this.status == 200 ) && ( xhr.responseText == "Success" ) )
+											{
+												//var img = document.createElement( "img" );
+												//img.src = window.URL.createObjectURL( this.response );
+												//img.onload = function(){ window.URL.revokeObjectURL( img.src ) }
+												//img.style.height = img.style.width = "300px";
+												//document.body.appendChild( img );
+												alert( "Upload Success" );
+											 }
+											else
+											{
+												alert( "Upload Fail" );
+											}
+										 };
+						    xhr.open( "POST", "/Aoide/UploadImage" );
+							xhr.send( formData );
+						}
+						else
+						{
+							alert( "No file to upload!!" );
+						}
 					};
+					
 	function onProgressHandler( event ) 
 	{
 		// Note: doesn't work with async=false.
 		if ( event.lengthComputable )
 	    {
 			var progress = Math.round( event.loaded / event.total * 100 );
-			document.getElementById("progress").innerHTML = " Progress " + progress + "%";
+			displayProgressSpan.innerHTML = " Progress " + progress + "%";
 	    }
 	}
 </script>
