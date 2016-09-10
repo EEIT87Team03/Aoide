@@ -115,7 +115,7 @@ public class MemberService
 		//System.out.println( ms.createMemberAccount( m ) );
 		//System.out.println( ms.updateMemberData( m ) );
 		//System.out.println( ms.deleteMemberAccount( "smallBirdBeauty" ) );
-		System.out.println( ms.getMemberBean( "whiteBirdBeauty" ) );
+		//System.out.println( ms.getMemberBean( "whiteBirdBeauty" ) );
 		//System.out.println( ms.getMembersList() );
 		
 	}
