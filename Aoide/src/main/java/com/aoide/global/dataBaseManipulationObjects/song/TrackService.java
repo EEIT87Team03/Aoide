@@ -1,4 +1,4 @@
-package com.aoide.global.websocket.song;
+package com.aoide.global.dataBaseManipulationObjects.song;
 
 import java.sql.Connection;
 import java.util.List;
