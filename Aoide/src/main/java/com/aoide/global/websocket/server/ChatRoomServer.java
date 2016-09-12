@@ -1,4 +1,4 @@
-package com.aoide.global.websocket;
+package com.aoide.global.websocket.server;
 
 import java.util.List;
 import java.io.IOException;
