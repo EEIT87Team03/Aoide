@@ -30,6 +30,8 @@ public class GetScoreServlet extends HttpServlet implements Servlet {
 	     int memberId =3;
 	     int songId =10;
 		
+	     
+	    
 //	     List<ScoreVO> accomet =  new ScoreService().getwrittes();
 		ScoreVO point = new ScoreService().getScoreById(memberId, songId);
 //		List<ScoreVO> point =  new ScoreService().getPoint();

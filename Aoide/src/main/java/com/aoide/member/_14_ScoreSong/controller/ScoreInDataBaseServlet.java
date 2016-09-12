@@ -43,11 +43,15 @@ public class ScoreInDataBaseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		Integer getStarResult = Integer.parseInt((String) request.getSession()
-				.getAttribute("e"));
+		request.setCharacterEncoding("UTF-8");
 		
-	
-         
+//		Integer getStarResult = Integer.parseInt((String) request.getSession()
+//				.getAttribute("G8"));
+		int a= (int) request.getSession().getAttribute("G8");
+		
+		
+	  ScoreVO scoreVO = new ScoreVO();
+         scoreVO.getScoreValue(a);
 		
 		
 		
