@@ -18,8 +18,8 @@ public class JdbcMemberDAO implements MemberDAO
 		
 	private static final String UPDATE_STMT = 
 			"UPDATE member SET "
-			+ "[password] = ?, [name] = ?, [email] = ?, [login_count] = ?, [last_login_date] = ?, "
-			+ "[token_total] = ?, [introduction_file_path] = ?, [bank_info] = ?, [picture] = ? "
+			+ "[password] = ?, [name] = ?, [email] = ?, [register_state] = ?, [login_count] = ?, [last_login_date] = ?, "
+			+ "[token_total] = ?, [introduction_file_path] = ?, [class_type] = ?, [ban_state] = ?, [bank_info] = ?, [picture] = ? "
 			+ "WHERE [account] = ?";
 		
 	private static final String DELETE_STMT = 

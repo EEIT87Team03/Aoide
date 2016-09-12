@@ -45,7 +45,7 @@ public class CreateReplyPageServlet extends HttpServlet {
 		
 		// go to enter reply page
 		String path = request.getContextPath();
-		response.sendRedirect(path + "/_27_ReplySuggestions.view/enterReplyContent.jsp");
+		response.sendRedirect(path + "/views/manager/_27_ReplySuggestions.view/enterReplyContent.jsp");
 		
 	}
 

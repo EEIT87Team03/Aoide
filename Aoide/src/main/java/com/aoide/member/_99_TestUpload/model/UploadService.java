@@ -15,7 +15,7 @@ public class UploadService {
 	}
 	// Methods
 	public Integer saveUpload(SongVO song){
-		return dao1.insert(song);
+		return dao2.insert(song);
 	}
 	
 	public void updatePath(SongVO song){

@@ -33,7 +33,7 @@ public class ListSuggestionsServlet extends HttpServlet {
 		request.getSession().setAttribute("unreplySuggestionsList", unreplySuggestions);
 		// go suggestionList.jsp
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_27_ReplySuggestions.view/suggestionList.jsp");
+		response.sendRedirect(contextPath + "/views/manager/_27_ReplySuggestions.view/suggestionList.jsp");
 	}// end doGet()
 
 

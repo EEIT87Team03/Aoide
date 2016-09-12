@@ -1,10 +1,11 @@
 package com.aoide.global.dataBaseManipulationObjects.accusementDanmuku;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 
-public class HibernateAccusementDanmukuVO {
+public class HibernateAccusementDanmukuVO implements Serializable{
 	// Fields
 	private Integer accusementDanmukuId; 
 	private Timestamp date;

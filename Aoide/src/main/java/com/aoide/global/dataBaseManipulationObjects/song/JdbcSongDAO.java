@@ -108,7 +108,6 @@ public class JdbcSongDAO implements SongDAO {
 																  .toString();
 	
 	private static final String GET_SINGER_STMT = new StringBuffer().append("SELECT ")
-			  														.append("song_id,")
 			  														.append("song_file,")
 			  														.append("name,")
 			  														.append("song_type,")
@@ -133,12 +132,14 @@ public class JdbcSongDAO implements SongDAO {
 
 
 	// Method
-	public Integer insert(SongVO songVO) {
+	public Integer insert( SongVO songVO ) 
+	{
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		Integer id = null;
 
-		try {
+		try 
+		{
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(INSERT_STMT, Statement.RETURN_GENERATED_KEYS);
@@ -194,10 +195,10 @@ public class JdbcSongDAO implements SongDAO {
 	}
 
 	@Override
-	public void update(SongVO songVO) {
+	public int update(SongVO songVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-
+		int updateCount = 0;
 		try {
 
 			con = ConnectionBean.getConnection();
@@ -222,7 +223,7 @@ public class JdbcSongDAO implements SongDAO {
 			pstmt.setString(17, songVO.getSinger());
 			pstmt.setInt(18, songVO.getSongId());
 
-			pstmt.executeUpdate();
+			updateCount = pstmt.executeUpdate();
 
 			// Handle any SQL errors
 		} catch (SQLException se) {
@@ -244,26 +245,32 @@ public class JdbcSongDAO implements SongDAO {
 				}
 			}
 		}
-
+		return updateCount;
 	}
 
 	@Override
-	public void delete(Integer songId) {
+	public int delete( Integer songId )
+	{
 		Connection con = null;
 		PreparedStatement pstmt = null;
-
-		try {
+		int deletionCount = 0;
+		try 
+		{
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(DELETE_STMT);
 			pstmt.setInt(1, songId);
-			pstmt.executeUpdate();
+			deletionCount = pstmt.executeUpdate();
 
 			// Handle any SQL errors
-		} catch (SQLException se) {
+		} 
+		catch (SQLException se) 
+		{
 			throw new RuntimeException("A database error occured. " + se.getMessage());
 			// Clean up JDBC resources
-		} finally {
+		} 
+		finally 
+		{
 			if (pstmt != null) {
 				try {
 					pstmt.close();
@@ -271,15 +278,19 @@ public class JdbcSongDAO implements SongDAO {
 					se.printStackTrace(System.err);
 				}
 			}
-			if (con != null) {
-				try {
+			if (con != null) 
+			{
+				try 
+				{
 					con.close();
-				} catch (Exception e) {
+				} 
+				catch (Exception e) 
+				{
 					e.printStackTrace(System.err);
 				}
 			}
 		}
-
+		return deletionCount;
 	}
 
 	@Override
