@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<HTML>
+<script type="text/javascript">
+	
+	
+	//隨機播放陣列中指定的圖檔
+	var jsImg = new Array("${adVO.adImg}");
+	//設定每兩秒執行一次randomImg() ，此行要在 function 之外
+	setInterval("randomImg()", 1500);
+	function randomImg() {
+		//陣列的長度 * 介於0~1間數字 ，然後在取 floor 當照片索引值
+		var imgIndex = Math.floor(Math.random() * jsImg.length);
+		document.getElementById("my_div").innerHTML = 
+			"<img src='"+jsImg[imgIndex]+"' width=200 height=200>";
+	}
+
+</script>
+
+<body onload="sequentialImg();">
+
+	<div id="my_div"></div>
+
+</body>
+</HTML>
