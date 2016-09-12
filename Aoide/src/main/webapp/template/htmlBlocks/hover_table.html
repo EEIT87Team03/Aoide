@@ -1,0 +1,42 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+	<!-- Content Header (Page header) -->	  
+	<section class="content-header">
+
+	</section>
+	<!-- Main content -->
+    <section class="content">
+      	<div class="row">
+	      	<div class="col-xs-12">
+	          	<div class="box">
+	            	<!-- /.box-header -->
+	            	<div class="box-header">
+						<h3 class="box-title">Hover Data Table</h3>
+	            	</div>
+		            <!-- /.box-header -->
+
+		            <!-- /.box-body -->
+		            <div class="box-body">
+                		<table id="example2" class="table table-bordered table-hover">
+                		</table>
+		            </div>
+		            <!-- /.box-body -->
+	        	</div>
+	       	</div>
+	  	</div>
+    </section>
+</div>
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
