@@ -7,6 +7,8 @@
 <title>修改成功</title>
 </head>
 <body>
+		<img src="${updateSong.coverFile}" width="300" height="300">
+	<p>
 		歌名：${updateSong.name}
 	<p>
 		演出者：${updateSong.singer}
