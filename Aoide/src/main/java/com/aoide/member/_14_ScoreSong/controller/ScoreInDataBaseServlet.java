@@ -47,30 +47,27 @@ public class ScoreInDataBaseServlet extends HttpServlet {
 		
 //		Integer getStarResult = Integer.parseInt((String) request.getSession()
 //				.getAttribute("G8"));
-		int a= (int) request.getSession().getAttribute("G8");
+//		int a= (int) request.getSession().getAttribute("G8");
+        
+		// test insert
+
+		ScoreVO new_scoreVO = new ScoreVO();
+  	  int a = (int) request.getSession().getAttribute("v");
+		// new_scoreVO.setScoreValue("scoreName");
+	    
+  	    new_scoreVO.setMemberId(3);
+  	    new_scoreVO.setSongId(10);
+		new_scoreVO.setScoreValue(a);
 		
-		
-	  ScoreVO scoreVO = new ScoreVO();
-         scoreVO.getScoreValue(a);
-		
-		
+		// new_scoreVO.setComment("scoreName");
+		new ScoreInService().insert(new_scoreVO);
+
 		
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/_14_Score.view/getScore1.jsp");
 		
 		
-		// test insert
-
-		ScoreVO new_scoreVO = new ScoreVO();
-
-		// new_scoreVO.setScoreValue("scoreName");
-		new_scoreVO.setMemberId(6);
-		new_scoreVO.setSongId(1);
-		new_scoreVO.setScoreValue(getStarResult);
-		// new_scoreVO.setComment("scoreName");
-
-		new ScoreInService().insert(new_scoreVO);
-
+		
 	}
 
 	protected void doPost(HttpServletRequest request,

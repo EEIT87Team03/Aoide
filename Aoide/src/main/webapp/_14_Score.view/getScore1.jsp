@@ -24,8 +24,9 @@
 			imgArray[i].onclick = function() {if (obj.rateFlag)return;   obj.rateFlag = true;
 				
   	          document.getElementById("G8").innerText = this._num + 1;
+  	          abc = this._num + 1;
 	          
- 	       
+ 	       ;
  	      
  
                     
@@ -62,7 +63,7 @@
 //    		 var bb = a.onclick = document.getElementById("g7").id
 //     		 alert(bb);
 
-          var v =  document.getElementById("G8").innerText ;
+          v =  document.getElementById("G8").innerText ;
              
  		      if(v == document.getElementById("1").id){
   			alert(a);
@@ -165,10 +166,10 @@
                                     
 									<td>
 
-
-										<button onclick="myFunction()" type"button" value="fuckyou">
-											button</button>
-											</p>
+                                  <td><a   href="<c:url value='/ScoreInDataBaseServlet?id= + v '/> class="btn btn-info" role="button"><button onclick="myFunction()"  type="button" value="sumit">
+											button</button></a></td>
+										
+										
 									</td>
 
 									<br>
