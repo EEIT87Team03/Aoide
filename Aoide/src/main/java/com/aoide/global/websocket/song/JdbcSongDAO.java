@@ -1,4 +1,4 @@
-package com.aoide.global.dataBaseManipulationObjects.song;
+package com.aoide.global.websocket.song;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -108,6 +108,7 @@ public class JdbcSongDAO implements SongDAO {
 																  .toString();
 	
 	private static final String GET_SINGER_STMT = new StringBuffer().append("SELECT ")
+			  														.append("song_id,")
 			  														.append("song_file,")
 			  														.append("name,")
 			  														.append("song_type,")

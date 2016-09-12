@@ -15,10 +15,11 @@ import javax.sql.DataSource;
 public class DataSourceProxy
 {
 	
-	//static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	//private static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private static String url;
 	private static String account;
 	private static String password ;
+	private static String lookUpName;			//java:comp/env/jdbc/AOIDE
 	private static DataSource ds;
 	private static Properties props;
 	
@@ -73,8 +74,13 @@ public class DataSourceProxy
 	public static Connection getJndiConnection() throws ClassNotFoundException, SQLException, NamingException
 	{
 		Context ctx = new InitialContext();
-		ds = ( DataSource ) ctx.lookup( "java:comp/env/jdbc/AOIDE" );	
+		ds = ( DataSource ) ctx.lookup( lookUpName );	
 		
 		return ds.getConnection();
+	}
+	
+	public static void setJndiLookUpName( String name )
+	{
+		lookUpName = name;
 	}
 }
