@@ -32,6 +32,7 @@ public class JdbcBulletDAO implements BulletDAO {
 													.toString();
 
 	private static final String DELETE_STMT = "DELETE FROM bullet WHERE bullet_id = ?";
+	
 	private static final String GET_ONE_STMT = new StringBuffer()
 													.append("SELECT ") 
 													.append("bullet_id,") 
@@ -41,6 +42,7 @@ public class JdbcBulletDAO implements BulletDAO {
 													.append("FROM bullet ") 
 													.append("WHERE bullet_id = ?")
 													.toString();
+	
 	private static final String GET_ALL_STMT = new StringBuffer()
 	.append("SELECT ") 
 	.append("bullet_id,") 
@@ -151,7 +153,7 @@ public class JdbcBulletDAO implements BulletDAO {
 	}
 
 	@Override
-	public void delete(Integer bulletId) {
+	public void delete(Integer bullet_id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -159,7 +161,7 @@ public class JdbcBulletDAO implements BulletDAO {
 
 			con = ConnectionBean.getConnection();
 			pstmt = con.prepareStatement(DELETE_STMT);
-			pstmt.setInt(1, bulletId);
+			pstmt.setInt(1, bullet_id);
             pstmt.executeUpdate();
 
 			// Handle any SQL errors
@@ -305,6 +307,5 @@ public class JdbcBulletDAO implements BulletDAO {
 		System.out.println(GET_ONE_STMT);
 		System.out.println(GET_ALL_STMT);
 	}
-
 }
 

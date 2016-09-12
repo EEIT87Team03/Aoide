@@ -292,5 +292,4 @@ public class JdbcAdDAO implements AdDAO {
 		System.out.println(GET_ONE_STMT);
 		System.out.println(GET_ALL_STMT);
 	}
-
 }

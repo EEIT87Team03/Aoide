@@ -47,7 +47,7 @@ public class LoginAccountServlet extends HttpServlet {
 		if (!errorMsg.isEmpty()){
 			request.setAttribute("errorMsg", errorMsg);
 			request.setAttribute("enteredText", enteredText);
-			request.getRequestDispatcher("/_08_login.view/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/global/_08_login.view/login.jsp").forward(request, response);
 			return;
 		}else{
 			// check the account and password correct or not
@@ -83,7 +83,7 @@ public class LoginAccountServlet extends HttpServlet {
 				}
 				request.setAttribute("errorMsg", errorMsg);
 				request.setAttribute("enteredText", enteredText);
-				request.getRequestDispatcher("/_08_login.view/login.jsp").forward(request, response);
+				request.getRequestDispatcher("/views/global/_08_login.view/login.jsp").forward(request, response);
 				return;
 			}
 		}

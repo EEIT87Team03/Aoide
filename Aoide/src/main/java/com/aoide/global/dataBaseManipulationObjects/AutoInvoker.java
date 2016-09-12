@@ -46,7 +46,7 @@ public class AutoInvoker
 			for( int i = 0; i < propertyCount; i++ )
 			{
 				Method voGetter = voClass.getMethod( "get" + propertyNames.get( i ) );
-//				System.out.println( "vo." + voGetter.getName() + "() = " + voGetter.invoke( vo ) );
+				//System.out.println( "vo." + voGetter.getName() + "() = " + voGetter.invoke( vo ) );
 				
 				if( ( voGetter.getReturnType() == byte[].class ) && ( voGetter.invoke( vo ) != null ) )
 				{
@@ -214,65 +214,8 @@ public class AutoInvoker
 			Method voSetter = voClass.getMethod( setterName, map.get( setterName ) ); 
 			
 			voSetter.invoke( vo, rs.getObject( i ) );
-//			System.out.println( "vo." + setterName + "( " + rs.getObject( i ) + " )" );
+			//System.out.println( "vo." + setterName + "( " + rs.getObject( i ) + " )" );
 		}
 		return vo;
-	}
-	
-	public static void main( String[] args )
-	{
-//		final String INSERT_STMT = 
-//				"INSERT INTO member "
-//				+ "( [account], [password], [name], [email], [picture], [introduction_file_path], [bank_info] ) " 
-//				+ "VALUES ( ?, ?, ?, ?, ?, ?, ? )";
-//			
-//		final String UPDATE_STMT = 
-//				"UPDATE member SET "
-//				+ "[password] = ?, [name] = ?, [email] = ?, [login_count] = ?, [last_login_date] = ?, "
-//				+ "[token_total] = ?, [picture] = ?, [introduction_file_path] = ?, [bank_info] = ? "
-//				+ "WHERE [account] = ?";
-//			
-//		final String DELETE_STMT = 
-//				"DELETE FROM member WHERE [account] = ?";
-//			
-//		final String GET_ONE_STMT = 
-//				"SELECT [member_id] ,[account], [password], [name], [email],"
-//				+ "[register_state], [login_count], [last_login_date], [token_total],"
-//				+ "[picture], [introduction_file_path], [class_type], [ban_state] ,[bank_info] "
-//				+ "FROM member WHERE [account] = ?";
-//			
-//		final String GET_ALL_STMT = 
-//				"SELECT [member_id] ,[account], [password], [name], [email],"
-//				+ "[register_state], [login_count], [last_login_date], [token_total],"
-//				+ "[picture], [introduction_file_path], [class_type], [ban_state] ,[bank_info] "
-//				+ "FROM member ORDER BY [member_id]";
-//		
-//		MemberVO m = new MemberVO();
-//		m.setMemberId( 2 );
-//		m.setAccount( "CCCQwhiteBirdBeauty" );
-//		m.setPassword( "28825252" );
-//		m.setName( "白鳥美麗" );
-//		m.setEmail( "fattyCutty@outlook.com" );
-//		m.setRegisterState( 0 );
-//		m.setLoginCount( 50 );
-//		m.setLastLoginDate( Timestamp.valueOf( "2016-08-20 20:37:31.940" ) );
-//		m.setTokenTotal( 350 );
-//		m.setPicture( null );
-//		m.setIntroductionFilePath( "C:/introduction/file" );
-//		m.setClassType( 0 );
-//		m.setBanState( false );
-//		m.setBankInfo( "NNNNN bank" );
-//		try( Connection conn = DataSourceProxy.getConnection();
-//			 PreparedStatement pstmt = AutoInvoker.invoke( conn, UPDATE_STMT, m ) )
-//		{
-//			
-//			pstmt.executeUpdate();
-//			
-//		}
-//		catch( Exception e )
-//		{
-//			e.printStackTrace();
-//		}	
-		
 	}
 }

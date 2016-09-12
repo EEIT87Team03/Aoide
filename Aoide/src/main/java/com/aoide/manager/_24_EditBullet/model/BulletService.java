@@ -1,5 +1,6 @@
 package com.aoide.manager._24_EditBullet.model;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,5 +35,5 @@ public class BulletService {
 	public BulletVO getBulletById(Integer bulletId) {
 		return bulletDAO.findByPrimaryKey(bulletId);
 	}
-
+	
 }// end class

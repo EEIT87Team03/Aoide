@@ -40,7 +40,7 @@ public class UploadMemberPictureServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		Base64.Encoder encoder = Base64.getEncoder();
-		Part file = request.getPart("file");
+		Part file = request.getPart( "file" );
 		String fileName = getFileNameFromPart( file ).trim(); 
 		System.out.println( "File Name : " + fileName + "\tMIME : " + getServletContext().getMimeType( fileName ) );
 		
@@ -64,7 +64,7 @@ public class UploadMemberPictureServlet extends HttpServlet
 				session.setAttribute( "member", userInfo );		//update session attribute
 				ms.updateMemberData( userInfo );				//update database
 				
-				response.getWriter().write( "Upload Success" );	//output response to XMLHttpRequest
+				response.getWriter().write( "Success" );	//output response to XMLHttpRequest
 			}
 			catch ( Exception e )
 			{
@@ -73,7 +73,7 @@ public class UploadMemberPictureServlet extends HttpServlet
 		}
 		else
 		{
-			response.getWriter().write( "Upload Fail" );
+			response.getWriter().write( "Fail" );
 		}
 	}
 	

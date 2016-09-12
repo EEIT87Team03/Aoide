@@ -16,7 +16,7 @@ public class DisplayResultServlet extends HttpServlet {
 	    // go to checkUploadResult.jsp
 		System.out.println("In DisplayResultServlet");
 	    String contextPath = request.getContextPath();
-	    response.sendRedirect(contextPath + "/_99_TestUpload.view/checkUploadResult.jsp");
+	    response.sendRedirect(contextPath + "/views/member/_99_TestUpload.view/checkUploadResult.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

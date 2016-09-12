@@ -24,7 +24,7 @@ public class ListAccusementServlet extends HttpServlet {
 		request.getSession().setAttribute("accusements", accusements);
 		// go accusementList.jsp
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_28_ManageAccusement.view/accusementList.jsp");
+		response.sendRedirect(contextPath + "/views/manager/_28_ManageAccusement.view/accusementList.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
