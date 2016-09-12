@@ -32,7 +32,7 @@ public class TestSongDAO {
 			songVO1.setLength("1");
 			songVO1.setSinger("abc");
 			dao.insert(songVO1);
-
+/*
 			// �ק�
 			SongVO songVO2 = new SongVO();
 			
@@ -103,7 +103,7 @@ public class TestSongDAO {
 				System.out.print(aSongVO.getLength() + ",");
 				System.out.println(aSongVO.getSinger());
 			}
-
+*/
 	}
 
 }
