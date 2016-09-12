@@ -9,7 +9,7 @@
 </head>
 <body>
 	
-	<form action="<c:url value='/TestUploadServlet'/>" method="post" enctype="multipart/form-data">
+	<form action="<c:url value='/InsertAdds'/>" method="post" enctype="multipart/form-data">
 		上傳歌曲：<input type="file" name="songFile"><p>
 		歌名：<input type="text" name="name"><p>
 		<input type="submit" value="送出">

@@ -1,5 +1,6 @@
 package com.aoide.manager._24_EditBullet.model;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +20,13 @@ public class BulletService {
 	
 	// Methods
 	public List<BulletVO> getUnreplyBulletVO() {
-		List<BulletVO> unreplyBullet = new ArrayList();
+		List<BulletVO> bulletList = new ArrayList();
 		for (BulletVO aBullet : bulletDAO.getAll()) {
-			unreplyBullet.add(aBullet);
+			//${aBullet.bulletId}  
+			bulletList.add(aBullet);
 
 		}// end for
-		return unreplyBullet;
+		return bulletList;
 	}// end getUnreplySuggestions()
 
 	public void updateBullet(BulletVO bulletVO) {
@@ -34,5 +36,5 @@ public class BulletService {
 	public BulletVO getBulletById(Integer bulletId) {
 		return bulletDAO.findByPrimaryKey(bulletId);
 	}
-
+	
 }// end class

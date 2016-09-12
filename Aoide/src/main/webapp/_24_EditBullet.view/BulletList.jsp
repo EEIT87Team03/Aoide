@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Suggestions List</title>
+<title>Bullet List</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -21,7 +21,9 @@
   				<div class="panel panel-primary">
   					<div class="panel-heading"><a href= ""></a></div>
   					<div class="panel-body">
-    				
+    				<td><a href= "<c:url value='/_24_EditBullet.view\Uploadbullet.jsp'/>">Upload</a></td>
+    				<td><a href= "<c:url value='/_24_EditBullet.view/ModifyBullet.jsp'/>">Modify</a></td>
+    				<td><a href= "<c:url value='/_24_EditBullet.view/DeleteBullet.jsp'/>">Delete</a></td>
     					<table class="table">
     						<thead>
     							<tr>
@@ -38,15 +40,13 @@
 			    						<td>${aBullet.date}</td>
 			    						<td>${aBullet.title}</td>
 			    						<td>${aBullet.contentFile}</td>
-			    						<td><a href="<c:url value='/GenerateReplyPageServlet?id=${aBullet.bulletId}'/>"role="button">Modify</a></td>
+			    						<td><a href="<c:url value='/GenerateReplyPageServlet?id=${aBullet.bulletId}'/>"role="button"/></a></a></td>
 			    					</tr>
 		    					</c:forEach>
 		    					<tr>
-		    					<td><a role="button">Edit</a></td>
 		    					</tr>
     						</tbody>
     					</table>
-		    				
     				<br>
   					</div>
 				</div>

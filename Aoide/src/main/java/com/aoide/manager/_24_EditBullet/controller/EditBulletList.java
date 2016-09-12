@@ -20,10 +20,10 @@ public class EditBulletList extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// System.out.println("In ReplySuggestionsServlet doGet()");
 		// get the suggestion list from service
-		List<BulletVO> unreplyBullet = new BulletService().getUnreplyBulletVO();
-        //包入BulletList 
-		request.getSession().setAttribute("BulletList", unreplyBullet);
-		
+		List<BulletVO> bulletList = new BulletService().getUnreplyBulletVO();
+		// 包入BulletList
+		request.getSession().setAttribute("BulletList", bulletList);
+
 		// go suggestionList.jsp
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath

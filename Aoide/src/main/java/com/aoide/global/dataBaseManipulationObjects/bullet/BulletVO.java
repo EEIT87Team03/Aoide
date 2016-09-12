@@ -8,6 +8,7 @@ import java.sql.Date;
 		private String title;
 		private String contentFile;
 		
+		
 		public BulletVO() {
 		}
 		public BulletVO(Integer bulletId, Date date, String title , String contentFile) {
@@ -15,6 +16,7 @@ import java.sql.Date;
 			this.date = date;
 			this.title = title;
 			this.contentFile = contentFile;
+			
 		}
 
 			public Integer getBulletId() {
