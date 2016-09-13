@@ -45,7 +45,8 @@ public class SaveAccuseDanmukuServlet extends HttpServlet {
 		new_accusementDanmukuVO.setAccuseId(member.getMemberId());
 		new_accusementDanmukuVO.setAccusedId(accused_id);
 		new_accusementDanmukuVO.setContentFile(text);
-		new_accusementDanmukuVO.setState(true);
+		new_accusementDanmukuVO.setDanmukuContent(accused_text);
+		new_accusementDanmukuVO.setState(false);
 		
 		
 		Integer accusement_danmuku_id = new SaveAccuseDanmukuService().InsertNewAccusementDanmuku(new_accusementDanmukuVO);
