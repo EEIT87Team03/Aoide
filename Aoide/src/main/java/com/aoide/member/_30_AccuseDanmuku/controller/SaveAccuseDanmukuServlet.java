@@ -58,7 +58,8 @@ public class SaveAccuseDanmukuServlet extends HttpServlet {
 		request.getSession().setAttribute("accusementDanmukuVO", accusementDanmukuVO);
 		
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_30_AccuseDanmuku.view/AccuseSucessPage.jsp");
+		response.sendRedirect(contextPath + "/views/member/_30_AccuseDanmuku.view/AccuseSucessPageTemplate.jsp");
+		//response.sendRedirect(contextPath + "/_30_AccuseDanmuku.view/AccuseSucessPage.jsp");
 		
 		
 		

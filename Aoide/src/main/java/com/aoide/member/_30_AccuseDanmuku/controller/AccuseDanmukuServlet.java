@@ -23,7 +23,8 @@ public class AccuseDanmukuServlet extends HttpServlet {
 		request.getSession().setAttribute("accused_id", request.getParameter("id"));
 		request.getSession().setAttribute("accused_text", request.getParameter("text"));
 		
-		response.sendRedirect(contextPath + "/_30_AccuseDanmuku.view/AccuseDanmmuPage.jsp");
+		//response.sendRedirect(contextPath + "/_30_AccuseDanmuku.view/AccuseDanmmuPage.jsp");
+		response.sendRedirect(contextPath + "/views/member/_30_AccuseDanmuku.view/AccuseDanmmuPageTemplate.jsp");
 		
 	}
 
