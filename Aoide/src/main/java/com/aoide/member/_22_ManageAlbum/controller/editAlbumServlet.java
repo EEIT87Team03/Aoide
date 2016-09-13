@@ -25,7 +25,7 @@ public class editAlbumServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String idStr = request.getParameter("id").trim();
 		if(idStr != null && idStr.length() != 0){
-			id = Integer.parseInt(idStr);
+			id = Integer.parseInt(idStr);           //int
 		}
 		
 		// get the albumVO by id from session
@@ -34,12 +34,12 @@ public class editAlbumServlet extends HttpServlet {
 		
 		// put the albumVO in session
 		for(AlbumVO aAlbum:albumVO){
-			if(aAlbum.getAlbumId() == id){
+			if(aAlbum.getAlbumId().intValue() == id){    //Integer
 				session.setAttribute("aAlbum", aAlbum);
 			}
 		}
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_22_ManageAlbum.view/editAlbum.jsp");
+		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/editAlbum.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

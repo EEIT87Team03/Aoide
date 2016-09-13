@@ -39,7 +39,7 @@ public class editSongServlet extends HttpServlet {
 			}
 		}
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_16_ManageSong.view/editSong.jsp");
+		response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/editSong.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

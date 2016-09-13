@@ -26,7 +26,7 @@ public class ListAlbumServlet extends HttpServlet {
 		
 		request.getSession().setAttribute("myAlbumList", myAlbumResult);
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_22_ManageAlbum.view/ListAlbum.jsp");
+		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/ListAlbum.jsp");
 	}
 
 	
