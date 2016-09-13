@@ -62,28 +62,5 @@
         												clientSocket.send( text );
         											};
         											      											
-        function displayText( message )
-        {
-        	var text = document.createTextNode( message + "\n" );
-        	var displayArea = document.getElementById( "output" );
-        	displayArea.appendChild( text );
-        }
         
-        function setUserList( listString )
-        {
-        	var userList = document.createTextNode( listString );
-			document.getElementById( "users" ).appendChild( userList );
-        }
-        
-        function addToUserList( username )
-        {
-        	var user = document.createTextNode( username + "\n" );
-			document.getElementById( "users" ).appendChild( user );
-        }
-        
-        function removeFromUserList( username )
-        {
-        	var userList = document.getElementById( "users" ).value;
-        	document.getElementById( "users" ).value= userList.replace( username + "\n", "" );
-        }
         
