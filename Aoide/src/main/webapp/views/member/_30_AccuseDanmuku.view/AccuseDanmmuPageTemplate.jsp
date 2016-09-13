@@ -8,12 +8,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- head_library -->
   <c:import url="/template/htmlBlocks/head_library.html"/>
-  <!-- head_library -->
-  
-  <!-- _05_DisplayDanmuku_library_css -->
   <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/>
-  <!-- _05_DisplayDanmuku_library_css -->
-  
+  <!-- head_library -->
 <title>Home</title>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
@@ -48,46 +44,43 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="callout callout-info">
-        <h4>Tip!</h4>
-
-        <p>Add the fixed class to the body tag to get this layout. The fixed layout is your best option if your sidebar
-          is bigger than your content because it prevents extra unwanted scrolling.</p>
-      </div>
-      
-      
-      
-      
-      <div id = "chatRoom">
-		<input type = "text" id = "input" name = "input" size = "40">
-		<input type = "button" id = "send" value = "Send">
-	  </div>
-      
-      
-      
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
+      <div class="row">
+        <div class="col-md-12">
+        
+        
+        <!-- 文字編輯區塊開始 -->
+          <div class="box box-info">
+            <div class="box-header">
+              <h3 class="box-title">CK Editor
+                <small>Advanced and full of features</small>
+              </h3>
+              <!-- tools box -->
+              <div class="pull-right box-tools">
+                <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+                  <i class="fa fa-times"></i></button>
+              </div>
+              <!-- /. tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body pad">
+              <form action="<c:url value='/SaveAccuseDanmukuServlet'/>" method="post">
+                    <textarea id="editor1" name="replyContent" rows="10" cols="80">
+                                            This is my textarea to be replaced with CKEditor.
+                    </textarea>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="box-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
+          <!-- 文字編輯區塊結束 -->
+          
+          <!-- /.box -->
 
+        </div>
+        <!-- /.col-->
+      </div>
+      <!-- ./row -->
     </section>
     <!-- /.content -->
   </div>
@@ -107,14 +100,17 @@
 <c:import url="/template/htmlBlocks/body_library.html"/>
 <!-- body_library -->
 
-<!-- _05_DisplayDanmuku_library -->
 <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/>
-<!-- _05_DisplayDanmuku_library -->
 
-<!-- <script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script> -->
-
+<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script>
-
-	</script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1');
+    //bootstrap WYSIHTML5 - text editor
+    $(".textarea").wysihtml5();
+  });
+</script>
 </body>
 </html>

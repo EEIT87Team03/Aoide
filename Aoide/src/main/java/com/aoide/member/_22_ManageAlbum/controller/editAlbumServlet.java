@@ -1,4 +1,4 @@
-package com.aoide.member._16_ManageSong.controller;
+package com.aoide.member._22_ManageAlbum.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,36 +10,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
+import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
 
-@WebServlet("/editSongServlet")
-public class editSongServlet extends HttpServlet {
+@WebServlet("/editAlbumServlet")
+public class editAlbumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = null;
-		List<SongVO> songVO;
+		List<AlbumVO> albumVO;
 		HttpSession session = null;
 		
-		// get the song id
+		// get the album id
 		request.setCharacterEncoding("UTF-8");
 		String idStr = request.getParameter("id").trim();
 		if(idStr != null && idStr.length() != 0){
 			id = Integer.parseInt(idStr);
 		}
 		
-		// get the songVO by id from session
+		// get the albumVO by id from session
 		session = request.getSession();
-		songVO = (List<SongVO>) session.getAttribute("mySongList"); // from ListSongServlet
+		albumVO = (List<AlbumVO>) session.getAttribute("myAlbumList"); // from ListAlbumServlet
 		
-		// put the songVO in session
-		for(SongVO aSong:songVO){
-			if(aSong.getSongId() == id){
-				session.setAttribute("aSong", aSong);
+		// put the albumVO in session
+		for(AlbumVO aAlbum:albumVO){
+			if(aAlbum.getAlbumId() == id){
+				session.setAttribute("aAlbum", aAlbum);
 			}
 		}
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_16_ManageSong.view/editSong.jsp");
+		response.sendRedirect(contextPath + "/_22_ManageAlbum.view/editAlbum.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -7,11 +7,13 @@
 <title>上傳成功</title>
 </head>
 <body>
-	<img src="${albumVO.CoverFilePath}" width="300" height="300">
+	<img src="${albumVO.coverFilePath}" width="300" height="300">
 	<p>
 		專輯名稱：${albumVO.name}
 	<p>
-		歌曲簡介：${albumVO.IntroductionFilePath}
+		演出者：${albumVO.artist}
+	<p>
+		歌曲簡介：${albumVO.introductionFilePath}
 	<p>
 		上傳日期：${albumVO.updateDate}
 </body>
