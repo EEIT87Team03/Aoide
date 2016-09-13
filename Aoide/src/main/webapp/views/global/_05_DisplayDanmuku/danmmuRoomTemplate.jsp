@@ -9,6 +9,11 @@
   <!-- head_library -->
   <c:import url="/template/htmlBlocks/head_library.html"/>
   <!-- head_library -->
+  
+  <!-- _05_DisplayDanmuku_library_css -->
+  <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/>
+  <!-- _05_DisplayDanmuku_library_css -->
+  
 <title>Home</title>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
@@ -31,7 +36,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        建議清單
+        Fixed Layout
         <small>Blank example to the fixed layout</small>
       </h1>
       <ol class="breadcrumb">
@@ -46,8 +51,20 @@
       <div class="callout callout-info">
         <h4>Tip!</h4>
 
-        <p>建議處理及回復</p>
+        <p>Add the fixed class to the body tag to get this layout. The fixed layout is your best option if your sidebar
+          is bigger than your content because it prevents extra unwanted scrolling.</p>
       </div>
+      
+      
+      
+      
+      <div id = "chatRoom">
+		<input type = "text" id = "input" name = "input" size = "40">
+		<input type = "button" id = "send" value = "Send">
+	  </div>
+      
+      
+      
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
@@ -60,39 +77,12 @@
               <i class="fa fa-times"></i></button>
           </div>
         </div>
-        <!-- /.box-body -->
         <div class="box-body">
-          <!-- /.table -->
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-              <th>No</th>
-              <th>Date</th>
-              <th>Title</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="aSuggestion" items="${unreplySuggestionsList}">
-                <tr>
-                  <td>${aSuggestion.suggestionId}</td>
-                  <td>${aSuggestion.suggestDate}</td>
-                  <td>${aSuggestion.title}</td>
-                  <td><a href="<c:url value='/GenerateReplyPageServlet?id=${aSuggestion.suggestionId}'/>" class="btn btn-info" role="button">Reply</a></td>
-                </tr>
-              </c:forEach>
-            </tbody>
-          </table>
-          <!-- /.table -->
+          Start creating your amazing application!
         </div>
         <!-- /.box-body -->
-        <div class="box-footer clearfix">
-          <ul class="pagination pagination-sm no-margin pull-right">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">&raquo;</a></li>
-          </ul>
+        <div class="box-footer">
+          Footer
         </div>
         <!-- /.box-footer-->
       </div>
@@ -116,5 +106,15 @@
 <!-- body_library -->
 <c:import url="/template/htmlBlocks/body_library.html"/>
 <!-- body_library -->
+
+<!-- _05_DisplayDanmuku_library -->
+<c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/>
+<!-- _05_DisplayDanmuku_library -->
+
+<!-- <script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script> -->
+
+<script>
+
+	</script>
 </body>
 </html>
