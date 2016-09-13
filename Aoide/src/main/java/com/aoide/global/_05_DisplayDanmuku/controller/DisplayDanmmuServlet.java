@@ -17,6 +17,7 @@ public class DisplayDanmmuServlet extends HttpServlet {
 		String contextPath = request.getContextPath();
 		//response.sendRedirect(contextPath + "/danmmuRoom.jsp");
 		response.sendRedirect(contextPath + "/views/global/_05_DisplayDanmuku/danmmuRoomTemplate.jsp");
+		//response.sendRedirect(contextPath + "/views/global/_05_DisplayDanmuku/index.jsp");
 	}
 
 	

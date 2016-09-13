@@ -9,6 +9,11 @@
   <!-- head_library -->
   <c:import url="/template/htmlBlocks/head_library.html"/>
   <!-- head_library -->
+  
+  <!-- _05_DisplayDanmuku_library_css -->
+  <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/>
+  <!-- _05_DisplayDanmuku_library_css -->
+  
 <title>Home</title>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
@@ -43,45 +48,31 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="callout callout-info">
-        <h4>Tip!</h4>
-
-        <p>Add the fixed class to the body tag to get this layout. The fixed layout is your best option if your sidebar
-          is bigger than your content because it prevents extra unwanted scrolling.</p>
-      </div>
+      
       
             <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Responsive Hover Table</h3>
+              <h3 class="box-title">檢舉成功! 以下是這次的檢舉資訊</h3>
 
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
-                  <th>ID</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                  <th>Reason</th>
+                  <th>檢舉ID</th>
+				  <th>檢舉日期</th>
+				  <th>檢舉人ID</th>
+				  <th>被檢舉ID</th>
+				  <th>檢舉原因</th>
                 </tr>
                 <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-success">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                  <td>${accusementDanmukuVO.accusementDanmukuId}</td>
+				  <td>${accusementDanmukuVO.date}</td>
+				  <td>${accusementDanmukuVO.accuseId}</td>
+				  <td>${accusementDanmukuVO.accusedId}</td>
+				  <td>${accusementDanmukuVO.contentFile}</td>
                 </tr>
                 <tr>
                   <td>219</td>
@@ -133,5 +124,9 @@
 <!-- body_library -->
 <c:import url="/template/htmlBlocks/body_library.html"/>
 <!-- body_library -->
+
+<!-- _05_DisplayDanmuku_library -->
+<c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/>
+<!-- _05_DisplayDanmuku_library -->
 </body>
 </html>
