@@ -1,10 +1,10 @@
-package com.aoide.global.websocket.song;
+package com.aoide.global.websocket.track;
 
 import java.io.Serializable; 
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class SongVO implements Serializable
+public class TrackVO implements Serializable
 {
 	
 	// Fields

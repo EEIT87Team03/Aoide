@@ -10,9 +10,11 @@
 </head>
 <body>
 	<form action="<c:url value ='/BuildAlbumServlet'/>" method="post" enctype="multipart/form-data">
-		上傳專輯封面：<input type="file" name="coverFile">
+			上傳專輯封面：<input type="file" name="coverFile">
 		<p>
 			專輯名稱：<input type="text" name="name">
+		<p>
+			演出者：<input type="text" name="artist">
 		<p>
 			專輯簡介：
 			<textarea name="introductionFile" id="introductionFile"></textarea>

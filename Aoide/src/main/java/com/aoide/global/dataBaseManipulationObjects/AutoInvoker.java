@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class AutoInvoker
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, SQLException
 	{
 		Class< ? extends Object > voClass = vo.getClass();
-		PreparedStatement pstmt = conn.prepareStatement( sql );
+		PreparedStatement pstmt = conn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 		
 		ParameterMetaData sqlMetaData = pstmt.getParameterMetaData();
 		List< String > propertyNames = analyze( sql );

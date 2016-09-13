@@ -55,11 +55,18 @@ public class JdbcMemberDAO implements MemberDAO
 	@Override
 	public int insert( MemberVO vo ) 
 	{
-		int insertionCount = 0;
+		int insertionCount = 0, id = -1;
 		
 		try( PreparedStatement pstmt = AutoInvoker.invoke( conn, INSERT_STMT, vo ) )
 		{
 			insertionCount = pstmt.executeUpdate();
+			ResultSet keys = pstmt.getGeneratedKeys();
+
+			if ( keys.next() ) 
+			{
+				id = (Integer) keys.getInt(1);
+				return id;
+			}
 		}
 		catch( Exception e )
 		{

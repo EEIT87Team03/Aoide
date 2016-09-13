@@ -1,4 +1,4 @@
-package com.aoide.global.dataBaseManipulationObjects.song;
+package com.aoide.global.websocket.track;
 
 import java.sql.Connection;
 import java.util.List;
@@ -13,12 +13,12 @@ public class TrackService
 		
 	}
 	
-	public int createNewTrack( SongVO vo )
+	public int createNewTrack( TrackVO vo )
 	{
 		int id = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			SongDAO sdao = new JdbcSongDAO();
+			TrackDAO sdao = new JdbcTrackDAO();
 			id = sdao.insert( vo );
 		}
 		catch( Exception e )
@@ -28,12 +28,12 @@ public class TrackService
 		return id;
 	}
 	
-	public int updateTrackInfo( SongVO vo )
+	public int updateTrackInfo( TrackVO vo )
 	{
 		int updateCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			SongDAO sdao = new JdbcSongDAO();
+			TrackDAO sdao = new JdbcTrackDAO();
 			updateCount = sdao.update( vo );
 		}
 		catch( Exception e )
@@ -48,7 +48,7 @@ public class TrackService
 		int deletionCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			SongDAO sdao = new JdbcSongDAO();
+			TrackDAO sdao = new JdbcTrackDAO();
 			deletionCount = sdao.delete( id );
 		}
 		catch( Exception e )
@@ -58,11 +58,11 @@ public class TrackService
 		return deletionCount;
 	}
 	
-	public SongVO getTrackBean( int id )
+	public TrackVO getTrackBean( int id )
 	{
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			SongDAO sdao = new JdbcSongDAO();
+			TrackDAO sdao = new JdbcTrackDAO();
 			return sdao.findByPrimaryKey( id );
 		}
 		catch( Exception e )
@@ -72,12 +72,12 @@ public class TrackService
 		return null;
 	}
 	
-	public List< SongVO > getAllTrackBeans()
+	public List< TrackVO > getAllTrackBeans()
 	{
-		List< SongVO > list = null;
+		List< TrackVO > list = null;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
-			SongDAO sdao = new JdbcSongDAO();
+			TrackDAO sdao = new JdbcTrackDAO();
 			list =  sdao.getAll();
 		}
 		catch( Exception e )
