@@ -15,7 +15,8 @@ public class DisplayDanmmuServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/danmmuRoom.jsp");
+		//response.sendRedirect(contextPath + "/danmmuRoom.jsp");
+		response.sendRedirect(contextPath + "/views/global/_05_DisplayDanmuku/danmmuRoomTemplate.jsp");
 	}
 
 	
