@@ -45,6 +45,7 @@ public class BuildAlbumServlet extends HttpServlet {
 
 		// call service to name and tempPath into DB and get the id of the album
 		String name = request.getParameter("name");
+		String artist = request.getParameter("artist");
 		String introductionFile = request.getParameter("introductionFile");
 		Date updateDate = new Date(System.currentTimeMillis());
 
@@ -53,6 +54,7 @@ public class BuildAlbumServlet extends HttpServlet {
 		albumVO.setMemberId(1);
 		albumVO.setCoverFilePath("tempPath");
 		albumVO.setName(name);
+		albumVO.setArtist(artist);
 		albumVO.setIntroductionFilePath(introductionFile);
 		albumVO.setUpdateDate(updateDate);
 
