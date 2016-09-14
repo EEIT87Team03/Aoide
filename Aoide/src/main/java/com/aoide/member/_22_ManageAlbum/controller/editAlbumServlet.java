@@ -1,6 +1,7 @@
 package com.aoide.member._22_ManageAlbum.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
+import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
 @WebServlet("/editAlbumServlet")
 public class editAlbumServlet extends HttpServlet {
@@ -19,6 +21,7 @@ public class editAlbumServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = null;
 		List<AlbumVO> albumVO;
+		List<SongVO> songVO;
 		HttpSession session = null;
 		
 		// get the album id
@@ -38,6 +41,17 @@ public class editAlbumServlet extends HttpServlet {
 				session.setAttribute("aAlbum", aAlbum);
 			}
 		}
+		
+		songVO = (List<SongVO>)session.getAttribute("mySongList");
+		List<SongVO> songVOs = new ArrayList();
+		for(SongVO aSong:songVO){
+			if(aSong.getAlbumId() == id){    //int
+				songVOs.add(aSong);
+				System.out.println(aSong);
+			}
+		}
+		
+		request.getSession().setAttribute("mySongList", songVOs);
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/editAlbum.jsp");
 	}
