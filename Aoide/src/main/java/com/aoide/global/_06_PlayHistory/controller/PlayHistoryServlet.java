@@ -52,7 +52,7 @@ public class PlayHistoryServlet extends HttpServlet {
 		
 		//呼叫JSP  showPlayHistory.jsp
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_06_PlayHistory.view/showPlayHistory.jsp");
+		response.sendRedirect(contextPath + "/views/global/_06_PlayHistory.view/showPlayHistoryTemplate.jsp");
 		
 	}
 
