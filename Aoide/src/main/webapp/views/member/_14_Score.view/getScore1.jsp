@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/Aoide/src/main/webapp/js/_17_EditInfo/ajaxUploadImage.js"/>
 <script type="text/javascript">
 function rate(obj, oEvent) {
 	

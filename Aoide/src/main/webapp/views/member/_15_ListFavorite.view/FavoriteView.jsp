@@ -1,54 +1,86 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
 <html>
-<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>List Favorite</title>
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- head_library -->
+<c:import url="/template/htmlBlocks/head_library.html" />
+<!-- head_library -->
+<title>Favorite List</title>
 
 
 </head>
-<body>
-<div class="container">
-		<div class="row">
-  			<div class="col-lg-1">.col-lg-1</div>
-  			<div class="col-lg-10">
-  				<div class="panel panel-primary">
-  					<div class="panel-heading"><a href= ""></a></div>
-  					<div class="panel-body">
-    				
-    					<table class="table">
-    						<thead>
-    							<tr>
+<body class="hold-transition skin-blue fixed sidebar-mini">
+	<!-- Site wrapper -->
+
+	<div class="wrapper">
+		<!-- header -->
+		<c:import url="/template/htmlBlocks/header.html" />
+		<!-- header -->
+
+		<!-- =============================================== -->
+
+		<!-- sidebar -->
+		<c:import url="/template/htmlBlocks/sidebar_global.html" />
+		<!-- sidebar -->
+
+		<!-- =============================================== -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+			<h1>
+				Favorite <small> Your Favorite</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="\Aoide\_14_Score.view\index.jsp"><i
+						class="fa fa-dashboard"></i> Home</a></li>
+				<li><a href="#">Favorite List</a></li>
+				<!--         <li class="active">Fixed</li> -->
+			</ol>
+			</section>
+
+			<!-- Default box -->
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title"></h3>
+
+
+					<title>評分評論</title>
+
+					<div class="panel-body">
+
+						<table class="table">
+							<thead>
+								<tr>
 									<th>歌曲ID</th>
 									<th>作曲者ID</th>
-								
 								</tr>
-    						</thead>
-    						<tbody>
-								
+							</thead>
+							<tbody>
+
+
+								<c:forEach var="aFavorite" items="${favorites}">
 									<tr>
-										<td>${favorite.songId}</td>
-										<td>${favorite.memberId}</td>
-									
+										<td>${aFavorite.songId}</td>
+										<td>${aFavorite.memberId}</td>
 									</tr>
-								<small>&lt;&lt;<a href="index.jsp">回首頁</a>&gt;&gt;</small>
-    						</tbody>
-    					</table>
-		    				
-    				<br>
-  					</div>
-				</div>
-  			</div>
-  			<div class="col-lg-1">.col-lg-1</div>
-		</div>
-	</div>
+								</c:forEach>
+
+
+								<a href="http://localhost:8080/Aoide/index.jsp"
+									class="btn btn-info" role="button">回首頁</a>
 </body>
+
+
 </html>
+

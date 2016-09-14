@@ -30,7 +30,7 @@ import com.aoide.manager._27_ReplySuggestions.model.SuggestionService;
 import com.aoide.member._14_ScoreSong.model.ScoreInService;
 import com.aoide.member._14_ScoreSong.model.ScoreService;
 
-@WebServlet("/ScoreInDataBaseServlet")
+@WebServlet("/ScoreInDataBaseServlet.member")
 public class ScoreInDataBaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HttpSession session = null;
@@ -42,36 +42,30 @@ public class ScoreInDataBaseServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		session = request.getSession();
+		ScoreVO scoreVO = (ScoreVO) session.getAttribute("scoreVO");
 
-		request.setCharacterEncoding("UTF-8");
 		
-//		Integer getStarResult = Integer.parseInt((String) request.getSession()
-//				.getAttribute("G8"));
-//		int a= (int) request.getSession().getAttribute("G8");
+		System.out.println(request.getParameter("socreStar"));
+		Integer getStarResult = Integer.parseInt(request.getParameter("socreStar"));
+        String comment =request.getParameter("comment");
         
+        
+        scoreVO.setScoreValue(getStarResult);
+        scoreVO.setComment(comment);
+		
 		// test insert
-
-		ScoreVO new_scoreVO = new ScoreVO();
-  	  int a = (int) request.getSession().getAttribute("v");
-		// new_scoreVO.setScoreValue("scoreName");
-	    
-  	    new_scoreVO.setMemberId(3);
-  	    new_scoreVO.setSongId(10);
-		new_scoreVO.setScoreValue(a);
+		new ScoreInService().insert(scoreVO);
 		
-		// new_scoreVO.setComment("scoreName");
-		new ScoreInService().insert(new_scoreVO);
 
-		
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/_14_Score.view/getScore1.jsp");
-		
-		
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-
+			HttpServletResponse response) throws ServletException, IOException 
+	{
+		doGet( request, response);
 	}
 }
