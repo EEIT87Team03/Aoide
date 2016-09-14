@@ -39,10 +39,10 @@ public class SaveSuggestionReplyServlet extends HttpServlet {
 			suggestion.setReplyState(1); 
 			suggestion.setReplyContentFile(text);
 			
-			System.out.println("suggestion: " + suggestion);
-			System.out.println("suggestion: " + suggestion.getTitle());
-			System.out.println("suggestion: " + suggestion.getReplyContentFile());
-			System.out.println("suggestion: " + suggestion.getSuggestionId());
+//			System.out.println("suggestion: " + suggestion);
+//			System.out.println("suggestion: " + suggestion.getTitle());
+//			System.out.println("suggestion: " + suggestion.getReplyContentFile());
+//			System.out.println("suggestion: " + suggestion.getSuggestionId());
 			
 			
 			// update suggestion
