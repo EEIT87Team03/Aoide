@@ -13,7 +13,8 @@
 		<input type="submit" value="送出">
 		<p>
 		<input type="radio" name="searchType" value="name" checked>搜尋歌名　
-		<input type="radio" name="searchType" value="singer">搜尋歌手
+		<input type="radio" name="searchType" value="singer">搜尋歌手　
+		<input type="radio" name="searchType" value="album">搜尋專輯
 	</form>
 </body>
 </html>
