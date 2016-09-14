@@ -52,6 +52,7 @@ public class SearchSongServlet extends HttpServlet {
 			request.getSession().setAttribute("searchList", searchResult);
 			String contextPath = request.getContextPath();
 			response.sendRedirect(contextPath + "/views/global/_10_SearchSong.view/SearchSongResult.jsp");
+			
 		}else if(type.equalsIgnoreCase("album")){
 			List<AlbumVO> searchResult = new SearchSongService().getAlbum(search);
 			for (AlbumVO searchSong : searchResult) {
