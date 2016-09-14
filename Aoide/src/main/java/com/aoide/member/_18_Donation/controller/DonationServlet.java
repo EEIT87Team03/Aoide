@@ -24,7 +24,6 @@ public class DonationServlet extends HttpServlet {
 		//從SESSION來的值，為被贊助者ID
 		Integer recipient_id = 2;
 		//從JSP來的值，贊助金額
-		checkCash_volume(request.getParameter("cash_volume"));
 		Integer cash_volume =  Integer.valueOf(request.getParameter("cash_volume"));
 		//TYPE 贊助時為1
 		Integer type = 1;
@@ -49,25 +48,14 @@ public class DonationServlet extends HttpServlet {
 		request.getSession().setAttribute("cashRecordVO", cashRecordVO);
 		
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/views/member/_18_Donation.view/ShowDonationRecord.jsp");
+		response.sendRedirect(contextPath + "/views/member/_18_Donation.view/ShowDonationRecordTemplate.jsp");
 		
 		System.out.println(cashRecordVO.getCashRecordId());
 		
 	}
 
 	
-	private void checkCash_volume(String cash_volume) {
-		
-		String re = "/^[0-9]+$/";
-		if (re.matches(cash_volume)){
-			System.out.println("符合驗證");
-		}else{
-			System.out.println("符合失敗");
-		}
-		
-		
-		
-	}
+
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
