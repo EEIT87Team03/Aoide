@@ -9,11 +9,6 @@
   <!-- head_library -->
   <c:import url="/template/htmlBlocks/head_library.html"/>
   <!-- head_library -->
-  
-  <!-- _05_DisplayDanmuku_library_css -->
-  <!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/> -->
-  <!-- _05_DisplayDanmuku_library_css -->
-  
 <title>Home</title>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
@@ -49,41 +44,32 @@
     <!-- Main content -->
     <section class="content">
       
-      
-            <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">檢舉成功! 以下是這次的檢舉資訊</h3>
-
+      <!-- Default box -->
+      <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Quick Example</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tr>
-                  <th>檢舉ID</th>
-				  <th>檢舉日期</th>
-				  <th>檢舉人ID</th>
-				  <th>被檢舉ID</th>
-				  <th>檢舉原因</th>
-                </tr>
-                <tr>
-                  <td>${accusementDanmukuVO.accusementDanmukuId}</td>
-				  <td>${accusementDanmukuVO.date}</td>
-				  <td>${accusementDanmukuVO.accuseId}</td>
-				  <td>${accusementDanmukuVO.accusedId}</td>
-				  <td>${accusementDanmukuVO.contentFile}</td>
-                </tr>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-      </div>
-      
-      
+            <!-- form start -->
+            <form role="form" method="POST" action="<c:url value='/DonationServlet.member' />"  id="DonationServlet" >
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">你要贊助的人ID(此應該為一個死值)</label>
+                  <input type="text" class="form-control " id="exampleInputEmail1" placeholder="對方的ID(從SESSION獲得)" disabled="disabled">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">贊助金額</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="贊助金額" name = "cash_volume">
+                </div>
+              </div>
+              <!-- /.box-body -->
 
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+      <!-- /.box -->
 
     </section>
     <!-- /.content -->
@@ -103,9 +89,5 @@
 <!-- body_library -->
 <c:import url="/template/htmlBlocks/body_library.html"/>
 <!-- body_library -->
-
-<!-- _05_DisplayDanmuku_library -->
-<!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/> -->
-<!-- _05_DisplayDanmuku_library -->
 </body>
 </html>
