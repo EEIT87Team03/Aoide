@@ -58,6 +58,7 @@ public class JdbcAlbumDAO implements AlbumDAO
 			if ( keys.next() ) 
 			{
 				id = (Integer) keys.getInt(1);
+				
 				return id;
 			}
 		}

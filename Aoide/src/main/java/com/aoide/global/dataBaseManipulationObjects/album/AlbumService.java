@@ -18,17 +18,17 @@ public class AlbumService
 	
 	public int createNewAlbum( AlbumVO vo )
 	{
-		int caeationCount = 0;
+		int idOrCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
 			AlbumDAO adao = daoFactory.createAlbumDAO( conn );
-			caeationCount = adao.insert( vo );
+			idOrCount = adao.insert( vo );
 		}
 		catch( Exception e )
 		{
 			e.printStackTrace();
 		}
-		return caeationCount;
+		return idOrCount;
 	}
 	
 	public int updateAlbumContent( AlbumVO vo )

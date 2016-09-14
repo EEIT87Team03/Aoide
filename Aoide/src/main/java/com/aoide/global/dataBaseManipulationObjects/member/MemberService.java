@@ -20,17 +20,17 @@ public class MemberService
 	
 	public int createMemberAccount( MemberVO vo )
 	{
-		int caeationCount = 0;
+		int idOrCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
 			MemberDAO mdao = daoFactory.createMemberDAO( conn );
-			caeationCount = mdao.insert( vo );
+			idOrCount = mdao.insert( vo );
 		}
 		catch( Exception e )
 		{
 			e.printStackTrace();
 		}
-		return caeationCount;
+		return idOrCount;
 	}
 	
 	public int updateMemberData( MemberVO vo )

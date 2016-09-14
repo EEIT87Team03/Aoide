@@ -22,5 +22,17 @@ public class ListAlbumService {
 		}
 		return myAlbumResult;
 	}
+	
+	public void updateAlbum(AlbumVO album) {
+		albumService.updateAlbumContent(album);
+	}
+
+	public AlbumVO getAlbumById(int albumid) {
+		return albumService.getAlbumBean(albumid);
+	}
+
+	public void deleteAlbum(Integer albumId) {
+		albumService.deleteAlbum(albumId);		
+	}
 
 }

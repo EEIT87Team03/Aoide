@@ -98,7 +98,7 @@ public class BuildAlbumServlet extends HttpServlet {
 		// go to checkUploadResult.jsp
 		request.getSession().setAttribute("albumVO", albumVO);
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_22_ManageAlbum.view/BuildAlbumSuccess.jsp");
+		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/BuildAlbumSuccess.jsp");
 	}
 	
 	private String getFileName(final Part part) {
