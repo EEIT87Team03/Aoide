@@ -14,6 +14,7 @@
   <!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/> -->
   <!-- _05_DisplayDanmuku_library_css -->
   
+  
 <title>Home</title>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
@@ -55,16 +56,11 @@
           is bigger than your content because it prevents extra unwanted scrolling.</p>
       </div>
       
-      
-      
-      
-      <div id = "chatRoom">
+      <div id = "chatRoom" >
 		<input type = "text" id = "input" name = "input" size = "40">
 		<input type = "button" id = "send" value = "Send">
 	  </div>
-      
-      
-      
+	  
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
@@ -111,10 +107,5 @@
 <!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/> -->
 <!-- _05_DisplayDanmuku_library -->
 
-<!-- <script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script> -->
-
-<script>
-
-	</script>
 </body>
 </html>

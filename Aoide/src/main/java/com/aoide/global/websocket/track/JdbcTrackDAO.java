@@ -1,4 +1,4 @@
-package com.aoide.global.websocket.song;
+package com.aoide.global.websocket.track;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ import java.util.List;
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
 import com.aoide.global.dataBaseManipulationObjects.score.ScoreVO;
 
-public class JdbcSongDAO implements SongDAO {
+public class JdbcTrackDAO implements TrackDAO {
 	// Fields
 	private static final String INSERT_STMT = "INSERT INTO song(song_file, name, song_type,	song_language, member_id, album_id, introduction_file, cover_file, lyrics_file,	update_date, lastclick_date, clicks, favorite_counts, shares, score, length, singer)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
@@ -133,7 +133,7 @@ public class JdbcSongDAO implements SongDAO {
 
 
 	// Method
-	public Integer insert( SongVO songVO ) 
+	public Integer insert( TrackVO songVO ) 
 	{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -196,7 +196,7 @@ public class JdbcSongDAO implements SongDAO {
 	}
 
 	@Override
-	public int update(SongVO songVO) {
+	public int update(TrackVO songVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		int updateCount = 0;
@@ -295,8 +295,8 @@ public class JdbcSongDAO implements SongDAO {
 	}
 
 	@Override
-	public SongVO findByPrimaryKey(Integer songId) {
-		SongVO songVO = null;
+	public TrackVO findByPrimaryKey(Integer songId) {
+		TrackVO songVO = null;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -310,7 +310,7 @@ public class JdbcSongDAO implements SongDAO {
 
 			while (rs.next()) {
 				// empVo �]�٬� Domain objects
-				songVO = new SongVO();
+				songVO = new TrackVO();
 				songVO.setSongId(rs.getInt("song_id"));
 				songVO.setSongFile(rs.getString("song_file"));
 				songVO.setName(rs.getString("name"));
@@ -363,9 +363,9 @@ public class JdbcSongDAO implements SongDAO {
 	}
 
 	@Override
-	public List<SongVO> getAll() {
-		List<SongVO> list = new ArrayList<SongVO>();
-		SongVO songVO = null;
+	public List<TrackVO> getAll() {
+		List<TrackVO> list = new ArrayList<TrackVO>();
+		TrackVO songVO = null;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -379,7 +379,7 @@ public class JdbcSongDAO implements SongDAO {
 
 			while (rs.next()) {
 				// empVO �]�٬� Domain objects
-				songVO = new SongVO();
+				songVO = new TrackVO();
 				songVO.setSongId(rs.getInt("song_id"));
 				songVO.setSongFile(rs.getString("song_file"));
 				songVO.setName(rs.getString("name"));
@@ -432,9 +432,9 @@ public class JdbcSongDAO implements SongDAO {
 
 	}
 
-	public List<SongVO> getName(String search) {
-		List<SongVO> list = new ArrayList<SongVO>();
-		SongVO songVO = null;
+	public List<TrackVO> getName(String search) {
+		List<TrackVO> list = new ArrayList<TrackVO>();
+		TrackVO songVO = null;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -450,7 +450,7 @@ public class JdbcSongDAO implements SongDAO {
 
 			while (rs.next()) {
 				// empVO �]�٬� Domain objects
-				songVO = new SongVO();
+				songVO = new TrackVO();
 				songVO.setSongId(rs.getInt("song_id"));
 				songVO.setSongFile(rs.getString("song_file"));
 				songVO.setName(rs.getString("name"));
@@ -503,9 +503,9 @@ public class JdbcSongDAO implements SongDAO {
 
 	}
 	
-	public List<SongVO> getSinger(String search) {
-		List<SongVO> list = new ArrayList<SongVO>();
-		SongVO songVO = null;
+	public List<TrackVO> getSinger(String search) {
+		List<TrackVO> list = new ArrayList<TrackVO>();
+		TrackVO songVO = null;
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -521,7 +521,7 @@ public class JdbcSongDAO implements SongDAO {
 
 			while (rs.next()) {
 				// empVO �]�٬� Domain objects
-				songVO = new SongVO();
+				songVO = new TrackVO();
 				songVO.setSongId(rs.getInt("song_id"));
 				songVO.setSongFile(rs.getString("song_file"));
 				songVO.setName(rs.getString("name"));

@@ -95,8 +95,8 @@ public class MemberService
 	public static void main( String[] args ) 
 	{
 		MemberVO m = new MemberVO();
-		m.setMemberId( 2 );
-		m.setAccount( "smallBirdBeauty" );
+		
+		m.setAccount( "AAAsmallBirdBeauty" );
 		m.setPassword( "28825252" );
 		m.setName( "小鳥美麗" );
 		m.setEmail( "fattyCutty@outlook.com" );
@@ -112,7 +112,7 @@ public class MemberService
 		
 		MemberService ms = new MemberService();
 		
-		//System.out.println( ms.createMemberAccount( m ) );
+		System.out.println( ms.createMemberAccount( m ) );
 		//System.out.println( ms.updateMemberData( m ) );
 		//System.out.println( ms.deleteMemberAccount( "smallBirdBeauty" ) );
 		//System.out.println( ms.getMemberBean( "whiteBirdBeauty" ) );

@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 		var wsUri = "ws://localhost:8080/Aoide/danmu";
     	var clientSocket = new WebSocket( wsUri );
     	var username = "";
@@ -10,7 +8,7 @@
     	clientSocket.onopen = 
     			function()
     			{
-    				username = prompt( "Please enter your name", "Anonymous" );
+    				//username = prompt( "Please enter your name", "Anonymous" );
     				//clientSocket.send( "[LOGIN] " + username );
     				memberId = ${member.memberId};
     				
@@ -27,7 +25,7 @@
     			            info: message, //彈幕文字
     			            href: '/Aoide/AccuseDanmukuServlet?id=' + memberId + '&text=' + message , //點選彈幕的連結網址
     			            close: true, //是否顯示關閉的按鈕
-    			            speed: 10, //延遲(秒)預設為6
+    			            speed: 6, //延遲(秒)預設為6
     			            color: '#000000', //顏色，預設白色
     			            old_ie_color: '#ffffff', //ie低版兼容色,不能与网页背景相同,默认黑色 
     			        }
