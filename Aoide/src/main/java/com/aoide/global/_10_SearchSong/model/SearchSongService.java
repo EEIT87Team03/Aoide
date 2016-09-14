@@ -19,7 +19,7 @@ public class SearchSongService {
 	public List<SongVO> getSongName(String search) {
 		List<SongVO> searchResult = songDAO.getName(search);
 		for (SongVO searchSong : searchResult) {
-			if (searchSong.getName() == search) {
+			if (searchSong.getName().equals(search)) {
 				searchResult.add(searchSong);
 			}
 		}
@@ -29,7 +29,7 @@ public class SearchSongService {
 	public List<SongVO> getSinger(String search) {
 		List<SongVO> searchResult = songDAO.getSinger(search);
 		for (SongVO searchSong : searchResult) {
-			if (searchSong.getSinger() == search) {
+			if (searchSong.getSinger().equals(search)) {
 				searchResult.add(searchSong);
 			}
 		}
@@ -39,7 +39,7 @@ public class SearchSongService {
 	public List<AlbumVO> getAlbum(String search) {
 		List<AlbumVO> searchResult = albumService.searchAlbum(search);
 		for (AlbumVO searchSong : searchResult) {
-			if (searchSong.getName() == search) {
+			if (searchSong.getName().equals(search)) {
 				searchResult.add(searchSong);
 			}
 		}

@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.global.dataBaseManipulationObjects.cashRecord.CashRecordVO;
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.member._18_Donation.model.DonationService;
 
 
-@WebServlet("/DonationServlet")
+@WebServlet("/DonationServlet.member")
 public class DonationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -19,13 +20,18 @@ public class DonationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//從JSP來的值，為贊助者ID
-		Integer sponsor_id = 1;
-		//從JSP來的值，為被贊助者ID
+		//Integer sponsor_id = 1;
+		//從SESSION來的值，為被贊助者ID
 		Integer recipient_id = 2;
 		//從JSP來的值，贊助金額
-		Integer cash_volume = 9527;
+		Integer cash_volume =  Integer.valueOf(request.getParameter("cash_volume"));
 		//TYPE 贊助時為1
 		Integer type = 1;
+		
+		//從SESSION獲取MemberVO物件;
+		MemberVO memberVO = (MemberVO) request.getSession().getAttribute("member");
+		Integer sponsor_id = memberVO.getMemberId();
+		
 		
 		//製作一個新的VO物件
 		CashRecordVO new_CashRecordVO = new CashRecordVO();
@@ -42,13 +48,16 @@ public class DonationServlet extends HttpServlet {
 		request.getSession().setAttribute("cashRecordVO", cashRecordVO);
 		
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_18_Donation.view/ShowDonationRecord.jsp");
+		response.sendRedirect(contextPath + "/views/member/_18_Donation.view/ShowDonationRecordTemplate.jsp");
 		
 		System.out.println(cashRecordVO.getCashRecordId());
 		
 	}
 
 	
+
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
