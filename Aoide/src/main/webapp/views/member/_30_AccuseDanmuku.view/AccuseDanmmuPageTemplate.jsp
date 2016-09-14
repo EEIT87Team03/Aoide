@@ -10,7 +10,7 @@
   <c:import url="/template/htmlBlocks/head_library.html"/>
   
   <!-- _05_DisplayDanmuku_library_css -->
-  <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/>
+  <!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/> -->
   <!-- _05_DisplayDanmuku_library_css -->
   
   <!-- head_library -->
@@ -98,7 +98,7 @@
 <!-- body_library -->
 
 <!-- _05_DisplayDanmuku_library -->
-<c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/>
+<!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/> -->
 <!-- _05_DisplayDanmuku_library -->
 
 <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>

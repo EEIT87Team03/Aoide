@@ -11,7 +11,7 @@
   <!-- head_library -->
   
   <!-- _05_DisplayDanmuku_library_css -->
-  <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/>
+  <!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/> -->
   <!-- _05_DisplayDanmuku_library_css -->
   
 <title>Home</title>
@@ -126,7 +126,7 @@
 <!-- body_library -->
 
 <!-- _05_DisplayDanmuku_library -->
-<c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/>
+<!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/> -->
 <!-- _05_DisplayDanmuku_library -->
 </body>
 </html>
