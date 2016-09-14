@@ -89,5 +89,10 @@
 <!-- body_library -->
 <c:import url="/template/htmlBlocks/body_library.html"/>
 <!-- body_library -->
+<script>
+
+
+
+</script>
 </body>
 </html>

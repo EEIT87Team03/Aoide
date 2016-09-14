@@ -72,7 +72,7 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="aSuggestion" items="${unreplySuggestionsList}">
+             <c:forEach var="aSuggestion" items="${unreplySuggestionsList}">
                 <tr>
                   <td>${aSuggestion.suggestionId}</td>
                   <td>${aSuggestion.suggestDate}</td>
