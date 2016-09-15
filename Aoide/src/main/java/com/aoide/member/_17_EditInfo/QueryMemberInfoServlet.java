@@ -16,7 +16,7 @@ import com.aoide.global.dataBaseManipulationObjects.member.MemberService;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 
 
-@WebServlet("/QueryMember")
+@WebServlet("/Query.member")
 public class QueryMemberInfoServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
@@ -39,10 +39,10 @@ public class QueryMemberInfoServlet extends HttpServlet
 	protected void doPost( HttpServletRequest request, HttpServletResponse response) 
 													throws ServletException, IOException 
 	{
-		Base64.Encoder encoder = Base64.getEncoder();
-		MemberService ms = new MemberService();
-		MemberVO bean = ms.getMemberBean( "AoideOfficialAccount" );
-		request.getSession().setAttribute( "member", bean );
+//		Base64.Encoder encoder = Base64.getEncoder();
+//		MemberService ms = new MemberService();
+//		MemberVO bean = ms.getMemberBean( "AoideOfficialAccount" );
+//		request.getSession().setAttribute( "member", bean );
 		//test data		
 		
 		HttpSession session =  request.getSession();
