@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
+import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._22_ManageAlbum.model.ListAlbumService;
 
 @WebServlet("/UpdateAlbumServlet")
@@ -105,6 +107,8 @@ public class UpdateAlbumServlet extends HttpServlet {
 		
 		// get the song from database to check the result of update
 		updateAlbum = service.getAlbumById(album.getAlbumId());
+		List<SongVO> songVO = (List<SongVO>) session.getAttribute("mySongList");
+		session.setAttribute("mySongList", songVO);
 		session.setAttribute("updateAlbum", updateAlbum);
 		
 		String contextPath = request.getContextPath();

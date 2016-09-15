@@ -1,5 +1,6 @@
 package com.aoide.global._10_SearchSong.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.album.AlbumService;
@@ -38,12 +39,13 @@ public class SearchSongService {
 
 	public List<AlbumVO> getAlbum(String search) {
 		List<AlbumVO> searchResult = albumService.searchAlbum(search);
+		List<AlbumVO> newSR = new ArrayList();
 		for (AlbumVO searchSong : searchResult) {
 			if (searchSong.getName().equals(search)) {
-				searchResult.add(searchSong);
+				newSR.add(searchSong);
 			}
 		}
-		return searchResult;
+		return newSR;
 	}
 
 }

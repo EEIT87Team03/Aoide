@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
+import com.aoide.member._16_ManageSong.model.ListSongService;
 
 @WebServlet("/editAlbumServlet")
 public class editAlbumServlet extends HttpServlet {
@@ -21,7 +22,6 @@ public class editAlbumServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = null;
 		List<AlbumVO> albumVO;
-		List<SongVO> songVO;
 		HttpSession session = null;
 		
 		// get the album id
@@ -42,16 +42,25 @@ public class editAlbumServlet extends HttpServlet {
 			}
 		}
 		
-		songVO = (List<SongVO>)session.getAttribute("mySongList");
-		List<SongVO> songVOs = new ArrayList();
-		for(SongVO aSong:songVO){
+		List<SongVO> mySongResult = new ListSongService().getMySong();
+		for (SongVO mySong : mySongResult) {
+			System.out.println(mySong.getName());
+		}
+		List<SongVO> songVO = new ArrayList();
+		for(SongVO aSong:mySongResult){
 			if(aSong.getAlbumId() == id){    //int
-				songVOs.add(aSong);
+				songVO.add(aSong);
 				System.out.println(aSong);
 			}
 		}
 		
-		request.getSession().setAttribute("mySongList", songVOs);
+		List<SongVO> mySongResult2 = new ListSongService().getMyAlbumSong();
+		for (SongVO mySong : mySongResult2) {
+			System.out.println(mySong.getName());
+		}
+		
+		request.getSession().setAttribute("mySongList", songVO);
+		request.getSession().setAttribute("mySongList2", mySongResult2);
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/editAlbum.jsp");
 	}
