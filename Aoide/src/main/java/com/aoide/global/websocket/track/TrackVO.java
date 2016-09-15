@@ -140,7 +140,7 @@ public class TrackVO implements Serializable
 	{
 		return clicks;
 	}
-	public void setClicks(int clicks) 
+	public void setClicks( Integer clicks) 
 	{
 		this.clicks = clicks;
 	}
