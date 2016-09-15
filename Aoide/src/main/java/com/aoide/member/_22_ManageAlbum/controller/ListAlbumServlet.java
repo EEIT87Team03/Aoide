@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
+import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
+import com.aoide.member._16_ManageSong.model.ListSongService;
 import com.aoide.member._22_ManageAlbum.model.ListAlbumService;
 
 @WebServlet("/ListAlbumServlet")
@@ -24,6 +26,12 @@ public class ListAlbumServlet extends HttpServlet {
 			System.out.println(myAlbum.getName());
 		}
 		
+		List<SongVO> mySongResult = new ListSongService().getMySong();
+		for (SongVO mySong : mySongResult) {
+			System.out.println(mySong.getName());
+		}
+		
+		request.getSession().setAttribute("mySongList", mySongResult);
 		request.getSession().setAttribute("myAlbumList", myAlbumResult);
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/ListAlbum.jsp");

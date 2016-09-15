@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -98,8 +99,27 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 		service.updatePath(albumVO);
 		// call service to check the album in DB by id
 		albumVO = service.checkUpload(id);
+		
+		String[] songId = request.getParameterValues("check");
+		HttpSession session = request.getSession();
+		List<SongVO> songVO = (List<SongVO>) session.getAttribute("mySongList");
+		List<SongVO> upSongVO = new ArrayList();
+		ListSongService lss = new ListSongService();
+		for(String s : songId){
+			int i = Integer.valueOf(s).intValue();
+			for(SongVO song : songVO){
+				if(i == song.getSongId()){
+					System.out.println("i = " + i);
+					System.out.println("song.getSongId() = " + song.getSongId());
+					song.setAlbumId(id);
+					lss.updateSong(song);
+					upSongVO.add(song);
+				}
+			}
+		}
 
 		// go to checkUploadResult.jsp
+		request.getSession().setAttribute("upSongVO", upSongVO);
 		request.getSession().setAttribute("albumVO", albumVO);
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/BuildAlbumSuccess.jsp");
