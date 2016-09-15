@@ -24,6 +24,16 @@ public class ListSongService {
 		return mySongResult;
 	}
 	
+	public List<SongVO> getMyAlbumSong() {
+		List<SongVO> mySongResult = new ArrayList();
+		for (SongVO mySong : songDAO.getAll()) {
+			if (mySong.getMemberId() == 1 && mySong.getAlbumId() == 1) {
+				mySongResult.add(mySong);
+			}
+		}
+		return mySongResult;
+	}
+	
 	public void updateSong(SongVO songVO) {
 		songDAO.update(songVO);
 	}

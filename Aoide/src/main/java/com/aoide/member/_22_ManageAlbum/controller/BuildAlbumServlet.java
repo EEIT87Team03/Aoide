@@ -19,7 +19,7 @@ public class BuildAlbumServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		List<SongVO> mySongResult = new ListSongService().getMySong();
+		List<SongVO> mySongResult = new ListSongService().getMyAlbumSong();
 		for (SongVO mySong : mySongResult) {
 			System.out.println(mySong.getName());
 		}
