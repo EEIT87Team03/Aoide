@@ -47,7 +47,7 @@
       <!-- Default box -->
       <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Quick Example</h3>
+              <h3 class="box-title">贊助開始頁面</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -58,7 +58,7 @@
                   <input type="text" class="form-control " id="exampleInputEmail1" placeholder="對方的ID(從SESSION獲得)" disabled="disabled">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">贊助金額</label>
+                  <label for="exampleInputPassword1">贊助金額</label><font color = 'red' size='-1'>   ${cash_volumeError}</font>
                   <input type="text" class="form-control" id="exampleInputPassword1" placeholder="贊助金額" name = "cash_volume">
                 </div>
               </div>
