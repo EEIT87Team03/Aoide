@@ -18,12 +18,12 @@ public class deleteSongServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		Integer id = new Integer(request.getParameter("id"));
-		System.out.println("id: " + id);
+		System.out.println("delete id：" + id);
 		
 		service.deleteSong(id);
 		
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_16_ManageSong.view/deleteSongSuccess.jsp");
+		response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/deleteSongSuccess.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

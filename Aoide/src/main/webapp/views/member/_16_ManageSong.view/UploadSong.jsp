@@ -10,24 +10,27 @@
 </head>
 <body>
 	<form action="<c:url value ='/UploadSongServlet'/>" method="post" enctype="multipart/form-data">
-			上傳歌曲：<input type="file" name="songFile">
+			上傳歌曲：<input type="file" name="songFile">　${errorMsg.emptyPartMsg}
 		<p>
-			<!-- 上傳封面圖片：<input type="file" name="coverFile"><p> -->
-			歌名：<input type="text" name="name">
+			上傳封面圖片：<input type="file" name="coverFile">　${errorMsg.emptyPart2Msg}
 		<p>
-			演出者：<input type="text" name="singer">
+			歌名：<input type="text" name="name" value="${enteredText.name}">　${errorMsg.emptyNameMsg}
 		<p>
-			類型：<input type="text" name="songType">
+			演出者：<input type="text" name="singer" value="${enteredText.singer}">　${errorMsg.emptySingerMsg}
 		<p>
-			語言：<input type="text" name="songLanguage">
+			類型：<input type="text" name="songType" value="${enteredText.songType}">
 		<p>
-			歌曲簡介：<textarea name="introductionFile" id="introductionFile"></textarea>
+			語言：<input type="text" name="songLanguage" value="${enteredText.songLanguage}">
+		<p>
+			歌曲簡介：<textarea name="introductionFile" id="introductionFile">${enteredText.introductionFile}</textarea>
 			<script>CKEDITOR.replace('introductionFile');</script>
 		<p>
-			歌詞：<textarea name="lyricsFile" id="lyricsFile"></textarea>
+			歌詞：<textarea name="lyricsFile" id="lyricsFile">${enteredText.lyricsFile}</textarea>
 			<script>CKEDITOR.replace('lyricsFile');</script>
 		<p>
 			<input type="submit" value="送出">
+		<p>
+			<a href="ManageSong.jsp">回管理歌曲</a>
 	</form>
 </body>
 </html>

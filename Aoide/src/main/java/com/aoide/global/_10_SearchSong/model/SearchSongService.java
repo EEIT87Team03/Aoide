@@ -19,22 +19,24 @@ public class SearchSongService {
 
 	public List<SongVO> getSongName(String search) {
 		List<SongVO> searchResult = songDAO.getName(search);
+		List<SongVO> newSR = new ArrayList();
 		for (SongVO searchSong : searchResult) {
 			if (searchSong.getName().equals(search)) {
-				searchResult.add(searchSong);
+				newSR.add(searchSong);
 			}
 		}
-		return searchResult;
+		return newSR;
 	}
 	
 	public List<SongVO> getSinger(String search) {
 		List<SongVO> searchResult = songDAO.getSinger(search);
+		List<SongVO> newSR = new ArrayList();
 		for (SongVO searchSong : searchResult) {
 			if (searchSong.getSinger().equals(search)) {
-				searchResult.add(searchSong);
+				newSR.add(searchSong);
 			}
 		}
-		return searchResult;
+		return newSR;
 	}
 
 	public List<AlbumVO> getAlbum(String search) {

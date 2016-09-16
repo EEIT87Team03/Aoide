@@ -8,8 +8,8 @@
 <title>刪除成功</title>
 </head>
 <body>
-刪除成功!!
-<p>
-<a href="<c:url value = '/ListSongServlet'/>">回編輯歌曲</a>
+		刪除成功!!
+	<p>
+		<a href="<c:url value = '/ListSongServlet'/>">回編輯歌曲</a>
 </body>
 </html>

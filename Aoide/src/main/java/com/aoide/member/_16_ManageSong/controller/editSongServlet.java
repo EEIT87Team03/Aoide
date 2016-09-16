@@ -18,7 +18,7 @@ public class editSongServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = null;
-		List<SongVO> songVO;
+		List<SongVO> songS;
 		HttpSession session = null;
 		
 		// get the song id
@@ -30,12 +30,12 @@ public class editSongServlet extends HttpServlet {
 		
 		// get the songVO by id from session
 		session = request.getSession();
-		songVO = (List<SongVO>) session.getAttribute("mySongList"); // from ListSongServlet
+		songS = (List<SongVO>) session.getAttribute("mySongList"); // from ListSongServlet
 		
 		// put the songVO in session
-		for(SongVO aSong:songVO){
-			if(aSong.getSongId() == id){
-				session.setAttribute("aSong", aSong);
+		for(SongVO song:songS){
+			if(song.getSongId() == id){
+				session.setAttribute("song", song);
 			}
 		}
 		String contextPath = request.getContextPath();
