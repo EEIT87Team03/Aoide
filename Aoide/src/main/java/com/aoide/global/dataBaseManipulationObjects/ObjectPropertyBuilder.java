@@ -43,10 +43,10 @@ public class ObjectPropertyBuilder
 		{
 			String propertyName = buildProperty( field.getName() );
 			
-			boolean isGetterExisting = methodExists( voClass, "get" + propertyName );
-			boolean isSetterExisting = methodExists( voClass, "set" + propertyName, field.getType() );
+			boolean getterExists = methodExists( voClass, "get" + propertyName );
+			boolean setterExists = methodExists( voClass, "set" + propertyName, field.getType() );
 			
-			if ( isGetterExisting && isSetterExisting )
+			if ( getterExists && setterExists )
 			{
 				propertyNames.add( propertyName );
 			}

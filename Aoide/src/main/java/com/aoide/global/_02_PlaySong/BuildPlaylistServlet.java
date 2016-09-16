@@ -23,7 +23,7 @@ public class BuildPlaylistServlet extends HttpServlet
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException
 	{
 		ServletContext context = getServletContext();
 		Playlist playlist = ( Playlist ) context.getAttribute( Playlist.class.getName() );
