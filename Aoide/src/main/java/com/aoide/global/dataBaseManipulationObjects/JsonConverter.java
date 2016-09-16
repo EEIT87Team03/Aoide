@@ -1,4 +1,4 @@
-package com.aoide.global.websocket;
+package com.aoide.global.dataBaseManipulationObjects;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
