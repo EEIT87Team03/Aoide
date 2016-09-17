@@ -11,8 +11,15 @@
 <script>
 var wsUri = "ws://localhost:8080/Aoide/play";
 var clientSocket = new WebSocket( wsUri );
+var audio = document.getElementById( "track" );
+var trackArray = [];
+clientSocket.onmessage = onMessage;
 
-
+function onMessage( event )
+{
+	var message = event.data;
+	alert( message );
+}
 
 </script>
 </body>

@@ -188,4 +188,13 @@ public class TrackVO implements Serializable
 	{
 		this.singer = singer;
 	}
+	
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append( songId + "\t" ).append( name + "\t" );
+		
+		return sb.toString();
+	}
+	
 }

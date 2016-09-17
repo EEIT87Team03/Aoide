@@ -28,6 +28,7 @@ public class AoideServletContextListener implements ServletContextListener, Serv
          DataSourceProxy.setJndiLookUpName( lookupName );
          
          context.setAttribute( Playlist.class.getName(), new Playlist() );
+         System.out.println( "Context Initialized...");
     }
 	
   
