@@ -107,7 +107,7 @@ public class UploadSongServlet extends HttpServlet {
 		
 		String singer = request.getParameter("singer");
 		if(!Validator.isValidString(singer)){
-			errorMsg.put("emptySingerMsg", "請輸入出演者");
+			errorMsg.put("emptySingerMsg", "請輸入演出者");
 		}else{
 			enteredText.put("singer", singer);
 			enteredText.put("songType", songType);

@@ -89,7 +89,7 @@ public class UpdateSongServlet extends HttpServlet {
 		}
 		
 		if(!Validator.isValidString(singer)){
-			errorMsg.put("emptySingerMsg", "請輸入出演者");
+			errorMsg.put("emptySingerMsg", "請輸入演出者");
 		}else{
 			enteredText.put("singer", singer);
 			enteredText.put("songType", songType);
