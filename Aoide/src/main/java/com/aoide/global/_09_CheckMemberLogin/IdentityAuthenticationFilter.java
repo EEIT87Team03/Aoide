@@ -1,6 +1,8 @@
-package com.aoide.global._08_Login;
+package com.aoide.global._09_CheckMemberLogin;
 
 import java.io.IOException;
+
+import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,10 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebFilter( urlPatterns = { "*.member" } )
+@WebFilter( urlPatterns = { "*.member" }, dispatcherTypes = { DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE } )
 public class IdentityAuthenticationFilter implements Filter 
 {
-
     private FilterConfig config;
     
     public IdentityAuthenticationFilter() 

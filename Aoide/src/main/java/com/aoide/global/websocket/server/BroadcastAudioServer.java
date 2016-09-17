@@ -10,12 +10,15 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import com.aoide.global.websocket.Playlist;
+
 @ServerEndpoint( value = "/play", configurator = ServletContextConfigurator.class )
 public class BroadcastAudioServer 
 {
 	private Session wsSession;
     private HttpSession httpSession;
     private static ServletContext servletContext; 
+    private static Playlist playlist;
 
 	static
 	{
@@ -27,7 +30,9 @@ public class BroadcastAudioServer
 	{
 		this.wsSession = session;
         this.httpSession = ( HttpSession ) config.getUserProperties().get( HttpSession.class.getName() );
-        servletContext = httpSession.getServletContext();                                   
+        servletContext = httpSession.getServletContext();
+        playlist = ( Playlist ) servletContext.getAttribute( Playlist.class.getName() );
+        sendMessage( playlist.toString() );
 	}
 	
 	@OnClose
@@ -40,5 +45,17 @@ public class BroadcastAudioServer
     public void onError( Throwable error ) 
 	{
 		System.out.println( "Error occured..." + error.getMessage() );
+	}
+	
+	private void sendMessage( String message )
+	{
+		try 
+		{
+			wsSession.getBasicRemote().sendText(  message );
+		} 
+		catch ( Exception ex )
+		{
+			System.out.println("Error updating a client : " + ex.getMessage() );
+		}
 	}
 }

@@ -10,7 +10,9 @@ public class ServletContextConfigurator extends ServerEndpointConfig.Configurato
 	@Override
     public void modifyHandshake( ServerEndpointConfig config, HandshakeRequest request, HandshakeResponse response )
     {
+		System.out.println( "HandshakeRequest : " + request );
         HttpSession httpSession = ( HttpSession ) request.getHttpSession();
+        System.out.println( "HttpSession : " + httpSession );
         config.getUserProperties().put( HttpSession.class.getName(), httpSession );
     }
 }
