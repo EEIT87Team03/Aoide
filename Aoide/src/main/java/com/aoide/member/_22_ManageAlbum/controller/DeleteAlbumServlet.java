@@ -14,10 +14,9 @@ import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._16_ManageSong.model.ListSongService;
 import com.aoide.member._22_ManageAlbum.model.ListAlbumService;
 
-@WebServlet("/deleteAlbumServlet")
-public class deleteAlbumServlet extends HttpServlet {
+@WebServlet("/DeleteAlbumServlet")
+public class DeleteAlbumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ListAlbumService service = new ListAlbumService();
@@ -25,25 +24,24 @@ public class deleteAlbumServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		Integer id = new Integer(request.getParameter("id"));
-		System.out.println("id: " + id);
+		System.out.println("delete id：" + id);
 		
 		List<SongVO> mySongResult = new ListSongService().getMySong();
-		List<SongVO> songVO = new ArrayList();
-		for(SongVO aSong:mySongResult){
-			if(aSong.getAlbumId() == id){    //int
-				aSong.setAlbumId(1);
-				lss.updateSong(aSong);
-				songVO.add(aSong);
+		List<SongVO> songS = new ArrayList();
+		for(SongVO song:mySongResult){
+			if(song.getAlbumId() == id){    //int
+				song.setAlbumId(1);
+				lss.updateSong(song);
+				songS.add(song);
 			}
 		}
 		
 		service.deleteAlbum(id);
-		request.getSession().setAttribute("mySongList", songVO);
+		request.getSession().setAttribute("mySongList", songS);
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/deleteAlbumSuccess.jsp");
+		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/DeleteAlbumSuccess.jsp");
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}

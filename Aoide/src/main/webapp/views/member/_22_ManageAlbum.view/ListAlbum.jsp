@@ -8,29 +8,34 @@
 <title>編輯專輯</title>
 </head>
 <body>
+<% int i = 0; %>
 	<table class="table">
 		<thead>
 			<tr>
+				<th>　</th>
 				<th>專輯ID</th>
 				<th>專輯名稱</th>
 				<th>演出者</th>
-				<th>上傳日期</th>
+				<th>建立日期</th>
 				<th>動作</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="myAlbum" items="${myAlbumList}">
 				<tr>
+					<td><% out.print(i = i + 1); %></td>
 					<td>${myAlbum.albumId}</td>
 					<td>${myAlbum.name}</td>
 					<td>${myAlbum.artist}</td>
 					<td>${myAlbum.updateDate}</td>
-					<td><input type="button" value="編輯" onclick="location.href='<c:url value='/editAlbumServlet?id=${myAlbum.albumId}'/>'">　
-						<input type="button" value="刪除" onclick="location.href='<c:url value='/deleteAlbumServlet?id=${myAlbum.albumId}'/>'">
+					<td><input type="button" value="編輯" onclick="location.href='<c:url value='/EditAlbumServlet?id=${myAlbum.albumId}'/>'">　
+						<input type="button" value="刪除" onclick="location.href='<c:url value='/DeleteAlbumServlet?id=${myAlbum.albumId}'/>'">
 					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	<p>
+	<a href="ManageAlbum.jsp">回管理專輯</a>
 </body>
 </html>

@@ -14,13 +14,13 @@ import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._16_ManageSong.model.ListSongService;
 
-@WebServlet("/addAlbumServlet")
-public class addAlbumServlet extends HttpServlet {
+@WebServlet("/RemoveAlbumidServlet")
+public class RemoveAlbumidServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = null;
-		List<SongVO> songVO;
+		List<SongVO> songS;
 		HttpSession session = null;
 		ListSongService service = new ListSongService();
 		
@@ -33,19 +33,19 @@ public class addAlbumServlet extends HttpServlet {
 		
 		// get the songVO by id from session
 		session = request.getSession();
-		songVO = (List<SongVO>) session.getAttribute("mySongList2"); // from ListSongServlet
-		AlbumVO album = (AlbumVO) session.getAttribute("aAlbum");
+		songS = (List<SongVO>) session.getAttribute("mySongList"); // from ListSongServlet
+		AlbumVO album = (AlbumVO) session.getAttribute("album");
 		int albumId = album.getAlbumId();
 		
 		// put the songVO in session
-		for(SongVO aSong:songVO){
-			if(aSong.getSongId() == id){
-				aSong.setAlbumId(albumId);
-				service.updateSong(aSong);
+		for(SongVO song:songS){
+			if(song.getSongId() == id){
+				System.out.println("移出專輯 " + albumId + " 的songId：" + song.getSongId());
+				song.setAlbumId(1);
+				service.updateSong(song);
 			}
 		}
-		
-		response.sendRedirect("editAlbumServlet?id=" + albumId);
+		response.sendRedirect("EditAlbumServlet?id=" + albumId);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

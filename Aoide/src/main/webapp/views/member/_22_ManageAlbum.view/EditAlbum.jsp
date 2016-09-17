@@ -6,21 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>編輯專輯</title>
+<script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
 </head>
 <body>
-正在編輯專輯：${aAlbum.name}<p>
-<img src="${aAlbum.coverFilePath}" width="300" height="300"><p>
-上傳日期：${aAlbum.updateDate}<p>
+<% int i = 0; int j = 0; %>
+正在編輯專輯：${album.name}<p>
+<img src="${album.coverFilePath}" width="300" height="300"><p>
+建立日期：${album.updateDate}<p>
 <hr><p>
 <form action="<c:url value ='/UpdateAlbumServlet'/>" method="post" enctype="multipart/form-data">
-			上傳專輯封面：<input type="file" name="coverFile">
+			上傳專輯封面：<input type="file" name="coverFile">　${errorMsg.emptyPartMsg}
 		<p>
-			專輯名稱：<input type="text" name="name" placeholder="${aAlbum.name}">
+			專輯名稱：<input type="text" name="name" placeholder="${album.name}" value="${enteredText.name}">　${errorMsg.emptyNameMsg}
 		<p>
-			演出者：<input type="text" name="artist" placeholder="${aAlbum.artist}">
+			演出者：<input type="text" name="artist" placeholder="${album.artist}" value="${enteredText.artist}">　${errorMsg.emptyArtistMsg}
 		<p>
-			專輯簡介：<textarea name="introductionFile" id="introductionFile">${aAlbum.introductionFilePath}</textarea>
-			<!-- <script>CKEDITOR.replace('introductionFile');</script> -->
+			專輯簡介：<textarea name="introductionFile" id="introductionFile">${album.introductionFilePath}${enteredText.introductionFile}</textarea>
+			<script>CKEDITOR.replace('introductionFile');</script>
 		<p>
 		<hr>
 		<p>
@@ -29,6 +31,7 @@
 		<table class="table">
 		<thead>
 			<tr>
+				<th>　</th>
 				<th>歌曲ID</th>
 				<th>歌名</th>
 				<th>演出者</th>
@@ -41,6 +44,7 @@
 		<tbody>
 			<c:forEach var="mySong" items="${mySongList}">
 				<tr>
+					<td><% out.print(i = i + 1); %></td>
 					<td>${mySong.songId}</td>
 					<td>${mySong.name}</td>
 					<td>${mySong.singer}</td>
@@ -48,7 +52,7 @@
 					<td>${mySong.songLanguage}</td>
 					<td>${mySong.updateDate}</td>
 					<td>
-						<input type="button" value="移除" onclick="location.href='<c:url value='/editAlbumidServlet?id=${mySong.songId}'/>'">
+						<input type="button" value="移除" onclick="location.href='<c:url value='/RemoveAlbumidServlet?id=${mySong.songId}'/>'">
 					</td>
 				</tr>
 			</c:forEach>
@@ -57,11 +61,12 @@
 	<p>
 	<hr>
 	<p>
-		加入未分類的歌曲：
+		加入未分類專輯的歌曲：
 	<p>
 	<table class="table">
 		<thead>
 			<tr>
+				<th>　</th>
 				<th>歌曲ID</th>
 				<th>歌名</th>
 				<th>演出者</th>
@@ -74,6 +79,7 @@
 		<tbody>
 			<c:forEach var="mySong" items="${mySongList2}">
 				<tr>
+					<td><% out.print(j = j + 1); %></td>
 					<td>${mySong.songId}</td>
 					<td>${mySong.name}</td>
 					<td>${mySong.singer}</td>
@@ -81,13 +87,15 @@
 					<td>${mySong.songLanguage}</td>
 					<td>${mySong.updateDate}</td>
 					<td>
-						<input type="button" value="加入" onclick="location.href='<c:url value='/addAlbumServlet?id=${mySong.songId}'/>'">
+						<input type="button" value="加入" onclick="location.href='<c:url value='/AddtoAlbumServlet?id=${mySong.songId}'/>'">
 					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-			<input type="submit" value="送出">
+		<input type="submit" value="送出">
 </form>
+<p>
+<a href="<c:url value = '/ListAlbumServlet'/>">回專輯列表</a>
 </body>
 </html>

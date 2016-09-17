@@ -159,7 +159,7 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 					int i = Integer.valueOf(s).intValue();
 					for(SongVO song : songS){
 						if(i == song.getSongId()){
-							System.out.println("songId = " + song.getSongId() + " 更新albumId = " + id);
+							System.out.println("songId：" + song.getSongId() + "，更新albumId：" + id);
 							song.setAlbumId(id);
 							lss.updateSong(song);
 							upSongS.add(song);
@@ -198,7 +198,7 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 					int i = Integer.valueOf(s).intValue();
 					for(SongVO song : songS){
 						if(i == song.getSongId()){
-							System.out.println("songId = " + song.getSongId() + " 更新albumId = " + id);
+							System.out.println("songId：" + song.getSongId() + "，更新albumId：" + id);
 							song.setAlbumId(id);
 							lss.updateSong(song);
 							upSongS.add(song);

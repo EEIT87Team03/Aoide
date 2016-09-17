@@ -21,14 +21,13 @@ public class ListAlbumServlet extends HttpServlet {
 		
 		List<AlbumVO> myAlbumResult = new ListAlbumService().getMyAlbum();
 		for (AlbumVO myAlbum : myAlbumResult) {
-			System.out.println(myAlbum.getName());
+			System.out.println("我的專輯：" + myAlbum.getName());
 		}
 		
 		request.getSession().setAttribute("myAlbumList", myAlbumResult);
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/ListAlbum.jsp");
 	}
-
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

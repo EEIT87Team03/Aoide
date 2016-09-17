@@ -8,13 +8,14 @@
 <title>修改成功</title>
 </head>
 <body>
+<% int i = 0; %>
 		<img src="${updateAlbum.coverFilePath}" width="300" height="300">
 	<p>
 		專輯名稱：${updateAlbum.name}
 	<p>
 		演出者：${updateAlbum.artist}
 	<p>
-		歌曲簡介：${updateAlbum.introductionFilePath}
+		專輯簡介：${updateAlbum.introductionFilePath}
 	<p>
 	<hr>
 	<p>
@@ -23,6 +24,7 @@
 	<table class="table">
 		<thead>
 			<tr>
+				<th>　</th>
 				<th>歌曲ID</th>
 				<th>歌名</th>
 				<th>演出者</th>
@@ -34,6 +36,7 @@
 		<tbody>
 			<c:forEach var="mySong" items="${mySongList}">
 				<tr>
+					<td><% out.print(i = i + 1); %></td>
 					<td>${mySong.songId}</td>
 					<td>${mySong.name}</td>
 					<td>${mySong.singer}</td>
@@ -44,5 +47,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<p>
+	<a href="<c:url value = '/ListAlbumServlet'/>">回專輯列表</a>
 </body>
 </html>
