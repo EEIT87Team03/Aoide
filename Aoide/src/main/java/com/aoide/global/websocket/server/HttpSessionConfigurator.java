@@ -5,14 +5,15 @@ import javax.websocket.HandshakeResponse;
 import javax.websocket.server.HandshakeRequest;
 import javax.websocket.server.ServerEndpointConfig;
 
-public class ServletContextConfigurator extends ServerEndpointConfig.Configurator 
+public class HttpSessionConfigurator extends ServerEndpointConfig.Configurator 
 {
 	@Override
     public void modifyHandshake( ServerEndpointConfig config, HandshakeRequest request, HandshakeResponse response )
     {
-		System.out.println( "HandshakeRequest : " + request );
         HttpSession httpSession = ( HttpSession ) request.getHttpSession();
-        System.out.println( "HttpSession : " + httpSession );
-        config.getUserProperties().put( HttpSession.class.getName(), httpSession );
+        if ( httpSession != null )
+        	config.getUserProperties().put( HttpSession.class.getName(), httpSession );
+        else
+        	System.out.println( "HttpSession does not exist, configure failed" );
     }
 }
