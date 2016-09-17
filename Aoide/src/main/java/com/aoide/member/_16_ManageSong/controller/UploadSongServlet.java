@@ -107,7 +107,7 @@ public class UploadSongServlet extends HttpServlet {
 		
 		String singer = request.getParameter("singer");
 		if(!Validator.isValidString(singer)){
-			errorMsg.put("emptySingerMsg", "請輸入出演者");
+			errorMsg.put("emptySingerMsg", "請輸入演出者");
 		}else{
 			enteredText.put("singer", singer);
 			enteredText.put("songType", songType);
@@ -126,7 +126,9 @@ public class UploadSongServlet extends HttpServlet {
 				song.setSinger(singer);
 				song.setSongType(songType);
 				song.setSongLanguage(songLanguage);
+				//改會員時看這裡
 				song.setMemberId(1);
+				//改會員時看這裡
 				song.setIntroductionFile(introductionFile);
 				song.setLyricsFile(lyricsFile);
 				song.setUpdateDate(updateDate);
@@ -213,7 +215,9 @@ public class UploadSongServlet extends HttpServlet {
 				song.setSinger(singer);
 				song.setSongType(songType);
 				song.setSongLanguage(songLanguage);
+				//改會員時看這裡
 				song.setMemberId(1);
+				//改會員時看這裡
 				song.setIntroductionFile(introductionFile);
 				song.setLyricsFile(lyricsFile);
 				song.setUpdateDate(updateDate);

@@ -18,36 +18,27 @@ public class SearchSongService {
 	}
 
 	public List<SongVO> getSongName(String search) {
-		List<SongVO> searchResult = songDAO.getName(search);
-		List<SongVO> newSR = new ArrayList();
-		for (SongVO searchSong : searchResult) {
-			if (searchSong.getName().equals(search)) {
-				newSR.add(searchSong);
-			}
+		List<SongVO> searchResult = new ArrayList();
+		for (SongVO searchSong : songDAO.getName(search)) {
+			searchResult.add(searchSong);
 		}
-		return newSR;
+		return searchResult;
 	}
 	
 	public List<SongVO> getSinger(String search) {
-		List<SongVO> searchResult = songDAO.getSinger(search);
-		List<SongVO> newSR = new ArrayList();
-		for (SongVO searchSong : searchResult) {
-			if (searchSong.getSinger().equals(search)) {
-				newSR.add(searchSong);
-			}
+		List<SongVO> searchResult = new ArrayList();
+		for (SongVO searchSong : songDAO.getSinger(search)) {
+			searchResult.add(searchSong);
 		}
-		return newSR;
+		return searchResult;
 	}
 
 	public List<AlbumVO> getAlbum(String search) {
-		List<AlbumVO> searchResult = albumService.searchAlbum(search);
-		List<AlbumVO> newSR = new ArrayList();
-		for (AlbumVO searchSong : searchResult) {
-			if (searchSong.getName().equals(search)) {
-				newSR.add(searchSong);
-			}
+		List<AlbumVO> searchResult = new ArrayList();
+		for (AlbumVO searchSong : albumService.searchAlbum(search)) {
+			searchResult.add(searchSong);
 		}
-		return newSR;
+		return searchResult;
 	}
 
 }

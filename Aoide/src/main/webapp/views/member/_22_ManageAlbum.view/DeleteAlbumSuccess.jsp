@@ -8,8 +8,8 @@
 <title>刪除成功</title>
 </head>
 <body>
-刪除成功!!
-<p>
+<% int i = 0; %>
+	刪除成功!!
 <p>
 		<hr>
 		<p>
@@ -18,6 +18,7 @@
 		<table class="table">
 		<thead>
 			<tr>
+				<th>　</th>
 				<th>歌曲ID</th>
 				<th>歌名</th>
 				<th>演出者</th>
@@ -29,6 +30,7 @@
 		<tbody>
 			<c:forEach var="mySong" items="${mySongList}">
 				<tr>
+					<td><% out.print(i = i + 1); %></td>
 					<td>${mySong.songId}</td>
 					<td>${mySong.name}</td>
 					<td>${mySong.singer}</td>
@@ -39,6 +41,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+<p>
 <a href="<c:url value = '/ListAlbumServlet'/>">回編輯專輯</a>
 </body>
 </html>

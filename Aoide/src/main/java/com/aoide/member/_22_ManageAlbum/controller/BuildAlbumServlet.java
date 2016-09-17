@@ -21,7 +21,7 @@ public class BuildAlbumServlet extends HttpServlet {
 		
 		List<SongVO> mySongResult = new ListSongService().getMyAlbumSong();
 		for (SongVO mySong : mySongResult) {
-			System.out.println(mySong.getName());
+			System.out.println("未分類專輯的歌曲：" + mySong.getName());
 		}
 		
 		request.getSession().setAttribute("mySongList", mySongResult);

@@ -15,13 +15,13 @@ import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._16_ManageSong.model.ListSongService;
 
-@WebServlet("/editAlbumServlet")
-public class editAlbumServlet extends HttpServlet {
+@WebServlet("/EditAlbumServlet")
+public class EditAlbumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = null;
-		List<AlbumVO> albumVO;
+		List<AlbumVO> albumS;
 		HttpSession session = null;
 		
 		// get the album id
@@ -33,36 +33,33 @@ public class editAlbumServlet extends HttpServlet {
 		
 		// get the albumVO by id from session
 		session = request.getSession();
-		albumVO = (List<AlbumVO>) session.getAttribute("myAlbumList"); // from ListAlbumServlet
+		albumS = (List<AlbumVO>) session.getAttribute("myAlbumList"); // from ListAlbumServlet
 		
 		// put the albumVO in session
-		for(AlbumVO aAlbum:albumVO){
-			if(aAlbum.getAlbumId().intValue() == id){    //Integer
-				session.setAttribute("aAlbum", aAlbum);
+		for(AlbumVO album:albumS){
+			if(album.getAlbumId().intValue() == id){    //Integer
+				session.setAttribute("album", album);
 			}
 		}
 		
 		List<SongVO> mySongResult = new ListSongService().getMySong();
-		for (SongVO mySong : mySongResult) {
-			System.out.println(mySong.getName());
-		}
-		List<SongVO> songVO = new ArrayList();
-		for(SongVO aSong:mySongResult){
-			if(aSong.getAlbumId() == id){    //int
-				songVO.add(aSong);
-				System.out.println(aSong);
+		List<SongVO> songS = new ArrayList();
+		for(SongVO song:mySongResult){
+			if(song.getAlbumId() == id){    //int
+				songS.add(song);
+				System.out.println("屬於專輯 " + id + " 的songId：" + song.getSongId());
 			}
 		}
 		
 		List<SongVO> mySongResult2 = new ListSongService().getMyAlbumSong();
 		for (SongVO mySong : mySongResult2) {
-			System.out.println(mySong.getName());
+			System.out.println("未分類專輯的歌曲：" + mySong.getName());
 		}
 		
-		request.getSession().setAttribute("mySongList", songVO);
+		request.getSession().setAttribute("mySongList", songS);
 		request.getSession().setAttribute("mySongList2", mySongResult2);
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/editAlbum.jsp");
+		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/EditAlbum.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
