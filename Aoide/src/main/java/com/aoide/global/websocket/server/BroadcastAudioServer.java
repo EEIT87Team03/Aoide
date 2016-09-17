@@ -12,7 +12,7 @@ import javax.websocket.server.ServerEndpoint;
 
 import com.aoide.global.websocket.Playlist;
 
-@ServerEndpoint( value = "/play", configurator = ServletContextConfigurator.class )
+@ServerEndpoint( value = "/play", configurator = HttpSessionConfigurator.class )
 public class BroadcastAudioServer 
 {
 	private Session wsSession;
