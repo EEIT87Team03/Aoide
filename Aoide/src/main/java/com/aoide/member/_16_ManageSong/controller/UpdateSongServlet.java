@@ -160,7 +160,7 @@ public class UpdateSongServlet extends HttpServlet {
 				// get the song from database to check the result of update
 				updateSong = service.getSongById(song.getSongId());
 				session.setAttribute("updateSong", updateSong);
-				response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/editSongSuccess.jsp");
+				response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/EditSongSuccess.jsp");
 				return;
 			}else{
 				song.setName(name);
@@ -180,17 +180,16 @@ public class UpdateSongServlet extends HttpServlet {
 				// update song
 				service.updateSong(song);	
 				
-				System.out.println("update song success");
 				// get the song from database to check the result of update
 				updateSong = service.getSongById(song.getSongId());
 				session.setAttribute("updateSong", updateSong);
-				response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/editSongSuccess.jsp");
+				response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/EditSongSuccess.jsp");
 				return;
 			}
 		}else{
 			request.setAttribute("errorMsg", errorMsg);
 			request.setAttribute("enteredText", enteredText);
-			request.getRequestDispatcher("/views/member/_16_ManageSong.view/editSong.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/member/_16_ManageSong.view/EditSong.jsp").forward(request, response);
 			return;
 		}
 	}

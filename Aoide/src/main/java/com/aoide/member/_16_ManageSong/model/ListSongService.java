@@ -17,7 +17,9 @@ public class ListSongService {
 	public List<SongVO> getMySong() {
 		List<SongVO> mySongResult = new ArrayList();
 		for (SongVO mySong : songDAO.getAll()) {
+			//改會員時看這裡
 			if (mySong.getMemberId() == 1) {
+				//改會員時看這裡
 				mySongResult.add(mySong);
 			}
 		}

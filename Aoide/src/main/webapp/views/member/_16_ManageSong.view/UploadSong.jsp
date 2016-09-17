@@ -29,8 +29,8 @@
 			<script>CKEDITOR.replace('lyricsFile');</script>
 		<p>
 			<input type="submit" value="送出">
-		<p>
-			<a href="ManageSong.jsp">回管理歌曲</a>
 	</form>
+	<p>
+	<a href="ManageSong.jsp">回管理歌曲</a>
 </body>
 </html>

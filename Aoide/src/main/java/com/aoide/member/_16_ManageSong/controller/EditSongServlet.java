@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
-@WebServlet("/editSongServlet")
-public class editSongServlet extends HttpServlet {
+@WebServlet("/EditSongServlet")
+public class EditSongServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +39,7 @@ public class editSongServlet extends HttpServlet {
 			}
 		}
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/editSong.jsp");
+		response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/EditSong.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

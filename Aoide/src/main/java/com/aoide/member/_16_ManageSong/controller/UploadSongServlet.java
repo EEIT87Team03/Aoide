@@ -126,7 +126,9 @@ public class UploadSongServlet extends HttpServlet {
 				song.setSinger(singer);
 				song.setSongType(songType);
 				song.setSongLanguage(songLanguage);
+				//改會員時看這裡
 				song.setMemberId(1);
+				//改會員時看這裡
 				song.setIntroductionFile(introductionFile);
 				song.setLyricsFile(lyricsFile);
 				song.setUpdateDate(updateDate);
@@ -213,7 +215,9 @@ public class UploadSongServlet extends HttpServlet {
 				song.setSinger(singer);
 				song.setSongType(songType);
 				song.setSongLanguage(songLanguage);
+				//改會員時看這裡
 				song.setMemberId(1);
+				//改會員時看這裡
 				song.setIntroductionFile(introductionFile);
 				song.setLyricsFile(lyricsFile);
 				song.setUpdateDate(updateDate);
