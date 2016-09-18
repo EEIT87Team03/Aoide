@@ -143,10 +143,10 @@ public class MemberVO implements java.io.Serializable
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append( memberId ).append( "\t" ).append( account ).append( "\t" ).append( password ).append( "\t" ).append( name ).append( "\t" ).append( email ).append( "\t" )
-		  .append( registerState ).append( "\t" ).append( loginCount ).append( "\t" ).append( lastLoginDate ).append( "\t" )
-		  .append( tokenTotal ).append( "\t" ).append( picture ).append( introductionFilePath ).append( "\t" ).append( classType ).append( "\t" )
-		  .append( banState ).append( "\t" ).append( bankInfo );
+		sb.append( memberId + "\t" ).append( account + "\t" ).append( password + "\t" ).append( name + "\t" )
+		  .append( email + "\t" ).append( registerState + "\t" ).append( loginCount + "\t" )
+		  .append( lastLoginDate + "\t" ).append( tokenTotal + "\t" ).append( introductionFilePath + "\t" )
+		  .append( classType + "\t" ).append( banState + "\t" ).append( bankInfo );
 		return sb.toString();
 	}
 }

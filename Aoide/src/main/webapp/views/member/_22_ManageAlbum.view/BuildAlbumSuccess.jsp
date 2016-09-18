@@ -8,15 +8,16 @@
 <title>建立成功</title>
 </head>
 <body>
-	<img src="${albumVO.coverFilePath}" width="300" height="300">
+<% int i = 0; %>
+		<img src="${album.coverFilePath}" width="300" height="300">
 	<p>
-		專輯名稱：${albumVO.name}
+		專輯名稱：${album.name}
 	<p>
-		演出者：${albumVO.artist}
+		演出者：${album.artist}
 	<p>
-		歌曲簡介：${albumVO.introductionFilePath}
+		專輯簡介：${album.introductionFilePath}
 	<p>
-		上傳日期：${albumVO.updateDate}
+		建立日期：${album.updateDate}
 	<p>
 	<hr>
 	<p>
@@ -25,6 +26,7 @@
 	<table class="table">
 		<thead>
 			<tr>
+				<th>　</th>
 				<th>歌曲ID</th>
 				<th>歌名</th>
 				<th>演出者</th>
@@ -34,8 +36,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="mySong" items="${upSongVO}">
+			<c:forEach var="mySong" items="${upSongS}">
 				<tr>
+					<td><% out.print(i = i + 1); %></td>
 					<td>${mySong.songId}</td>
 					<td>${mySong.name}</td>
 					<td>${mySong.singer}</td>
@@ -46,5 +49,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<p>
+	<a href="ManageAlbum.jsp">回管理專輯</a>
 </body>
 </html>

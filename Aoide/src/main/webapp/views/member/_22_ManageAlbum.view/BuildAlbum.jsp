@@ -9,15 +9,16 @@
 <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
 </head>
 <body>
+<% int i = 0; %>
 	<form action="<c:url value ='/BuildAlbumSuccessServlet'/>" method="post" enctype="multipart/form-data">
-			上傳專輯封面：<input type="file" name="coverFile">
+			上傳專輯封面：<input type="file" name="coverFile">　${errorMsg.emptyPartMsg}
 		<p>
-			專輯名稱：<input type="text" name="name">
+			專輯名稱：<input type="text" name="name" value="${enteredText.name}">　${errorMsg.emptyNameMsg}
 		<p>
-			演出者：<input type="text" name="artist">
+			演出者：<input type="text" name="artist" value="${enteredText.artist}">　${errorMsg.emptyArtistMsg}
 		<p>
 			專輯簡介：
-			<textarea name="introductionFile" id="introductionFile"></textarea>
+			<textarea name="introductionFile" id="introductionFile">${enteredText.introductionFile}</textarea>
 			<script>CKEDITOR.replace('introductionFile');</script>
 		<p>
 		<hr>
@@ -27,6 +28,7 @@
 		<table class="table">
 		<thead>
 			<tr>
+				<th>　</th>
 				<th>加入</th>
 				<th>歌曲ID</th>
 				<th>歌名</th>
@@ -39,6 +41,7 @@
 		<tbody>
 			<c:forEach var="mySong" items="${mySongList}">
 				<tr>
+					<td><% out.print(i = i + 1); %></td>
 					<td><input type="checkbox" name="check" value="${mySong.songId}"></td>
 					<td>${mySong.songId}</td>
 					<td>${mySong.name}</td>
@@ -52,5 +55,7 @@
 	</table>
 			<input type="submit" value="送出">
 	</form>
+	<p>
+	<a href="ManageAlbum.jsp">回管理專輯</a>
 </body>
 </html>

@@ -29,4 +29,15 @@ public class Playlist
 	{
 		return list.remove( index );
 	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuffer sb = new StringBuffer();
+		for ( int i = 0; i < list.size(); i ++ )
+		{
+			sb.append( list.get( i ) + "\n" );
+		}
+		return sb.toString();
+	}
 }
