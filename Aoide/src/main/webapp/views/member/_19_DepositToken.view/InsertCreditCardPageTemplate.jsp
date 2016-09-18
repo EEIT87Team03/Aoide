@@ -57,7 +57,7 @@
                 <div class="form-group">
                 <label style="margin:10px 0 0 0">訂單編號  :  8591</label>
                 <hr>
-                <label>交易金額  :  8591</label>
+                <label>交易金額  :  ${cash_volume}</label>
                 <hr>
                 <label>請選擇信用卡類型</label>
                 <input type="radio" name="creditCardType" value = "visa">

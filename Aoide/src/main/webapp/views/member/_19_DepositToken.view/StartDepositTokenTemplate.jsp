@@ -51,11 +51,11 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="<c:url value='/DepositToken.member' />"  id="DonationServlet" >
+            <form role="form" method="POST" action="<c:url value='/TurnToInsertCreditCardPageServlet.member' />"  id="DonationServlet" >
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputPassword1">儲值金額</label><font color = 'red' size='-1'>   ${cash_volumeError}</font>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="儲值金額" name = "cash_volume">
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="儲值金額" name = "cash_volume" maxlength=9>
                 </div>
               </div>
               <!-- /.box-body -->

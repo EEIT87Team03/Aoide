@@ -26,7 +26,7 @@ public class DepositTokenServlet extends HttpServlet {
 		// 儲值時recipient_id=0;為官方帳號
 		Integer recipient_id = 0;
 		// 從JSP來的值，儲值金額
-		String cash_volume = request.getParameter("cash_volume");
+		String cash_volume = (String) request.getSession().getAttribute("cash_volume");
 
 		if (!Validator.isNumbers(cash_volume)) {
 			String cash_volumeError = "請輸入一個正確的數字";
@@ -59,7 +59,7 @@ public class DepositTokenServlet extends HttpServlet {
 			request.getSession().setAttribute("cashRecordVO", cashRecordVO);
 
 			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/views/member/_19_DepositToken.view/ShowDepositRecord.jsp");
+			response.sendRedirect(contextPath + "/views/member/_19_DepositToken.view/ShowDepositRecordTemplate.jsp");
 
 			System.out.println(cashRecordVO.getCashRecordId());
 		}
