@@ -23,8 +23,7 @@ public class DonationServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//從JSP來的值，為贊助者ID
-		//Integer sponsor_id = 1;
+		
 		//從SESSION來的值，為被贊助者ID
 		Integer recipient_id = 2;
 		//從JSP來的值，贊助金額
@@ -43,7 +42,7 @@ public class DonationServlet extends HttpServlet {
 		//TYPE 贊助時為1
 		Integer type = 1;
 		
-		//從SESSION獲取MemberVO物件;
+		//從SESSION獲取MemberVO物件並取得贊助者ID;
 		MemberVO memberVO = (MemberVO) request.getSession().getAttribute("member");
 		Integer sponsor_id = memberVO.getMemberId();
 		
