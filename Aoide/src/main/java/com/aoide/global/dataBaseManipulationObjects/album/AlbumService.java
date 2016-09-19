@@ -104,9 +104,14 @@ public class AlbumService
 		}
 		return list;
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args)
+	{
+		AlbumService as = new AlbumService();
+		List< AlbumVO > list = as.searchAlbum( "B" );
+		for ( AlbumVO a : list )
+		{
+			System.out.println( a );
+		}
 	}
 
 }

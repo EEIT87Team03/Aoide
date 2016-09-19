@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.websocket.CloseReason;
+import javax.websocket.EndpointConfig;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -32,7 +33,7 @@ public class ChatRoomServer
 	private static final String INIT_HEADER = "[INIT]";
 	
 	@OnOpen
-    public void onOpen( Session session ) 
+    public void onOpen( Session session, EndpointConfig config ) 
 	{
 		System.out.println( "Open Session..." );
 		this.session = session;

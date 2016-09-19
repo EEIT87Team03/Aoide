@@ -140,7 +140,7 @@ public class TrackVO implements Serializable
 	{
 		return clicks;
 	}
-	public void setClicks(int clicks) 
+	public void setClicks( Integer clicks) 
 	{
 		this.clicks = clicks;
 	}
@@ -188,4 +188,13 @@ public class TrackVO implements Serializable
 	{
 		this.singer = singer;
 	}
+	
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append( songId + "\t" ).append( name + "\t" );
+		
+		return sb.toString();
+	}
+	
 }

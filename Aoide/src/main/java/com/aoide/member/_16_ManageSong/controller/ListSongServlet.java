@@ -21,7 +21,7 @@ public class ListSongServlet extends HttpServlet {
 		
 		List<SongVO> mySongResult = new ListSongService().getMySong();
 		for (SongVO mySong : mySongResult) {
-			System.out.println(mySong.getName());
+			System.out.println("我的歌曲：" + mySong.getName());
 		}
 		
 		request.getSession().setAttribute("mySongList", mySongResult);

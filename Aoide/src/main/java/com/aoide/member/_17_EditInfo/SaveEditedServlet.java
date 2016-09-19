@@ -27,12 +27,17 @@ public class SaveEditedServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("in editInfo servlet");
 		
 		// get the input and check
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String introduction = request.getParameter("introduction");
+		
+		System.out.println("name: " + name);
+		System.out.println("email: " + email);
+		System.out.println("introduction: " + introduction);
 		
 		Map<String,String> errorMsg = new HashMap<>();
 		Map<String,String> enteredText = new HashMap<>();
@@ -42,9 +47,9 @@ public class SaveEditedServlet extends HttpServlet {
 		if(!Validator.isValidString(email)){
 			errorMsg.put("emailError", "Please enter email");
 		}
-		if(!Validator.isValidString(introduction)){
-			errorMsg.put("introductionError", "Please enter introduction");
-		}
+//		if(!Validator.isValidString(introduction)){
+//			errorMsg.put("introductionError", "Please enter introduction");
+//		}
 		// if the input empty go to memberInfo.jsp
 		if(!errorMsg.isEmpty()){
 			request.setAttribute("errorMsg", errorMsg);
@@ -62,14 +67,7 @@ public class SaveEditedServlet extends HttpServlet {
 			MemberService service = new MemberService();
 			
 			service.updateMemberData(member);
-			
-/*			// save the update
-			service.updateMemberData(member);
-			member = service.getMemberBean(account);
-			// reset member bean in session
-			session.removeAttribute("member");
-			session.setAttribute("member", member);
-*/
+
 			// go checkEdited.jsp
 			String contextPath = request.getContextPath();
 			response.sendRedirect(contextPath + "/views/member/_17_EditInfo.view/checkEdited.jsp");

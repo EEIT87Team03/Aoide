@@ -1,4 +1,4 @@
-package com.aoide.member._22_ManageAlbum.controller;
+package com.aoide.member._19_DepositTocken.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,29 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.aoide.member._22_ManageAlbum.model.ListAlbumService;
 
-@WebServlet("/deleteAlbumServlet")
-public class deleteAlbumServlet extends HttpServlet {
+@WebServlet("/StartDepositTokenServlet")
+public class StartDepositTokenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ListAlbumService service = new ListAlbumService();
-		
-		request.setCharacterEncoding("UTF-8");
-		Integer id = new Integer(request.getParameter("id"));
-		System.out.println("id: " + id);
-		
-		service.deleteAlbum(id);
-		
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/views/member/_22_ManageAlbum.view/deleteAlbumSuccess.jsp");
+		response.sendRedirect(contextPath + "/views/member/_19_DepositToken.view/StartDepositTokenTemplate.jsp");
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

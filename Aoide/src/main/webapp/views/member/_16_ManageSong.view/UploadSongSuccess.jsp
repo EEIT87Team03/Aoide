@@ -7,22 +7,24 @@
 <title>上傳成功</title>
 </head>
 <body>
-	<embed src="${songVO.songFile}" autostart="false"><!-- chrome預設開啟，設false也沒用 -->
+		<embed src="${song.songFile}" autostart="false"><!-- chrome預設開啟，設false也沒用 -->
 	<p>
-		<img src="${songVO.coverFile}" width="300" height="300">
+		<img src="${song.coverFile}" width="300" height="300">
 	<p>
-		歌名：${songVO.name}
+		歌名：${song.name}
 	<p>
-		演出者：${songVO.singer}
+		演出者：${song.singer}
 	<p>
-		類型：${songVO.songType}
+		類型：${song.songType}
 	<p>
-		語言：${songVO.songLanguage}
+		語言：${song.songLanguage}
 	<p>
-		歌曲簡介：${songVO.introductionFile}
+		歌曲簡介：${song.introductionFile}
 	<p>
-		歌詞：${songVO.lyricsFile}
+		歌詞：${song.lyricsFile}
 	<p>
-		上傳日期：${songVO.updateDate}
+		上傳日期：${song.updateDate}
+	<p>
+		<a href="ManageSong.jsp">回管理歌曲</a>
 </body>
 </html>

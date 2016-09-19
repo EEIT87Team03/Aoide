@@ -131,7 +131,7 @@ public class JdbcAlbumDAO implements AlbumDAO
 			 ResultSet rs = pstmt.executeQuery() )
 		{
 					
-			if ( rs.next() ) 
+			while ( rs.next() ) 
 			{
 				voList.add( (AlbumVO) AutoInvoker.inject( rs, new AlbumVO() ) );
 			}

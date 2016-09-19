@@ -53,19 +53,21 @@
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
-              <h3 class="widget-user-username">${member.name }</h3>
-              <h5 class="widget-user-desc">${member.account }</h5>
+            <div class="widget-user-header bg-black" style="background: url('/Aoide/views/dist/img/photo1.png') center center;">
+              <h3 class="widget-user-username">${ member.name }</h3>
+              <h5 class="widget-user-desc">${ member.account }</h5>
             </div>
             <div class="widget-user-image">
-              <img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar">
+              <!--<img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar">-->
+              <img class="img-circle" src="data:image/*;base64,${ member.picture }" alt="User Avatar">
             </div>
+            <!-- =============================================== -->
             <div class="box-footer">
               <div class="row">
                 <div class="col-sm-4 border-right">
                   <div class="description-block">
                     <h5 class="description-header">登入日期</h5>
-                    <span class="description-text">${member.lastLoginDate }</span>
+                    <span class="description-text">${ member.lastLoginDate }</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -73,7 +75,7 @@
                 <div class="col-sm-4 border-right">
                   <div class="description-block">
                     <h5 class="description-header">登入次數</h5>
-                    <span class="description-text">${member.loginCount }</span>
+                    <span class="description-text">${ member.loginCount }</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -81,7 +83,7 @@
                 <div class="col-sm-4">
                   <div class="description-block">
                     <h5 class="description-header">會員點數</h5>
-                    <span class="description-text">${member.tokenTotal }</span>
+                    <span class="description-text">${ member.tokenTotal }</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -89,6 +91,22 @@
               </div>
               <!-- /.row -->
             </div>
+            <!-- / 3 widget cols -->
+            <!-- =============================================== -->
+            <div class="box-footer no-padding">
+	            <table class="table">
+	            	<tbody>
+		            	<tr><td><span style="font-weight: bold;">Email</span></td></tr>
+		              	<tr><td>${ member.email }</td></tr>
+<!-- 		                <tr><td><span style="font-weight: bold;">BankInfo</span></td></tr>
+		                <tr><td>${ member.bankInfo }</td></tr> -->
+		                <tr><td><span style="font-weight: bold;">Introduction</span></td></tr>
+		                <tr><td>${ member.introductionFilePath }</td></tr>
+	            	</tbody>
+	            </table>
+            </div>
+            <!-- /.box-footer no-padding -->
+            <!-- =============================================== -->
           </div>
           <!-- /.widget-user -->
         </div>
@@ -108,7 +126,7 @@
   <!-- footer -->
   <c:import url="/template/htmlBlocks/footer.html"/>
   <!-- footer -->
-
+ 
   <!-- Control Sidebar -->
   <c:import url="/template/htmlBlocks/control_sidebar.html"/>
   <!-- Control Sidebar -->

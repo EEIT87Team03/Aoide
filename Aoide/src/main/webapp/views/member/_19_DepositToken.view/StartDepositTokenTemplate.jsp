@@ -8,13 +8,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- head_library -->
   <c:import url="/template/htmlBlocks/head_library.html"/>
-  
-  <!-- _05_DisplayDanmuku_library_css -->
-  <!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/> -->
-  <!-- _05_DisplayDanmuku_library_css -->
-  
   <!-- head_library -->
-<title>_21_EnterDanmuku(輸入檢舉原因頁面.....)</title>
+<title>Home</title>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
 <!-- Site wrapper -->
@@ -48,38 +43,30 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-12">
-        
-        
-        <!-- 文字編輯區塊開始 -->
-          <div class="box box-info">
-            <div class="box-header">
-              <h3 class="box-title">我來檢舉囉~~~~
-                <small>請輸入檢舉原因~~</small>
-              </h3>
-              
+      
+      <!-- Default box -->
+      <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">儲值開始頁面</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body pad">
-              <form action="<c:url value='/SaveAccuseDanmukuServlet'/>" method="post">
-                    <textarea id="editor1" name="replyContent" rows="10" cols="80">
-                                           
-                    </textarea>
-              </form>
-            </div>
-            <div class="box-footer">
+            <!-- form start -->
+            <form role="form" method="POST" action="<c:url value='/TurnToInsertCreditCardPageServlet.member' />"  id="DonationServlet" >
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputPassword1">儲值金額</label><font color = 'red' size='-1'>   ${cash_volumeError}</font>
+                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="儲值金額" name = "cash_volume" maxlength=9>
+                </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
+            </form>
           </div>
-          <!-- 文字編輯區塊結束 -->
-          
-          <!-- /.box -->
+      <!-- /.box -->
 
-        </div>
-        <!-- /.col-->
-      </div>
-      <!-- ./row -->
     </section>
     <!-- /.content -->
   </div>
@@ -98,20 +85,10 @@
 <!-- body_library -->
 <c:import url="/template/htmlBlocks/body_library.html"/>
 <!-- body_library -->
-
-<!-- _05_DisplayDanmuku_library -->
-<!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library.html"/> -->
-<!-- _05_DisplayDanmuku_library -->
-
-<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script>
-  $(function () {
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    CKEDITOR.replace('editor1');
-    //bootstrap WYSIHTML5 - text editor
-    $(".textarea").wysihtml5();
-  });
+
+
+
 </script>
 </body>
 </html>
