@@ -40,18 +40,18 @@ public class BroadcastAudioServer
         servletContext = httpSession.getServletContext();
         playlist = ( Playlist ) servletContext.getAttribute( Playlist.class.getName() );
         
-		
-       
-        sendTrack( playlist.getCurrentPlayingTrackLength(), playlist.get( 0 ) );
+        if ( playlist.hasNext() )
+		{
+			sendPlayingTrack();
+		}
 	}
 	
 	@OnMessage
     public void handleMessage( String message ) 
 	{
-		
-		if ( message.equals( "[NEXT]" ) );
+		if ( message.equals( "[NEXT]" ) && playlist.hasNext() );
 		{
-			sendTrack( playlist.getCurrentPlayingTrackLength(), playlist.get( 0 ) );
+			sendPlayingTrack();
 		}
 	}
 	
@@ -68,12 +68,12 @@ public class BroadcastAudioServer
 		System.out.println( "Error occured..." + error.getMessage() );
 	}
 	
-	public void sendTrack( int initialTime, TrackVO track )
+	public void sendPlayingTrack()
 	{
 		try 
 		{
-			sendMessage( "[INIT_TIME] " + initialTime );
-			sendObject( track );
+			sendObject( playlist.getCurrentPlayingTrack() );
+			sendMessage( "[INIT_TIME] " + playlist.getCurrentPlayingTrackLength() );
 		} 
 		catch ( Exception e ) 
 		{
