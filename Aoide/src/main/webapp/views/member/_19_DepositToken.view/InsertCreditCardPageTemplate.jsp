@@ -70,10 +70,10 @@
 		          <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
 		          <hr/>
                   <label>信用卡卡號</label>
-                  <input type=text  name=pan_no1 size=4 value="" maxlength=4 >-
-			   	  <input type=text  name=pan_no2 size=4 value="" maxlength=4 >-
-				  <input type=text  name=pan_no3 size=4 value="" maxlength=4 >-
-				  <input type=text  name=pan_no4 size=4 value="" maxlength=4 >  
+                  <input type=text  id=pan_no1 size=4 value="" maxlength=4 onKeyUp="setBlur(this,'pan_no2');" >-
+			   	  <input type=text  id=pan_no2 size=4 value="" maxlength=4 onKeyUp="setBlur(this,'pan_no3');">-
+				  <input type=text  id=pan_no3 size=4 value="" maxlength=4 onKeyUp="setBlur(this,'pan_no4');">-
+				  <input type=text  id=pan_no4 size=4 value="" maxlength=4 >  
 				  <hr/>
                   <label>三碼檢查碼</label>
                   <input type=text  name=pan_no4 size=3 value="" maxlength=3 >
@@ -137,6 +137,16 @@
 <!-- body_library -->
 <c:import url="/template/htmlBlocks/body_library.html"/>
 <!-- body_library -->
-
+<script>
+  function setBlur(obj,target2)
+  {
+     var target =document.getElementById(target2);
+       if( obj.value.length ==obj.getAttribute('maxlength'))
+           {//
+               target.focus();
+           }
+       return;
+  } 
+</script>
 </body>
 </html>
