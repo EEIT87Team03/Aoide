@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.global._10_SearchSong.model.SearchSongService;
+import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
 @WebServlet("/SearchSongServlet")
@@ -39,7 +40,7 @@ public class SearchSongServlet extends HttpServlet {
 			request.getSession().setAttribute("type1", "歌名搜尋結果");
 			request.getSession().setAttribute("searchList", searchResult);
 			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/_10_SearchSong.view/SearchSongResult.jsp");
+			response.sendRedirect(contextPath + "/views/global/_10_SearchSong.view/SearchSongResult.jsp");
 			
 		}else if(type.equalsIgnoreCase("singer")){
 			List<SongVO> searchResult = new SearchSongService().getSinger(search);
@@ -50,7 +51,17 @@ public class SearchSongServlet extends HttpServlet {
 			request.getSession().setAttribute("type1", "歌手搜尋結果");
 			request.getSession().setAttribute("searchList", searchResult);
 			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/_10_SearchSong.view/SearchSongResult.jsp");
+			response.sendRedirect(contextPath + "/views/global/_10_SearchSong.view/SearchSongResult.jsp");
+		}else if(type.equalsIgnoreCase("album")){
+			List<AlbumVO> searchResult = new SearchSongService().getAlbum(search);
+			for (AlbumVO searchSong : searchResult) {
+				System.out.println(searchSong.getName());
+			}
+			
+			request.getSession().setAttribute("type1", "專輯搜尋結果");
+			request.getSession().setAttribute("searchList", searchResult);
+			String contextPath = request.getContextPath();
+			response.sendRedirect(contextPath + "/views/global/_10_SearchSong.view/SearchAlbumResult.jsp");
 		}
 		
 	}

@@ -32,14 +32,14 @@ public class editSongServlet extends HttpServlet {
 		session = request.getSession();
 		songVO = (List<SongVO>) session.getAttribute("mySongList"); // from ListSongServlet
 		
-		// put the suggestionVO in session
+		// put the songVO in session
 		for(SongVO aSong:songVO){
 			if(aSong.getSongId() == id){
 				session.setAttribute("aSong", aSong);
 			}
 		}
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_16_ManageSong.view/editSong.jsp");
+		response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/editSong.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

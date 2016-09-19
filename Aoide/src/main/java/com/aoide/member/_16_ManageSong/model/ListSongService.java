@@ -31,5 +31,9 @@ public class ListSongService {
 	public SongVO getSongById(Integer songId){
 		return songDAO.findByPrimaryKey(songId);
 	}
+	
+	public void deleteSong(Integer songId) {
+		songDAO.delete(songId);
+	}
 
 }

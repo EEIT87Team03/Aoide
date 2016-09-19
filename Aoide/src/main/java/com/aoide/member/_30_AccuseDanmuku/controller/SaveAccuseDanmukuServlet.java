@@ -45,6 +45,9 @@ public class SaveAccuseDanmukuServlet extends HttpServlet {
 		new_accusementDanmukuVO.setAccuseId(member.getMemberId());
 		new_accusementDanmukuVO.setAccusedId(accused_id);
 		new_accusementDanmukuVO.setContentFile(text);
+		new_accusementDanmukuVO.setDanmukuContent(accused_text);
+		new_accusementDanmukuVO.setState(false);
+		
 		
 		Integer accusement_danmuku_id = new SaveAccuseDanmukuService().InsertNewAccusementDanmuku(new_accusementDanmukuVO);
 		
@@ -55,7 +58,8 @@ public class SaveAccuseDanmukuServlet extends HttpServlet {
 		request.getSession().setAttribute("accusementDanmukuVO", accusementDanmukuVO);
 		
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_30_AccuseDanmuku.view/AccuseSucessPage.jsp");
+		response.sendRedirect(contextPath + "/views/member/_30_AccuseDanmuku.view/AccuseSucessPageTemplate.jsp");
+		//response.sendRedirect(contextPath + "/_30_AccuseDanmuku.view/AccuseSucessPage.jsp");
 		
 		
 		

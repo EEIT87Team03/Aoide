@@ -41,7 +41,7 @@ public class GetScoreServlet extends HttpServlet implements Servlet {
 	
 		
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_14_Score.view/getScore1.jsp");
+		response.sendRedirect(contextPath + "/views/member/_14_Score.view/getScore1.jsp");
 		
 		
 	}

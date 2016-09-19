@@ -20,17 +20,17 @@ public class MemberService
 	
 	public int createMemberAccount( MemberVO vo )
 	{
-		int caeationCount = 0;
+		int idOrCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
 			MemberDAO mdao = daoFactory.createMemberDAO( conn );
-			caeationCount = mdao.insert( vo );
+			idOrCount = mdao.insert( vo );
 		}
 		catch( Exception e )
 		{
 			e.printStackTrace();
 		}
-		return caeationCount;
+		return idOrCount;
 	}
 	
 	public int updateMemberData( MemberVO vo )
@@ -95,8 +95,8 @@ public class MemberService
 	public static void main( String[] args ) 
 	{
 		MemberVO m = new MemberVO();
-		m.setMemberId( 2 );
-		m.setAccount( "smallBirdBeauty" );
+		
+		m.setAccount( "AAAsmallBirdBeauty" );
 		m.setPassword( "28825252" );
 		m.setName( "小鳥美麗" );
 		m.setEmail( "fattyCutty@outlook.com" );
@@ -112,7 +112,7 @@ public class MemberService
 		
 		MemberService ms = new MemberService();
 		
-		//System.out.println( ms.createMemberAccount( m ) );
+		System.out.println( ms.createMemberAccount( m ) );
 		//System.out.println( ms.updateMemberData( m ) );
 		//System.out.println( ms.deleteMemberAccount( "smallBirdBeauty" ) );
 		//System.out.println( ms.getMemberBean( "whiteBirdBeauty" ) );

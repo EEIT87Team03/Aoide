@@ -30,7 +30,7 @@
 					<td>${mySong.songLanguage}</td>
 					<td>${mySong.updateDate}</td>
 					<td>
-						<input type="button" value="編輯" onclick="location.href='<c:url value='/editSongServlet?id=${mySong.songId}'/>'">
+						<input type="button" value="編輯" onclick="location.href='<c:url value='/editSongServlet?id=${mySong.songId}'/>'">　
 						<input type="button" value="刪除" onclick="location.href='<c:url value='/deleteSongServlet?id=${mySong.songId}'/>'">
 					</td>
 				</tr>

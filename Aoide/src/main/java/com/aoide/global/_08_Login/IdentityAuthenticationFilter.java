@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-@WebFilter( urlPatterns = { "/memberService.view/*" } )
+@WebFilter( urlPatterns = { "*.member" } )
 public class IdentityAuthenticationFilter implements Filter 
 {
 

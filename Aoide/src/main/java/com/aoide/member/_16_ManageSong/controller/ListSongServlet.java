@@ -15,7 +15,6 @@ import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 @WebServlet("/ListSongServlet")
 public class ListSongServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -27,7 +26,7 @@ public class ListSongServlet extends HttpServlet {
 		
 		request.getSession().setAttribute("mySongList", mySongResult);
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_16_ManageSong.view/ListSong.jsp");
+		response.sendRedirect(contextPath + "/views/member/_16_ManageSong.view/ListSong.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
