@@ -15,28 +15,33 @@ var wsUri = "ws://localhost:8080/Aoide/play";
 var clientSocket = new WebSocket( wsUri );
 var audio = document.getElementById( "track" );
 var currentTrack = null;
-var trackArray = [];
 clientSocket.onmessage = onMessage;
+audio.onended = onEnded;
 
 function onMessage( event )
 {
 	var message = event.data;
 	if ( message.indexOf( "[INIT_TIME]" ) == 0 )
 	{
-		audio.initialTime = message.slice( 13, message.length );
+		var time = parseInt( message.slice( 12, message.length ) );
+		audio.currentTime = time;
 	}
 	else
 	{
 		var track = JSON.parse( message );
-		trackArray.push( track );
-		
-		
+
 		audio.src = track.songFile;
 		audio.volume = 0.09;
 		audio.play();
 	}
 	
 }
+
+function onEnded( event )
+{
+	clientSocket.send( "[NEXT]" );
+}
+
 
 </script>
 </body>

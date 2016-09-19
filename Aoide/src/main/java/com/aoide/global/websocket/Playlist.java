@@ -20,6 +20,11 @@ public class Playlist
 		
 	}
 	
+	public int getCurrentPlayingTrackLength()
+	{
+		return currentPlayingTrackLength;
+	}
+	
 	public int getTrackLength( int index )
 	{
 		String[] length = list.get( index ).getLength().split( ":" );
@@ -40,7 +45,7 @@ public class Playlist
 			currentPlayingTrackMaxLength = getTrackLength( 0 );
 			timer.scheduleAtFixedRate( new UpdatePlayingTrackInfo() , 0, 1000 );
 		}
-			
+		System.out.println( "add : " + vo );	
 		return result;
 	}
 	
@@ -54,7 +59,7 @@ public class Playlist
 			currentPlayingTrackMaxLength = 0;
 			timer.cancel();
 		}
-		
+		System.out.println( "remove : " + vo );
 		return vo;
 	}
 	
@@ -88,7 +93,7 @@ public class Playlist
 			{
 				if ( ++currentPlayingTrackLength >= currentPlayingTrackMaxLength )
 				{
-					list.remove( 0 );
+					remove( 0 );
 					if ( list.size() != 0 )
 					{
 						currentPlayingTrack = list.get( 0 );
