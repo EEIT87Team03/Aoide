@@ -21,7 +21,7 @@
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
-        
+                
         <!-- SQLServer jdbc driver -->
 		<dependency>
             <groupId>com.microsoft.sqlserver.jdbc</groupId>
@@ -29,22 +29,19 @@
             <version>42</version>
         </dependency>
         
-     <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
-	<dependency>
-    	<groupId>javax.servlet</groupId>
-    	<artifactId>jstl</artifactId>
-    	<version>1.2</version>
-	</dependency>
+	     <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+	    	<groupId>javax.servlet</groupId>
+	    	<artifactId>jstl</artifactId>
+	    	<version>1.2</version>
+		</dependency>
 
-		
         <!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
 		<dependency>
     		<groupId>javax.websocket</groupId>
     		<artifactId>javax.websocket-api</artifactId>
     		<version>1.1</version>
 		</dependency>
-        
-        
 	
         <!-- test dependencies -->
         <dependency>
@@ -53,6 +50,29 @@
             <version>4.8.2</version>
             <scope>test</scope>
         </dependency>
+        
+        <!-- spring-context 4.2.6.RELEASE -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>4.2.6.RELEASE</version>
+		</dependency>
+		
+		<!-- spring-jdbc 4.2.6.RELEASE -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>4.2.6.RELEASE</version>
+		</dependency>
+		
+		<!-- spring-web 4.2.6.RELEASE-->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		    <version>4.2.6.RELEASE</version>
+		</dependency>
+		
+        
     </dependencies>
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>

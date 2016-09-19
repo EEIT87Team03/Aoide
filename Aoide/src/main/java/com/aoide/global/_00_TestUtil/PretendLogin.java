@@ -42,7 +42,7 @@ public class PretendLogin implements Filter {
 		
 		MemberVO m = new MemberVO();
 		m.setMemberId( 2 );
-		m.setAccount( "KKKwhiteBirdBeauty" );
+		m.setAccount( "whiteBirdBeauty" );
 		m.setPassword( "28825252" );
 		m.setName( "白鳥美麗" );
 		m.setEmail( "fattyCutty@outlook.com" );

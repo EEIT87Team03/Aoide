@@ -75,7 +75,7 @@
                     <div class="col-xs-5">
                         <div class="form-group">
                           <label>Title</label>
-                          ${updatedSuggestion.title}
+                          ${suggestion.title}
                         </div> 
                     </div>
                     <div class="col-xs-6">
@@ -90,7 +90,7 @@
                     <div class="col-xs-5">
                         <div class="form-group">
                           <label>Suggestion</label>
-                          ${updatedSuggestion.suggestionContentFile}
+                          ${suggestion.suggestionContentFile}
                         </div> 
                     </div>
                     <div class="col-xs-6">

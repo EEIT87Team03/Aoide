@@ -10,7 +10,7 @@
   <c:import url="/template/htmlBlocks/head_library.html"/>
   <!-- head_library -->
   <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
-<title>編輯會員資料</title>
+<title>會員登入</title>
 
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
@@ -33,8 +33,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        回覆建議
-        <small>編輯回覆內容</small>
+        登入會員
+        <small>輸入帳號及密碼</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -57,7 +57,7 @@
           <!-- Collapsed box -->
           <div class="box box-warning">
             <div class="box-header with-border">
-              <h3 class="box-title">${updatedSuggestion.title}</h3>
+              <h3 class="box-title">${suggestion.title}</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -68,12 +68,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <label>Suggestion</label>
-              {updatedSuggestion.suggestionContentFile}
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-              <label>Reply</label>
-              ${updatedSuggestion.replyContentFile}
+              ${suggestion.suggestionContentFile}
             </div>
             <!-- /.box-body -->
           </div>
