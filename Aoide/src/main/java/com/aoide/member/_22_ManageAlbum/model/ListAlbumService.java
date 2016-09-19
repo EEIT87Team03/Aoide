@@ -13,11 +13,11 @@ public class ListAlbumService {
 		
 	}
 	
-	public List<AlbumVO> getMyAlbum() {
+	public List<AlbumVO> getMyAlbum(Integer memberId) {
 		List<AlbumVO> myAlbumResult = new ArrayList();
 		for (AlbumVO myAlbum : albumService.getAllAlbumBeans()) {
 			//改會員時看這裡
-			if (myAlbum.getMemberId() == 1) {
+			if (myAlbum.getMemberId() == memberId) {
 				//改會員時看這裡
 				myAlbumResult.add(myAlbum);
 			}

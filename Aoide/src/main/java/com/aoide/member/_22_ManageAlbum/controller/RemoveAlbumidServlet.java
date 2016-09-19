@@ -14,7 +14,7 @@ import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._16_ManageSong.model.ListSongService;
 
-@WebServlet("/RemoveAlbumidServlet")
+@WebServlet("/RemoveAlbumidServlet.member")
 public class RemoveAlbumidServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

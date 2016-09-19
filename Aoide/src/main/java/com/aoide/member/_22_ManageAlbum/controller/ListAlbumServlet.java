@@ -10,16 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.member._22_ManageAlbum.model.ListAlbumService;
 
-@WebServlet("/ListAlbumServlet")
+@WebServlet("/ListAlbumServlet.member")
 public class ListAlbumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
+		Integer memberId = member.getMemberId();
 		
-		List<AlbumVO> myAlbumResult = new ListAlbumService().getMyAlbum();
+		List<AlbumVO> myAlbumResult = new ListAlbumService().getMyAlbum(memberId);
 		for (AlbumVO myAlbum : myAlbumResult) {
 			System.out.println("我的專輯：" + myAlbum.getName());
 		}

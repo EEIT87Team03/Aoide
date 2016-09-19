@@ -10,16 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.member._16_ManageSong.model.ListSongService;
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
-@WebServlet("/ListSongServlet")
+@WebServlet("/ListSongServlet.member")
 public class ListSongServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
+		Integer memberId = member.getMemberId();
 		
-		List<SongVO> mySongResult = new ListSongService().getMySong();
+		List<SongVO> mySongResult = new ListSongService().getMySong(memberId);
 		for (SongVO mySong : mySongResult) {
 			System.out.println("我的歌曲：" + mySong.getName());
 		}

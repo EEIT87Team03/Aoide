@@ -12,10 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._16_ManageSong.model.ListSongService;
 
-@WebServlet("/EditAlbumServlet")
+@WebServlet("/EditAlbumServlet.member")
 public class EditAlbumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,6 +24,8 @@ public class EditAlbumServlet extends HttpServlet {
 		Integer id = null;
 		List<AlbumVO> albumS;
 		HttpSession session = null;
+		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
+		Integer memberId = member.getMemberId();
 		
 		// get the album id
 		request.setCharacterEncoding("UTF-8");
@@ -42,7 +45,7 @@ public class EditAlbumServlet extends HttpServlet {
 			}
 		}
 		
-		List<SongVO> mySongResult = new ListSongService().getMySong();
+		List<SongVO> mySongResult = new ListSongService().getMySong(memberId);
 		List<SongVO> songS = new ArrayList();
 		for(SongVO song:mySongResult){
 			if(song.getAlbumId() == id){    //int
@@ -51,7 +54,7 @@ public class EditAlbumServlet extends HttpServlet {
 			}
 		}
 		
-		List<SongVO> mySongResult2 = new ListSongService().getMyAlbumSong();
+		List<SongVO> mySongResult2 = new ListSongService().getMyAlbumSong(memberId);
 		for (SongVO mySong : mySongResult2) {
 			System.out.println("未分類專輯的歌曲：" + mySong.getName());
 		}

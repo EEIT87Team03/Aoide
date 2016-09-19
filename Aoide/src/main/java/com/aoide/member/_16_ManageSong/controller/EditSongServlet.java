@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
-@WebServlet("/EditSongServlet")
+@WebServlet("/EditSongServlet.member")
 public class EditSongServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

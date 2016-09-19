@@ -24,7 +24,7 @@ import com.aoide.global._00_TestUtil.Validator;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._16_ManageSong.model.ListSongService;
 
-@WebServlet("/UpdateSongServlet")
+@WebServlet("/UpdateSongServlet.member")
 @MultipartConfig(location = "C:\\Aoide", fileSizeThreshold = 1024 * 1024,
 										 maxFileSize = 1024 * 1024 * 5 * 5,//限制25MB
 										 maxRequestSize = 1024 * 1024 * 5 * 5)
@@ -106,7 +106,7 @@ public class UpdateSongServlet extends HttpServlet {
 			ServletContext context = request.getServletContext();
 			Properties paths = (Properties) context.getAttribute("paths");
 			String folderPath = paths.getProperty("coverFolderPath");
-			String srcRoot = paths.getProperty("coverFolderPath");
+			String srcRoot = paths.getProperty("coverSrcRoot");
 			if(!Validator.isEmptyPart(part)){
 				int id = song.getSongId();
 				String newCoverFilename = "Songid" + id + fileNameExtension;

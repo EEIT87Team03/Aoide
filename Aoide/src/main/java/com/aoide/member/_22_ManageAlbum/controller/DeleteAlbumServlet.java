@@ -10,23 +10,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._16_ManageSong.model.ListSongService;
 import com.aoide.member._22_ManageAlbum.model.ListAlbumService;
 
-@WebServlet("/DeleteAlbumServlet")
+@WebServlet("/DeleteAlbumServlet.member")
 public class DeleteAlbumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ListAlbumService service = new ListAlbumService();
 		ListSongService lss = new ListSongService();
+		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
+		Integer memberId = member.getMemberId();
 		
 		request.setCharacterEncoding("UTF-8");
 		Integer id = new Integer(request.getParameter("id"));
 		System.out.println("delete id：" + id);
 		
-		List<SongVO> mySongResult = new ListSongService().getMySong();
+		List<SongVO> mySongResult = new ListSongService().getMySong(memberId);
 		List<SongVO> songS = new ArrayList();
 		for(SongVO song:mySongResult){
 			if(song.getAlbumId() == id){    //int
