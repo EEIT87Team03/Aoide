@@ -23,12 +23,14 @@ public class BuildPlaylistServlet extends HttpServlet
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException
 	{
 		ServletContext context = getServletContext();
 		Playlist playlist = ( Playlist ) context.getAttribute( Playlist.class.getName() );
 		TrackService ts = new TrackService();
-		int id = Integer.parseInt( request.getParameter( "songId" ) );
+		//int id = Integer.parseInt( request.getParameter( "songId" ) );
+		
+		int id = 1; //test data
 		
 		TrackVO vo = ts.getTrackBean( id );
 		if ( canPlay( vo ) )
@@ -50,8 +52,8 @@ public class BuildPlaylistServlet extends HttpServlet
 
 	private boolean canPlay( TrackVO vo )
 	{	
-		System.out.println( System.currentTimeMillis() );
-		System.out.println( vo.getLastclickDate().getTime() );
+		//System.out.println( System.currentTimeMillis() );
+		//System.out.println( vo.getLastclickDate().getTime() );
 		return true;
 	}
 }

@@ -27,7 +27,7 @@ public class UpdateFavoriteServlet extends HttpServlet {
 		Integer memberId = member.getMemberId();
 		
 		//從外部來的值，表示今天要對哪一首歌進行操作，假設對id=4的歌曲按下了"收藏"
-		Integer songId = 4 ; 
+		Integer songId = 7 ; 
 		
 		//使用UpdateFavoriteService().getFavoriteById(member.getMemberId())獲得特定ID的FavoriteVO物件串
 		List<FavoriteVO> favoriteVOList = new ShowFavoriteService().getFavoriteById(memberId);

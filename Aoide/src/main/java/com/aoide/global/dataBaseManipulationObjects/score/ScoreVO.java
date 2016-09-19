@@ -64,9 +64,11 @@ public class ScoreVO {
 		return scoreValue;
 	}
 
-	public void setScoreValue(Integer scoreValue) {
-		this.scoreValue = scoreValue;
+	public void setScoreValue(Integer scoreValue){
+		
+	     this.scoreValue =scoreValue;
 	}
+
 
 	public String getComment() {
 		return comment;
@@ -75,6 +77,9 @@ public class ScoreVO {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+
+
+
 	
 
 }

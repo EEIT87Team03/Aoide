@@ -73,7 +73,7 @@
                 <div class="col-sm-4 border-right">
                   <div class="description-block">
                     <h5 class="description-header">登入日期</h5>
-                    <span class="description-text">${ member.lastLoginDate }</span>
+                    <span class="description-text">${member.lastLoginDate }</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -81,7 +81,7 @@
                 <div class="col-sm-4 border-right">
                   <div class="description-block">
                     <h5 class="description-header">登入次數</h5>
-                    <span class="description-text">${ member.loginCount }</span>
+                    <span class="description-text">${member.loginCount}</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -89,7 +89,7 @@
                 <div class="col-sm-4">
                   <div class="description-block">
                     <h5 class="description-header">會員點數</h5>
-                    <span class="description-text">${ member.tokenTotal }</span>
+                    <span class="description-text">${member.tokenTotal}</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -115,6 +115,7 @@
                     <div class="col-xs-2">
                       <span style="float:right;">
                         <input class="btn btn-default" type = "button" id = "upload" value = "Upload"><span id="progress"></span>
+                      </span>
                     </div>
                     <div class="col-xs-1">
                     </div>

@@ -8,7 +8,7 @@
 <title>管理專輯</title>
 </head>
 <body>
-	<a href="BuildAlbum.jsp">建立專輯</a>
+	<a href="<c:url value = '/BuildAlbumServlet'/>">建立專輯</a>
 	<p>
 	<a href="<c:url value = '/ListAlbumServlet'/>">編輯專輯</a>
 </body>

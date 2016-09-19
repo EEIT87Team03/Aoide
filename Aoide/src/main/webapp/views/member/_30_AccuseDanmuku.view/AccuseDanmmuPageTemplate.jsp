@@ -66,9 +66,11 @@
                     <textarea id="editor1" name="replyContent" rows="10" cols="80">
                                            
                     </textarea>
-                    <input class="btn btn-primary" type="submit" value="Submit">
               </form>
             </div>
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
           </div>
           <!-- 文字編輯區塊結束 -->
           

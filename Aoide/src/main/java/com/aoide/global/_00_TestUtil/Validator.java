@@ -19,6 +19,9 @@ public class Validator {
 		// ^([a-zA-Z0-9]{6,18}?)$
 		return isValidString(str) && str.matches("^([a-zA-Z0-9]{6,18}?)$");
 	}
+	public static boolean isNumbers(String str){
+		return isValidString(str) && str.matches("[0-9]+");
+	}
 	public static boolean isImage(Part part){
 		return part.getContentType().trim().split("/")[0].equals("image");
 	}
@@ -31,6 +34,7 @@ public class Validator {
 	public static boolean isPartOverSize(Part part, long size){ // size (byte)
 		return ( part.getSize() <= size );
 	}
+	
 	
 	
 	

@@ -19,11 +19,11 @@
     	clientSocket.onmessage = 
     			function ( event )
     			{
-    				var message = event.data;
+    				var message = event.data.split("&",2)[1];
     				
     				 var item = {
     			            info: message, //彈幕文字
-    			            href: '/Aoide/AccuseDanmukuServlet?id=' + memberId + '&text=' + message , //點選彈幕的連結網址
+    			            href: '/Aoide/AccuseDanmukuServlet?id=' + memberId + '&text=' + event.data.split("&",2)[0] , //點選彈幕的連結網址
     			            close: true, //是否顯示關閉的按鈕
     			            speed: 6, //延遲(秒)預設為6
     			            color: '#000000', //顏色，預設白色
@@ -57,7 +57,7 @@
         document.getElementById( "send" ).onclick = function()
         											{
         												var text = document.getElementById( "input" ).value;
-        												clientSocket.send( text );
+        												clientSocket.send( memberId + "&" + text);
         											};
         											      											
         

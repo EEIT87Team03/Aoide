@@ -9,9 +9,11 @@
 </head>
 <body>
 ${type1}
+<% int i = 0; %>
 	<table class="table">
 		<thead>
 			<tr>
+				<th>　</th>
 				<th>歌曲ID</th>
 				<th>歌名</th>
 				<th>演出者</th>
@@ -23,6 +25,7 @@ ${type1}
 		<tbody>
 			<c:forEach var="result" items="${searchList}">
 				<tr>
+					<td><% out.print(i = i + 1); %></td>
 					<td>${result.songId}</td>
 					<td>${result.name}</td>
 					<td>${result.singer}</td>
@@ -33,5 +36,8 @@ ${type1}
 			</c:forEach>
 		</tbody>
 	</table>
+	共有<% out.print(i); %>項符合搜尋結果
+	<p>
+	<a href="SearchSong.jsp">回搜尋歌曲</a>
 </body>
 </html>

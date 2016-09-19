@@ -22,6 +22,11 @@ public class ListFavoriteService {
 	}
 	
 	
+	public List<FavoriteVO> getFavoritesById(Integer memberId) {
+		
+		return ((JdbcFavoriteDAO) favoriteDAO).getFavoritesById(memberId);
+	}
+	
 
 	
 	

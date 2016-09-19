@@ -28,24 +28,15 @@ public class ShareServlet extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-
-	
-		
-	
-		
-
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-
-		
 		
 		SongVO songVO = new SongVO();
 		
 
-		int song_Id =  8;
+		int song_Id =  6;
 	
 		List<SongVO> song = new ShareService().getAllId(song_Id);
 		request.getSession().setAttribute("getSong", song);
@@ -55,7 +46,7 @@ public class ShareServlet extends HttpServlet {
 		request.getSession().setAttribute("songOnes", new_song);
 
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_13_ShareSong.view/ShareSong.jsp");
+		response.sendRedirect(contextPath + "/views/member/_13_ShareSong.view/ShareSong.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request,

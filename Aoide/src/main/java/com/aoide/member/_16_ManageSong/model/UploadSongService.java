@@ -16,11 +16,11 @@ public class UploadSongService {
 		return songDAO.insert(songVO);
 	}
 
-	public void updatePath(SongVO song) {
-		dao.update(song);
+	public void updatePath(SongVO songVO) {
+		dao.update(songVO);
 	}
 
-	public SongVO checkUpload(Integer id) {
-		return dao.findByPrimaryKey(id);
+	public SongVO checkUpload(Integer songId) {
+		return dao.findByPrimaryKey(songId);
 	}
 }
