@@ -1,6 +1,8 @@
 package com.aoide.member._19_DepositTocken.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,17 +53,28 @@ public class DepositTokenServlet extends HttpServlet {
 			new_CashRecordVO.setCashVolume(int_cash_volume);
 			new_CashRecordVO.setTokenVolume(token_volume);
 			new_CashRecordVO.setType(type);
-
+			
+			//呼叫Service新增一筆CashRecord並獲取回傳的ID
 			Integer insert_id = new DepositTokenService().insertNewCashRecord(new_CashRecordVO);
-			System.out.println("此次交易紀錄的ID:" + insert_id);
-
+			/*System.out.println("此次交易紀錄的ID:" + insert_id);*/
+			
+			//用回傳的ID查詢該筆紀錄
 			CashRecordVO cashRecordVO = new DepositTokenService().getCashRecordById(insert_id);
 			request.getSession().setAttribute("cashRecordVO", cashRecordVO);
-
+			
+			//將當前Session中的MemberVO物件的TokenTotal更新
+			BigDecimal new_TokenTotal = memberVO.getTokenTotal().add(new BigDecimal(token_volume));
+			memberVO.setTokenTotal(new_TokenTotal);
+			System.out.println("Token:" + memberVO.getTokenTotal());
+			
+			new DepositTokenService().updateMemberVO(memberVO);
+			request.getSession().setAttribute("member", memberVO);
+			
+			
 			String contextPath = request.getContextPath();
 			response.sendRedirect(contextPath + "/views/member/_19_DepositToken.view/ShowDepositRecordTemplate.jsp");
 
-			System.out.println(cashRecordVO.getCashRecordId());
+			/*System.out.println(cashRecordVO.getCashRecordId());*/
 		}
 	}
 
