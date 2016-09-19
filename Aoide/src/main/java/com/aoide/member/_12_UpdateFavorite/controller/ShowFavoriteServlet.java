@@ -52,7 +52,7 @@ public class ShowFavoriteServlet extends HttpServlet {
 		
 		//導向顯示頁面
 		String context = request.getContextPath();
-		response.sendRedirect(context + "/_12_UpdateFavorite.view/ShowFavoritePage.jsp");
+		response.sendRedirect(context + "/views/member/_12_UpdateFavorite.view/ShowFavoritePage.jsp");
 		
 		
 		

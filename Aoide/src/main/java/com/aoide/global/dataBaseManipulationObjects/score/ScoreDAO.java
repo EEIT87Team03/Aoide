@@ -2,6 +2,8 @@ package com.aoide.global.dataBaseManipulationObjects.score;
 
 import java.util.List;
 
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
+
 
 
 public interface ScoreDAO {
@@ -11,6 +13,9 @@ public interface ScoreDAO {
     public void delete(Integer memberId,Integer songId);
     public ScoreVO findByPrimaryKey(Integer memberId,Integer songId);
     public List<ScoreVO> getAll();
+	public ScoreVO calculatorAVG(int scoreValue);
+	void calculatorAVG(ScoreVO scoreValue);
+	
 	
 	
 

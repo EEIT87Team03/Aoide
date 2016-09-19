@@ -9,7 +9,7 @@
   <!-- head_library -->
   <c:import url="/template/htmlBlocks/head_library.html"/>
   <!-- head_library -->
-<title>Home</title>
+<title>index</title>
 </head>
 <body class="hold-transition skin-blue fixed sidebar-mini">
 <!-- Site wrapper -->

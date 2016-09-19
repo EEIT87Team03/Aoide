@@ -9,8 +9,12 @@ import com.aoide.global.websocket.track.TrackVO;
 
 public class ObjectPropertyBuilder 
 {
-	
 	public static String buildProperty( String parm )
+	{
+		return buildProperty( parm, true );
+	}
+	
+	public static String buildProperty( String parm, boolean capitalize )
 	{
 		StringBuilder sb = new StringBuilder( parm );
 		
@@ -31,10 +35,21 @@ public class ObjectPropertyBuilder
 				default:
 			}
 		}
+		
+		if( !capitalize )
+		{
+			sb.setCharAt( 0, Character.toLowerCase( sb.charAt( 0 ) ) );
+		}
+		
 		return sb.toString();
 	}
 	
 	public static List< String > buildProperties( Class< ? > voClass )
+	{
+		return buildProperties( voClass, true );
+	}
+	
+	public static List< String > buildProperties( Class< ? > voClass, boolean capitalize )
 	{
 		List< String > propertyNames= new ArrayList<>();
 		
@@ -48,6 +63,13 @@ public class ObjectPropertyBuilder
 			
 			if ( getterExists && setterExists )
 			{
+				if ( !capitalize )
+				{
+					StringBuilder sb = new StringBuilder( propertyName );
+					sb.setCharAt( 0, Character.toLowerCase( sb.charAt( 0 ) ) );
+					propertyName = sb.toString();
+				}
+				
 				propertyNames.add( propertyName );
 			}
 			
@@ -55,6 +77,14 @@ public class ObjectPropertyBuilder
 		return propertyNames;
 	}
 
+	public static String capitalize( String s )
+	{
+		StringBuilder sb = new StringBuilder( s );
+		sb.setCharAt( 0, Character.toUpperCase( sb.charAt( 0 ) ) );
+		
+		return sb.toString();
+	}
+	
 	private static boolean methodExists( Class< ? > voClass, String methodName, Class< ? >... parameterTypes )
 	{
 		try
@@ -72,7 +102,7 @@ public class ObjectPropertyBuilder
 	
 	public static void main(String[] args) 
 	{
-		System.out.println( ObjectPropertyBuilder.buildProperties( TrackVO.class ) );
+		System.out.println( ObjectPropertyBuilder.buildProperties( TrackVO.class, false ) );
 	}
 
 }
