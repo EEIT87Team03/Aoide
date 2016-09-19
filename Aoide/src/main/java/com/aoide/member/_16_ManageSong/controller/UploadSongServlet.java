@@ -21,10 +21,11 @@ import javax.servlet.http.Part;
 
 import com.aoide.global._00_TestUtil.UploadHelper;
 import com.aoide.global._00_TestUtil.Validator;
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._16_ManageSong.model.UploadSongService;
 
-@WebServlet("/UploadSongServlet")
+@WebServlet("/UploadSongServlet.member")
 @MultipartConfig(location = "C:\\Aoide", fileSizeThreshold = 1024 * 1024,
 										 maxFileSize = 1024 * 1024 * 5	* 5,//限制25MB
 										 maxRequestSize = 1024 * 1024 * 5 * 5)
@@ -42,6 +43,8 @@ public class UploadSongServlet extends HttpServlet {
 		String fileNameExtension = null;
 		String fileNameExtension2 =null;
 		String contextPath = request.getContextPath();
+		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
+		Integer memberId = member.getMemberId();
 
 		final Part part = request.getPart("songFile");
 		if(Validator.isEmptyPart(part)){
@@ -127,7 +130,7 @@ public class UploadSongServlet extends HttpServlet {
 				song.setSongType(songType);
 				song.setSongLanguage(songLanguage);
 				//改會員時看這裡
-				song.setMemberId(1);
+				song.setMemberId(memberId);
 				//改會員時看這裡
 				song.setIntroductionFile(introductionFile);
 				song.setLyricsFile(lyricsFile);
@@ -139,13 +142,13 @@ public class UploadSongServlet extends HttpServlet {
 				ServletContext context = request.getServletContext();
 				Properties paths = (Properties) context.getAttribute("paths");
 				String folderPath = paths.getProperty("songFolderPath");
-				String srcRoot = paths.getProperty("songFolderPath");
+				String srcRoot = paths.getProperty("songSrcRoot");
 				
 				//cover
 				ServletContext context2 = request.getServletContext();
 				Properties paths2 = (Properties) context2.getAttribute("paths");
 				String folderPath2 = paths2.getProperty("coverFolderPath");
-				String srcRoot2 = paths2.getProperty("coverFolderPath");
+				String srcRoot2 = paths2.getProperty("coverSrcRoot");
 				
 				// make file name and path for storage
 				String newSongFilename = "Songid" + id + fileNameExtension;
@@ -216,7 +219,7 @@ public class UploadSongServlet extends HttpServlet {
 				song.setSongType(songType);
 				song.setSongLanguage(songLanguage);
 				//改會員時看這裡
-				song.setMemberId(1);
+				song.setMemberId(memberId);
 				//改會員時看這裡
 				song.setIntroductionFile(introductionFile);
 				song.setLyricsFile(lyricsFile);
@@ -228,7 +231,7 @@ public class UploadSongServlet extends HttpServlet {
 				ServletContext context = request.getServletContext();
 				Properties paths = (Properties) context.getAttribute("paths");
 				String folderPath = paths.getProperty("songFolderPath");
-				String srcRoot = paths.getProperty("songFolderPath");
+				String srcRoot = paths.getProperty("songSrcRoot");
 				
 				// make file name and path for storage
 				String newSongFilename = "Songid" + id + fileNameExtension;

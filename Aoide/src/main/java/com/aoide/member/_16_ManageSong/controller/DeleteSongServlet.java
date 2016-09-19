@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.member._16_ManageSong.model.ListSongService;
 
-@WebServlet("/DeleteSongServlet")
+@WebServlet("/DeleteSongServlet.member")
 public class DeleteSongServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
