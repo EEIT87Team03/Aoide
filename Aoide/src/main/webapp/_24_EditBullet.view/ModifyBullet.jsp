@@ -9,16 +9,34 @@
 <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
 </head>
 <body>
-	<form action="<c:url value ='/ModifyEditBullet'/>" method="post">
-		
-<!-- 		date：<input type="text" name="date"><p> -->
-	    No：<input type="text" name="bulletId"><p>
-	    contentFile：<input type="text" name="contentFile"><p>
-        title：<textarea name="title" id="title"></textarea>
-		<script>CKEDITOR.replace('introductionFile');</script><p>
-        <input type="submit" value="送出">
-        <input type = "reset" value = "清除">
+<div class="container">
+<div class="jumbotron">
+<div class="page-header">
+<h3>Modify</h3>
+</div>
+
+	<form action="<c:url value ='/ModifyEditBullet'/>" method="post" class="form-inline">
+        <div class="form-inline">
+		No：<input type="text" name="bulletId"  class="form-inline"  readonly>
+		</div>
+		<script>
 	
+		</script>
+		<p>
+		<div class="form-inline">
+			contentFile：<input type="text" name="contentFile" class="form-inline" class="form-inline" placeholder="內容">
+			</div>
+		<p>
+			title：
+			<textarea name="title" id="title"></textarea>
+			<script>
+				CKEDITOR.replace('introductionFile');
+			</script>
+		<p>
+			<input type="submit" value="送出"> <input type="reset"
+				value="清除">
 	</form>
+</div>
+</div>
 </body>
 </html>

@@ -26,13 +26,15 @@ public class DeleteEditTask extends HttpServlet {
 
 		// String DELETE = request.getParameter("deleteBullet");
 		// String 轉 Int
-		Integer DELETE = Integer.parseInt(request.getParameter("deleteTask"));
+		Integer DELETE = Integer.parseInt(request.getParameter("taskId"));
 
 		TaskDAO dao = new JdbcTaskDAO();
         dao.delete(DELETE);
 
-		System.out.println(request.getParameter("deleteTask"));
+		System.out.println(request.getParameter("taskId"));
 		System.out.println(DELETE);
+		String Path = request.getContextPath();
+		response.sendRedirect(Path + "/_26_EditTask.view/DeleteTaskDisplay.jsp");
 
 	}
 }

@@ -18,7 +18,7 @@ public class JdbcScoreDAO implements ScoreDAO {
 	private static final String UPDATE = "UPDATE Score set member_id=?,song_id=?, date=?,score_value=?,comment_file=? ";
 	private static final String DELETE = "DELETE FROM Score where (member_id=?,song_id=?)";
 	private static final String GET_ALL_STMT = "SELECT member_id,song_id,date,score_value,comment_file FROM Score order by member_id";
-	private static final String GET_ONE_STMT = "SELECT member_id,song_id,date,score_value,comment_file FROM Score where member_id=?";
+	private static final String GET_ONE_STMT = "SELECT member_id,song_id,date,score_value,comment_file FROM Score where member_id=? and song_id=?";
 
 
 	
@@ -68,6 +68,7 @@ public class JdbcScoreDAO implements ScoreDAO {
 
 			}
 		}
+		
 
 	}
 

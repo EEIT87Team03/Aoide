@@ -10,15 +10,18 @@
 </head>
 <body>
 	<form action="<c:url value ='/UploadEditBullet'/>" method="post">
-		
-<!-- 		date：<input type="text" name="date"><p> -->
-	    contentFile：<input type="text" name="contentFile"><p>
-        title：<textarea name="title" id="title"></textarea>
-		<script>CKEDITOR.replace('introductionFile');</script><p>
-		
-        <input type="submit" value="送出">
-        <input type = "reset" value = "清除">
-	
+
+		<!-- 		date：<input type="text" name="date"><p> -->
+		contentFile：<input type="text" name="contentFile">
+		<p>
+			title：
+			<textarea name="title" id="title"></textarea>
+			<script>
+				CKEDITOR.replace('introductionFile');
+			</script>
+		<p>
+
+			<input type="submit" value="送出"> <input type="reset" value="清除">
 	</form>
 </body>
 </html>

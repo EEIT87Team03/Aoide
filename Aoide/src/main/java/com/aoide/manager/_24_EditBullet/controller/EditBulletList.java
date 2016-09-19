@@ -34,5 +34,4 @@ public class EditBulletList extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// System.out.println("In ReplyBulletServlet doPost()");
 	}
-
 }

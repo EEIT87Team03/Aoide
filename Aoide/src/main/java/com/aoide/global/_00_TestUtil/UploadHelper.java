@@ -14,8 +14,12 @@ public class UploadHelper {
 	    InputStream inputStream = null;
 	    OutputStream outputStream = null;
 		try {
+			File file = new File(path);
+			
+			System.out.println("AbsolutePath: " + file.getAbsolutePath());
+			
 		    inputStream = part.getInputStream();// get file inputSteam
-		    outputStream = new FileOutputStream(new File(path)); // get FileOutputStream to write inputStrem into the file
+		    outputStream = new FileOutputStream(file); // get FileOutputStream to write inputStrem into the file
 		    // write into file
 		    byte[] bytes = new byte[1024];
 		    int len;

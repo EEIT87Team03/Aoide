@@ -18,7 +18,7 @@ import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 /**
  * Servlet Filter implementation class PretendLogin
  */
-@WebFilter(urlPatterns = { "*.member" })
+@WebFilter(urlPatterns = { "*.member" , "/_17_EditInfo.view/editInfo.jsp"})
 public class PretendLogin implements Filter {
 
     // Constructor
@@ -33,6 +33,12 @@ public class PretendLogin implements Filter {
 
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		
+		HttpServletRequest req = (HttpServletRequest) request;
+		
+		
+		System.out.println(req.getRequestURL());
+		
 		
 		MemberVO m = new MemberVO();
 		m.setMemberId( 2 );
@@ -50,7 +56,7 @@ public class PretendLogin implements Filter {
 		m.setBanState( false );
 		m.setBankInfo( "fffffffirst bank" );
 		
-		((HttpServletRequest)request).getSession().setAttribute("member", m);
+		req.getSession().setAttribute("member", m);
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}

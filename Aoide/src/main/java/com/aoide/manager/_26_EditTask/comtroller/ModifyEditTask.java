@@ -23,6 +23,7 @@ public class ModifyEditTask extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// 設定輸入資料的編碼
 		request.setCharacterEncoding("UTF-8");
+		String ID = request.getParameter("id").trim();
 		// 讀取使用者所輸入，由瀏覽器送來的 mId 欄位內的資料，注意大小寫
 		// getParameter必是String類型
 		//取系統時間

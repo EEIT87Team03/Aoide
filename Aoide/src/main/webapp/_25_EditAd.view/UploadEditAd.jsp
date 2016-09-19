@@ -12,11 +12,8 @@
 
 	<form action="<c:url value='/InsertAdds'/>" method="post"
 		enctype="multipart/form-data">
-		上傳封面圖片：<input type="file" name="adImg">
-		<p>
-			<!-- 		專輯編號：<input type="text" name="ImageId"><p> -->
+		上傳封面圖片：<input type="file" name="AdImage"><p>
 			<input type="submit" value="送出">
-						
 	</form>
 </body>
 </html>

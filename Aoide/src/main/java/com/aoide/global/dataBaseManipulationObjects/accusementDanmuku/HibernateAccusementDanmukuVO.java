@@ -1,16 +1,19 @@
 package com.aoide.global.dataBaseManipulationObjects.accusementDanmuku;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 
-public class HibernateAccusementDanmukuVO {
+public class HibernateAccusementDanmukuVO implements Serializable{
 	// Fields
 	private Integer accusementDanmukuId; 
 	private Timestamp date;
 	private MemberVO accuse;      
 	private MemberVO accused;     
 	private String contentFile;
+	private String danmukuContent;
+	private Boolean state;
 	
 	// Constructors
 	public HibernateAccusementDanmukuVO() {
@@ -66,6 +69,22 @@ public class HibernateAccusementDanmukuVO {
 
 	public void setContentFile(String contentFile) {
 		this.contentFile = contentFile;
+	}
+
+	public String getDanmukuContent() {
+		return danmukuContent;
+	}
+
+	public void setDanmukuContent(String danmukuContent) {
+		this.danmukuContent = danmukuContent;
+	}
+
+	public Boolean getState() {
+		return state;
+	}
+
+	public void setState(Boolean state) {
+		this.state = state;
 	}
 
 }

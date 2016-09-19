@@ -8,6 +8,6 @@ public interface MemberDAO
 	public int update( MemberVO newValueObject );
 	public int delete( String account );
 	public MemberVO findByPrimaryKey( String account );
-	public MemberVO findByMemberId(Integer memberId);
+	public MemberVO findByMemberId( Integer memberId );
 	public List< MemberVO > getAll();
 }
