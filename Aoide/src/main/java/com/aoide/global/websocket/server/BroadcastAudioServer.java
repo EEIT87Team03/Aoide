@@ -1,6 +1,6 @@
 package com.aoide.global.websocket.server;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +16,12 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import com.aoide.global.websocket.Playlist;
+import com.aoide.global.dataBaseManipulationObjects.Playlist;
+import com.aoide.global.listener.PlaylistListener;
 import com.aoide.global.websocket.codec.TrackVOEncoder;
-import com.aoide.global.websocket.track.TrackService;
-import com.aoide.global.websocket.track.TrackVO;
 
 @ServerEndpoint( value = "/play", configurator = HttpSessionConfigurator.class, encoders = { TrackVOEncoder.class} )
-public class BroadcastAudioServer 
+public class BroadcastAudioServer implements PlaylistListener
 {
 	private Session wsSession;
     private HttpSession httpSession;
@@ -33,23 +32,20 @@ public class BroadcastAudioServer
 	@OnOpen
     public void onOpen( Session session, EndpointConfig config ) 
 	{   
-		this.wsSession = session;
 		sessionList.add( session );
 		
+		this.wsSession = session;
         this.httpSession = ( HttpSession ) config.getUserProperties().get( HttpSession.class.getName() );
+        
         servletContext = httpSession.getServletContext();
         playlist = ( Playlist ) servletContext.getAttribute( Playlist.class.getName() );
-        
-        if ( playlist.hasNext() )
-		{
-			sendPlayingTrack();
-		}
+        playlist.addListener( this );
 	}
 	
 	@OnMessage
     public void handleMessage( String message ) 
 	{
-		if ( message.equals( "[NEXT]" ) && playlist.hasNext() );
+		if ( message.equals( "[NEXT]" ) && playlist.hasNext() )
 		{
 			sendPlayingTrack();
 		}
@@ -58,7 +54,7 @@ public class BroadcastAudioServer
 	@OnClose
     public void onClose( CloseReason reason ) 
 	{
-		sessionList.remove( wsSession );
+		playlist.removeListener( this );
 		System.out.println( "Close Session..." + reason.toString() );
 	}
 
@@ -66,6 +62,12 @@ public class BroadcastAudioServer
     public void onError( Throwable error ) 
     {
 		System.out.println( "Error occured..." + error.getMessage() );
+	}
+	
+	@Override
+	public void listen() 
+	{
+		sendPlayingTrack();
 	}
 	
 	public void sendPlayingTrack()
