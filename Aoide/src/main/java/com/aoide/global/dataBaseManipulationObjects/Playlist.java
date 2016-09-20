@@ -36,12 +36,7 @@ public class Playlist
 	
 	public int getTrackLength( TrackVO vo )
 	{
-		String[] length = vo.getLength().split( ":" );
-		int seconds = Integer.parseInt( length[ 0 ] ) * 60 * 60 +
-					  Integer.parseInt( length[ 1 ] ) * 60 +
-					  Integer.parseInt( length[ 2 ] );
-		
-		return seconds;
+		return vo.getLength();
 	}				
 	
 	public boolean hasNext()
@@ -58,7 +53,7 @@ public class Playlist
 			{	
 				timer = new Timer();
 				currentPlayingTrack = vo;
-				currentPlayingTrackMaxLength = getTrackLength( vo );
+				currentPlayingTrackMaxLength = vo.getLength();
 				timer.scheduleAtFixedRate( new UpdatePlayingTrackInfo() , 0, 1000 );
 			}
 			result = list.add( vo );
@@ -150,7 +145,7 @@ public class Playlist
 					{
 						currentPlayingTrack = list.get( 0 );
 						currentPlayingTrackLength = 0;
-						currentPlayingTrackMaxLength = getTrackLength( list.get( 0 ) );
+						currentPlayingTrackMaxLength = currentPlayingTrack.getLength();
 					}
 				}	
 			}	

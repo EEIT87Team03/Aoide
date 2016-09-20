@@ -160,7 +160,7 @@ public class JdbcTrackDAO implements TrackDAO {
 			pstmt.setInt(13, songVO.getFavoriteCounts());
 			pstmt.setInt(14, songVO.getShares());
 			pstmt.setDouble(15, songVO.getScore());
-			pstmt.setString(16, songVO.getLength());
+			pstmt.setInt(16, songVO.getLength());
 			pstmt.setString(17, songVO.getSinger());
 
 			pstmt.executeUpdate();
@@ -220,7 +220,7 @@ public class JdbcTrackDAO implements TrackDAO {
 			pstmt.setInt(13, songVO.getFavoriteCounts());
 			pstmt.setInt(14, songVO.getShares());
 			pstmt.setDouble(15, songVO.getScore());
-			pstmt.setString(16, songVO.getLength());
+			pstmt.setInt(16, songVO.getLength());
 			pstmt.setString(17, songVO.getSinger());
 			pstmt.setInt(18, songVO.getSongId());
 
@@ -327,7 +327,7 @@ public class JdbcTrackDAO implements TrackDAO {
 				songVO.setFavoriteCounts(rs.getInt("favorite_counts"));
 				songVO.setShares(rs.getInt("shares"));
 				songVO.setScore(rs.getDouble("score"));
-				songVO.setLength(rs.getString("length"));
+				songVO.setLength(rs.getInt("length"));
 				songVO.setSinger(rs.getString("singer"));
 			}
 
@@ -396,7 +396,7 @@ public class JdbcTrackDAO implements TrackDAO {
 				songVO.setFavoriteCounts(rs.getInt("favorite_counts"));
 				songVO.setShares(rs.getInt("shares"));
 				songVO.setScore(rs.getDouble("score"));
-				songVO.setLength(rs.getString("length"));
+				songVO.setLength(rs.getInt("length"));
 				songVO.setSinger(rs.getString("singer"));
 				list.add(songVO); // Store the row in the list
 			}
@@ -467,7 +467,7 @@ public class JdbcTrackDAO implements TrackDAO {
 				songVO.setFavoriteCounts(rs.getInt("favorite_counts"));
 				songVO.setShares(rs.getInt("shares"));
 				songVO.setScore(rs.getDouble("score"));
-				songVO.setLength(rs.getString("length"));
+				songVO.setLength(rs.getInt("length"));
 				songVO.setSinger(rs.getString("singer"));
 				list.add(songVO); // Store the row in the list
 			}
@@ -538,7 +538,7 @@ public class JdbcTrackDAO implements TrackDAO {
 				songVO.setFavoriteCounts(rs.getInt("favorite_counts"));
 				songVO.setShares(rs.getInt("shares"));
 				songVO.setScore(rs.getDouble("score"));
-				songVO.setLength(rs.getString("length"));
+				songVO.setLength(rs.getInt("length"));
 				songVO.setSinger(rs.getString("singer"));
 				list.add(songVO); // Store the row in the list
 			}
