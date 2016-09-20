@@ -18,17 +18,17 @@ public class AlbumService
 	
 	public int createNewAlbum( AlbumVO vo )
 	{
-		int caeationCount = 0;
+		int idOrCount = 0;
 		try ( Connection conn = DataSourceProxy.getConnection() )
 		{
 			AlbumDAO adao = daoFactory.createAlbumDAO( conn );
-			caeationCount = adao.insert( vo );
+			idOrCount = adao.insert( vo );
 		}
 		catch( Exception e )
 		{
 			e.printStackTrace();
 		}
-		return caeationCount;
+		return idOrCount;
 	}
 	
 	public int updateAlbumContent( AlbumVO vo )
@@ -104,9 +104,14 @@ public class AlbumService
 		}
 		return list;
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args)
+	{
+		AlbumService as = new AlbumService();
+		List< AlbumVO > list = as.searchAlbum( "B" );
+		for ( AlbumVO a : list )
+		{
+			System.out.println( a );
+		}
 	}
 
 }

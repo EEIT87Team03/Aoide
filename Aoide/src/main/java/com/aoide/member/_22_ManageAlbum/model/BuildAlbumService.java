@@ -11,12 +11,12 @@ public class BuildAlbumService {
 		this.service = new AlbumService();
 	}
 
-	public Integer insertBuildAlbum(AlbumVO albumVO) {
-		return albumService.createNewAlbum(albumVO);
+	public Integer insertBuildAlbum(AlbumVO vo) {
+		return albumService.createNewAlbum(vo);
 	}
 
-	public void updatePath(AlbumVO album) {
-		service.updateAlbumContent(album);		
+	public void updatePath(AlbumVO vo) {
+		service.updateAlbumContent(vo);		
 	}
 
 	public AlbumVO checkUpload(int id) {

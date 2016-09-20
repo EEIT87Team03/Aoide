@@ -108,6 +108,7 @@ public class JdbcSongDAO implements SongDAO {
 																  .toString();
 	
 	private static final String GET_SINGER_STMT = new StringBuffer().append("SELECT ")
+																	.append("song_id,")
 			  														.append("song_file,")
 			  														.append("name,")
 			  														.append("song_type,")

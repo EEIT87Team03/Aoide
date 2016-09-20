@@ -62,7 +62,7 @@ public class InsertAdds extends HttpServlet {
 		adVO.setSongId(id);
 		String srcPath = srcRoot + newSongFilename;
 		adVO.setAdImg(srcPath);
-		System.out.println("圖檔DBsrcPath: " + srcPath);
+		System.out.println("圖檔DBsrcPath:" + srcPath);
 
 		service.update(adVO);
 		// call service to check the song in DB by id
@@ -73,7 +73,7 @@ public class InsertAdds extends HttpServlet {
 		response.sendRedirect(contextPath
 				+ "/_25_EditAd.view/UploadEditAdDisplay.jsp");
 	}
-
+	
 	private String getFileName(final Part part) {
 		for (String content : part.getHeader("content-disposition").split(";")) {
 			if (content.trim().startsWith("filename")) {

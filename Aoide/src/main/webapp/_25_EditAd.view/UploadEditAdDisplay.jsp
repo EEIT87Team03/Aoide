@@ -10,7 +10,7 @@
 <body>
 
 	<p>SongId : ${adVO.songId}</p>
-	<h2>OK</h2>
+
 	<img src="${adVO.adImg}"width="300" height="300">  
 
 </body>

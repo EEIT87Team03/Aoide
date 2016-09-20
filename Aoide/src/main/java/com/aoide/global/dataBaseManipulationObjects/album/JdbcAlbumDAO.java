@@ -49,11 +49,18 @@ public class JdbcAlbumDAO implements AlbumDAO
 	@Override
 	public int insert( AlbumVO vo ) 
 	{
-		int insertionCount = 0;
-		
+		int insertionCount = 0, id = -1;
 		try( PreparedStatement pstmt = AutoInvoker.invoke( conn, INSERT_STMT, vo ) )
 		{
 			insertionCount = pstmt.executeUpdate();
+			ResultSet keys = pstmt.getGeneratedKeys();
+
+			if ( keys.next() ) 
+			{
+				id = (Integer) keys.getInt(1);
+				
+				return id;
+			}
 		}
 		catch( Exception e )
 		{
@@ -124,7 +131,7 @@ public class JdbcAlbumDAO implements AlbumDAO
 			 ResultSet rs = pstmt.executeQuery() )
 		{
 					
-			if ( rs.next() ) 
+			while ( rs.next() ) 
 			{
 				voList.add( (AlbumVO) AutoInvoker.inject( rs, new AlbumVO() ) );
 			}

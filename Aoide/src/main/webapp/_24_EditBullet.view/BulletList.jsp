@@ -470,7 +470,6 @@
 												onclick="myFunction()">DETELE</button></td>
 									</form>
 									<td>
-									<form value ='ModifyBullet' method="post">
 									<a href="#"
 										onclick="window.open('http://localhost:8080/Aoide/_24_EditBullet.view/ModifyBullet.jsp',
 											'Modify' , config='height=500,width=400');">								

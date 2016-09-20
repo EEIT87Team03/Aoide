@@ -10,10 +10,11 @@
 <body>
 	<form action="<c:url value ='/SearchSongServlet'/>" method="post">
 		搜尋：<input type="text" name="searchSong">　
-		<input type="submit" value="送出">
+		<input type="submit" value="送出">　${errorMsg.emptySearchMsg}
 		<p>
 		<input type="radio" name="searchType" value="name" checked>搜尋歌名　
-		<input type="radio" name="searchType" value="singer">搜尋歌手
+		<input type="radio" name="searchType" value="singer">搜尋歌手　
+		<input type="radio" name="searchType" value="album">搜尋專輯
 	</form>
 </body>
 </html>

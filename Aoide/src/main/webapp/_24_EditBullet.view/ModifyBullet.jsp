@@ -19,9 +19,6 @@
         <div class="form-inline">
 		No：<input type="text" name="bulletId"  class="form-inline"  readonly>
 		</div>
-		<script>
-	
-		</script>
 		<p>
 		<div class="form-inline">
 			contentFile：<input type="text" name="contentFile" class="form-inline" class="form-inline" placeholder="內容">

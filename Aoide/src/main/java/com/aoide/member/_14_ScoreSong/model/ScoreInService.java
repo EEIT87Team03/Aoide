@@ -3,6 +3,7 @@ package com.aoide.member._14_ScoreSong.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.score.JdbcScoreDAO;
 import com.aoide.global.dataBaseManipulationObjects.score.ScoreDAO;
 import com.aoide.global.dataBaseManipulationObjects.score.ScoreVO;

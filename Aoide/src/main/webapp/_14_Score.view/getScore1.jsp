@@ -63,7 +63,7 @@
   			<div class="col-lg-1"></div>
 		</div>
 	</div>
-=======
+
 <script type="text/javascript">
 function rate(obj, oEvent) {
 	
@@ -228,6 +228,6 @@ function rate(obj, oEvent) {
 		</div>
 	</div>
 
->>>>>>> branch 'master' of https://github.com/EEIT87Team03/Aoide.git
+
 </body>
 </html>

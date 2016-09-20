@@ -37,7 +37,6 @@
 									<tr>
 										<td>${clickhistory.clickhistoryId}</td>
 										<td>${songIdList[loop.count-1]}</td>
-<%-- 										<td>${clickhistory.songId}</td> --%>
 										<td>${clickhistory.date}</td>
 									</tr>
 								</c:forEach>

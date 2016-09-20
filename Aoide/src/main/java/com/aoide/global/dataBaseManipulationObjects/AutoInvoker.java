@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class AutoInvoker
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, SQLException
 	{
 		Class< ? extends Object > voClass = vo.getClass();
-		PreparedStatement pstmt = conn.prepareStatement( sql );
+		PreparedStatement pstmt = conn.prepareStatement( sql, Statement.RETURN_GENERATED_KEYS );
 		
 		ParameterMetaData sqlMetaData = pstmt.getParameterMetaData();
 		List< String > propertyNames = analyze( sql );
@@ -102,7 +103,7 @@ public class AutoInvoker
 					if ( stack.element().matches( COLUMN_PATTERN ) )
 					{
 						String  last = stack.pop();
-						propertyNames.add( buildProperty( last.substring( 1, last.length() - 1 ).trim() ) );
+						propertyNames.add( ObjectPropertyBuilder.buildProperty( last.substring( 1, last.length() - 1 ).trim() ) );
 					}
 					else
 					{
@@ -124,7 +125,7 @@ public class AutoInvoker
 			for( int i = 0; i < length; i++ )
 			{
 				String  last = stack.pollLast();
-				propertyNames.add( buildProperty( last.substring( 1, last.length() - 1 ).trim() ) );
+				propertyNames.add( ObjectPropertyBuilder.buildProperty( last.substring( 1, last.length() - 1 ).trim() ) );
 				unMatchedQuestionMark--;
 			}
 		}
@@ -132,31 +133,6 @@ public class AutoInvoker
 //		System.out.println( "unMatchedQuestionMark = " + unMatchedQuestionMark );
 			
 		return propertyNames;
-	}
-	
-	private static String buildProperty( String parm )
-	{
-		StringBuilder sb = new StringBuilder( parm );
-		
-		if( Character.isLetter( sb.charAt( 0 ) ) )
-			sb.setCharAt( 0, Character.toUpperCase( sb.charAt( 0 ) ) );
-		
-		for( int i = 0; i < sb.length(); i++ )
-		{	
-			switch( sb.charAt( i ) )
-			{
-				case '_':
-				case '%':
-				case '&':
-					sb.deleteCharAt( i );
-					if( Character.isLetter( sb.charAt( i ) ) )
-						sb.setCharAt( i, Character.toUpperCase( sb.charAt( i ) ) );
-					break;
-				default:
-			}
-		}
-		
-		return sb.toString();
 	}
 	
 	private static String preProcess( String sql )
@@ -177,7 +153,6 @@ public class AutoInvoker
 				}
 			}
 		}
-		
 		return sb.toString();
 	}
 	
@@ -194,8 +169,8 @@ public class AutoInvoker
 		/*for ( int i = 1; i <= columnCount; i++ )
 		{
 			Object param = rs.getObject( i );
-			System.out.println( "Property Name = " + buildProperty( md.getColumnName( i ) )  );
-			Method voSetter = voClass.getMethod( "set" + buildProperty( md.getColumnName( i ) ), param.getClass() );
+			System.out.println( "Property Name = " + ObjectPropertyBuilder.buildProperty( md.getColumnName( i ) )  );
+			Method voSetter = voClass.getMethod( "set" + ObjectPropertyBuilder.buildProperty( md.getColumnName( i ) ), param.getClass() );
 			
 			System.out.println( "setter name = " + voSetter.getName()  );
 			voSetter.invoke( vo, param );
@@ -210,7 +185,7 @@ public class AutoInvoker
 			
 		for ( int i = 1; i <= columnCount; i++ )
 		{
-			String setterName = "set" + buildProperty( md.getColumnName( i ) ) ;
+			String setterName = "set" + ObjectPropertyBuilder.buildProperty( md.getColumnName( i ) ) ;
 			Method voSetter = voClass.getMethod( setterName, map.get( setterName ) ); 
 			
 			voSetter.invoke( vo, rs.getObject( i ) );

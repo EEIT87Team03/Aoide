@@ -26,7 +26,7 @@
 					if (obj.rateFlag)
 						return;
 					obj.rateFlag = true;
-<<<<<<< HEAD
+
 					//this._num+1這個數字寫入到數據庫中,作為評分的依據
 
 					document.getElementById("e").innerText = this._num + 1;
@@ -75,55 +75,55 @@
 	<small>&lt;&lt;<a href="${header['referer']}">回前頁</a>&gt;&gt;</small>
 <!-- 	<small>&lt;&lt;<a href="../">回首頁</a>&gt;&gt; -->
 	</small>
-=======
+<!-- ======= -->
 					
 
-					document.getElementById("e").innerText = this._num + 1;
-				};
-			}
+<!-- 					document.getElementById("e").innerText = this._num + 1; -->
+<!-- 				}; -->
+<!-- 			} -->
 
-			if (target.tagName == "IMG") {
-				for (var j = 0; j < imgArray.length; j++) {
-					if (j <= target._num) {
-						imgArray[j].src = imgSrc_2;
-					} else {
-						imgArray[j].src = imgSrc;
-					}
-				}
-			} else {
-				for (var k = 0; k < imgArray.length; k++) {
-					imgArray[k].src = imgSrc;
-				}
-			}
+<!-- 			if (target.tagName == "IMG") { -->
+<!-- 				for (var j = 0; j < imgArray.length; j++) { -->
+<!-- 					if (j <= target._num) { -->
+<!-- 						imgArray[j].src = imgSrc_2; -->
+<!-- 					} else { -->
+<!-- 						imgArray[j].src = imgSrc; -->
+<!-- 					} -->
+<!-- 				} -->
+<!-- 			} else { -->
+<!-- 				for (var k = 0; k < imgArray.length; k++) { -->
+<!-- 					imgArray[k].src = imgSrc; -->
+<!-- 				} -->
+<!-- 			} -->
 
-		}
-	</script>
-</p>
-</head>
-<body>
-	<h1>GET SCORE</h1>
-	<p class="starWrapper" onmouseover="rate(this,event)">
-	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="很爛" /></a>
-	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="一般" /></a>
-	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="還好" /></a>
-	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="較好" /></a>
-	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="很好" /></a>
+<!-- 		} -->
+<!-- 	</script> -->
+<!-- </p> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- 	<h1>GET SCORE</h1> -->
+<!-- 	<p class="starWrapper" onmouseover="rate(this,event)"> -->
+<!-- 	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="很爛" /></a> -->
+<!-- 	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="一般" /></a> -->
+<!-- 	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="還好" /></a> -->
+<!-- 	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="較好" /></a> -->
+<!-- 	<img src="http://www.jb51.net/upload/20080508122008586.gif" title="很好" /></a> -->
 
 
-		<BR>
-		<BR>
-		<HR>
-	<BR>
-<span style="text-decoration: underline;">GetPoint..is.....</span> <span
-			id="e">*</span>
-	<P />
-	<BR>
-	<BR>
-	<HR>
-	<BR>
-	<small>&lt;&lt;<a href="${header['referer']}">回前頁</a>&gt;&gt;</small>
-<!-- 	<small>&lt;&lt;<a href="../">回首頁</a>&gt;&gt; -->
+<!-- 		<BR> -->
+<!-- 		<BR> -->
+<!-- 		<HR> -->
+<!-- 	<BR> -->
+<!-- <span style="text-decoration: underline;">GetPoint..is.....</span> <span -->
+<!-- 			id="e">*</span> -->
+<!-- 	<P /> -->
+<!-- 	<BR> -->
+<!-- 	<BR> -->
+<!-- 	<HR> -->
+<!-- 	<BR> -->
+<%-- 	<small>&lt;&lt;<a href="${header['referer']}">回前頁</a>&gt;&gt;</small> --%>
+<!-- <!-- 	<small>&lt;&lt;<a href="../">回首頁</a>&gt;&gt; --> -->
 	
->>>>>>> branch 'master' of https://github.com/EEIT87Team03/Aoide.git
+<!-- >>>>>>> branch 'master' of https://github.com/EEIT87Team03/Aoide.git -->
 </body>
 </html>
