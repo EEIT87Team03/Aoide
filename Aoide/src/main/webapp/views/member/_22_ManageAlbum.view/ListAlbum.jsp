@@ -28,8 +28,8 @@
 					<td>${myAlbum.name}</td>
 					<td>${myAlbum.artist}</td>
 					<td>${myAlbum.updateDate}</td>
-					<td><input type="button" value="編輯" onclick="location.href='<c:url value='/EditAlbumServlet?id=${myAlbum.albumId}'/>'">　
-						<input type="button" value="刪除" onclick="location.href='<c:url value='/DeleteAlbumServlet?id=${myAlbum.albumId}'/>'">
+					<td><input type="button" value="編輯" onclick="location.href='<c:url value='/EditAlbumServlet.member?id=${myAlbum.albumId}'/>'">　
+						<input type="button" value="刪除" onclick="location.href='<c:url value='/DeleteAlbumServlet.member?id=${myAlbum.albumId}'/>'">
 					</td>
 				</tr>
 			</c:forEach>

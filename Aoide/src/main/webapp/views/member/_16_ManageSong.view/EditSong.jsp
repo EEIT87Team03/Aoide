@@ -13,7 +13,7 @@
 <img src="${song.coverFile}" width="300" height="300"><p>
 上傳日期：${song.updateDate}<p>
 <hr><p>
-<form action="<c:url value ='/UpdateSongServlet'/>" method="post" enctype="multipart/form-data">
+<form action="<c:url value ='/UpdateSongServlet.member'/>" method="post" enctype="multipart/form-data">
 			上傳封面圖片：<input type="file" name="coverFile">　${errorMsg.emptyPartMsg}
 		<p>
 			歌名：<input type="text" name="name" placeholder="${song.name}" value="${enteredText.name}">　${errorMsg.emptyNameMsg}
@@ -33,6 +33,6 @@
 			<input type="submit" value="送出">
 </form>
 <p>
-<a href="<c:url value = '/ListSongServlet'/>">回歌曲列表</a>
+<a href="<c:url value = '/ListSongServlet.member'/>">回歌曲列表</a>
 </body>
 </html>
