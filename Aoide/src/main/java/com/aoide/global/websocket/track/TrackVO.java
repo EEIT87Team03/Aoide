@@ -24,7 +24,7 @@ public class TrackVO implements Serializable
 	private Integer favoriteCounts;
 	private Integer shares;
 	private Double score;
-	private String length;
+	private Integer length;
 	private String singer;
 	
 	// Methods
@@ -171,11 +171,11 @@ public class TrackVO implements Serializable
 		this.score = score;
 	}
 
-	public String getLength() 
+	public Integer getLength() 
 	{
 		return length;
 	}
-	public void setLength( String length ) 
+	public void setLength( Integer length ) 
 	{
 		this.length = length;
 	}

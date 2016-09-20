@@ -21,23 +21,26 @@ clientSocket.onmessage = onMessage;
 audio.onended = onEnded;
 
 function onMessage( event )
-{
+{	
 	var message = event.data;
-	if ( message.indexOf( "[INIT_TIME]" ) == 0 )
-	{
-		var time = parseInt( message.slice( 12, message.length ) );
-		audio.currentTime = time;
-		audio.play();
-	}
-	else
-	{
-		var track = JSON.parse( message );
-		cover.src = track.coverFile;
-		
-		audio.src = track.songFile;
-		audio.volume = 0.09;
-	}
 	
+	if ( audio.paused )
+	{
+		if ( message.indexOf( "[INIT_TIME]" ) == 0 )
+		{
+			var time = parseInt( message.slice( 12, message.length ) );
+			audio.currentTime = time;
+			audio.play();
+		}
+		else
+		{
+			var track = JSON.parse( message );
+			cover.src = track.coverFile;
+			
+			audio.src = track.songFile;
+			audio.volume = 0.09;
+		}
+	}
 }
 
 function onEnded( event )

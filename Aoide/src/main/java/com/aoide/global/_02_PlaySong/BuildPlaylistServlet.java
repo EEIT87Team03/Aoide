@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.aoide.global.websocket.Playlist;
+import com.aoide.global.dataBaseManipulationObjects.Playlist;
 import com.aoide.global.websocket.track.TrackService;
 import com.aoide.global.websocket.track.TrackVO;
 
