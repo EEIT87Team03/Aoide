@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Player</title>
+<style>
+#chart, #chart div, #chart:after    
+{ 
+	display : inline-block; 
+} 
+#chart:after 
+{ 
+    height : 85px;
+} 
+#chart div 
+{
+   width : 1px;
+   margin: 0 0 0 1px;
+   vertical-align: bottom;
+}
+</style>
 </head>
 <body>
 	<div oncontextmenu="window.event.returnValue = false">
@@ -10,6 +26,7 @@
 		<audio src = "#" id = "track" controls>
 			<p>Sorry but audio is not supported in your browser.</p>
 		</audio>
+		<div id="chart"></div>
 	</div>
 <script>
 var wsUri = "ws://localhost:8080/Aoide/play";
@@ -31,6 +48,8 @@ function onMessage( event )
 			var time = parseInt( message.slice( 12, message.length ) );
 			audio.currentTime = time;
 			audio.play();
+			updateChart();
+			timerID = setInterval( updateChart, 15 );
 		}
 		else
 		{
@@ -45,8 +64,66 @@ function onMessage( event )
 
 function onEnded( event )
 {
+	clearInterval( timerID );
 	clientSocket.send( "[NEXT]" );
 }
+
+
+
+var chart = document.getElementById( "chart" );
+for ( var i = 0; i < 256; i++ )
+{
+	var divChild = document.createElement( "div" );
+	chart.appendChild( divChild );
+}
+	
+
+
+
+
+var timerID;
+var audioContext = new( window.AudioContext || window.webkitAudioContext )();
+var audioSource = audioContext.createMediaElementSource( audio );
+var analyser = audioContext.createAnalyser();
+audioSource.connect( analyser );
+analyser.connect( audioContext.destination );
+
+analyser.fftSize = 2048;
+var bufferLength = analyser.frequencyBinCount;
+var dataArray = new Uint8Array( analyser.fftSize );
+
+function updateChart() 
+{
+    analyser.getByteFrequencyData( dataArray );
+    for( var j = 0; j < 256; j++ )
+    {
+      chart.childNodes[ j ].style.height = dataArray[ j ] * 0.3 + "px";
+      chart.childNodes[ j ].style.background = "rgba( " + ( 255 - j ) + "," + j + ", " + j * 2 + ", 1 )";
+    }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
