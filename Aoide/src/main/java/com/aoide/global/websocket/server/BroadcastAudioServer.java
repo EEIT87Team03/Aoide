@@ -11,6 +11,7 @@ import javax.websocket.EncodeException;
 import javax.websocket.EndpointConfig;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
+import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
@@ -39,12 +40,19 @@ public class BroadcastAudioServer
         servletContext = httpSession.getServletContext();
         playlist = ( Playlist ) servletContext.getAttribute( Playlist.class.getName() );
         
-        int id = 3; //test data
-		TrackService ts = new TrackService();
-		TrackVO vo = ts.getTrackBean( id );
-		playlist.add( vo );
-       
-        broadcastObject( playlist.get( 0 ) );
+        if ( playlist.hasNext() )
+		{
+			sendPlayingTrack();
+		}
+	}
+	
+	@OnMessage
+    public void handleMessage( String message ) 
+	{
+		if ( message.equals( "[NEXT]" ) && playlist.hasNext() );
+		{
+			sendPlayingTrack();
+		}
 	}
 	
 	@OnClose
@@ -60,10 +68,19 @@ public class BroadcastAudioServer
 		System.out.println( "Error occured..." + error.getMessage() );
 	}
 	
-	public void broadcastTrack( int initialTime, TrackVO track )
+	public void sendPlayingTrack()
 	{
-		broadcastMessage( "[INIT_TIME] : " + initialTime );
-		broadcastObject( track );
+		try 
+		{
+			sendObject( playlist.getCurrentPlayingTrack() );
+			sendMessage( "[INIT_TIME] " + playlist.getCurrentPlayingTrackLength() );
+		} 
+		catch ( Exception e ) 
+		{
+			System.out.println("Error updating a client : " + e.getMessage() );
+			e.printStackTrace();
+		}
+		
 	}
 	
 	private void broadcastObject( Object vo ) 
@@ -74,7 +91,7 @@ public class BroadcastAudioServer
 			{
 				sendObject( session, vo );
 			} 
-			catch ( Exception ex) 
+			catch ( Exception ex ) 
 			{
 		        System.out.println("Error updating a client : " + ex.getMessage() );
 		    }
@@ -104,5 +121,15 @@ public class BroadcastAudioServer
 	private void sendObject( Session session, Object vo ) throws IOException, EncodeException
 	{
 		session.getBasicRemote().sendObject( vo );
+	}
+	
+	private void sendMessage(  String message ) throws IOException
+	{
+		wsSession.getBasicRemote().sendText(  message );
+	}
+	
+	private void sendObject(  Object vo ) throws IOException, EncodeException
+	{
+		wsSession.getBasicRemote().sendObject( vo );
 	}
 }

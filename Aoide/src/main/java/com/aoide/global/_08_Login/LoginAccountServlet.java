@@ -60,7 +60,7 @@ public class LoginAccountServlet extends HttpServlet {
 				
 				
 				
-				memberBean.setLastLoginDate( new Timestamp(System.currentTimeMillis()) );
+				memberBean.setLastLoginDate( new Timestamp(System.currentTimeMillis() ) );
 				ms.updateMemberData(memberBean);
 				memberBean = ms.getMemberBean(account);
 				

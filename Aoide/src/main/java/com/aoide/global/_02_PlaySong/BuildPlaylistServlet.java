@@ -30,18 +30,26 @@ public class BuildPlaylistServlet extends HttpServlet
 		TrackService ts = new TrackService();
 		//int id = Integer.parseInt( request.getParameter( "songId" ) );
 		
-		int id = 1; //test data
+		TrackVO vo1 = ts.getTrackBean( 1 );
+		TrackVO vo2 = ts.getTrackBean( 2 );
+		TrackVO vo3 = ts.getTrackBean( 3 );
+		playlist.add( vo1 );
+		playlist.add( vo2 );
+		playlist.add( vo3 );
+		response.sendRedirect( request.getContextPath() + "/play.html" );
 		
-		TrackVO vo = ts.getTrackBean( id );
-		if ( canPlay( vo ) )
-		{
-			playlist.add( vo );
-			response.getWriter().write( "Add to playlist successfully" );
-		}
-		else
-		{
-			response.getWriter().write( "Cooldown duration" );
-		}
+		
+//		
+//		TrackVO vo = ts.getTrackBean( id );
+//		if ( canPlay( vo ) )
+//		{
+//			playlist.add( vo );
+//			response.getWriter().write( "Add to playlist successfully" );
+//		}
+//		else
+//		{
+//			response.getWriter().write( "Cooldown duration" );
+//		}
 			
 	}
 
