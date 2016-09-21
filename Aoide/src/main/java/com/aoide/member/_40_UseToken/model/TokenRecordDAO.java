@@ -2,7 +2,7 @@ package com.aoide.member._40_UseToken.model;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.aoide.global.dataBaseManipulationObjects.tokenRecord.TokenRecordVO;
+
 
 public class TokenRecordDAO {
 	// Fields
@@ -13,9 +13,10 @@ public class TokenRecordDAO {
 			.append("recipient_id,")
 			.append("token_volume,")
 			.append("sponsor_balance,")
-			.append("recipien_balance")
+			.append("recipien_balance,")
+			.append("sponsor_id")
 			.append(") ")
-			.append("VALUES(?,?,?,?)")
+			.append("VALUES(?,?,?,?,?)")
 			.toString();
 	private JdbcTemplate template = null;
 
@@ -33,7 +34,8 @@ public class TokenRecordDAO {
 				vo.getRecipientId(),
 				vo.getTokenVolume(), 
 				vo.getSponsorBalance(),
-				vo.getRecipienBalance()
+				vo.getRecipienBalance(),
+				vo.getSponsorId()
 		});
 	}
 	/*
