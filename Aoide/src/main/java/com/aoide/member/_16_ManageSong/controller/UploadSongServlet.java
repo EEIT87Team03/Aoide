@@ -241,10 +241,17 @@ public class UploadSongServlet extends HttpServlet {
 
 				UploadHelper.savePartIntoPath(part, path);
 
+				// get the lenght of the song
+				int lengthInSec = UploadHelper.getMp3TrackLength(path);
+				
+				System.out.println("lengthInSec: " + lengthInSec);
+				
+				
 				// call service to update the path in DB by id
 				song.setSongId(id);
 				//String srcPath = "/Aoide/files/song_file/" + newSongFilename;
 				String srcPath = srcRoot + newSongFilename;
+				song.setLength(lengthInSec);
 				song.setSongFile(srcPath);
 				System.out.println("音檔DBsrcPath: " + srcPath);
 
