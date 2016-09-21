@@ -51,7 +51,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="<c:url value='/DonationServlet.member' />"  id="DonationServlet" >
+            <form role="form" method="POST" action="<c:url value='/TurnToInsertCreditCardPageServletD.member' />"  id="DonationServlet" >
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">你要贊助的人ID(此應該為一個死值)</label>
