@@ -61,16 +61,18 @@
               
             </div>
             <!-- /.box-header -->
+            <form action="<c:url value='/SaveAccuseDanmukuServlet'/>" method="post">
             <div class="box-body pad">
-              <form action="<c:url value='/SaveAccuseDanmukuServlet'/>" method="post">
+              
                     <textarea id="editor1" name="replyContent" rows="10" cols="80">
                                            
                     </textarea>
-              </form>
+              
             </div>
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
+              </form>
           </div>
           <!-- 文字編輯區塊結束 -->
           
