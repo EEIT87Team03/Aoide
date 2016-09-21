@@ -1,38 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset = "UTF-8">
+<!-- <link rel="stylesheet" href="/Aoide/template/bootstrap/css/bootstrap.min.css"> -->
 <title>Player</title>
 <style>
-#chart, #chart div, #chart:after    
-{ 
-	display : inline-block; 
-} 
-#chart:after 
-{ 
-    height : 85px;
-} 
+#playbar 
+{
+	background : #f2f9ff;
+	width: 100%;
+	text-align: center;
+    position: fixed;
+    bottom: 0;
+    border: 1px solid grey;
+    margin: 0px;
+    padding: 0;
+   	display : none;
+}
+#info, #cover
+{
+	font-size: 14px;
+	display: inline-block;
+}
+#chart
+{
+	display: inline-block;
+	margin: 1px;
+}
+#chart:after
+{
+	display: inline-block;
+	content: "";
+    height: 60px;
+}
+  
 #chart div 
 {
-   width : 1px;
-   margin: 0 0 0 1px;
-   vertical-align: bottom;
+	display: inline-block;
+    width: 2px;
+    background: #a00;
+    margin: 0 0 0 1px;
+    vertical-align: bottom;
 }
 </style>
 </head>
 <body>
-	<div oncontextmenu="window.event.returnValue = false">
-		<img src="#" id = "cover" alt="cover" width = "75" height = "75">
+	<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
+		<img src="#" id = "cover" alt="cover" width = "50" height = "50">
+		<div id = "info">
+			<span id = "status">Now Playing</span><br>
+			<span id = "trackName"></span>
+			<span id = "singer"></span>
+		</div>
 		<audio src = "#" id = "track" controls>
 			<p>Sorry but audio is not supported in your browser.</p>
 		</audio>
-		<div id="chart"></div>
+		<div id = "chart"></div>
 	</div>
 <script>
 var wsUri = "ws://localhost:8080/Aoide/play";
 var clientSocket = new WebSocket( wsUri );
 var cover = document.getElementById( "cover" );
 var audio = document.getElementById( "track" );
+var trackName = document.getElementById( "trackName" );
+var singer = document.getElementById( "singer" );
+var status = document.getElementById( "status" );
+var playbar = document.getElementById( "playbar" );
 var currentTrack = null;
 clientSocket.onmessage = onMessage;
 audio.onended = onEnded;
@@ -50,14 +83,17 @@ function onMessage( event )
 			audio.play();
 			updateChart();
 			timerID = setInterval( updateChart, 15 );
+			playbar.style.display = "block";
 		}
 		else
 		{
 			var track = JSON.parse( message );
 			cover.src = track.coverFile;
-			
+			trackName.innerHTML = track.name + " - "; 
+			singer.innerHTML = track.singer;
 			audio.src = track.songFile;
 			audio.volume = 0.09;
+			
 		}
 	}
 }
@@ -67,7 +103,6 @@ function onEnded( event )
 	clearInterval( timerID );
 	clientSocket.send( "[NEXT]" );
 }
-
 
 
 var chart = document.getElementById( "chart" );
@@ -97,33 +132,10 @@ function updateChart()
     analyser.getByteFrequencyData( dataArray );
     for( var j = 0; j < 256; j++ )
     {
-      chart.childNodes[ j ].style.height = dataArray[ j ] * 0.3 + "px";
+      chart.childNodes[ j ].style.height = dataArray[ j ] * 0.2 + "px";
       chart.childNodes[ j ].style.background = "rgba( " + ( 255 - j ) + "," + j + ", " + j * 2 + ", 1 )";
     }
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </script>
