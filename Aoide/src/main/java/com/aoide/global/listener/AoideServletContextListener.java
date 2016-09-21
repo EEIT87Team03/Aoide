@@ -8,7 +8,7 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import com.aoide.global.dataBaseManipulationObjects.DataSourceProxy;
-import com.aoide.global.websocket.Playlist;
+import com.aoide.global.dataBaseManipulationObjects.Playlist;
 
 @WebListener
 public class AoideServletContextListener implements ServletContextListener, ServletContextAttributeListener 

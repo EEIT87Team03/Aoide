@@ -22,6 +22,6 @@
 	<p>
 		歌詞：${updateSong.lyricsFile}
 	<p>
-		<a href="<c:url value = '/ListSongServlet'/>">回歌曲列表</a>
+		<a href="<c:url value = '/ListSongServlet.member'/>">回歌曲列表</a>
 </body>
 </html>

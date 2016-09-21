@@ -113,6 +113,8 @@
                         </div>
                     </div>
                     <div class="col-xs-2">
+                      
+                      <br>
                       <span style="float:right;">
                         <input class="btn btn-default" type = "button" id = "upload" value = "Upload"><span id="progress"></span>
                       </span>
@@ -133,6 +135,7 @@
                         </div> 
                     </div>
                     <div class="col-xs-2">
+                      <br>
                       <button class="btn btn-default pull-right" >Edit</button>
                     </div>
                     <div class="col-xs-1">
@@ -151,6 +154,7 @@
                       </div>
                     </div>
                     <div class="col-xs-2">
+                      <br>
                       <button class="btn btn-default pull-right" >Edit</button>
                     </div>
                     <div class="col-xs-1">
@@ -169,6 +173,7 @@
                       </div>
                     </div>
                     <div class="col-xs-2">
+                      <br>
                       <button class="btn btn-default pull-right" >Edit</button>
                     </div>
                     <div class="col-xs-1">
@@ -193,6 +198,7 @@
                       </div>
                     </div>
                     <div class="col-xs-2">
+                      <br><br>
                       <button class="btn btn-default pull-right" >Edit</button>
                     </div>
                     <div class="col-xs-1">

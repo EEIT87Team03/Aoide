@@ -71,7 +71,7 @@ public class CreateAccountServlet extends HttpServlet
 		if (!errorMsg.isEmpty()){
 			request.setAttribute("errorMsg", errorMsg);
 			request.setAttribute("enteredText", enteredText);
-			request.getRequestDispatcher("/_07_Register.view/register.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/global/_07_Register.view/register.jsp").forward(request, response);
 		}else{
 			// if input correct call service save input in DB
 			MemberVO member = new MemberVO();

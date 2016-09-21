@@ -46,7 +46,7 @@ public class AddtoAlbumServlet extends HttpServlet {
 			}
 		}
 		
-		response.sendRedirect("EditAlbumServlet?id=" + albumId);
+		response.sendRedirect("EditAlbumServlet.member?id=" + albumId);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
