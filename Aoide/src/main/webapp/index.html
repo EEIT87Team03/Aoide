@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Aoide</title>
+<link rel="Shortcut Icon" type="image/x-icon" href="/Aoide/views/dist/img/AoideIcon.png" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Comments Feed" href="http://skrollex-wp.x40.ru/anna/comments/feed/"/>
 <style>#wp-admin-bar-layers-edit-layout .ab-icon:before{font-family:"layers-interface"!important;content:"\e62f"!important;font-size:16px!important;}</style>
@@ -74,23 +76,23 @@ var easy_fancybox_handler = function(){
 </div> </div>
 </div>
 <div class="page-border  heading top colors-a main-navigation"></div>
-<div class="page-border  heading bottom colors-a main-navigation"><a href="#top" class="to-top hover-effect">播 <span>放</span></a><a href="#scroll-down" class="scroll-down hover-effect">進度 <span>條</span></a></div>
+<div class="page-border  heading bottom colors-a main-navigation">播<span>放</span>進度<span>條</span></div>
 <div class="page-border  heading left colors-a main-navigation">
 <ul>
-<li><a href="https://www.facebook.com/" target="_blank">qwe</a></li><li><a href="https://twitter.com/" target="_blank">asd</a></li><li><a href="http://www.youtube.com/" target="_blank">zxc</i></a></li><li><a href="https://vimeo.com/" target="_blank">rty</a></li><li><a href="https://www.linkedin.com/" target="_blank">fgh</a></li> </ul>
+<li><a href="" target="_blank"><span class="glyphicon glyphicon-list-alt" title="網站公告"></span></a></li>　<li><a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" target="_blank"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　<li><a href="PlayHistoryServlet" target="_blank"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　<li><a href="" target="_blank"><span class="glyphicon glyphicon-pencil" title="反應建議"></span></a></li></ul>
 </div>
 <div class="page-border  heading right colors-a main-navigation"></div>
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
 <div class="layout-boxed top-nav-inner clearfix">
 <span class="menu-toggle ext-nav-toggle" data-target=".ext-nav"><span></span></span>
 <nav class="nav nav-horizontal">
-<ul id="menu-skrollex-menu-1" class="menu"><li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="http://skrollex-wp.x40.ru/anna/#home">Home</a></li>
-<li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805"><a href="http://skrollex-wp.x40.ru/anna/#about">About</a></li>
-<li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806"><a href="http://skrollex-wp.x40.ru/anna/#team">Team</a></li>
-<li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="http://skrollex-wp.x40.ru/anna/#services">Services</a></li>
-<li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><a href="http://skrollex-wp.x40.ru/anna/#work">Work</a></li>
-<li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="http://skrollex-wp.x40.ru/anna/#skills">Skills</a></li>
-<li id="menu-item-810" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-810"><a href="http://skrollex-wp.x40.ru/anna/blog/">Blog</a></li>
+<ul id="menu-skrollex-menu-1" class="menu"><li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query.member">會員資料</a></li>
+<li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805"><a href="/Aoide/views/member/_16_ManageSong.view/ManageSong.jsp">管理歌曲</a></li>
+<li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806"><a href="/Aoide/views/member/_22_ManageAlbum.view/ManageAlbum.jsp">管理專輯</a></li>
+<li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member">收藏清單</a></li>
+<li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><a href="http://skrollex-wp.x40.ru/anna/#work">點數</a></li>
+<li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="http://skrollex-wp.x40.ru/anna/#skills">贊助紀錄</a></li>
+<li id="menu-item-810" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-810"><a href="http://skrollex-wp.x40.ru/anna/blog/">註冊</a></li>
 <li id="menu-item-811" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-811"><a href="http://skrollex-wp.x40.ru/anna/#contact">Contact</a></li>
 </ul> <a href="" class="responsive-nav" data-toggle="#off-canvas-right" data-toggle-class="open">
 <span class="l-menu"></span>
