@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Upload ad</title>
 </head>
 <body>
 
 	<p>SongId : ${adVO.songId}</p>
-	<h2>OK</h2>
-	<img src="${adVO.AdImg}"width="300" height="300">  
+
+	<img src="${adVO.adImg}"width="600" height="350">  
 
 </body>
 </html>

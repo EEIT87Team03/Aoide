@@ -5,17 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>修改</title>
-<script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
+<title>Delete Task</title>
 </head>
 <body>
     
-    No :${bulletVO.bulletId}<p>
-	Date：${bulletVO.date}<p>
-	ContentFile：${bulletVO.contentFile}<p>
-	Title：${bulletVO.title}<p>
-	
-	<a href="<c:url value ='/EditBulletList'/>">回上一頁</a>
-	
+     <form action="<c:url value ='/DeleteEditTask'/>" method="post">
+		
+	 delete：<input type="text" name="deleteTask"><p>
+     <input type="submit" value="送出">
+		
+	</form>
+
 </body>
 </html>

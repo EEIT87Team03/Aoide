@@ -13,8 +13,8 @@ import com.aoide.global.dataBaseManipulationObjects.bullet.BulletDAO;
 import com.aoide.global.dataBaseManipulationObjects.bullet.BulletVO;
 import com.aoide.global.dataBaseManipulationObjects.bullet.JdbcBulletDAO;
 
-@WebServlet("/EditBullet")
-public class EditBullet extends HttpServlet {
+@WebServlet("/UploadEditBullet")
+public class UploadEditBullet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request,
@@ -26,16 +26,17 @@ public class EditBullet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// 讀取使用者所輸入，由瀏覽器送來的 mId 欄位內的資料，注意大小寫
 		// getParameter必是String類型
+		
 		//取系統時間
-		//Date date = new Date(System.currentTimeMillis());
-		//String date = request.getParameter("date");
+		Date date = new Date(System.currentTimeMillis());
+							
 		String contentFile = request.getParameter("contentFile");
 		String title = request.getParameter("title");
 		
 		BulletDAO dao = new JdbcBulletDAO();
 		BulletVO bulletVO = new BulletVO();
 		
-		//bulletVO.setDate(date);
+		bulletVO.setDate(date);
 		bulletVO.setTitle(contentFile);
 		bulletVO.setContentFile(title);
 		dao.insert(bulletVO);
@@ -45,5 +46,4 @@ public class EditBullet extends HttpServlet {
 		response.sendRedirect(Path + "/_24_EditBullet.view/UploadBulletDisplay.jsp");
 		
 	}
-
 }

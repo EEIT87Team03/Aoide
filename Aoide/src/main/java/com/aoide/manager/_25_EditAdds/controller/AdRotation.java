@@ -16,14 +16,17 @@ import com.aoide.global.dataBaseManipulationObjects.bullet.JdbcBulletDAO;
 public class AdRotation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    // go to checkUploadResult.jsp
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// go to checkUploadResult.jsp
 		System.out.println("In DisplayResultServlet");
-	    String contextPath = request.getContextPath();
-	    response.sendRedirect(contextPath + "/_25_EditAd.view/UploadEditAdDisplay.jsp");
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath
+				+ "/manager/_25_EditAd.view/AdRotation.jsp");
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request,response);
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 }

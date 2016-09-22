@@ -1,6 +1,8 @@
 package com.aoide.manager._24_EditBullet.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.global.dataBaseManipulationObjects.bullet.BulletDAO;
+import com.aoide.global.dataBaseManipulationObjects.bullet.BulletVO;
 import com.aoide.global.dataBaseManipulationObjects.bullet.JdbcBulletDAO;
 
 @WebServlet("/DeleteEditBullet")
@@ -21,6 +24,7 @@ public class DeleteEditBullet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
 		// 設定輸入資料的編碼
 		request.setCharacterEncoding("UTF-8");
 		
@@ -35,6 +39,8 @@ public class DeleteEditBullet extends HttpServlet {
 		
 		System.out.println(request.getParameter("deleteBullet"));	
 		System.out.println(DELETE);
-
+		
+		String Path = request.getContextPath();
+		response.sendRedirect(Path + "/manager/_24_EditBullet.view/BulletList.jsp");
 	}
 }

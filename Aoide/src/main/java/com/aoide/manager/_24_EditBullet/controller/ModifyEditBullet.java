@@ -28,18 +28,22 @@ public class ModifyEditBullet extends HttpServlet{
 		// getParameter必是String類型
 		
 		//暫時
-		Integer bulletId = Integer.parseInt(request.getParameter("bulletId"));
+//		Integer bulletId = Integer.parseInt(request.getParameter("id"));
 		//取系統時間
 		Date date = new Date(System.currentTimeMillis());
 							
 		String contentFile = request.getParameter("contentFile");
 		String title = request.getParameter("title");
 		
-		BulletDAO dao = new JdbcBulletDAO();
-		BulletVO bulletVO = new BulletVO();
+		System.out.println("contentFile: " + contentFile);
+		System.out.println("title: " + title);
 		
-		bulletVO.setDate(date);
-		bulletVO.setBulletId(bulletId);
+		BulletDAO dao = new JdbcBulletDAO();
+		//在研究
+		BulletVO bulletVO = (BulletVO) request.getSession().getAttribute("bulletVO");
+		
+// 		bulletVO.setBulletId(bulletId);
+ 		bulletVO.setDate(date);
 		bulletVO.setTitle(contentFile);
 		bulletVO.setContentFile(title);
 		dao.update(bulletVO);

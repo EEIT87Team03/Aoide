@@ -12,7 +12,6 @@
 <title>index</title>
 </head>
 <body>
-<% int i = 0; %>
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -33,53 +32,9 @@
 <!--           </div> -->
 <!--         </div> -->
         <div class="box-body">
-        
-        	<img src="${updateAlbum.coverFilePath}" width="300" height="300">
-	<p>
-		<label>專輯名稱：${updateAlbum.name}</label>
-	<p>
-		<label>演出者：${updateAlbum.artist}</label>
-	<p>
-		<label>專輯簡介：${updateAlbum.introductionFilePath}</label>
-	<p>
-	<hr>
-	<p>
-		<label>已加入專輯的歌曲：</label>
-	<p>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>　</th>
-				<th>歌曲ID</th>
-				<th>歌名</th>
-				<th>演出者</th>
-				<th>類型</th>
-				<th>語言</th>
-				<th>上傳日期</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="mySong" items="${mySongList}">
-				<tr>
-					<td><% out.print(i = i + 1); %></td>
-					<td>${mySong.songId}</td>
-					<td>${mySong.name}</td>
-					<td>${mySong.singer}</td>
-					<td>${mySong.songType}</td>
-					<td>${mySong.songLanguage}</td>
-					<td>${mySong.updateDate}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<p>
-	<a href="<c:url value = '/ListAlbumServlet.member'/>">回專輯列表</a>
-        
+          Start creating your amazing application!
         </div>
         <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
         <!-- /.box-footer-->
       </div>
       <!-- /.box -->

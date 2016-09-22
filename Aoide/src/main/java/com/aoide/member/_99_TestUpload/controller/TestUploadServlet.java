@@ -30,7 +30,7 @@ public class TestUploadServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//upload limit in Tomcat  http://stackoverflow.com/questions/2947683/httprequest-maximum-allowable-size-in-tomcat
 		//reference   https://docs.oracle.com/javaee/7/tutorial/servlets016.htm
-		
+
 		//前端抓值
 	    final Part part = request.getPart("songFile");
 	    
@@ -47,8 +47,10 @@ public class TestUploadServlet extends HttpServlet {
 		// call service to save name and tempPath into DB and get the id of the song
 	    String name = request.getParameter("name");
 	    SongVO song = new SongVO();
+
 	    
 	    song.setName(name);
+
 	    song.setSinger("test 0912");
 	    
 	    System.out.println("Singer: " + song.getSinger());
@@ -57,6 +59,7 @@ public class TestUploadServlet extends HttpServlet {
 	    song.setSongFile("tempPath");
 	    int id = service.saveUpload(song); // dao.insert(vo)
 		// make file name and path for storage
+
 	    
 	    /*-----------------get path form context---------------*/
 		ServletContext context = request.getServletContext();
@@ -79,9 +82,11 @@ public class TestUploadServlet extends HttpServlet {
 		// call service to update the path in DB by id
 	    song.setSongId(id);
 
+
 	    String  srcPath = srcRoot + newFileName; 
 
 	    song.setSongFile(srcPath);
+
 	    song.setAlbumId(1);
 	    service.updatePath(song); //service.insert(adVO)
 		// call service to check the song in DB by id
