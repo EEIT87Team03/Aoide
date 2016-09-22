@@ -192,7 +192,7 @@ public class TrackVO implements Serializable
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append( songId + "\t" ).append( name + "\t" );
+		sb.append( songId + "\t" ).append( name + "\t" ).append( length + "\t" ).append( singer + "\t" );
 		
 		return sb.toString();
 	}

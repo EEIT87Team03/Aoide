@@ -36,5 +36,4 @@ public class BulletService {
 	public BulletVO getBulletById(Integer bulletId) {
 		return bulletDAO.findByPrimaryKey(bulletId);
 	}
-	
 }// end class

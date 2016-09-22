@@ -41,6 +41,6 @@ public class DeleteEditBullet extends HttpServlet {
 		System.out.println(DELETE);
 		
 		String Path = request.getContextPath();
-		response.sendRedirect(Path + "//_24_EditBullet.view/BulletList.jsp");
+		response.sendRedirect(Path + "/manager/_24_EditBullet.view/BulletList.jsp");
 	}
 }

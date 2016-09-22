@@ -5,16 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Delete Bullet</title>
+<title>Upload ad</title>
 </head>
 <body>
 
+	<p>SongId : ${adVO.songId}</p>
 
-			<form action="<c:url value ='/DeleteEditBullet'/>" method="post">
-				delete：<input type="text" name="deleteBullet">
-				<p>
-					<input type="submit" value="送出">
-			</form>
+	<img src="${adVO.adImg}"width="600" height="350">  
 
 </body>
 </html>

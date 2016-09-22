@@ -5,7 +5,8 @@
 <title>Player</title>
 </head>
 <body>
-	<div>
+	<div oncontextmenu="window.event.returnValue = false">
+		<img src="#" id = "cover" alt="cover" width = "75" height = "75">
 		<audio src = "#" id = "track" controls>
 			<p>Sorry but audio is not supported in your browser.</p>
 		</audio>
@@ -13,30 +14,37 @@
 <script>
 var wsUri = "ws://localhost:8080/Aoide/play";
 var clientSocket = new WebSocket( wsUri );
+var cover = document.getElementById( "cover" );
 var audio = document.getElementById( "track" );
 var currentTrack = null;
-var trackArray = [];
 clientSocket.onmessage = onMessage;
+audio.onended = onEnded;
 
 function onMessage( event )
 {
 	var message = event.data;
 	if ( message.indexOf( "[INIT_TIME]" ) == 0 )
 	{
-		audio.initialTime = message.slice( 13, message.length );
+		var time = parseInt( message.slice( 12, message.length ) );
+		audio.currentTime = time;
+		audio.play();
 	}
 	else
 	{
 		var track = JSON.parse( message );
-		trackArray.push( track );
-		
+		cover.src = track.coverFile;
 		
 		audio.src = track.songFile;
 		audio.volume = 0.09;
-		audio.play();
 	}
 	
 }
+
+function onEnded( event )
+{
+	clientSocket.send( "[NEXT]" );
+}
+
 
 </script>
 </body>

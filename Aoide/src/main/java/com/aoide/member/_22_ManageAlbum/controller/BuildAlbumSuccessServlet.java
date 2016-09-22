@@ -25,11 +25,12 @@ import javax.servlet.http.Part;
 import com.aoide.global._00_TestUtil.UploadHelper;
 import com.aoide.global._00_TestUtil.Validator;
 import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._16_ManageSong.model.ListSongService;
 import com.aoide.member._22_ManageAlbum.model.BuildAlbumService;
 
-@WebServlet("/BuildAlbumSuccessServlet")
+@WebServlet("/BuildAlbumSuccessServlet.member")
 @MultipartConfig(location = "C:\\Aoide", fileSizeThreshold = 1024 * 1024,
 										 maxFileSize = 1024 * 1024	* 5 * 5,//限制25MB
 										 maxRequestSize = 1024 * 1024 * 5 * 5)
@@ -46,6 +47,8 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 		Map<String,String> enteredText = new HashMap<>();
 		String fileNameExtension = null;
 		String contextPath = request.getContextPath();
+		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
+		Integer memberId = member.getMemberId();
 
 		final Part part = request.getPart("coverFile");
 		if(Validator.isEmptyPart(part)){
@@ -95,7 +98,7 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 			AlbumVO album = new AlbumVO();
 			if(!Validator.isEmptyPart(part)){
 				//改會員時看這裡
-				album.setMemberId(1);
+				album.setMemberId(memberId);
 				//改會員時看這裡
 				album.setCoverFilePath("tempPath");
 				album.setName(name);
@@ -109,7 +112,7 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 				ServletContext context = request.getServletContext();
 				Properties paths = (Properties) context.getAttribute("paths");
 				String folderPath = paths.getProperty("albumFolderPath");
-				String srcRoot = paths.getProperty("albumFolderPath");
+				String srcRoot = paths.getProperty("albumSrcRoot");
 				
 				// make file name and path for storage
 				String newCoverFilename = "Albumid" + id + fileNameExtension;
@@ -173,7 +176,7 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 				return;
 			}else{
 				//改會員時看這裡
-				album.setMemberId(1);
+				album.setMemberId(memberId);
 				//改會員時看這裡
 				album.setCoverFilePath("/Aoide/files/song_cover_files/default.jpg");
 				album.setName(name);

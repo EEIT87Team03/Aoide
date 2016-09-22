@@ -14,11 +14,11 @@ public class ListSongService {
 		
 	}
 	
-	public List<SongVO> getMySong() {
+	public List<SongVO> getMySong(Integer memberId) {
 		List<SongVO> mySongResult = new ArrayList();
 		for (SongVO mySong : songDAO.getAll()) {
 			//改會員時看這裡
-			if (mySong.getMemberId() == 1) {
+			if (mySong.getMemberId() == memberId) {
 				//改會員時看這裡
 				mySongResult.add(mySong);
 			}
@@ -26,11 +26,11 @@ public class ListSongService {
 		return mySongResult;
 	}
 	
-	public List<SongVO> getMyAlbumSong() {
+	public List<SongVO> getMyAlbumSong(Integer memberId) {
 		List<SongVO> mySongResult = new ArrayList();
 		for (SongVO mySong : songDAO.getAll()) {
 			//改會員時看這裡
-			if (mySong.getMemberId() == 1 && mySong.getAlbumId() == 1) {
+			if (mySong.getMemberId() == memberId && mySong.getAlbumId() == 1) {
 				//改會員時看這裡
 				mySongResult.add(mySong);
 			}

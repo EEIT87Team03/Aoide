@@ -22,7 +22,7 @@ public class AdRotation extends HttpServlet {
 		System.out.println("In DisplayResultServlet");
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath
-				+ "/_25_EditAd.view/UploadEditAdDisplay.jsp");
+				+ "/manager/_25_EditAd.view/AdRotation.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request,

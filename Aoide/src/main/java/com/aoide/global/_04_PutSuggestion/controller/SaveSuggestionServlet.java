@@ -20,7 +20,6 @@ import com.aoide.global.dataBaseManipulationObjects.suggestion.SuggestionVO;
 public class SaveSuggestionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
      	String title = null;
 		String content = null;
@@ -58,7 +57,6 @@ public class SaveSuggestionServlet extends HttpServlet {
 			// go checkSuggetionResult.jsp
 			session.setAttribute("suggestion", suggestion);
 			response.sendRedirect(contextPath + "/views/global/_04_PutSuggestion.view/checkSuggetionResult.jsp");
-			return;
 		}else{
 		// If input empty forward to enterSuggestion.jsp
 			request.setAttribute("errorMsg", errorMsg);
@@ -66,9 +64,5 @@ public class SaveSuggestionServlet extends HttpServlet {
 			request.getRequestDispatcher("/views/global/_04_PutSuggestion.view/enterSuggestion.jsp").forward(request, response);
 			return;
 		}
-
-		
-		
 	}
-
 }

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aoide.global.dataBaseManipulationObjects.bullet.BulletVO;
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
+import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.manager._24_EditBullet.model.BulletService;
 
 @WebServlet("/EditBulletList")
@@ -20,6 +22,7 @@ public class EditBulletList extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// System.out.println("In ReplySuggestionsServlet doGet()");
 		// get the suggestion list from service
+
 		List<BulletVO> bulletList = new BulletService().getUnreplyBulletVO();
 		// 包入BulletList
 		request.getSession().setAttribute("BulletList", bulletList);

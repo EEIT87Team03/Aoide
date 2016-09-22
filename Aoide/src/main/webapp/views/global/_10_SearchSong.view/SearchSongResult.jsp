@@ -14,6 +14,7 @@ ${type1}
 		<thead>
 			<tr>
 				<th>　</th>
+				<th>點歌</th>
 				<th>歌曲ID</th>
 				<th>歌名</th>
 				<th>演出者</th>
@@ -26,8 +27,9 @@ ${type1}
 			<c:forEach var="result" items="${searchList}">
 				<tr>
 					<td><% out.print(i = i + 1); %></td>
+					<td><a href="<c:url value='/BuildPlaylistServlet?id=${result.songId}'/>">點歌</a></td>
 					<td>${result.songId}</td>
-					<td>${result.name}</td>
+					<td><a href="<c:url value='/ShowSongInfo?id=${result.songId}'/>">${result.name}</a></td>
 					<td>${result.singer}</td>
 					<td>${result.songType}</td>
 					<td>${result.songLanguage}</td>

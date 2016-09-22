@@ -26,7 +26,7 @@ import com.aoide.global.dataBaseManipulationObjects.album.AlbumVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._22_ManageAlbum.model.ListAlbumService;
 
-@WebServlet("/UpdateAlbumServlet")
+@WebServlet("/UpdateAlbumServlet.member")
 @MultipartConfig(location = "C:\\Aoide", fileSizeThreshold = 1024 * 1024,
 							 maxFileSize = 1024 * 1024 * 5 * 5,//限制25MB
 							 maxRequestSize = 1024 * 1024 * 5 * 5)
@@ -99,7 +99,7 @@ public class UpdateAlbumServlet extends HttpServlet {
 			ServletContext context = request.getServletContext();
 			Properties paths = (Properties) context.getAttribute("paths");
 			String folderPath = paths.getProperty("albumFolderPath");
-			String srcRoot = paths.getProperty("albumFolderPath");
+			String srcRoot = paths.getProperty("albumSrcRoot");
 			if(!Validator.isEmptyPart(part)){
 				int id = album.getAlbumId();
 				String newCoverFilename = "Albumid" + id + fileNameExtension;
