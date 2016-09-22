@@ -22,6 +22,20 @@ public class TokenRecordVO {
 	private int sponsorBalance;
 	private int recipienBalance;
 	private int type;
+	private int sponsorId;
+	
+	public int getSponsorId() {
+		return sponsorId;
+	}
+
+	public void setSponsorId(int sponsorId) {
+		this.sponsorId = sponsorId;
+	}
+
+	public void setSponsorBalance(int sponsorBalance) {
+		this.sponsorBalance = sponsorBalance;
+	}
+
 	public int getTokenRecordId() {
 		return tokenRecordId;
 	}

@@ -55,7 +55,7 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 													.append("token_record_id = ?")
 													.toString();
 	
-	private static final String GET_ALL_BY_RECIPIENTID_STMT = new StringBuffer()
+	private static final String GET_ALL_BY_ID_STMT = new StringBuffer()
 													.append("SELECT")
 													.append(" token_record_id,")
 													.append("date,")
@@ -66,7 +66,7 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 													.append("FROM ")
 													.append("token_record ")
 													.append("WHERE ")
-													.append("recipient_id = ?")
+													.append("recipient_id = ? OR sponsor_id = ?")
 													.toString();
 	
 	private static final String GET_ALL_STMT = new StringBuffer()
@@ -324,7 +324,7 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 	}
 
 	@Override
-	public List<TokenRecordVO> findByRecipientId(Integer recipientId) {
+	public List<TokenRecordVO> findByRecipientId(Integer id) {
 		List<TokenRecordVO> list = new ArrayList<TokenRecordVO>();
 		TokenRecordVO tokenRecordVO = null;
 
@@ -335,8 +335,9 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 		try {
 
 			conn = ConnectionBean.getConnection();
-			pstmt = conn.prepareStatement(GET_ALL_BY_RECIPIENTID_STMT);
-			pstmt.setInt(1, recipientId);
+			pstmt = conn.prepareStatement(GET_ALL_BY_ID_STMT);
+			pstmt.setInt(1, id);
+			pstmt.setInt(2, id);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
