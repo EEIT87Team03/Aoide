@@ -29,7 +29,7 @@ public class TestSongDAO {
 			songVO1.setFavoriteCounts(1);
 			songVO1.setShares(1);
 			songVO1.setScore(1.1);
-			songVO1.setLength("1");
+			songVO1.setLength(1);
 			songVO1.setSinger("abc");
 			dao.insert(songVO1);
 /*
