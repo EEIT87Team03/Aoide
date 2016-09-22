@@ -95,7 +95,7 @@
   <!-- Control Sidebar -->
 <%--   <c:import url="/template/htmlBlocks/control_sidebar.html"/> --%>
   <!-- Control Sidebar -->
-</div>
+
 <!-- ./wrapper -->
 
 <!-- body_library -->
