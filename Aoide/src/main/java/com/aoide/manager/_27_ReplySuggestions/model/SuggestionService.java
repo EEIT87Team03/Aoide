@@ -19,7 +19,7 @@ public class SuggestionService {
 		
 	}
 	
-	// Methods
+	// Methods  
 	public List<SuggestionVO> getUnreplySuggestions(){
 		List<SuggestionVO> unreplySuggestions =  new ArrayList();
 		for(SuggestionVO aSuggestion : suggestionDAO.getAll()){

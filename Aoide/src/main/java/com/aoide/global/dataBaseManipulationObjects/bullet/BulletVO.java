@@ -43,5 +43,4 @@ import java.sql.Date;
 			public void setContentFile(String contentFile) {
 				this.contentFile = contentFile;
 			}
-
     }

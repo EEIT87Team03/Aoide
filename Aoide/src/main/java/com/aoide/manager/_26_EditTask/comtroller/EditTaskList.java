@@ -1,4 +1,4 @@
-package com.aoide.manager._24_EditBullet.controller;
+package com.aoide.manager._26_EditTask.comtroller;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,32 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.aoide.global.dataBaseManipulationObjects.bullet.BulletVO;
-import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
-import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
-import com.aoide.manager._24_EditBullet.model.BulletService;
+import com.aoide.global.dataBaseManipulationObjects.task.TaskVO;
+import com.aoide.manager._26_EditTask.model.TaskService;
 
-@WebServlet("/EditBulletList")
-public class EditBulletList extends HttpServlet {
+@WebServlet("/EditTaskList")
+public class EditTaskList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// System.out.println("In ReplySuggestionsServlet doGet()");
+		// System.out.println("In TaskServlet doGet()");
 		// get the suggestion list from service
-
-		List<BulletVO> bulletList = new BulletService().getUnreplyBulletVO();
+		List<TaskVO> taskList = new TaskService().getUnreplyTaskVO();
 		// 包入BulletList
-		request.getSession().setAttribute("BulletList", bulletList);
+		request.getSession().setAttribute("TaskList", taskList);
 
 		// go suggestionList.jsp
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath
-				+ "/_24_EditBullet.view/BulletList.jsp");
+		response.sendRedirect(contextPath + "/_26_EditTask.view/TaskList.jsp");
 	}// end doGet()
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// System.out.println("In ReplyBulletServlet doPost()");
+
 	}
+
 }
