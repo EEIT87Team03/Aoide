@@ -5,11 +5,12 @@ import java.math.BigDecimal;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 
-
+@Transactional(transactionManager="transactionManager",propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
 public class UseTokenService {
 	// Fields
 	private DataSource dataSource = null;
@@ -28,7 +29,7 @@ public class UseTokenService {
 	}
 	
 	// Methods
-	@Transactional(transactionManager="transactionManager")
+	@Transactional(transactionManager="transactionManager",propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
 	public void useToken(MemberVO member,int tokenVolume ) {
 		// insert tokenRecord
 		TokenRecordVO tokenRecord = new TokenRecordVO();
@@ -42,10 +43,10 @@ public class UseTokenService {
 		// update member tokenTotal
 		BigDecimal tokenTotal = member.getTokenTotal().subtract( (BigDecimal.valueOf(tokenVolume)) );
 		member.setTokenTotal(tokenTotal);
-//		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		memberDAO.update(member);
 	}
-	@Transactional(transactionManager="transactionManager")
+	@Transactional(transactionManager="transactionManager",propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
 	public void getToken(MemberVO member,int tokenVolume ) {
 		// insert tokenRecord
 		TokenRecordVO tokenRecord = new TokenRecordVO();
@@ -59,7 +60,7 @@ public class UseTokenService {
 		// update member tokenTotal
 		BigDecimal tokenTotal = member.getTokenTotal().add((BigDecimal.valueOf(tokenVolume)));
 		member.setTokenTotal(tokenTotal);
-//		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		memberDAO.update(member);
 	}
 	

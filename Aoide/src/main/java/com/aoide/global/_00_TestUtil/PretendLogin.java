@@ -13,6 +13,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import com.aoide.global.dataBaseManipulationObjects.member.MemberService;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 
 /**
@@ -36,27 +37,9 @@ public class PretendLogin implements Filter {
 		
 		HttpServletRequest req = (HttpServletRequest) request;
 		
-		
 		System.out.println(req.getRequestURL());
 		
-		
-		MemberVO m = new MemberVO();
-		m.setMemberId( 2 );
-		m.setAccount( "whiteBirdBeauty" );
-		m.setPassword( "28825252" );
-		m.setName( "白鳥美麗" );
-		m.setEmail( "fattyCutty@outlook.com" );
-		m.setRegisterState( 0 );
-		m.setLoginCount( 50 );
-		m.setLastLoginDate( Timestamp.valueOf( "2016-08-20 20:37:31.940" ) );
-		m.setTokenTotal( new BigDecimal(350) );
-		m.setPicture( null );
-		m.setIntroductionFilePath( "C:/introduction/file" );
-		m.setClassType( 0 );
-		m.setBanState( false );
-		m.setBankInfo( "fffffffirst bank" );
-		
-		req.getSession().setAttribute("member", m);
+		req.getSession().setAttribute("member", new MemberService().getMemberBean("whiteBirdBeauty"));
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}
