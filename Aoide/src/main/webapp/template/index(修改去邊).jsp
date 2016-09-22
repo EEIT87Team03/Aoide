@@ -32,7 +32,7 @@
 <!--           </div> -->
 <!--         </div> -->
         <div class="box-body">
-          Start creating your amazing application!
+          ~~~~~~~~將你的內容物塞到這邊~~~~~
         </div>
         <!-- /.box-body -->
         <!-- /.box-footer-->
