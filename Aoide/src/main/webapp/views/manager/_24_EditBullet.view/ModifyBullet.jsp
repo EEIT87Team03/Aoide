@@ -9,16 +9,19 @@
 <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
 </head>
 <body>
+<h3>Modify</h3>
 	<form action="<c:url value ='/ModifyEditBullet'/>" method="post">
 		
-<!-- 		date：<input type="text" name="date"><p> -->
-	    No：<input type="text" name="bulletId"><p>
-	    contentFile：<input type="text" name="contentFile"><p>
-        title：<textarea name="title" id="title"></textarea>
-		<script>CKEDITOR.replace('introductionFile');</script><p>
-        <input type="submit" value="送出">
-        <input type = "reset" value = "清除">
-	
+		          日期：${bulletVO.date}<p>
+			
+			contentFile：<input type="text" name="contentFile" value="${bulletVO.contentFile}"><p>
+			
+			title：<textarea name="title" id="title">${bulletVO.title}</textarea>
+			<script>CKEDITOR.replace('introductionFile');</script><p>
+			
+			<input type="submit" value="送出"> <input type="reset"
+				value="清除">
 	</form>
+	<a href="<c:url value ='/EditBulletList'/>">回列表頁</a>
 </body>
 </html>
