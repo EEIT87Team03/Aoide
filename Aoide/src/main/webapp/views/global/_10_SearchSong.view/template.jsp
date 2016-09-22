@@ -10,7 +10,7 @@
   <c:import url="/template/htmlBlocks/head_library.html"/>
   <!-- head_library -->
   <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
-<title></title>
+<title>編輯會員資料</title>
 
 </head>
 <!-- <body class="hold-transition skin-blue fixed sidebar-mini"> -->
@@ -48,46 +48,61 @@
 
     <!-- Main content -->
     <section class="content">
-      <!-- =========================================================== -->
-      <div class="row">
-        <!-- left empty column -->
-        <div class="col-md-3">
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">搜尋結果</h3>
         </div>
-        <!-- /left empty column -->
-        <!-- =========================================================== -->
-        <!-- middle content column -->
-        <div class="col-md-6">
-	        <div class="box" style="background-color:transparent;color:white">
-	        	<br>
-	        	<br>
-	        	<form action="<c:url value ='/SearchSongServlet'/>" method="post" style="text-align: center;">
-					搜尋：<input type="text" name="searchSong" style="color:black">　
-					<input class="btn" type="submit" value="送出" style="color:black">　${errorMsg.emptySearchMsg}
-					<p>
-					<input type="radio" name="searchType" value="name" checked>搜尋歌名　
-					<input type="radio" name="searchType" value="singer">搜尋歌手　
-					<input type="radio" name="searchType" value="album">搜尋專輯
-				</form>
-					<div style="padding-left: 215px;">
-						<p>點歌規則:</p>
-						<p>同一首歌曲 25 小時內只能點播一次。</p>
-						<p>相同的演出者不能重複出現在播放清單上。</p>
-						<p>一次限點播一首，播放清單上沒有其它人點播時才能連續點播。</p>
-						<p>冷卻時間結束後 8 天內又再度被點播的歌曲會增加額外的冷卻時間。</p>
-					</div>
-				<br>
-	        	<br>
-			</div>
+        <!-- /.box-body -->
+        <div class="box-body">
+	    <!-- /.table -->
+	    ${type1}
+		<% int i = 0; %>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>　</th>
+					<th>點歌</th>
+					<th>歌曲ID</th>
+					<th>歌名</th>
+					<th>演出者</th>
+					<th>類型</th>
+					<th>語言</th>
+					<th>上傳日期</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="result" items="${searchList}">
+					<tr>
+						<td><% out.print(i = i + 1); %></td>
+						<td><a href="<c:url value='/BuildPlaylistServlet?id=${result.songId}'/>">點歌</a></td>
+						<td>${result.songId}</td>
+						<td><a href="<c:url value='/ShowSongInfo?id=${result.songId}'/>">${result.name}</a></td>
+						<td>${result.singer}</td>
+						<td>${result.songType}</td>
+						<td>${result.songLanguage}</td>
+						<td>${result.updateDate}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		共有<% out.print(i); %>項符合搜尋結果
+	     <p><a href="SearchSong.jsp">回搜尋歌曲</a>
+         <!-- /.table -->
+       </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+          <ul class="pagination pagination-sm no-margin pull-right">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
         </div>
-        <!-- /middle content column -->
-        <!-- =========================================================== -->
-        <!-- right empty column -->
-        <div class="col-md-3">
-        </div>
-        <!-- /right empty column -->
+        <!-- /.box-footer-->
       </div>
-      <!-- /.row -->
-      <!-- =========================================================== -->
+      <!-- /.box -->
     </section>
     <!-- /.content -->
     <!-- =========================================================== -->
