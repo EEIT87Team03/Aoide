@@ -23,8 +23,7 @@
 	</bean>
 	
 	<!-- Enable Annotation based Declarative Transaction Management -->
-	<tx:annotation-driven proxy-target-class="true"
-		transaction-manager="transactionManager" />
+	<tx:annotation-driven transaction-manager="transactionManager" />
 	<!-- Creating TransactionManager Bean, since JDBC we are creating of type 
 		DataSourceTransactionManager -->
 	<bean id="transactionManager"

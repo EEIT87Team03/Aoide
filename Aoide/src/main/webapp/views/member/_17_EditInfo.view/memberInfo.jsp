@@ -181,6 +181,28 @@
                   </div>
                   <!-- /.row -->
                   <!-- =========================================================== -->
+                  <!-- Edit Picture -->
+                  <div class="row">
+                    <div class="col-xs-1">
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-group">
+                          <label for="exampleInputFile">Picture :</label>
+                            <input class="button" type = "file" id = "selectedFile" accept="image/*" name = "selectedFile">
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                      
+                      <br>
+                      <span style="float:right;">
+                        <input class="btn btn-default" type = "button" id = "upload" value = "Upload"><span id="progress"></span>
+                      </span>
+                    </div>
+                    <div class="col-xs-1">
+                    </div>
+                  </div>
+                  <!-- /.row -->
+                  <!-- =========================================================== -->
                   <!-- Edit Intriduction -->
                   <div class="row">
                     <div class="col-xs-1">
@@ -244,6 +266,6 @@
 <!-- body_library -->
 <c:import url="/template/htmlBlocks/body_library.html"/>
 <!-- body_library -->
-<script src="../../../js/_17_EditInfo/ajaxUploadImage.js"></script>
+<script src="/Aoide/js/_17_EditInfo/ajaxUploadImage.js"></script>
 </body>
 </html>

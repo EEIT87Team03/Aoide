@@ -20,7 +20,7 @@ import com.aoide.global.dataBaseManipulationObjects.member.MemberService;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 
 @WebServlet("/UploadImage")
-@MultipartConfig( location="F:\\Aoide", maxFileSize=1024*1024*2, maxRequestSize=1024*1024*5 )
+@MultipartConfig( location="C:\\Aoide", maxFileSize=1024*1024*2, maxRequestSize=1024*1024*5 )
 public class UploadMemberPictureServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
