@@ -10,6 +10,6 @@
 <body>
 	<a href="UploadSong.jsp">上傳歌曲</a>
 	<p>
-	<a href="<c:url value = '/ListSongServlet'/>">編輯歌曲</a>
+	<a href="<c:url value = '/ListSongServlet.member'/>">編輯歌曲</a>
 </body>
 </html>

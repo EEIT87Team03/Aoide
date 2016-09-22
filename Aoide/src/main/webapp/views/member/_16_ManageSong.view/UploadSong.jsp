@@ -9,7 +9,7 @@
 <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
 </head>
 <body>
-	<form action="<c:url value ='/UploadSongServlet'/>" method="post" enctype="multipart/form-data">
+	<form action="<c:url value ='/UploadSongServlet.member'/>" method="post" enctype="multipart/form-data">
 			上傳歌曲：<input type="file" name="songFile">　${errorMsg.emptyPartMsg}
 		<p>
 			上傳封面圖片：<input type="file" name="coverFile">　${errorMsg.emptyPart2Msg}

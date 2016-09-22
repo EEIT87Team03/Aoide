@@ -1,6 +1,5 @@
 package com.aoide.member._99_TestUpload.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.aoide.global._00_TestUtil.UploadHelper;
-import com.aoide.global._00_TestUtil.Validator;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._99_TestUpload.model.UploadService;
 
@@ -35,6 +33,7 @@ public class TestUploadServlet extends HttpServlet {
 
 		//前端抓值
 	    final Part part = request.getPart("songFile");
+	    
 	    // get file size and content type
 	    /*
 	    System.out.println("type: " + part.getContentType()); // audio/mp3 image/jpeg
@@ -101,6 +100,7 @@ public class TestUploadServlet extends HttpServlet {
 	    request.getSession().setAttribute("song", song);
 	    request.getRequestDispatcher("/DisplayResultServlet").forward(request, response);
 	    return;
+	  
 	}
 
 }

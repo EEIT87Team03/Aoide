@@ -16,9 +16,10 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.aoide.global.dataBaseManipulationObjects.member.MemberService;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
-import com.aoide.global.dataBaseManipulationObjects.tokenRecord.TokenRecordVO;
+
 import com.aoide.member._40_UseToken.model.MemberDAO;
 import com.aoide.member._40_UseToken.model.TokenRecordDAO;
+import com.aoide.member._40_UseToken.model.TokenRecordVO;
 
 
 @WebServlet("/TestServlet")
@@ -36,7 +37,7 @@ public class TestServlet extends HttpServlet {
 		TokenRecordVO tokenRecord = new TokenRecordVO();
 		tokenRecord.setRecipientId(1); // sponsor_id
 		tokenRecord.setTokenVolume(1000000); 
-		tokenRecord.setsponsorBalance(0);
+		tokenRecord.setSponsorBalance(0);
 		tokenRecord.setRecipienBalance(0);
 		
 		new TokenRecordDAO(template).insert(tokenRecord);

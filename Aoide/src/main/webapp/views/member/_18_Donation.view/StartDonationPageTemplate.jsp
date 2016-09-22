@@ -11,35 +11,36 @@
   <!-- head_library -->
 <title>Home</title>
 </head>
-<body class="hold-transition skin-blue fixed sidebar-mini">
+<!-- <body class="hold-transition skin-blue fixed sidebar-mini"> -->
+<body>
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- header -->
-  <c:import url="/template/htmlBlocks/header.html"/>
+<%--   <c:import url="/template/htmlBlocks/header.html"/> --%>
   <!-- header -->
 
   <!-- =============================================== -->
 
   <!-- sidebar -->
-  <c:import url="/template/htmlBlocks/sidebar_global.html"/>
+<%--   <c:import url="/template/htmlBlocks/sidebar_global.html"/> --%>
   <!-- sidebar -->
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Fixed Layout
-        <small>Blank example to the fixed layout</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Layout</a></li>
-        <li class="active">Fixed</li>
-      </ol>
-    </section>
+<!--   <div class="content-wrapper"> -->
+<!--     Content Header (Page header) -->
+<!--     <section class="content-header"> -->
+<!--       <h1> -->
+<!--         Fixed Layout -->
+<!--         <small>Blank example to the fixed layout</small> -->
+<!--       </h1> -->
+<!--       <ol class="breadcrumb"> -->
+<!--         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li> -->
+<!--         <li><a href="#">Layout</a></li> -->
+<!--         <li class="active">Fixed</li> -->
+<!--       </ol> -->
+<!--     </section> -->
 
     <!-- Main content -->
     <section class="content">
@@ -51,7 +52,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="<c:url value='/DonationServlet.member' />"  id="DonationServlet" >
+            <form role="form" method="POST" action="<c:url value='/TurnToInsertCreditCardPageServletD.member' />"  id="DonationServlet" >
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">你要贊助的人ID(此應該為一個死值)</label>
@@ -77,11 +78,11 @@
   <!-- /.content-wrapper -->
 
   <!-- footer -->
-  <c:import url="/template/htmlBlocks/footer.html"/>
+<%--   <c:import url="/template/htmlBlocks/footer.html"/> --%>
   <!-- footer -->
 
   <!-- Control Sidebar -->
-  <c:import url="/template/htmlBlocks/control_sidebar.html"/>
+<%--   <c:import url="/template/htmlBlocks/control_sidebar.html"/> --%>
   <!-- Control Sidebar -->
 </div>
 <!-- ./wrapper -->

@@ -14,7 +14,7 @@
 <img src="${album.coverFilePath}" width="300" height="300"><p>
 建立日期：${album.updateDate}<p>
 <hr><p>
-<form action="<c:url value ='/UpdateAlbumServlet'/>" method="post" enctype="multipart/form-data">
+<form action="<c:url value ='/UpdateAlbumServlet.member'/>" method="post" enctype="multipart/form-data">
 			上傳專輯封面：<input type="file" name="coverFile">　${errorMsg.emptyPartMsg}
 		<p>
 			專輯名稱：<input type="text" name="name" placeholder="${album.name}" value="${enteredText.name}">　${errorMsg.emptyNameMsg}
@@ -52,7 +52,7 @@
 					<td>${mySong.songLanguage}</td>
 					<td>${mySong.updateDate}</td>
 					<td>
-						<input type="button" value="移除" onclick="location.href='<c:url value='/RemoveAlbumidServlet?id=${mySong.songId}'/>'">
+						<input type="button" value="移除" onclick="location.href='<c:url value='/RemoveAlbumidServlet.member?id=${mySong.songId}'/>'">
 					</td>
 				</tr>
 			</c:forEach>
@@ -87,7 +87,7 @@
 					<td>${mySong.songLanguage}</td>
 					<td>${mySong.updateDate}</td>
 					<td>
-						<input type="button" value="加入" onclick="location.href='<c:url value='/AddtoAlbumServlet?id=${mySong.songId}'/>'">
+						<input type="button" value="加入" onclick="location.href='<c:url value='/AddtoAlbumServlet.member?id=${mySong.songId}'/>'">
 					</td>
 				</tr>
 			</c:forEach>
@@ -96,6 +96,6 @@
 		<input type="submit" value="送出">
 </form>
 <p>
-<a href="<c:url value = '/ListAlbumServlet'/>">回專輯列表</a>
+<a href="<c:url value = '/ListAlbumServlet.member'/>">回專輯列表</a>
 </body>
 </html>

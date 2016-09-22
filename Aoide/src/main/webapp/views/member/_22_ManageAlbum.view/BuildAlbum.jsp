@@ -10,7 +10,7 @@
 </head>
 <body>
 <% int i = 0; %>
-	<form action="<c:url value ='/BuildAlbumSuccessServlet'/>" method="post" enctype="multipart/form-data">
+	<form action="<c:url value ='/BuildAlbumSuccessServlet.member'/>" method="post" enctype="multipart/form-data">
 			上傳專輯封面：<input type="file" name="coverFile">　${errorMsg.emptyPartMsg}
 		<p>
 			專輯名稱：<input type="text" name="name" value="${enteredText.name}">　${errorMsg.emptyNameMsg}

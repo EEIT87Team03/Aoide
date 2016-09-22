@@ -5,11 +5,12 @@ import java.math.BigDecimal;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
-import com.aoide.global.dataBaseManipulationObjects.tokenRecord.TokenRecordVO;
 
+@Transactional(transactionManager="transactionManager",propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
 public class UseTokenService {
 	// Fields
 	private DataSource dataSource = null;
@@ -28,21 +29,41 @@ public class UseTokenService {
 	}
 	
 	// Methods
-	@Transactional(transactionManager="transactionManager")
+	@Transactional(transactionManager="transactionManager",propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
 	public void useToken(MemberVO member,int tokenVolume ) {
 		// insert tokenRecord
 		TokenRecordVO tokenRecord = new TokenRecordVO();
-		tokenRecord.setRecipientId(member.getMemberId()); // sponsor_id
-		tokenRecord.setTokenVolume(tokenVolume); 
-		tokenRecord.setsponsorBalance(0);
+		tokenRecord.setRecipientId(0); // recipient is manager
+		tokenRecord.setTokenVolume(tokenVolume);   
+		tokenRecord.setSponsorBalance(0);
 		tokenRecord.setRecipienBalance(0);
+		tokenRecord.setSponsorId( member.getMemberId() );  // sponsor is member
 		tokenRecordDAO.insert(tokenRecord);
 		
-		
 		// update member tokenTotal
-		member.setTokenTotal(BigDecimal.valueOf(tokenVolume));
+		BigDecimal tokenTotal = member.getTokenTotal().subtract( (BigDecimal.valueOf(tokenVolume)) );
+		member.setTokenTotal(tokenTotal);
 		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		memberDAO.update(member);
 	}
+	@Transactional(transactionManager="transactionManager",propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
+	public void getToken(MemberVO member,int tokenVolume ) {
+		// insert tokenRecord
+		TokenRecordVO tokenRecord = new TokenRecordVO();
+		tokenRecord.setRecipientId(member.getMemberId()); // recipient is member
+		tokenRecord.setTokenVolume(tokenVolume);   
+		tokenRecord.setSponsorBalance(0);
+		tokenRecord.setRecipienBalance(0);
+		tokenRecord.setSponsorId(0);  // sponsor is manager
+		tokenRecordDAO.insert(tokenRecord);
+		
+		// update member tokenTotal
+		BigDecimal tokenTotal = member.getTokenTotal().add((BigDecimal.valueOf(tokenVolume)));
+		member.setTokenTotal(tokenTotal);
+		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		memberDAO.update(member);
+	}
+	
+	
 	
 }

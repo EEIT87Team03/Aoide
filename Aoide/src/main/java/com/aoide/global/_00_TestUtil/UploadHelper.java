@@ -8,6 +8,10 @@ import java.io.OutputStream;
 
 import javax.servlet.http.Part;
 
+import org.jaudiotagger.audio.AudioFileIO;
+import org.jaudiotagger.audio.mp3.MP3AudioHeader;
+import org.jaudiotagger.audio.mp3.MP3File;
+
 public class UploadHelper {
 	// Methods
 	public static void savePartIntoPath(Part part, String path){
@@ -60,6 +64,21 @@ public class UploadHelper {
 	    String fileNameExtension = fileName.substring(index);
 	    return fileNameExtension;
 	}// end getFileExtention(Part part)
+	public static int getMp3TrackLength(String path) {
+		try {
+			File file = new File(path);
+			
+			System.out.println("absPath: " + file.getAbsolutePath());
+			
+			MP3File f = (MP3File)AudioFileIO.read(file);
+			MP3AudioHeader audioHeader = (MP3AudioHeader)f.getAudioHeader();
+			return audioHeader.getTrackLength();	
+		} catch(Exception e) {
+			return -1;
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 	}
 

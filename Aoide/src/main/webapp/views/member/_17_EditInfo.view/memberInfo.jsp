@@ -13,35 +13,38 @@
 <title>編輯會員資料</title>
 
 </head>
-<body class="hold-transition skin-blue fixed sidebar-mini">
+<!-- <body class="hold-transition skin-blue fixed sidebar-mini"> -->
+<body>
+
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- header -->
-  <c:import url="/template/htmlBlocks/header.html"/>
+<%--   <c:import url="/template/htmlBlocks/header.html"/> --%>
   <!-- header -->
 
   <!-- =============================================== -->
 
   <!-- sidebar -->
-  <c:import url="/template/htmlBlocks/sidebar_global.html"/>
+<%--   <c:import url="/template/htmlBlocks/sidebar_global.html"/> --%>
   <!-- sidebar -->
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<!--   <div class="content-wrapper"> -->
+   <div >
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        編輯會員資料
-        <small>修改會員頭像/名稱/Email</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Layout</a></li>
-        <li class="active">Fixed</li>
-      </ol>
-    </section>
+<!--     <section class="content-header"> -->
+<!--       <h1> -->
+<!--         編輯會員資料 -->
+<!--         <small>修改會員頭像/名稱/Email</small> -->
+<!--       </h1> -->
+<!--       <ol class="breadcrumb"> -->
+<!--         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li> -->
+<!--         <li><a href="#">Layout</a></li> -->
+<!--         <li class="active">Fixed</li> -->
+<!--       </ol> -->
+<!--     </section> -->
 
     <!-- Main content -->
     <section class="content">
@@ -113,6 +116,8 @@
                         </div>
                     </div>
                     <div class="col-xs-2">
+                      
+                      <br>
                       <span style="float:right;">
                         <input class="btn btn-default" type = "button" id = "upload" value = "Upload"><span id="progress"></span>
                       </span>
@@ -133,6 +138,7 @@
                         </div> 
                     </div>
                     <div class="col-xs-2">
+                      <br>
                       <button class="btn btn-default pull-right" >Edit</button>
                     </div>
                     <div class="col-xs-1">
@@ -151,6 +157,7 @@
                       </div>
                     </div>
                     <div class="col-xs-2">
+                      <br>
                       <button class="btn btn-default pull-right" >Edit</button>
                     </div>
                     <div class="col-xs-1">
@@ -169,7 +176,30 @@
                       </div>
                     </div>
                     <div class="col-xs-2">
+                      <br>
                       <button class="btn btn-default pull-right" >Edit</button>
+                    </div>
+                    <div class="col-xs-1">
+                    </div>
+                  </div>
+                  <!-- /.row -->
+                  <!-- =========================================================== -->
+                  <!-- Edit Picture -->
+                  <div class="row">
+                    <div class="col-xs-1">
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="form-group">
+                          <label for="exampleInputFile">Picture :</label>
+                            <input class="button" type = "file" id = "selectedFile" accept="image/*" name = "selectedFile">
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                      
+                      <br>
+                      <span style="float:right;">
+                        <input class="btn btn-default" type = "button" id = "upload" value = "Upload"><span id="progress"></span>
+                      </span>
                     </div>
                     <div class="col-xs-1">
                     </div>
@@ -193,6 +223,7 @@
                       </div>
                     </div>
                     <div class="col-xs-2">
+                      <br><br>
                       <button class="btn btn-default pull-right" >Edit</button>
                     </div>
                     <div class="col-xs-1">
@@ -226,7 +257,7 @@
   <!-- /.content-wrapper -->
 
   <!-- footer -->
-  <c:import url="/template/htmlBlocks/footer.html"/>
+<%--   <c:import url="/template/htmlBlocks/footer.html"/> --%>
   <!-- footer -->
 
   <!-- Control Sidebar -->
@@ -238,6 +269,6 @@
 <!-- body_library -->
 <c:import url="/template/htmlBlocks/body_library.html"/>
 <!-- body_library -->
-<script src="../../../js/_17_EditInfo/ajaxUploadImage.js"></script>
+<script src="/Aoide/js/_17_EditInfo/ajaxUploadImage.js"></script>
 </body>
 </html>

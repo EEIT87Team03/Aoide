@@ -19,8 +19,9 @@ public class ListAlbumServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
-		Integer memberId = member.getMemberId();
+//		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
+//		Integer memberId = member.getMemberId();
+		Integer memberId = 3;
 		
 		List<AlbumVO> myAlbumResult = new ListAlbumService().getMyAlbum(memberId);
 		for (AlbumVO myAlbum : myAlbumResult) {

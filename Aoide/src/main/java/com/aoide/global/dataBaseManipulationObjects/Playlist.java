@@ -1,20 +1,22 @@
-package com.aoide.global.websocket;
+package com.aoide.global.dataBaseManipulationObjects;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.aoide.global.listener.PlaylistListener;
 import com.aoide.global.websocket.track.TrackVO;
 
 public class Playlist 
 {
 	private static List< TrackVO > list = new ArrayList<>();
+	private List< PlaylistListener > listeners = new ArrayList<>();
 	private Timer timer;
-	private TrackVO currentPlayingTrack;
+	private	volatile TrackVO currentPlayingTrack;
+	private volatile int size;
 	private int currentPlayingTrackLength;
 	private int currentPlayingTrackMaxLength;
-	private int size;
 	
 	public Playlist()
 	{
@@ -34,12 +36,7 @@ public class Playlist
 	
 	public int getTrackLength( TrackVO vo )
 	{
-		String[] length = vo.getLength().split( ":" );
-		int seconds = Integer.parseInt( length[ 0 ] ) * 60 * 60 +
-					  Integer.parseInt( length[ 1 ] ) * 60 +
-					  Integer.parseInt( length[ 2 ] );
-		
-		return seconds;
+		return vo.getLength();
 	}				
 	
 	public boolean hasNext()
@@ -49,23 +46,28 @@ public class Playlist
 	
 	public boolean add( TrackVO vo )
 	{	
-		if ( size++ == 0 )
+		boolean result;
+		synchronized( list )
 		{
-			timer = new Timer();
-			currentPlayingTrack = vo;
-			currentPlayingTrackMaxLength = getTrackLength( vo );
-			timer.scheduleAtFixedRate( new UpdatePlayingTrackInfo() , 0, 1000 );
+			if ( size++ == 0 )
+			{	
+				timer = new Timer();
+				currentPlayingTrack = vo;
+				currentPlayingTrackMaxLength = vo.getLength();
+				timer.scheduleAtFixedRate( new UpdatePlayingTrackInfo() , 0, 1000 );
+			}
+			result = list.add( vo );
+			System.out.println( "add : " + vo );
 		}
-		boolean result = list.add( vo );
+		notifyListeners();
 		
-		System.out.println( "add : " + vo );	
 		return result;
 	}
 	
 	public TrackVO remove( int index )
 	{
 		if ( --size == 0 )
-		{
+		{	
 			clear();
 			timer.cancel();
 		}
@@ -75,11 +77,30 @@ public class Playlist
 		return vo;
 	}
 	
-	public void clear()
+	public void addListener( PlaylistListener listener )
 	{
-		currentPlayingTrack = null;
-		currentPlayingTrackLength = 0;
-		currentPlayingTrackMaxLength = 0;
+		listeners.add( listener );
+		if ( hasNext() )
+		{
+			listener.listen();
+		}
+	}
+	
+	public void removeListener( PlaylistListener listener )
+	{
+		int i = listeners.indexOf( listener );
+		if ( i >= 0 )
+		{
+			listeners.remove( i );
+		}
+	}
+	
+	public void notifyListeners()
+	{
+		for ( PlaylistListener listener : listeners )
+		{
+			listener.listen();
+		}
 	}
 	
 	public int size()
@@ -90,6 +111,13 @@ public class Playlist
 	public TrackVO get( int index )
 	{
 		return list.get( index );
+	}
+	
+	private void clear()
+	{
+		currentPlayingTrack = null;
+		currentPlayingTrackLength = 0;
+		currentPlayingTrackMaxLength = 0;
 	}
 	
 	@Override
@@ -108,22 +136,19 @@ public class Playlist
 		@Override
 		public void run() 
 		{
-			if ( list.size() >= 1 )
+			if ( ( size >= 1 ) && ( ++currentPlayingTrackLength >= currentPlayingTrackMaxLength ) )
 			{
-				if ( ++currentPlayingTrackLength >= currentPlayingTrackMaxLength )
+				synchronized( list )
 				{
 					remove( 0 );
 					if ( size > 0 )
 					{
 						currentPlayingTrack = list.get( 0 );
 						currentPlayingTrackLength = 0;
-						currentPlayingTrackMaxLength = getTrackLength( list.get( 0 ) );
+						currentPlayingTrackMaxLength = currentPlayingTrack.getLength();
 					}
-					
-				}
-				
-			}
-			
+				}	
+			}	
 		}
 	}
 }

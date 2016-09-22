@@ -48,6 +48,6 @@
 		</tbody>
 	</table>
 	<p>
-	<a href="<c:url value = '/ListAlbumServlet'/>">回專輯列表</a>
+	<a href="<c:url value = '/ListAlbumServlet.member'/>">回專輯列表</a>
 </body>
 </html>

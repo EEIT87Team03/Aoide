@@ -19,16 +19,16 @@
     	clientSocket.onmessage = 
     			function ( event )
     			{
-    				var message = event.data.split("&",2)[1];
-    				
-    				 var item = {
+    				//var message = event.data.split("&",2)[1];
+    				var item = JSON.parse(event.data);
+    				 /*var item = {
     			            info: message, //彈幕文字
     			            href: '/Aoide/AccuseDanmukuServlet?id=' + memberId + '&text=' + event.data.split("&",2)[0] , //點選彈幕的連結網址
     			            close: true, //是否顯示關閉的按鈕
-    			            speed: 6, //延遲(秒)預設為6
+    			            speed: 2, //延遲(秒)預設為6
     			            color: '#000000', //顏色，預設白色
     			            old_ie_color: '#ffffff', //ie低版兼容色,不能与网页背景相同,默认黑色 
-    			        }
+    			        }*/
     				
     				$('body').barrager(item); 
     				
@@ -56,8 +56,21 @@
         //註冊按鈕事件：將文字編輯框內的文字發送至伺服器
         document.getElementById( "send" ).onclick = function()
         											{
-        												var text = document.getElementById( "input" ).value;
-        												clientSocket.send( memberId + "&" + text);
+        											var message = document.getElementById( "input" ).value;
+        											var item = {
+							    			            info: message, //彈幕文字
+							    			            href: '/Aoide/AccuseDanmukuServlet?id=' + memberId + '&text=' + message , //點選彈幕的連結網址
+							    			            close: true, //是否顯示關閉的按鈕
+							    			            speed: 2, //延遲(秒)預設為6
+							    			            color: '#000000', //顏色，預設白色
+							    			            old_ie_color: '#ffffff', //ie低版兼容色,不能与网页背景相同,默认黑色 
+							    			            'memberID' : memberId
+							    			        }
+							    			        var abc = JSON.stringify(item);
+        												//var text = document.getElementById( "input" ).value;
+        												//clientSocket.send( memberId + "&" + text);
+        												console.log(abc);
+        												clientSocket.send(abc);
         											};
         											      											
         
