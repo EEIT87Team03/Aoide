@@ -1,8 +1,6 @@
 package com.aoide.manager._25_EditAdds.controller;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Properties;
 
 import javax.servlet.ServletContext;
@@ -15,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.aoide.global._00_TestUtil.UploadHelper;
+import com.aoide.global.dataBaseManipulationObjects.ad.AdService;
 import com.aoide.global.dataBaseManipulationObjects.ad.AdVO;
-import com.aoide.manager._25_EditAdds.model.AdService;
 
 @WebServlet("/InsertAdds")
 @MultipartConfig(location = "C:\\Aoide", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)

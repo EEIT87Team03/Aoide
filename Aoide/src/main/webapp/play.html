@@ -111,7 +111,7 @@
 	<span id = "toggle">&#9650;</span>
 <script>
 var timerID;
-var wsUri = "ws://localhost:8080/Aoide/play";
+var asUri = "ws://localhost:8080/Aoide/play";
 var cover = document.getElementById( "cover" );
 var audio = document.getElementById( "track" );
 var trackName = document.getElementById( "trackName" );
@@ -120,7 +120,7 @@ var tip = document.getElementById( "status" ); //need another name
 var playbar = document.getElementById( "playbar" );
 var toggle =  document.getElementById( "toggle" );
 var chart = document.getElementById( "chart" );
-var clientSocket;
+var audioSocket;
 
 for ( var i = 0; i < 256; i++ )
 {
@@ -130,8 +130,8 @@ for ( var i = 0; i < 256; i++ )
 
 function init()
 {
-	clientSocket = new WebSocket( wsUri );
-	clientSocket.onmessage = onMessage;
+	audioSocket = new WebSocket( asUri );
+	audioSocket.onmessage = onMessage;
 	audio.onended = onEnded;
 	toggle.onclick = onToggle;
 }
@@ -178,7 +178,7 @@ function stop()
 
 function onEnded( event )
 {
-	clientSocket.send( "[NEXT]" );
+	audioSocket.send( "[NEXT]" );
 	stop();
 }
 

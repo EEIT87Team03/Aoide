@@ -105,28 +105,6 @@
             <form role="form" action="<c:url value='/EditInfoServlet'/>" method="POST">
               <div class="box-body">
                   <!-- =========================================================== -->
-                  <!-- Edit Picture -->
-                  <div class="row">
-                    <div class="col-xs-1">
-                    </div>
-                    <div class="col-xs-8">
-                        <div class="form-group">
-                          <label for="exampleInputFile">Picture :</label>
-                            <input class="button" type = "file" id = "selectedFile" accept="image/*" name = "selectedFile">
-                        </div>
-                    </div>
-                    <div class="col-xs-2">
-                      
-                      <br>
-                      <span style="float:right;">
-                        <input class="btn btn-default" type = "button" id = "upload" value = "Upload"><span id="progress"></span>
-                      </span>
-                    </div>
-                    <div class="col-xs-1">
-                    </div>
-                  </div>
-                  <!-- /.row -->
-                  <!-- =========================================================== -->
                   <!-- Edit Account -->
                   <div class="row">
                     <div class="col-xs-1">
@@ -193,6 +171,10 @@
                           <label for="exampleInputFile">Picture :</label>
                             <input class="button" type = "file" id = "selectedFile" accept="image/*" name = "selectedFile">
                         </div>
+                        <div style="align:left;">
+                            <img class="img-circle" id = "current" src="data:image/*;base64,${member.picture}" alt="User Avatar" style = "height:100px; width:100px;">
+                            <img class="img-circle" src="#" id = "preview"  alt = "preview image" style = "display:none; height:100px; width:100px;"/>
+                        </div>
                     </div>
                     <div class="col-xs-2">
                       
@@ -212,7 +194,7 @@
                     </div>
                     <div class="col-xs-8">
                       <div class="form-group">
-                        <label>"Introduction"</label>
+                        <label>Introduction</label>
                         <textarea name="introduction"  id="introduction" rows="10" cols="80"  value="${member.introductionFilePath}">
                         </textarea>
                                <script>
@@ -253,6 +235,7 @@
     </section>
     <!-- /.content -->
     <!-- =========================================================== -->
+  
   </div>
   <!-- /.content-wrapper -->
 

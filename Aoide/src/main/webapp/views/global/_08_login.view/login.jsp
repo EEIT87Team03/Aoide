@@ -6,12 +6,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>登入Aoide</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- head_library -->
   <c:import url="/template/htmlBlocks/head_library.html"/>
-  <!-- head_library -->s
+  <!-- head_library -->
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
