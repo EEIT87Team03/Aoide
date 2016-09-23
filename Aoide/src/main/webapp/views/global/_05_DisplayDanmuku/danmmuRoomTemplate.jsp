@@ -115,12 +115,7 @@
 <!-- <script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script> -->
 
 <script>
-$(function(){
-	
-	alert("OPEN")
-	
-	
-});
+
 	</script>
 </body>
 </html>
