@@ -111,10 +111,17 @@ var easy_fancybox_handler = function(){
 </a> </nav>
 <div class="logo">
 <div class="site-description">
+<!-- 登入後圖片 -->
+<c:if test="${! empty member }">
+	<img height="40px" width="30px" src="data:image/*;base64,${member.picture}">
+</c:if>
+<!-- 登入後圖片 -->
 <h3 class="sitename sitetitle"><a href="home.html" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></a></h3>
 </div>
+
 </div>
 </div>
+
 </section>
 <ul id="dot-scroll" class="colors-a no-colors-label"></ul>
 <div class="overlay-window gallery-overlay colors-q" data-overlay-zoom=".fg">
