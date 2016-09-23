@@ -2,15 +2,18 @@
 <html>
 <head>
 <meta charset = "UTF-8">
-<!-- <link rel="stylesheet" href="/Aoide/template/bootstrap/css/bootstrap.min.css"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="template/bootstrap/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="template/bootstrap/js/bootstrap.min.js"></script>
+
 <title>Player</title>
 <style>
 #playbar 
 {
-	overflow : hidden;
-	box-sizing: border-box;
 	background : #f2f9ff;
 	width: 100%;
+	hight: 100px;
 	text-align: center;
     position: fixed;
     left: 0;
@@ -24,13 +27,15 @@
     animation-name: slideIn;
     animation-duration: 0.8s
 }
-#info, #cover, #controls, #chart, #chart:after, #chart div 
+#info, #cover, #controls, #chart, #chart:after, #chart div, #picture
 {
 	display: inline-block;
+	margin: 0;
+	padding 0;
 }
 #cover
 {
-	margin: 2px 5px 0px 5px;
+	
 }
 #info
 {
@@ -40,7 +45,6 @@
 }
 #status
 {
-	margin: 0px 5px 10px 5px;
 	font-weight: normal;
 	font-family: Arial, Verdana, Sans-serif;
 }
@@ -81,22 +85,23 @@
 /* Add Animation */
 @-webkit-keyframes slideIn 
 {
-    from {bottom: -300px; opacity: 0}
+    from {bottom: -100px; opacity: 0}
     to {bottom: 0; opacity: 1}
 }
 
 @keyframes slideIn 
 {
-    from {bottom: -300px; opacity: 0}
+    from {bottom: -100px; opacity: 0}
     to {bottom: 0; opacity: 1}
 }
 
 </style>
 </head>
 <body onload = "init()">
-	<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
-		<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
+<div class="container-fluid">
+	<div class="row" id = "playbar" oncontextmenu = "window.event.returnValue = false">
 		<div id = "info">
+			<img class="img-rounded" src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">	
 			<h5 id = "status"></h5>
 			<span id = "trackName"></span>
 			<span id = "singer"></span>
@@ -109,6 +114,7 @@
 		<div id = "chart"></div>
 	</div>
 	<span id = "toggle">&#9650;</span>
+</div>
 <script>
 var timerID;
 var wsUri = "ws://localhost:8080/Aoide/play";
