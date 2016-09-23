@@ -9,11 +9,22 @@
 <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
 </head>
 <body>
+	<!-- Main content -->
+	<section class="content"> <!-- =========================================================== -->
+	<!--       <div class="row"> --> <!-- left empty column --> <!-- /left empty column -->
+	<!-- =========================================================== --> <!-- middle content column -->
+	<div class="col-md-8">
+		<div class="box" style="background-color: transparent; color: white">
+			<!-- 	<div class="container"> -->
+			<a href=""></a>
 
 	<form action="<c:url value='/InsertAdds'/>" method="post"
 		enctype="multipart/form-data">
 		上傳封面圖片：<input type="file" name="AdImage"><p>
 			<input type="submit" value="送出">
 	</form>
+	</div>
+	</div>
+	</section>
 </body>
 </html>

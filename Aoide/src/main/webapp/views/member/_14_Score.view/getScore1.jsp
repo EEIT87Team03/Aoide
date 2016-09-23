@@ -8,24 +8,30 @@
   
   
   <!-- head_library -->
-  <c:import url="/template/htmlBlocks/head_library.html"/>
+<%--   <c:import url="/template/htmlBlocks/head_library.html"/> --%>
   <!-- head_library -->
-<title>Score</title>
+<title>SongInfo</title>
 
 
 </head>
+
+
 <body class="hold-transition skin-blue fixed sidebar-mini">
+
+ 
+
 <!-- Site wrapper -->
+
 
 <div class="wrapper">
   <!-- header -->
-  <c:import url="/template/htmlBlocks/header.html"/>
+<%--   <c:import url="/template/htmlBlocks/header.html"/> --%>
   <!-- header -->
 
   <!-- =============================================== -->
 
   <!-- sidebar -->
-  <c:import url="/template/htmlBlocks/sidebar_global.html"/>
+<%--   <c:import url="/template/htmlBlocks/sidebar_global.html"/> --%>
   <!-- sidebar -->
 
   <!-- =============================================== -->
@@ -35,9 +41,36 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Score
-        <small>Score Your Song</small>
-      </h1>
+         SongInfo
+        <small>do something</small>
+      </h1><br>
+     <a href="song.mp3" title="播放"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 5v14l11-7z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+      </svg></a><script type="text/javascript" src="http://mediaplayer.yahoo.com/js"></script>
+      
+      <button style="background-color:#C2C2FF"  title="蒐藏" onclick="location.href='<c:url value='/UpdateFavoriteServlet.member'/>'"><svg fill="#000000" height="18" viewBox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 11.3l3.71 2.7-1.42-4.36L15 7h-4.55L9 2.5 7.55 7H3l3.71 2.64L5.29 14z"/>
+    <path d="M0 0h18v18H0z" fill="none"/>
+     </svg></button>
+     
+     
+    <button style="background-color:#C2C2FF" title="分享" onclick="location.href='<c:url value='/ShareServlet.member'/>'"><svg fill="#000000" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/>
+    </svg></button>
+    
+    
+        <button style="background-color:#C2C2FF"  title="贊助" onclick="location.href='<c:url value=''/>'"><svg fill="#000000" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+        <g>
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M16.49 15.5v-1.75L14 16.25l2.49 2.5V17H22v-1.5z"/>
+        <path d="M19.51 19.75H14v1.5h5.51V23L22 20.5 19.51 18z"/>
+        <g><path d="M9.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5.75 8.9L3 23h2.1l1.75-8L9 17v6h2v-7.55L8.95 13.4l.6-3C10.85 12 12.8 13 15 13v-2c-1.85 0-3.45-1-4.35-2.45l-.95-1.6C9.35 6.35 8.7 6 8 6c-.25 0-.5.05-.75.15L2 8.3V13h2V9.65l1.75-.75"/>
+        </g></g>
+       </svg></button>
+
+      
       <ol class="breadcrumb">
         <li><a href="\Aoide\_14_Score.view\index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Song</a></li>
@@ -97,35 +130,36 @@
 	
 	// 	var gb = 0;
 
-	function myFunction(event) {
-
-		var a = "too bad";
-		var b = "bad";
-		var c = "so so";
-		var d = "good";
-		var e = "very well";
+// 	function myFunction(event) {
+		
+		
+// 		var a = "too bad";
+// 		var b = "bad";
+// 		var c = "so so";
+// 		var d = "good";
+// 		var e = "very well";
 
 		//    		 var bb = a.onclick = document.getElementById("g7").id
 		//     		 alert(bb);
 
-		v = document.getElementById("G8").innerText;
+// 		v = document.getElementById("G8").innerText;
 
-		if (v == document.getElementById("1").id) {
-			alert(a);
-		} else if (v == document.getElementById("2").id) {
-			alert(b);
-		} else if (v == document.getElementById("3").id) {
-			alert(c);
+// 		if (v == document.getElementById("1").id) {
+// 			alert(a);
+// 		} else if (v == document.getElementById("2").id) {
+// 			alert(b);
+// 		} else if (v == document.getElementById("3").id) {
+// 			alert(c);
 
-		} else if (v == document.getElementById("4").id) {
-			alert(d);
+// 		} else if (v == document.getElementById("4").id) {
+// 			alert(d);
 
-		} else if (v == document.getElementById("5").id)
-			alert(e);
+// 		} else if (v == document.getElementById("5").id)
+// 			alert(e);
          
-	}
+// 	}
 
-	function sendStat() {
+ function sendStat() {
 		alert(v);
 		//var formData = new FormData();
 		//formData.append("socreStar", G8);  上傳用mulitipart data
@@ -134,18 +168,22 @@
 
 		xhr.onload = function() {
 			if (this.status == 200) {
-				alert("send done");
+				alert("評論已送出");
+				top.location.href="<c:url value='/GetScoreServlet.member'/>"
 
 			} else {
-
-				alert("Please Enter Point & Comment");
+             
+				alert("請誤空白以及重複評分");
+				
 			}
 		}
-      xhr.open("post", "/Aoide/ScoreInDataBaseServlet.member");
+      xhr.open("post", "/Aoide/ScoreInDataBaseServlet.member",true);
       xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
       var comment = document.getElementById("replyContent").value;
       console.log(comment);
 	  xhr.send("socreStar="+ v + "&comment=" + comment );
+	  
+	 
 	}
 </script>
 
@@ -156,56 +194,87 @@
       
 
 <title>評分評論</title>
-<!-- <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script> -->
-<!-- <!-- Latest compiled and minified CSS --> 
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" -->
-<!-- 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" -->
-<!-- 	crossorigin="anonymous"> -->
 
-<!-- <!-- Optional theme --> 
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" -->
-<!-- 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" -->
-<!-- 	crossorigin="anonymous"> -->
-<!-- </head> -->
-<!-- <body> -->
-<!-- 	<div class="container"> -->
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-lg-1"></div> -->
-<!-- 			<div class="col-lg-10"> -->
-<!-- 				<div class="panel panel-primary"> -->
-<!-- 					<div class="panel-heading"> -->
-<!-- 						<a href=""></a> -->
-<!-- 					</div> -->
+<%-- ${type1} --%>
+<%--  <% int i = 0; %>  --%>
+	<table class="table">
+		<thead>
+			<tr>
+<!-- 				<th>　</th> -->
+				<th>歌曲ID</th>
+				<th>歌名</th>
+				<th>演出者</th>
+				<th>類型</th>
+				<th>語言</th>
+				<th>上傳日期</th>
+				<th>專輯封面</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="songOne" items="${getScore}">
+				<tr>
+<%-- 					<td><% out.print(i = i + 1); %></td> --%>
+					<td>${songOne.songId}</td>
+					<td>${songOne.name}</td>
+					<td>${songOne.singer}</td>
+					<td>${songOne.songType}</td>
+					<td>${songOne.songLanguage}</td>
+					<td>${songOne.updateDate}</td>
+					<td>${songOne.coverFile}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+
+
+
+
+
+
+		<table class="table">
+    						<thead>
+    							<tr>
+    							    <th>MemberId</th>
+    							    <th>Date</th>
+    							    <th>ScoreValue</th>
+									<th>CommentFile</th>
+								</tr>
+    						</thead>
+    						<tbody>
+  								<c:forEach var="ScoreVO" items="${fulks}">    
+			    					<tr>
+ 			    					    <td>${ScoreVO.memberId}</td>   
+ 			    					    <td>${ScoreVO.date}</td> 
+			                            <td>${ScoreVO.scoreValue}</td>
+			    						<td>${ScoreVO.comment}</td>
+
+  </tr>  
+	 
+		    					</c:forEach>     
+    						</tbody>
+    					</table>
+    					<br>
 					<div class="panel-body">
 
 						<table class="table">
 							<thead>
 								<tr>
-									<th>MemberId</th>
-									<th>SongId</th>
-									<th>Date</th>
+<!-- 									<th>MemberId</th> -->
+<!-- 									<th>SongId</th>			 -->
 									<th>ScoreValue</th>
+									<br>
 									<th>CommentFile</th>
 								</tr>
 							</thead>
 							<tbody>
 
-								<script>
-									
-								</script>
-
 
 								<tr>
-									<td>${scoreVO.memberId}</td>
-									<td>${scoreVO.songId}</td>
-									<td>Date</td>
+<%-- 									<td>${scoreVO.memberId}</td> --%>
+<%-- 									<td>${scoreVO.songId}</td> --%>
+									
 									<td>
 										<!-- 顯示star與取值 -->
-
-
-										<form action="/GetScoreServlet?"></form>
 										<p id="g7" class="starWrapper" onmouseover="rate(this,event)">
 
 
@@ -219,27 +288,20 @@
 												src="http://www.jb51.net/upload/20080508122008586.gif" /></a> <a
 												id="5" name="5" title="5"><img
 												src="http://www.jb51.net/upload/20080508122008586.gif" /></a> <br>
-											&nbsp; &nbsp; 分數為: &nbsp; <span id="G8"
-												style="width: 120px; height: 40px; font-size: 14px;">......</span>
+											&nbsp; &nbsp;  您給了: &nbsp; <span id="G8"
+												style="width: 120px; height: 40px; font-size: 14px;">__</span>分
 									</td>
 
 									<td>  <textarea name="replyContent" id="replyContent" rows="5" cols="60">
 				                     
 				            </textarea>
-									<td><button onclick="sendStat()" type="button" herf="\_14_Score.view\CommentPresent.jsp" class="btn btn-info" role="button"
-											value="sumit"><span class="glyphicon glyphicon-hand-down"></span> Summit!
-        </button><br>
+									<td><input type="button" onclick="sendStat()" type="button"class="btn btn-info" role="button"value="submit">
+									
+
+        <br>
         
         <br>
-                                            <br>&nbsp; &nbsp;<a class="btn btn-info" role="button" href="CommentPresent.jsp" align="center"><span class="glyphicon glyphicon-eye-open"></span><br>Comment</a>
-										</td>
-                                             
-									
-									<a href="http://localhost:8080/Aoide/index.jsp" class="btn btn-info" role="button"  >回首頁</a>
-									
-									
-									
-									
+				
 							</tbody>
 						</table>
 

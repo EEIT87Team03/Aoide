@@ -78,27 +78,25 @@
     						<thead>
     							<tr>
     							    <th>MemberId</th>
+    							    <th>SongId</th>
     							    <th>Date</th>
     							    <th>ScoreValue</th>
 									<th>CommentFile</th>
 								</tr>
     						</thead>
     						<tbody>
- 								<c:forEach var="commentValue" items="${fucks}">  
+  								<c:forEach var="ScoreVO" items="${fulks}">    
 			    					<tr>
-			    					    <td>${commentValue.memberId}</td>
-			                            <td>${commentValue.date}</td>
-			                            <td>${commentValue.scoreValue}</td>
-			    						<td>${commentValue.comment}</td>
+			    					    <td>${ScoreVO.memberId}</td>
+			    					    <td>${ScoreVO.songId}</td>
+			    					    <td>${ScoreVO.date}</td>
+			                            <td>${ScoreVO.scoreValue}</td>
+			    						<td>${ScoreVO.comment}</td>
 
-
-<%--                 <td> <a href="Aoide\repository\Aoide\src\main\webapp\template\index.jsp" value='/CommentServlet?id=${commentValue.memberId}' class="btn btn-info" role="button">  <span class="glyphicon glyphicon-share-alt"></span>回首頁</a></td>   --%>
-                    
-    
   </tr>  
  			    				        
  			   			 
-		    					</c:forEach>   
+		    					</c:forEach>     
     						</tbody>
     					</table>
     					<br>

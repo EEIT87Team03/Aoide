@@ -10,14 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.score.ScoreVO;
 import com.aoide.member._14_ScoreSong.model.ScoreInService;
 import com.aoide.member._14_ScoreSong.model.ScoreService;
 
-/**
- * Servlet implementation class CommentServlet
- */
-@WebServlet("/CommentServlet.member")
+@WebServlet("/CommentServlet")
 public class CommentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -29,27 +27,32 @@ public class CommentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		// form ScoreVO take Comment_file column
-		List<ScoreVO> all_comment = new ScoreInService().getComment_D();
-		for (ScoreVO one : all_comment) {
-			one.getComment();
-			request.getSession().setAttribute("comments", one);
-
-		}
+	    HttpSession session = request.getSession();
+		Integer songId1 = (Integer) session.getAttribute("song1");
 		
-		// select all memeber comment
-		List<ScoreVO> fuck = new ScoreService().getPoint();
-		request.getSession().setAttribute("fucks",
-				fuck);
+
+//		Integer songId = Integer.parseInt(request.getParameter("songId"));
+		
+//		Integer songId = Integer.parseInt(request.getParameter("id"));
+		
+		
+		
+		request.setCharacterEncoding("UTF-8");
+		
+	    List<ScoreVO> fulk =  new ScoreInService().ScoreSong(songId1);
+	    request.getSession().setAttribute("fulks",fulk);
+
+	   
+
 
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/_14_Score.view/CommentPresent.jsp");
+		response.sendRedirect(contextPath + "/views/member/_14_Score.view/getScore1.jsp");
 
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
+		doGet(request,response);
 	}
 
 }

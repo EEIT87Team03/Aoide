@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
+import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
 
 
@@ -21,7 +22,9 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
 	private static final String GET_ONE_STMT = "SELECT member_id,song_id FROM Favorite where member_id=? AND song_id = ?";
 	private static final String GET_BY_MEMBER_ID = "SELECT member_id,song_id FROM Favorite where member_id=?";
 	private static final String GET_FAVORITES_BY_MEMBERID = "SELECT * FROM favorite WHERE member_id=?";
-
+	private static final String GET_FAVORITES_BY_SONGCOUNTS = "SELECT * FROM favorite WHERE song_id=?";
+	
+	
 	@Override
 	public void insert(FavoriteVO favoriteVO) {
 
@@ -328,6 +331,7 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
     		Connection conn = null;
     		PreparedStatement ptmt = null;
     		ResultSet rs = null;
+    		SongVO songVO = null;
     		
     	    try{
     	    	conn = ConnectionBean.getConnection();
@@ -339,7 +343,12 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
     	    		favoriteVO = new FavoriteVO();
     	    		favoriteVO.setMemberId(rs.getInt("member_id"));
     	    		favoriteVO.setSongId(rs.getInt("song_id"));
-    	   
+    	    	   
+    	    	
+    	    		
+    	    		
+    	    		
+    	    		
     				list.add(favoriteVO);
     				
     	        }
@@ -379,7 +388,7 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
     	}
 	
     	public List<FavoriteVO> getFavoritesById(Integer memberId) {
-    	    List<FavoriteVO>list = new ArrayList<FavoriteVO>();
+    		List<FavoriteVO>list = new ArrayList<FavoriteVO>();
     			
     	        FavoriteVO favoriteVO = null;
     			Connection conn = null;
@@ -432,6 +441,58 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
     		}		
 	
 	
+    	public FavoriteVO getFavoritesBySong(Integer songId) {
+    	 
+    			
+    	        FavoriteVO favoriteVO = null;
+    			Connection conn = null;
+    			PreparedStatement ptmt = null;
+    			ResultSet rs = null;
+    			
+    		    try{
+    		    	conn = ConnectionBean.getConnection();
+    		    	ptmt = conn.prepareStatement(GET_FAVORITES_BY_SONGCOUNTS);
+    		    	ptmt.setInt(1, songId);
+    		    	rs = ptmt.executeQuery();
+    		    	
+    		    	while(rs.next()){
+    		    		favoriteVO = new FavoriteVO();
+    		     		favoriteVO.setSongId(rs.getInt("song_id"));
+    		   
+    				
+    					
+    		        }
+    				
+    		    } catch (SQLException e) {
+    				throw new RuntimeException("Can't Use this Database."
+    						+ e.getMessage());
+
+
+    				} finally {
+    					if (ptmt != null) {
+    						try {
+    							ptmt.close();
+    						} catch (SQLException e1) {
+    							e1.printStackTrace(System.err);
+
+    						}
+
+    						if (conn != null) {
+    							try {
+    								conn.close();
+
+    							} catch (Exception e) {
+    								e.printStackTrace(System.err);
+
+    							}
+
+    						}
+
+    					}
+    				}
+				return favoriteVO;
+    				
+    		}		
 	
 	
 

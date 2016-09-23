@@ -9,6 +9,9 @@ import javax.servlet.annotation.WebListener;
 
 import com.aoide.global.dataBaseManipulationObjects.DataSourceProxy;
 import com.aoide.global.dataBaseManipulationObjects.Playlist;
+import com.aoide.global.dataBaseManipulationObjects.ad.AdService;
+import com.aoide.global.dataBaseManipulationObjects.bullet.BulletDAO;
+import com.aoide.global.dataBaseManipulationObjects.bullet.JdbcBulletDAO;
 
 @WebListener
 public class AoideServletContextListener implements ServletContextListener, ServletContextAttributeListener 
@@ -28,6 +31,10 @@ public class AoideServletContextListener implements ServletContextListener, Serv
          DataSourceProxy.setJndiLookUpName( lookupName );
          
          context.setAttribute( Playlist.class.getName(), new Playlist() );
+         //初始化
+         AdService adService = new AdService();
+         context.setAttribute("ads",adService.getAllAdVO());
+         
          System.out.println( "Context Initialized...");
     }
 	

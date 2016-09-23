@@ -1,0 +1,85 @@
+#playbar 
+{
+	overflow : hidden;
+	box-sizing: border-box;
+	background : #f2f9ff;
+	width: 100%;
+	text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border: 1px solid grey;
+    margin: 0;
+    padding: 0;
+   	display : none;
+   	-webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.8s;
+    animation-name: slideIn;
+    animation-duration: 0.8s
+}
+#info, #cover, #controls, #chart, #chart:after, #chart div 
+{
+	display: inline-block;
+}
+#cover
+{
+	margin: 2px 5px 0px 5px;
+}
+#info
+{
+	font-size: 14px;
+	font-weight: normal;
+	font-family: Arial, Verdana, Sans-serif;
+}
+#status
+{
+	margin: 0px 5px 10px 5px;
+	font-weight: normal;
+	font-family: Arial, Verdana, Sans-serif;
+}
+#chart
+{
+	margin: 1px;
+	width : 770px;
+}
+#chart:after
+
+{
+	content: "";
+    height: 60px;
+}
+  
+#chart div 
+{
+    width: 2px;
+    background: #a00;
+    margin: 0 0 0 1px;
+    vertical-align: bottom;
+}
+
+#toggle
+{
+	position: fixed;
+    right: 10px;
+    bottom : 1px;
+    color: grey;
+}
+#toggle:hover, #toggle:focus 
+{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn 
+{
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn 
+{
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
