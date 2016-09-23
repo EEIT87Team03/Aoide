@@ -8,12 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/LoginOK")
+@WebServlet("/LoginOK.member")
 public class LoginOK extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath + "/index(Billy測試用JSP).jsp");
 	}
 
 
