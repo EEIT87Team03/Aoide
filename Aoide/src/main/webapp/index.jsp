@@ -68,7 +68,7 @@ var easy_fancybox_handler = function(){
 /* ]]> */
 </script>
 </head>
-<body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k" onload = "init()">
+<body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
 <div class="view full " id="layers-widget-skrollex-section-3">
 <div data-src="/Aoide/views/dist/img/aoide2.jpg" class="bg-holder"></div>
 <div data-src="/Aoide/views/dist/img/aoide3.jpg" class="bg-holder"></div>
@@ -102,7 +102,7 @@ var easy_fancybox_handler = function(){
 <div id = "playbar" oncontextmenu = "window.event.returnValue = false">
 		<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
 		<div id = "info">
-			<h5 id = "status"></h5>
+			<h5 id = "tip"></h5>
 			<span id = "trackName"></span>
 			<span id = "singer"></span>
 		</div>

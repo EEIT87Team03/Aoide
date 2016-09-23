@@ -1,32 +1,56 @@
 /**
  * 
  */
-var timerID;
 var asUri = "ws://localhost:8080/Aoide/play";
 var cover = document.getElementById( "cover" );
 var audio = document.getElementById( "track" );
 var trackName = document.getElementById( "trackName" );
 var singer = document.getElementById( "singer" );
-var tip = document.getElementById( "status" ); //need another name
+var tip = document.getElementById( "tip" ); //need another name
 var playbar = document.getElementById( "playbar" );
 var toggle =  document.getElementById( "toggle" );
 var chart = document.getElementById( "chart" );
+var timerID;
 var audioSocket;
+var audioContext;
+var audioSource
+var analyser;
+var dataArray;
 
-for ( var i = 0; i < 256; i++ )
+if( window.addEventListener )
 {
-	var divChild = document.createElement( "div" );
-	chart.appendChild( divChild );
+	window.addEventListener( "load", initial )
+}
+else
+{
+	window.attachEvent( "onload", initial )
 }
 
-function init()
+function initial()
 {
+	for ( var i = 0; i < 256; i++ )
+	{
+		var divChild = document.createElement( "div" );
+		chart.appendChild( divChild );
+	}
+	
+	window.AudioContext = window.AudioContext || window.webkitAudioContext;
+	audioContext = new AudioContext();
+	audioSource = audioContext.createMediaElementSource( audio );
+	analyser = audioContext.createAnalyser();
+	audioSource.connect( analyser );
+	analyser.connect( audioContext.destination );
+	analyser.fftSize = 2048;
+	var bufferLength = analyser.frequencyBinCount;
+	dataArray = new Uint8Array( bufferLength );
+	
 	audioSocket = new WebSocket( asUri );
 	audioSocket.onmessage = onMessage;
+	audioSocket.onclose = onClose();
 	audio.onended = onEnded;
 	toggle.onclick = onToggle;
 }
-	
+
 function onMessage( event )
 {	
 	var message = event.data;
@@ -51,6 +75,11 @@ function onMessage( event )
 			
 		}
 	}
+}
+
+function onClose( event )
+{
+	console.log( "Websocket closed connection..." );
 }
 
 function start()
@@ -89,19 +118,8 @@ function onToggle( event )
 	}
 }
 
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
-var audioContext = new AudioContext();
-var audioSource = audioContext.createMediaElementSource( audio );
-var analyser = audioContext.createAnalyser();
-audioSource.connect( analyser );
-analyser.connect( audioContext.destination );
-
-analyser.fftSize = 2048;
-var bufferLength = analyser.frequencyBinCount;
-var dataArray = new Uint8Array( bufferLength );
-
 function updateChart() 
-{
+{	
     analyser.getByteFrequencyData( dataArray );
     for( var j = 0; j < 256; j++ )
     {

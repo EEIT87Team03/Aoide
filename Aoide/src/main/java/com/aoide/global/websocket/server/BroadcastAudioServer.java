@@ -40,7 +40,7 @@ public class BroadcastAudioServer implements PlaylistListener
         servletContext = httpSession.getServletContext();
         playlist = ( Playlist ) servletContext.getAttribute( Playlist.class.getName() );
         playlist.addListener( this );
-        System.out.println( "BroadcastAudio server session created..." );
+        System.out.println( "BroadcastAudioServer open session..." );
 	}
 	
 	@OnMessage

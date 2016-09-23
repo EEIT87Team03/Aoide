@@ -101,13 +101,14 @@
         											
         											
         											
-       document.getElementById("input").addEventListener("keypress",function(event){
-		if(event.keyCode == 13){
-			//alert("ENTER!");
-			sendDanmu();
-			document.getElementById("input").value=""
-		   };
-	     });
+       document.getElementById("input").addEventListener("keypress", function(event){
+																			if(event.keyCode == 13){
+																				//alert("ENTER!");
+																				sendDanmu();
+																				document.getElementById("input").value="";
+																		    }
+	     															  }
+	   );
         											      											
         
         
