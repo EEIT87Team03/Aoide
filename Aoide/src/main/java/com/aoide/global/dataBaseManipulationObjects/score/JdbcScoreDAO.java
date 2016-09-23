@@ -8,19 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
+import com.aoide.global.dataBaseManipulationObjects.favorite.FavoriteVO;
+import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
 
 
 public class JdbcScoreDAO implements ScoreDAO {
 	
 	
-	private static final String INSERT_STMT = "INSERT INTO Score (member_id,song_id,date,score_value,comment_file) VALUES(?,?,?,?,?)";
+	private static final String INSERT_STMT = "INSERT INTO Score (member_id,song_id,score_value,comment_file) VALUES(?,?,?,?)";
 	private static final String UPDATE = "UPDATE Score set member_id=?,song_id=?, date=?,score_value=?,comment_file=? ";
 	private static final String DELETE = "DELETE FROM Score where (member_id=?,song_id=?)";
 	private static final String GET_ALL_STMT = "SELECT member_id,song_id,date,score_value,comment_file FROM Score order by member_id";
-	private static final String GET_ONE_STMT = "SELECT member_id,song_id,date,score_value,comment_file FROM Score where member_id=? and song_id=?";
+	private static final String GET_ONE_STMT = "SELECT member_id,song_id,date,score_value,comment_file FROM Score where  song_id=?";
 	private static final String GET_AVG_STMT = "SELECT AVG(score_value) FROM score WHERE song_id = ?";
-
+	private static final String GET_SCORE_BY_SONGID = "SELECT * FROM score WHERE song_id=?";
 	
 
 
@@ -36,9 +38,8 @@ public class JdbcScoreDAO implements ScoreDAO {
 
 			ptmt.setInt(1, scoreVO.getMemberId());
 			ptmt.setInt(2, scoreVO.getSongId());
-			ptmt.setDate(3,scoreVO.getDate());
-			ptmt.setInt(4, scoreVO.getScoreValue());
-			ptmt.setString(5, scoreVO.getComment());
+			ptmt.setInt(3, scoreVO.getScoreValue());
+			ptmt.setString(4, scoreVO.getComment());
 
 			ptmt.executeUpdate();
 
@@ -299,7 +300,7 @@ public class JdbcScoreDAO implements ScoreDAO {
 	}
 	
 	@Override
-	public ScoreVO findByPrimaryKey(Integer memberId, Integer songId) {
+	public ScoreVO findByPrimaryKey(Integer songId) {
 		
 		ScoreVO scoreVO = null;
 		Connection conn = null;
@@ -310,8 +311,8 @@ public class JdbcScoreDAO implements ScoreDAO {
 			
 			conn = ConnectionBean.getConnection();
 			ptmt = conn.prepareStatement(GET_ONE_STMT);
-			ptmt.setInt(1, memberId);
-	    	ptmt.setInt(2, songId);
+//			ptmt.setInt(1, memberId);
+	    	ptmt.setInt(1 , songId);
 			rs = ptmt.executeQuery();
 			
 			while (rs.next()){
@@ -357,6 +358,71 @@ public class JdbcScoreDAO implements ScoreDAO {
 	}
 	
 
+	
+	
+	public List<ScoreVO> getScoreSongById(Integer songId) {
+	    List<ScoreVO>list = new ArrayList<ScoreVO>();
+			
+	        ScoreVO scoreVO = null;
+			Connection conn = null;
+			PreparedStatement ptmt = null;
+			ResultSet rs = null;
+			
+		    try{
+		    	conn = ConnectionBean.getConnection();
+		    	ptmt = conn.prepareStatement(GET_SCORE_BY_SONGID);
+		    	ptmt.setInt(1, songId);
+		    	rs = ptmt.executeQuery();
+		    	
+		    	while(rs.next()){
+		    		scoreVO = new ScoreVO();
+		    		scoreVO.setMemberId(rs.getInt("member_id"));
+		    		scoreVO.setSongId(rs.getInt("song_id"));
+		    		scoreVO.setDate(rs.getDate("date"));
+		    		scoreVO.setScoreValue(rs.getInt("score_value"));
+		    		scoreVO.setComment(rs.getString("comment_file"));
+					list.add(scoreVO);
+					
+		        }
+				
+		    } catch (SQLException e) {
+				throw new RuntimeException("Can't Use this Database."
+						+ e.getMessage());
+
+
+				} finally {
+					if (ptmt != null) {
+						try {
+							ptmt.close();
+						} catch (SQLException e1) {
+							e1.printStackTrace(System.err);
+
+						}
+
+						if (conn != null) {
+							try {
+								conn.close();
+
+							} catch (Exception e) {
+								e.printStackTrace(System.err);
+
+							}
+
+						}
+
+					}
+				}
+			return list;	
+		}		
+
+
+
+
+	
+	
+	
+	
+	
 	
 	
     public static void main(String[]args){

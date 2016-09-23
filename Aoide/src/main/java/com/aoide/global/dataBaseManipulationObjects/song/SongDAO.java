@@ -11,5 +11,6 @@ public interface SongDAO {
 	public List<SongVO> getAll();
 	public List<SongVO> getName(String search);
 	public List<SongVO> getSinger(String search);
-	
+	public List<SongVO> findByOther(Integer songId);
+	public List<SongVO> getFavoritesSongById(Integer memberId);
 }

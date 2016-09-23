@@ -1,6 +1,7 @@
 package com.aoide.member._14_ScoreSong.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.score.ScoreVO;
+import com.aoide.member._14_ScoreSong.model.ScoreInService;
 import com.aoide.member._14_ScoreSong.model.ScoreService;
 
 @WebServlet("/GetScoreServlet.member")
@@ -21,34 +23,48 @@ public class GetScoreServlet extends HttpServlet implements Servlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-//		Integer songId = new Integer(request.getParameter("songid"));
+		
 		HttpSession session = request.getSession();
-		Integer songId = 9; 
+		
+		Integer songId1 = (Integer) session.getAttribute("song1");
+		
+		
+//		request.setAttribute("song2", songId1);
+		
+		request.setCharacterEncoding("UTF-8");
+		session.removeAttribute("fulks");
+		
+		session.getAttribute("getScore");
+		
+		
 //		String a = request.getParameter("result");
 //		Integer songId = Integer.parseInt(a);
 		
 		MemberVO member = (MemberVO)session.getAttribute("member");
 		Integer memberId = member.getMemberId();
 		
+		
 		ScoreVO scoreVO = new ScoreVO();
-		scoreVO.setSongId(songId);
+		scoreVO.setSongId(songId1);
 		scoreVO.setMemberId(memberId);
+       
 		
 		session.setAttribute("scoreVO", scoreVO);
+		new ScoreService().calculatorAVG(songId1);
 		
-		new ScoreService().calculatorAVG(songId);
 		
-	
-		
+
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/views/member/_14_Score.view/getScore1.jsp");
+		response.sendRedirect(contextPath + "/CommentServlet");
+//		response.sendRedirect(contextPath + "/views/member/_14_Score.view/getScore1.jsp");
+		
 		
 		
 	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
+		doGet(request,response);
 
 		}
 
