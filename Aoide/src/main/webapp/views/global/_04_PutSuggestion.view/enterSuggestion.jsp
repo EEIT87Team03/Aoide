@@ -10,38 +10,42 @@
   <c:import url="/template/htmlBlocks/head_library.html"/>
   <!-- head_library -->
   <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
-<title>編輯會員資料</title>
+<title>編輯建議</title>
 
 </head>
-<body class="hold-transition skin-blue fixed sidebar-mini">
+<!-- <body class="hold-transition skin-blue fixed sidebar-mini"> -->
+<body>
 <!-- Site wrapper -->
-<div class="wrapper">
+<!-- <div class="wrapper"> -->
   <!-- header -->
-  <c:import url="/template/htmlBlocks/header.html"/>
+  <%--  <c:import url="/template/htmlBlocks/header.html"/> --%>
+  <!-- header -->
   <!-- header -->
 
   <!-- =============================================== -->
 
   <!-- sidebar -->
-  <c:import url="/template/htmlBlocks/sidebar_global.html"/>
+  <!-- header -->
+   <%-- <c:import url="/template/htmlBlocks/sidebar_global.html"/> --%>
   <!-- sidebar -->
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<!--   <div class="content-wrapper"> -->
+  <div>
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        新增建議
-        <small>編輯建議標題/內容</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Layout</a></li>
-        <li class="active">Fixed</li>
-      </ol>
-    </section>
+<!--     <section class="content-header"> -->
+<!--       <h1> -->
+<!--         新增建議 -->
+<!--         <small>編輯建議標題/內容</small> -->
+<!--       </h1> -->
+<!--       <ol class="breadcrumb"> -->
+<!--         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li> -->
+<!--         <li><a href="#">Layout</a></li> -->
+<!--         <li class="active">Fixed</li> -->
+<!--       </ol> -->
+<!--     </section> -->
 
     <!-- Main content -->
     <section class="content">
@@ -140,13 +144,13 @@
   <!-- /.content-wrapper -->
 
   <!-- footer -->
-  <c:import url="/template/htmlBlocks/footer.html"/>
+  <%-- <c:import url="/template/htmlBlocks/footer.html"/> --%>
   <!-- footer -->
 
   <!-- Control Sidebar -->
-  <c:import url="/template/htmlBlocks/control_sidebar.html"/>
+  <%-- <c:import url="/template/htmlBlocks/control_sidebar.html"/> --%>
   <!-- Control Sidebar -->
-</div>
+<!-- </div> -->
 <!-- ./wrapper -->
 
 <!-- body_library -->
