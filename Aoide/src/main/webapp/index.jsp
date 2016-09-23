@@ -11,96 +11,11 @@
 <link rel="stylesheet" href="/Aoide/css/HoverableDropDown.css">
 <link rel="stylesheet" type="text/css" href="/Aoide/css/_05_DisplayDanmuku/barrager.css">
 <link rel="stylesheet" type="text/css" href="danmmu/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/Aoide/css/_02_PlaySong/audioSocket.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Comments Feed" href="http://skrollex-wp.x40.ru/anna/comments/feed/"/>
-<style>#wp-admin-bar-layers-edit-layout .ab-icon:before{font-family:"layers-interface"!important;content:"\e62f"!important;font-size:16px!important;}
-#playbar 
-{
-	overflow : hidden;
-	box-sizing: border-box;
-	background : #f2f9ff;
-	width: 100%;
-	text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    border: 1px solid grey;
-    margin: 0;
-    padding: 0;
-   	display : none;
-   	-webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.8s;
-    animation-name: slideIn;
-    animation-duration: 0.8s
-}
-#info, #cover, #controls, #chart, #chart:after, #chart div 
-{
-	display: inline-block;
-}
-#cover
-{
-	margin: 2px 5px 0px 5px;
-}
-#info
-{
-	font-size: 14px;
-	font-weight: normal;
-	font-family: Arial, Verdana, Sans-serif;
-}
-#status
-{
-	margin: 0px 5px 10px 5px;
-	font-weight: normal;
-	font-family: Arial, Verdana, Sans-serif;
-}
-#chart
-{
-	margin: 1px;
-	width : 770px;
-}
-#chart:after
-
-{
-	content: "";
-    height: 60px;
-}
-  
-#chart div 
-{
-    width: 2px;
-    background: #a00;
-    margin: 0 0 0 1px;
-    vertical-align: bottom;
-}
-
-#toggle
-{
-	position: fixed;
-    right: 10px;
-    bottom : 1px;
-    color: grey;
-}
-#toggle:hover, #toggle:focus 
-{
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Add Animation */
-@-webkit-keyframes slideIn 
-{
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-}
-
-@keyframes slideIn 
-{
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-}
-</style>
+<style>#wp-admin-bar-layers-edit-layout .ab-icon:before{font-family:"layers-interface"!important;content:"\e62f"!important;font-size:16px!important;}</style>
 <link rel='stylesheet' id='contact-form-7-css' href='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.4.2' type='text/css' media='all'/>
 <link rel='stylesheet' id='layers-google-fonts-css' href='//fonts.googleapis.com/css?family=Ubuntu%3Aregular%2Citalic%2C700%2C300%2C300italic%2C500%2C500italic%2C700italic%7COswald%3Aregular%2C700%2C300&#038;ver=1.5.3' type='text/css' media='all'/>
 <link rel='stylesheet' id='layers-framework-css' href='http://skrollex-wp.x40.ru/anna/wp-content/themes/layerswp/assets/css/framework.css?ver=1.5.3' type='text/css' media='all'/>
@@ -161,7 +76,7 @@ var easy_fancybox_handler = function(){
 <div id="home" class="fg colors-b  full-size">
 <iframe src="" height="22"></iframe><br>
 <iframe src="" width="31"></iframe>
-<iframe src="home.html" height="820" width="1850" name="aoide"></iframe>
+<iframe src="home.jsp" height="820" width="1850" name="aoide"></iframe>
 </div>
 </div>
 <div class="gate colors-o">
@@ -236,7 +151,7 @@ var easy_fancybox_handler = function(){
 </a> </nav>
 <div class="logo">
 <div class="site-description">
-<h3 class="sitename sitetitle"><a href="home.html" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></a></h3>
+<h3 class="sitename sitetitle"><a href="home.jsp" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></a></h3>
 </div>
 </div>
 </div>
@@ -305,7 +220,9 @@ Close
 </div>
 </div>
 </section>
-
+<script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/jquery.barrager.js"></script>
+<script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
+<script type="text/javascript" src="/Aoide/js/_02_PlaySong/audioSocket.js"></script>
 <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */
@@ -339,8 +256,5 @@ var layers_script_settings = {"header_sticky_breakpoint":"270"};
 <script type="text/javascript">
 jQuery(document).on('ready post-load', easy_fancybox_handler );
 </script>
-<script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/jquery.barrager.js"></script>
-<script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
-<script type="text/javascript" src="/Aoide/js/_02_PlaySong/audioSocket.js"></script>
 </body>
 </html>
