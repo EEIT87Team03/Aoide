@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en-US" class="state2 page-is-gated scroll-bar site-decoration-a" data-skrollex-config="{isInitColorPanel: false, isCustomizer: false, adminUrl: &#039;http://skrollex-wp.x40.ru/anna/wp-admin/&#039;, ajaxUrl: &#039;http://skrollex-wp.x40.ru/anna/wp-admin/admin-ajax.php&#039;, homeUri: &#039;http://skrollex-wp.x40.ru/anna&#039;, themeUri: &#039;http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/&#039;, permalink: &#039;http://skrollex-wp.x40.ru/anna&#039;, colors: &#039;colors-preset-anna.css&#039;}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Aoide</title>
 <link rel="Shortcut Icon" type="image/x-icon" href="/Aoide/views/dist/img/AoideIcon.png" />
+<link rel="stylesheet" href="/Aoide/css/HoverableDropDown.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Comments Feed" href="http://skrollex-wp.x40.ru/anna/comments/feed/"/>
@@ -66,7 +70,7 @@ var easy_fancybox_handler = function(){
 <div data-src="/Aoide/views/dist/img/aoide4.jpg" class="bg-holder"></div>
 <div data-src="/Aoide/views/dist/img/aoide5.jpg" class="bg-holder"></div>
 <div id="home" class="fg colors-b  full-size">
-<iframe src="" height="0"></iframe><br>
+<iframe src="" height="22"></iframe><br>
 <iframe src="" width="31"></iframe>
 <iframe src="home.html" height="820" width="1850" name="aoide"></iframe>
 </div>
@@ -98,7 +102,13 @@ var easy_fancybox_handler = function(){
 <nav class="nav nav-horizontal">
 <ul id="menu-skrollex-menu-1" class="menu">
 <li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query.member" target="aoide"><span class="glyphicon glyphicon-user"></span>會員資料</a></li>
-<li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805"><a href="/Aoide/views/member/_16_ManageSong.view/ManageSong.jsp" target="aoide"><span class="glyphicon glyphicon-music"></span>管理歌曲</a></li>
+<li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805">
+<div class="dropdown"><a class="dropbtn">
+<span class="glyphicon glyphicon-music"></span>管理歌曲
+</a><div class="dropdown-content">
+<a href="/Aoide/views/member/_16_ManageSong.view/ManageSong.jsp" target="aoide">abc</a>
+<a href="/Aoide/views/member/_16_ManageSong.view/ManageSong.jsp" target="aoide">abc</a>
+</div></div></li>
 <li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806"><a href="/Aoide/views/member/_22_ManageAlbum.view/ManageAlbum.jsp" target="aoide"><span class="glyphicon glyphicon-edit"></span>管理專輯</a></li>
 <li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span class="glyphicon glyphicon-heart"></span>收藏清單</a></li>
 <li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><a href="/Aoide/views/member/_19_20_ManageToken.view/ManageToken.jsp" target="aoide"><span class="glyphicon glyphicon-piggy-bank"></span>點數儲值</a></li>

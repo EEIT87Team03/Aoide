@@ -3,6 +3,11 @@
  *@author   yaseng@uauc.net
  *@url      https://github.com/yaseng/jquery.barrager.js
  */
+
+
+
+
+
 (function($) {
 
 	$.fn.barrager = function(barrage) {

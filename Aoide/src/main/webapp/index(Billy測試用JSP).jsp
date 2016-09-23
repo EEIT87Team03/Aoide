@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en-US" class="state2 page-is-gated scroll-bar site-decoration-a" data-skrollex-config="{isInitColorPanel: false, isCustomizer: false, adminUrl: &#039;http://skrollex-wp.x40.ru/anna/wp-admin/&#039;, ajaxUrl: &#039;http://skrollex-wp.x40.ru/anna/wp-admin/admin-ajax.php&#039;, homeUri: &#039;http://skrollex-wp.x40.ru/anna&#039;, themeUri: &#039;http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/&#039;, permalink: &#039;http://skrollex-wp.x40.ru/anna&#039;, colors: &#039;colors-preset-anna.css&#039;}">
 <head>
 <meta charset="UTF-8">
@@ -108,10 +111,17 @@ var easy_fancybox_handler = function(){
 </a> </nav>
 <div class="logo">
 <div class="site-description">
+<!-- 登入後圖片 -->
+<c:if test="${! empty member }">
+	<img height="40px" width="30px" src="data:image/*;base64,${member.picture}">
+</c:if>
+<!-- 登入後圖片 -->
 <h3 class="sitename sitetitle"><a href="home.html" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></a></h3>
 </div>
+
 </div>
 </div>
+
 </section>
 <ul id="dot-scroll" class="colors-a no-colors-label"></ul>
 <div class="overlay-window gallery-overlay colors-q" data-overlay-zoom=".fg">
