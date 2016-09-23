@@ -14,7 +14,93 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Comments Feed" href="http://skrollex-wp.x40.ru/anna/comments/feed/"/>
-<style>#wp-admin-bar-layers-edit-layout .ab-icon:before{font-family:"layers-interface"!important;content:"\e62f"!important;font-size:16px!important;}</style>
+<style>#wp-admin-bar-layers-edit-layout .ab-icon:before{font-family:"layers-interface"!important;content:"\e62f"!important;font-size:16px!important;}
+#playbar 
+{
+	overflow : hidden;
+	box-sizing: border-box;
+	background : #f2f9ff;
+	width: 100%;
+	text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border: 1px solid grey;
+    margin: 0;
+    padding: 0;
+   	display : none;
+   	-webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.8s;
+    animation-name: slideIn;
+    animation-duration: 0.8s
+}
+#info, #cover, #controls, #chart, #chart:after, #chart div 
+{
+	display: inline-block;
+}
+#cover
+{
+	margin: 2px 5px 0px 5px;
+}
+#info
+{
+	font-size: 14px;
+	font-weight: normal;
+	font-family: Arial, Verdana, Sans-serif;
+}
+#status
+{
+	margin: 0px 5px 10px 5px;
+	font-weight: normal;
+	font-family: Arial, Verdana, Sans-serif;
+}
+#chart
+{
+	margin: 1px;
+	width : 770px;
+}
+#chart:after
+
+{
+	content: "";
+    height: 60px;
+}
+  
+#chart div 
+{
+    width: 2px;
+    background: #a00;
+    margin: 0 0 0 1px;
+    vertical-align: bottom;
+}
+
+#toggle
+{
+	position: fixed;
+    right: 10px;
+    bottom : 1px;
+    color: grey;
+}
+#toggle:hover, #toggle:focus 
+{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn 
+{
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn 
+{
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+</style>
 <link rel='stylesheet' id='contact-form-7-css' href='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.4.2' type='text/css' media='all'/>
 <link rel='stylesheet' id='layers-google-fonts-css' href='//fonts.googleapis.com/css?family=Ubuntu%3Aregular%2Citalic%2C700%2C300%2C300italic%2C500%2C500italic%2C700italic%7COswald%3Aregular%2C700%2C300&#038;ver=1.5.3' type='text/css' media='all'/>
 <link rel='stylesheet' id='layers-framework-css' href='http://skrollex-wp.x40.ru/anna/wp-content/themes/layerswp/assets/css/framework.css?ver=1.5.3' type='text/css' media='all'/>
@@ -66,7 +152,7 @@ var easy_fancybox_handler = function(){
 /* ]]> */
 </script>
 </head>
-<body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
+<body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k" onload = "init()">
 <div class="view full " id="layers-widget-skrollex-section-3">
 <div data-src="/Aoide/views/dist/img/aoide2.jpg" class="bg-holder"></div>
 <div data-src="/Aoide/views/dist/img/aoide3.jpg" class="bg-holder"></div>
@@ -93,7 +179,136 @@ var easy_fancybox_handler = function(){
 </div> </div>
 </div>
 <div class="page-border  heading top colors-a main-navigation"></div>
-<div class="page-border  heading bottom colors-a main-navigation"><input type = "text" id = "input" name = "input" size = "40"></div>
+<div class="page-border  heading bottom colors-a main-navigation">
+<input type = "text" id = "input" name = "input" size = "40">
+<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
+		<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
+		<div id = "info">
+			<h5 id = "status"></h5>
+			<span id = "trackName"></span>
+			<span id = "singer"></span>
+		</div>
+		<div id = "controls">
+			<audio src = "#" id = "track" controls>
+				<p>Sorry but audio is not supported in your browser.</p>
+			</audio>
+		</div>
+		<div id = "chart"></div>
+	</div>
+	<span id = "toggle">&#9650;</span>
+<script>
+var timerID;
+var wsUri = "ws://localhost:8080/Aoide/play";
+var cover = document.getElementById( "cover" );
+var audio = document.getElementById( "track" );
+var trackName = document.getElementById( "trackName" );
+var singer = document.getElementById( "singer" );
+var tip = document.getElementById( "status" ); //need another name
+var playbar = document.getElementById( "playbar" );
+var toggle =  document.getElementById( "toggle" );
+var chart = document.getElementById( "chart" );
+var clientSocket;
+
+for ( var i = 0; i < 256; i++ )
+{
+	var divChild = document.createElement( "div" );
+	chart.appendChild( divChild );
+}
+
+function init()
+{
+	clientSocket = new WebSocket( wsUri );
+	clientSocket.onmessage = onMessage;
+	audio.onended = onEnded;
+	toggle.onclick = onToggle;
+}
+	
+function onMessage( event )
+{	
+	var message = event.data;
+	
+	if ( audio.paused )
+	{
+		if ( message.indexOf( "[INIT_TIME]" ) == 0 )
+		{
+			var time = parseInt( message.slice( 12, message.length ) );
+			audio.currentTime = time;
+			audio.play();
+			start();
+		}
+		else
+		{
+			var track = JSON.parse( message );
+			cover.src = track.coverFile;
+			trackName.innerHTML = track.name + " - "; 
+			singer.innerHTML = track.singer;
+			audio.src = track.songFile;
+			audio.volume = 0.09;
+			
+		}
+	}
+}
+
+function start()
+{
+	updateChart();
+	timerID = setInterval( updateChart, 15 );
+	tip.innerHTML = "Now Playing";
+	onToggle();
+}
+
+function stop()
+{
+	clearInterval( timerID );
+	tip.innerHTML = "";
+}
+
+function onEnded( event )
+{
+	clientSocket.send( "[NEXT]" );
+	stop();
+}
+
+function onToggle( event )
+{
+	var str = toggle.textContent;	
+	
+	if ( str === "▲" )
+	{
+		toggle.innerHTML = "&#9660";
+		playbar.style.display = "block";
+	}
+	else if ( str === "▼" )
+	{
+		toggle.innerHTML = "&#9650";
+		playbar.style.display = "none";
+	}
+}
+
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+var audioContext = new AudioContext();
+var audioSource = audioContext.createMediaElementSource( audio );
+var analyser = audioContext.createAnalyser();
+audioSource.connect( analyser );
+analyser.connect( audioContext.destination );
+
+analyser.fftSize = 2048;
+var bufferLength = analyser.frequencyBinCount;
+var dataArray = new Uint8Array( bufferLength );
+
+function updateChart() 
+{
+    analyser.getByteFrequencyData( dataArray );
+    for( var j = 0; j < 256; j++ )
+    {
+      chart.childNodes[ j ].style.height = dataArray[ j ] * 0.2 + "px";
+      chart.childNodes[ j ].style.background = "rgba( " + ( 255 - j ) + "," + j + ", " + j * 2 + ", 1 )";
+    }
+ }
+
+
+</script>
+</div>
 <div class="page-border  heading left colors-a main-navigation">
 <ul>
 <li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　<li><a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　<li><a href="/Aoide/views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li></ul>
