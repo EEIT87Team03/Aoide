@@ -62,6 +62,11 @@ var easy_fancybox_handler = function(){
 }
 /* ]]> */
 </script>
+<!-- =========================================== -->
+<!-- login / register css,js -->
+  <link rel="stylesheet" href="/Aoide/css/_07_Register/registerAndLogin.css">
+  <script src="/Aoide/js/_07_Register/registerValidator.js"></script>
+<!-- =========================================== -->
 </head>
 <body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
 <div class="gate colors-o">
@@ -107,7 +112,153 @@ var easy_fancybox_handler = function(){
 </div> <div class="layout-boxed section-top"><div class="home-b-uptitle heading">We <span>Are</span></div>
 <h1 class="home-b-title">A<span>O</span>IDE</h1>
 <p class="home-b-details heading">colorful in <span>your</span> life.</p>
-<p class="home-b-buttons"><a class="button heading-y background-y hover-light" href="/Aoide/views/global/_08_login.view/login.jsp" target="aoide">Login</a><a class="button heading-x background-x hover-light" href="/Aoide/views/global/_07_Register.view/register.jsp" target="aoide">Register</a></p>
+
+<!-- login / register btn -->
+<!-- ======================== -->
+<!-- <p class="home-b-buttons"><a class="button heading-y background-y hover-light" href="/Aoide/views/global/_08_login.view/login.jsp" target="aoide">Login</a><a class="button heading-x background-x hover-light" href="/Aoide/views/global/_07_Register.view/register.jsp" target="aoide">Register</a></p> -->
+<p class="home-b-buttons">
+<!-- <a class="button heading-y background-y hover-light" href="/Aoide/views/global/_08_login.view/login.jsp" target="aoide">Login</a> -->
+
+<button class="button heading-y background-y hover-light" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">LOGIN</button>
+<button class="button heading-x background-x hover-light" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">REGISTER</button>
+</p>
+<!-- ======================== -->
+<!-- login form -->
+<div id="id02" class="modal">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>Aoide</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
+	
+    <form action="<c:url value='/Login'/>" method="post">
+      <div class="form-group has-feedback">
+        <label>${errorMsg.accountError}</label>
+        <input type = "text" class="form-control" name = "account" id = "account" value="${enteredText.account }" placeholder="Account">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <label>${errorMsg.passwordError}</label>
+        <input type = "password" class="form-control" name = "password" id = "password" placeholder="Password" >
+        <!-- <input type="password" class="form-control" placeholder="Password"> -->
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+              <input type="checkbox"> Remember Me
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <div class="social-auth-links text-center">
+      <p>- OR -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+        Facebook</a>
+      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+        Google+</a>
+    </div>
+    <!-- /.social-auth-links -->
+
+    <a href="#">I forgot my password</a><br>
+    <a href="register.html" class="text-center">Register a new membership</a>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
+
+</div>
+
+
+
+<!-- ======================== -->
+<!-- register form -->
+
+
+<div id="id01" class="modal">
+  <div class="register-box">
+	  <div id="register" class="register-box-body">
+	  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+	  <h5><a href="../../index2.html"><b>Aoide</b></a></h5>
+	  <p class="login-box-msg">Register a new membership</p>
+		   <form action="<c:url value='/CreateAccount'/>" method="post">
+		      <div class="form-group has-feedback">
+		        <label id="nameError">${errorMsg.nameError}</label>
+		        <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+		        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+		      </div>
+		      <div class="form-group has-feedback">
+		        <label id="emailError">${errorMsg.emailError}</label>
+		        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+		        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+		      </div>
+		      <div class="form-group has-feedback">
+		        <label id="accountError">${errorMsg.accountError}</label>
+		        <input type="text" name="account" id="account" class="form-control" placeholder="Account">
+		        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+		      </div>
+		      <div class="form-group has-feedback">
+		        <label id="passwordError">${errorMsg.passwordError}</label>
+		        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+		        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+		      </div>
+		      <div class="form-group has-feedback">
+		      	<label id="rePasswordError"></label>
+		        <input type="password" class="form-control" id="rePassword" placeholder="Retype password">
+		        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+		      </div>
+		      <div class="row">
+		        <div class="col-xs-8">
+<!-- 		          <div class="checkbox icheck"> -->
+<!-- 		            <label> -->
+<!-- 		              <input type="checkbox"> I agree to the <a href="#">terms</a> -->
+<!-- 		            </label> -->
+<!-- 		          </div> -->
+		        </div>
+		        <!-- /.col -->
+		        <div class="col-xs-4">
+		          <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+		        </div>
+		        <!-- /.col -->
+		      </div>
+		    </form>
+	  </div>
+	  <!-- /.register-box-body -->
+</div>
+<!-- /.register-box -->
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<!-- body_library -->
+<c:import url="/template/htmlBlocks/body_library.html"/>
+<!-- body_library -->
+
+<!-- end register form -->
+<!-- ======================== -->
 </div> </div>
 </div>
 <div class="view x40-widget widget   text-bg" id="layers-widget-skrollex-section-5" data-text-effect-selector="h1,h2,h3,h4" data-text-effect="effect-a-animated">
