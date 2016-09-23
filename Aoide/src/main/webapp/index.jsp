@@ -9,6 +9,8 @@
 <title>Aoide</title>
 <link rel="Shortcut Icon" type="image/x-icon" href="/Aoide/views/dist/img/AoideIcon.png" />
 <link rel="stylesheet" href="/Aoide/css/HoverableDropDown.css">
+<link rel="stylesheet" type="text/css" href="/Aoide/css/_05_DisplayDanmuku/barrager.css">
+<link rel="stylesheet" type="text/css" href="danmmu/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Comments Feed" href="http://skrollex-wp.x40.ru/anna/comments/feed/"/>
@@ -31,7 +33,8 @@
 <link rel='stylesheet' id='skrollex_child_styles-css' href='http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/assets/css/style.css?ver=8dba6713421708b83f224493838e3224' type='text/css' media='all'/>
 <link rel='stylesheet' id='theme-color-schemes-css' href='http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/assets/css/colors-preset-anna.css?ver=1466432178' type='text/css' media='all'/>
 <link rel='stylesheet' id='fancybox-css' href='http://skrollex-wp.x40.ru/anna/wp-content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.7.min.css?ver=1.5.7' type='text/css' media='screen'/>
-<script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<!-- <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script> -->
+<script type="text/javascript" src="danmmu/js/jquery-1.9.1.min.js"></script>
 <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
 <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-content/themes/layerswp/assets/js/plugins.js?ver=1.5.3'></script>
 <link rel='https://api.w.org/' href='http://skrollex-wp.x40.ru/anna/wp-json/'/>
@@ -90,7 +93,7 @@ var easy_fancybox_handler = function(){
 </div> </div>
 </div>
 <div class="page-border  heading top colors-a main-navigation"></div>
-<div class="page-border  heading bottom colors-a main-navigation"><input type = "text" id = "input" name = "input" size = "40"><input type = "button" id = "send" value = "Send"></div>
+<div class="page-border  heading bottom colors-a main-navigation"><input type = "text" id = "input" name = "input" size = "40"></div>
 <div class="page-border  heading left colors-a main-navigation">
 <ul>
 <li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　<li><a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　<li><a href="/Aoide/views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li></ul>
@@ -199,7 +202,8 @@ Close
 </div>
 </div>
 </section>
-
+<script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/jquery.barrager.js"></script>
+<script type="text/javascript" src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
 <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */
