@@ -6,65 +6,63 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Bullet</title>
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous">
-</head>
-
+ <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- head_library -->
+  <c:import url="/template/htmlBlocks/head_library.html"/>
+  <!-- head_library -->
+  <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
+<link rel="strlesheet" href="css/bootstrap.min.css">
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-10">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<a href=""></a>
-					</div>
-					<div class="panel-body">
-                        
-                        <td><a href="<c:url value='/_24_EditBullet.view/Uploadbullet.jsp'/>">Upload</a></td>
-						
-						<table class="table">
-							<thead>
-								<tr>
-									<th>No</th>
-									<th>date</th>
-									<th>title</th>
-									<th>content_file</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="aBullet" items="${BulletList}">
-									<tr>
-										<td>${aBullet.bulletId}</td>
-										<td>${aBullet.date}</td>
-										<td>${aBullet.title}</td>
-										<td>${aBullet.contentFile}</td>
-                                        <td> 
-                                        <input type="button" value="編輯"
-                                            onclick="location.href='<c:url value='/ModifyBullet?id=${aBullet.bulletId}'/>'">　
-										</td>
-										<td><input type="button" value="刪除"
-											onclick="location.href='<c:url value='/DeleteBullet?id=${aBullet.bulletId}'/>'">
-										</td>
-									</tr>
-								</c:forEach>
-								<tr>
-								</tr>
-							</tbody>
-						</table>
-						<br>
-					</div>
-				</div>
-			</div>
+<div class="wrapper">
+    <section class="content">
+    <div class="row">
+           <div class="col-md-2">
+        </div>
+         <div class="col-md-8">
+                <div class="box">
+		         <div class="box-header with-border">
+		         <div class="box-body">
+
+			<td><div align="right">
+					<input class="btn btn-primary" type="button" value="新增" 
+						onclick="location.href='<c:url value='/views/manager/_24_EditBullet.view/Uploadbullet.jsp'/>'">
+				</div></td>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>date</th>
+						<th>title</th>
+						<th>content_file</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="aBullet" items="${BulletList}">
+						<tr>
+							<td>${aBullet.bulletId}</td>
+							<td>${aBullet.date}</td>
+							<td>${aBullet.title}</td>
+							<td>${aBullet.contentFile}</td>
+							<td><input class="btn btn-warning" type="button" value="編輯" 
+								onclick="location.href='<c:url value='/ModifyBullet?id=${aBullet.bulletId}'/>'">
+							</td>
+							<td><input class="btn btn-danger" type="button" value="刪除"
+								onclick="location.href='<c:url value='/DeleteBullet?id=${aBullet.bulletId}'/>'">
+							</td>
+						</tr>
+					</c:forEach>
+					<tr>
+					</tr>
+				</tbody>
+			</table>
+			<br>
 		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</section>
 	</div>
 </body>
 </html>
