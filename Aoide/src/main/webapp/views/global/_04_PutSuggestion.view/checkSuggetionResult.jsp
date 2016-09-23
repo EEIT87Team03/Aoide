@@ -13,35 +13,38 @@
 <title>建議資訊</title>
 
 </head>
-<body class="hold-transition skin-blue fixed sidebar-mini">
+<!-- <body class="hold-transition skin-blue fixed sidebar-mini"> -->
+<body>
 <!-- Site wrapper -->
-<div class="wrapper">
+<!-- <div class="wrapper"> -->
+  <div>
   <!-- header -->
-  <c:import url="/template/htmlBlocks/header.html"/>
+  <%-- <c:import url="/template/htmlBlocks/header.html"/> --%>
   <!-- header -->
 
   <!-- =============================================== -->
 
   <!-- sidebar -->
-  <c:import url="/template/htmlBlocks/sidebar_global.html"/>
+  <%-- <c:import url="/template/htmlBlocks/sidebar_global.html"/> --%>
   <!-- sidebar -->
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<!--   <div class="content-wrapper"> -->
+	<div>
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        感謝您的建議
-        <small>建議內容</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Layout</a></li>
-        <li class="active">Fixed</li>
-      </ol>
-    </section>
+<!--     <section class="content-header"> -->
+<!--       <h1> -->
+<!--         感謝您的建議 -->
+<!--         <small>建議內容</small> -->
+<!--       </h1> -->
+<!--       <ol class="breadcrumb"> -->
+<!--         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li> -->
+<!--         <li><a href="#">Layout</a></li> -->
+<!--         <li class="active">Fixed</li> -->
+<!--       </ol> -->
+<!--     </section> -->
 
     <!-- Main content -->
     <section class="content">
@@ -55,14 +58,14 @@
         <!-- middle content column -->
         <div class="col-md-6">
           <!-- Collapsed box -->
-          <div class="box box-warning">
+          <div class="box">
             <div class="box-header with-border">
               <h3 class="box-title">${suggestion.title}</h3>
 
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
+<!--               <div class="box-tools pull-right"> -->
+<!--                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> -->
+<!--                 </button> -->
+<!--               </div> -->
               <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
@@ -90,11 +93,11 @@
   <!-- /.content-wrapper -->
 
   <!-- footer -->
-  <c:import url="/template/htmlBlocks/footer.html"/>
+  <%-- <c:import url="/template/htmlBlocks/footer.html"/> --%>
   <!-- footer -->
 
   <!-- Control Sidebar -->
-  <c:import url="/template/htmlBlocks/control_sidebar.html"/>
+  <%-- <c:import url="/template/htmlBlocks/control_sidebar.html"/> --%>
   <!-- Control Sidebar -->
 </div>
 <!-- ./wrapper -->
