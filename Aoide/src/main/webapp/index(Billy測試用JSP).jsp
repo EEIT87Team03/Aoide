@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en-US" class="state2 page-is-gated scroll-bar site-decoration-a" data-skrollex-config="{isInitColorPanel: false, isCustomizer: false, adminUrl: &#039;http://skrollex-wp.x40.ru/anna/wp-admin/&#039;, ajaxUrl: &#039;http://skrollex-wp.x40.ru/anna/wp-admin/admin-ajax.php&#039;, homeUri: &#039;http://skrollex-wp.x40.ru/anna&#039;, themeUri: &#039;http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/&#039;, permalink: &#039;http://skrollex-wp.x40.ru/anna&#039;, colors: &#039;colors-preset-anna.css&#039;}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Aoide</title>
-<!-- HOVER效果用CSS -->
-<link rel="stylesheet" href="/Aoide/css/HoverableDropDown.css">
-
 <link rel="Shortcut Icon" type="image/x-icon" href="/Aoide/views/dist/img/AoideIcon.png" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
@@ -92,7 +92,7 @@ var easy_fancybox_handler = function(){
 <div class="page-border  heading bottom colors-a main-navigation">播<span>放</span>進度<span>條</span></div>
 <div class="page-border  heading left colors-a main-navigation">
 <ul>
-<li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　<li><a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　<li><a href="" target="aoide"><span class="glyphicon glyphicon-pencil" title="反應建議"></span></a></li></ul>
+<li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　<li><a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　<li><a href="/Aoide/views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-pencil" title="反應建議"></span></a></li></ul>
 </div>
 <div class="page-border  heading right colors-a main-navigation"></div>
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
@@ -105,16 +105,7 @@ var easy_fancybox_handler = function(){
 <li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806"><a href="/Aoide/views/member/_22_ManageAlbum.view/ManageAlbum.jsp" target="aoide"><span class="glyphicon glyphicon-edit"></span>管理專輯</a></li>
 <li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span class="glyphicon glyphicon-heart"></span>收藏清單</a></li>
 <li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><a href="/Aoide/views/member/_19_20_ManageToken.view/ManageToken.jsp" target="aoide"><span class="glyphicon glyphicon-piggy-bank"></span>點數儲值</a></li>
-<li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="/Aoide/views/member/_19_20_ManageToken.view/ManageToken.jsp" target="aoide"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a></li>
-<li id="menu-item-810" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"> 
-<div class="dropdown">
-  <a class="dropbtn"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div></li>
+<li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="StartDonationServlet" target="aoide"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a></li>
 </ul> <a href="" class="responsive-nav" data-toggle="#off-canvas-right" data-toggle-class="open">
 <span class="l-menu"></span>
 </a> </nav>
@@ -171,13 +162,13 @@ Close
 <div class="fg no-top-padding no-bottom-padding  full-height">
 <div class="full-height">
 <div class="pure-g full-height">
-<a href="http://skrollex-wp.x40.ru/anna/theme-help" class="position-relative pure-u-1 pure-u-sm-12-24 colors-r full-height" target="aoide">
+<a href="/Aoide/views/global/_08_login.view/login.jsp" class="position-relative pure-u-1 pure-u-sm-12-24 colors-r full-height" target="aoide">
 <div>
 <span class="side-label highlight">Login</span>
 <span class="side-title heading">登入</span>
 </div>
 </a>
-<a href="http://skrollex-wp.x40.ru/anna/#process" class="position-relative pure-u-1 pure-u-sm-12-24 colors-s full-height" target="aoide">
+<a href="/Aoide/views/global/_07_Register.view/register.jsp" class="position-relative pure-u-1 pure-u-sm-12-24 colors-s full-height" target="aoide">
 <div>
 <span class="side-label highlight">Register</span>
 <span class="side-title heading">註冊</span>
