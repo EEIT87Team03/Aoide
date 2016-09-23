@@ -63,7 +63,9 @@
     						<thead>
     							<tr>
 									<th>會員ID</th>
-									<th>歌曲名稱</th>
+									<th>歌曲</th>
+									<th>singer</th>
+									
 								</tr>
     						</thead>
     						<tbody>
@@ -71,6 +73,8 @@
 									<tr>
 										<td>${favoriteVOList.memberId}</td>
 										<td>${songIdList[loop.count-1]}</td>
+										<td>${singers[loop.count-1]}</td>
+										
 									</tr>
 								</c:forEach>
     						</tbody>

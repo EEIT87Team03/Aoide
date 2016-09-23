@@ -63,7 +63,8 @@
 							<thead>
 								<tr>
 									<th>歌曲ID</th>
-									<th>作曲者ID</th>
+ 									<th>Singer</th> 
+  									<th>專輯ID</th>  
 								</tr>
 							</thead>
 							<tbody>
@@ -72,13 +73,12 @@
 								<c:forEach var="aFavorite" items="${favorites}">
 									<tr>
 										<td>${aFavorite.songId}</td>
-										<td>${aFavorite.memberId}</td>
+										<td>${aFavorite.Singer}</td> 
+  										<td>${aFavorite.albumId}</td> 
 									</tr>
 								</c:forEach>
 
 
-								<a href="http://localhost:8080/Aoide/index.jsp"
-									class="btn btn-info" role="button">回首頁</a>
 </body>
 
 

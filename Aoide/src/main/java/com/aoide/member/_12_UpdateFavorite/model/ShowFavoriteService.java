@@ -28,10 +28,18 @@ public class ShowFavoriteService {
 		
 		SongVO songVO = songDAO.findByPrimaryKey(songId);
 		
+		
+		
 		return songVO.getName();
 	}
 	
-	
+      public String getSinger(Integer songId) {
+		
+		SongVO songVO = songDAO.findByPrimaryKey(songId);
+		
+
+		return songVO.getSinger();
+	}
 	
 	
 	

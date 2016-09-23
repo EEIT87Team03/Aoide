@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+import javax.servlet.http.HttpSession;
+
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._13_ShareSong.model.ShareService;
@@ -37,11 +39,14 @@ public class ShareServlet extends HttpServlet {
 		SongVO songVO = new SongVO();
 		
 
-		int song_Id =  6;
+		 HttpSession session = request.getSession();
+		 Integer song_Id = (Integer) session.getAttribute("song1");
 	
-		List<SongVO> song = new ShareService().getAllId(song_Id);
+//		List<SongVO> song = new ShareService().getAllId(song_Id);
+//		request.getSession().setAttribute("getSong", song);
+		
+		List<SongVO> song = new ShareService().getSong(song_Id);
 		request.getSession().setAttribute("getSong", song);
-
 		
 		SongVO new_song = new ShareService().findByKey(song_Id);
 		request.getSession().setAttribute("songOnes", new_song);

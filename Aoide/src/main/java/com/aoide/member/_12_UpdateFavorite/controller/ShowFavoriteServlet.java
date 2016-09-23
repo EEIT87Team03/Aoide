@@ -15,7 +15,9 @@ import com.aoide.global._06_PlayHistory.model.PlayHistoryService;
 import com.aoide.global.dataBaseManipulationObjects.clickHistory.ClickHistoryVO;
 import com.aoide.global.dataBaseManipulationObjects.favorite.FavoriteVO;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
+import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._12_UpdateFavorite.model.ShowFavoriteService;
+import com.aoide.member._12_UpdateFavorite.model.UpdateFavoriteService;
 
 
 @WebServlet("/ShowFavoriteServlet.member")
@@ -41,11 +43,24 @@ public class ShowFavoriteServlet extends HttpServlet {
 			
 			String songName = new ShowFavoriteService().getSongNameBySongId(favoriteVO.getSongId());
 			songNameList.add(songName);
-			
+	
 		}
 		
+		
+		List<String> singer = new ArrayList();
+		for(FavoriteVO favoriteVO : favoriteVOList){
+			
+			String singerName = new ShowFavoriteService().getSinger(favoriteVO.getSongId());
+			singer.add(singerName);
+	
+		}
+		
+		
+
 		//將歌曲名的List物件加入Session物件
 		request.getSession().setAttribute("songIdList", songNameList);
+		request.getSession().setAttribute("singers", singer);
+		
 		
 		//將FavoriteVO物件串放入Session物件中
 		request.getSession().setAttribute("favoriteVOList", favoriteVOList);
@@ -53,7 +68,7 @@ public class ShowFavoriteServlet extends HttpServlet {
 		//導向顯示頁面
 		String context = request.getContextPath();
 		response.sendRedirect(context + "/views/member/_12_UpdateFavorite.view/ShowFavoritePage.jsp");
-		
+//		response.sendRedirect(context + "/ListFavoriteServlet.member");
 		
 		
 		

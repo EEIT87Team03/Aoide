@@ -22,9 +22,9 @@ public class BroadcastMessageServer
 	@OnOpen
     public void onOpen( Session session ) 
 	{
-		System.out.println( "Danmu server open session..." );
 		this.session = session;
 		sessionList.add( session );
+		System.out.println( "BroadcastMessageServer open session..." );
 	}
 
 	@OnClose

@@ -40,5 +40,13 @@ public class SearchSongService {
 		}
 		return searchResult;
 	}
+	
+	public List<SongVO> getSongOne(Integer songId) {
+		List<SongVO> OneSong = new ArrayList();
+		for (SongVO oneSong : songDAO.findByOther(songId)) {
+			OneSong.add(oneSong);
+		}
+		return OneSong;
+	}
 
 }
