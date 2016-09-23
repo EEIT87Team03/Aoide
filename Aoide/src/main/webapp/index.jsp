@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en-US" class="state2 page-is-gated scroll-bar site-decoration-a" data-skrollex-config="{isInitColorPanel: false, isCustomizer: false, adminUrl: &#039;http://skrollex-wp.x40.ru/anna/wp-admin/&#039;, ajaxUrl: &#039;http://skrollex-wp.x40.ru/anna/wp-admin/admin-ajax.php&#039;, homeUri: &#039;http://skrollex-wp.x40.ru/anna&#039;, themeUri: &#039;http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/&#039;, permalink: &#039;http://skrollex-wp.x40.ru/anna&#039;, colors: &#039;colors-preset-anna.css&#039;}">
 <head>
 <meta charset="UTF-8">
