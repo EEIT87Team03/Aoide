@@ -31,7 +31,7 @@
 
 		<!-- Content Wrapper. Contains page content -->
 <!-- 		<div class="content-wrapper"> -->
-<!-- 			<!-- Content Header (Page header) --> -->
+<!-- 			Content Header (Page header) -->
 <!-- 			<section class="content-header"> -->
 <!-- 				<h1> -->
 <!-- 					Fixed Layout <small>Blank example to the fixed layout</small> -->

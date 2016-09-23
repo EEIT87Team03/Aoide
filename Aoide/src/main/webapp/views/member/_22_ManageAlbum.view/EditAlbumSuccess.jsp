@@ -1,25 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>修改成功</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- head_library -->
+  <c:import url="/template/htmlBlocks/head_library.html"/>
+  <!-- head_library -->
+<title>index</title>
 </head>
 <body>
 <% int i = 0; %>
-		<img src="${updateAlbum.coverFilePath}" width="300" height="300">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="box">
+<!--         <div class="box-header with-border"> -->
+<!--           <h3 class="box-title">Title</h3> -->
+
+<!--           <div class="box-tools pull-right"> -->
+<!--             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"> -->
+<!--               <i class="fa fa-minus"></i></button> -->
+<!--             <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"> -->
+<!--               <i class="fa fa-times"></i></button> -->
+<!--           </div> -->
+<!--         </div> -->
+        <div class="box-body">
+        
+        	<img src="${updateAlbum.coverFilePath}" width="300" height="300">
 	<p>
-		專輯名稱：${updateAlbum.name}
+		<label>專輯名稱：${updateAlbum.name}</label>
 	<p>
-		演出者：${updateAlbum.artist}
+		<label>演出者：${updateAlbum.artist}</label>
 	<p>
-		專輯簡介：${updateAlbum.introductionFilePath}
+		<label>專輯簡介：${updateAlbum.introductionFilePath}</label>
 	<p>
 	<hr>
 	<p>
-		已加入專輯的歌曲：
+		<label>已加入專輯的歌曲：</label>
 	<p>
 	<table class="table">
 		<thead>
@@ -49,5 +74,25 @@
 	</table>
 	<p>
 	<a href="<c:url value = '/ListAlbumServlet.member'/>">回專輯列表</a>
+        
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          Footer
+        </div>
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<!-- ./wrapper -->
+
+<!-- body_library -->
+<c:import url="/template/htmlBlocks/body_library.html"/>
+<!-- body_library -->
 </body>
 </html>

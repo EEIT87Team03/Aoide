@@ -21,7 +21,7 @@ public class ListAlbumServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 //		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
 //		Integer memberId = member.getMemberId();
-		Integer memberId = 3;
+		Integer memberId = 2;
 		
 		List<AlbumVO> myAlbumResult = new ListAlbumService().getMyAlbum(memberId);
 		for (AlbumVO myAlbum : myAlbumResult) {

@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Aoide</title>
+<!-- HOVER效果用CSS -->
+<link rel="stylesheet" href="/Aoide/css/HoverableDropDown.css">
+
 <link rel="Shortcut Icon" type="image/x-icon" href="/Aoide/views/dist/img/AoideIcon.png" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
@@ -103,6 +106,16 @@ var easy_fancybox_handler = function(){
 <li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span class="glyphicon glyphicon-heart"></span>收藏清單</a></li>
 <li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><a href="/Aoide/views/member/_19_20_ManageToken.view/ManageToken.jsp" target="aoide"><span class="glyphicon glyphicon-piggy-bank"></span>點數儲值</a></li>
 <li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="/Aoide/views/member/_19_20_ManageToken.view/ManageToken.jsp" target="aoide"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a></li>
+<li id="menu-item-810" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"> 
+<div class="dropdown">
+
+  <a class="dropbtn"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div></li>
 </ul> <a href="" class="responsive-nav" data-toggle="#off-canvas-right" data-toggle-class="open">
 <span class="l-menu"></span>
 </a> </nav>
