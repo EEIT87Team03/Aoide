@@ -15,11 +15,6 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/danmu")
 public class BroadcastMessageServer 
 {
-	static
-	{
-		System.out.println( "Loading..." );
-	}
-	
 	private Session session;
 	private static List< Session > sessionList = new ArrayList<>();
 	
@@ -27,7 +22,7 @@ public class BroadcastMessageServer
 	@OnOpen
     public void onOpen( Session session ) 
 	{
-		System.out.println( "Open session..." );
+		System.out.println( "Danmu server open session..." );
 		this.session = session;
 		sessionList.add( session );
 	}
