@@ -96,6 +96,7 @@ var easy_fancybox_handler = function(){
 </div>
 <div class="page-border  heading right colors-a main-navigation"></div>
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
+
 <div class="layout-boxed top-nav-inner clearfix">
 <span class="menu-toggle ext-nav-toggle" data-target=".ext-nav"><span></span></span>
 <nav class="nav nav-horizontal">
@@ -106,16 +107,19 @@ var easy_fancybox_handler = function(){
 <li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span class="glyphicon glyphicon-heart"></span>收藏清單</a></li>
 <li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><a href="/Aoide/views/member/_19_20_ManageToken.view/ManageToken.jsp" target="aoide"><span class="glyphicon glyphicon-piggy-bank"></span>點數儲值</a></li>
 <li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="StartDonationServlet" target="aoide"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a></li>
+<li id="menu-item-810" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-810">
+<!-- 登入後圖片 -->
+<c:if test="${! empty member }">
+	<a href="http://google.com.tw"><img height="40px" width="40px" src="data:image/*;base64,${member.picture}"></a>
+</c:if>
+<!-- 登入後圖片 -->
+</li>
 </ul> <a href="" class="responsive-nav" data-toggle="#off-canvas-right" data-toggle-class="open">
 <span class="l-menu"></span>
 </a> </nav>
 <div class="logo">
 <div class="site-description">
-<!-- 登入後圖片 -->
-<c:if test="${! empty member }">
-	<img height="40px" width="30px" src="data:image/*;base64,${member.picture}">
-</c:if>
-<!-- 登入後圖片 -->
+
 <h3 class="sitename sitetitle"><a href="home.html" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></a></h3>
 </div>
 
