@@ -125,9 +125,10 @@ var easy_fancybox_handler = function(){
 <!-- ======================== -->
 <!-- login form -->
 <div id="id02" class="modal">
-<div class="login-box">
+<div id="login" class="login-box">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
   <div class="login-logo">
-    <a href="../../index2.html"><b>Aoide</b></a>
+    <h5><a href="../../index2.html"><b>Aoide</b></a></h5>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -161,13 +162,6 @@ var easy_fancybox_handler = function(){
         <!-- /.col -->
       </div>
     </form>
-
-    <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
     </div>
     <!-- /.social-auth-links -->
 
@@ -178,15 +172,10 @@ var easy_fancybox_handler = function(){
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
-
-
 </div>
-
-
 
 <!-- ======================== -->
 <!-- register form -->
-
 
 <div id="id01" class="modal">
   <div class="register-box">
@@ -249,6 +238,17 @@ var modal = document.getElementById('id01');
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+//Get the modal
+var modal2 = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal2) {
         modal.style.display = "none";
     }
 }

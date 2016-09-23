@@ -23,7 +23,7 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding: 150px 300px 50px 300px;
+    padding: 150px 400px 50px 400px;
 }
 
 /* Modal Content/Box */
@@ -42,12 +42,21 @@
     padding: 25px;
 }
 
+/* Login Form */
+#login {
+	background-color: black !important;
+	opacity: 0.8;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    padding: 25px;
+}
+
+
 
 /* The Close Button (x) */
 .close {
     position: absolute;
-    right: 320px;
-    top: 120;
+    right: 420px;
+    top: 220;
     color: white;
     font-size: 35px;
     font-weight: bold;
