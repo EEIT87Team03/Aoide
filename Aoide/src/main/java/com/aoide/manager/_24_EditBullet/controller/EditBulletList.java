@@ -30,7 +30,7 @@ public class EditBulletList extends HttpServlet {
 		// go suggestionList.jsp
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath
-				+ "/_24_EditBullet.view/BulletList.jsp");
+				+ "/views/manager/_24_EditBullet.view/BulletList.jsp");
 	}// end doGet()
 
 	protected void doPost(HttpServletRequest request,

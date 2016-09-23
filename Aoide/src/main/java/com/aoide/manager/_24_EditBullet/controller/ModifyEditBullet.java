@@ -50,7 +50,7 @@ public class ModifyEditBullet extends HttpServlet{
 		
 		request.getSession().setAttribute("bulletVO", bulletVO);
 		String Path = request.getContextPath();
-		response.sendRedirect(Path + "/_24_EditBullet.view/ModifyBulletDisplay.jsp");
+		response.sendRedirect(Path + "/views/_24_EditBullet.view/ModifyBulletDisplay.jsp");
 		
 	}
 }
