@@ -14,12 +14,13 @@
 			<span id = "singer"></span>
 		</div>
 		<div id = "controls">
-			<audio src = "#" id = "track" controls>
+			<audio src = "#" id = "track">
 				<p>Sorry but audio is not supported in your browser.</p>
 			</audio>
-			<img src = "views/dist/img/playbar/play.png" id = "play">
+			<img src = "views/dist/img/playbar/play.png" id = "controlIcon">
 			<progress max="100" value="80"></progress>
-			<img src = "views/dist/img/playbar/volume.png" id = "volume">
+			<img src = "views/dist/img/playbar/volume_low.png" id = "volumeIcon">
+			<input type = "range" id = "ranger" value = "0.09" min = "0" max = "1" step = "0.01">
 		</div>
 		<div id = "chart"></div>
 	</div>

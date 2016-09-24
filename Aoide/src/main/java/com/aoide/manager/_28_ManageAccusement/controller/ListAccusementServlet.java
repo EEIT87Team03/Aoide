@@ -13,7 +13,7 @@ import com.aoide.global.dataBaseManipulationObjects.accusementDanmuku.HibernateA
 import com.aoide.manager._28_ManageAccusement.model.ManageAccusementService;
 
 
-@WebServlet("/ListAccusementServlet")
+@WebServlet("/ListAccusementServlet.manager")
 public class ListAccusementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

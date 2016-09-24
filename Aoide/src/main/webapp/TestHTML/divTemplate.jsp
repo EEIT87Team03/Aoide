@@ -16,7 +16,7 @@
 			<div class="col-xs-6 col-md-6" id="middleContent">
             <!-- ========================================= -->
 			
-			<input type="submit" class="btn btn-primary" value="Submit">
+			<input type="submit" class="btn" value="Submit">
             
             <!-- ========================================= -->
 			</div>
