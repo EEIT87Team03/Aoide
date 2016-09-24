@@ -120,7 +120,7 @@ var easy_fancybox_handler = function(){
 				<div id = "chart"></div>
 			</div>
 			<!-- audio player -->
-			<span id = "toggle">&#9650;</span>
+			<span id = "toggle">&#9650;</span><!-- audio player toggle -->
 		</div>
 
 

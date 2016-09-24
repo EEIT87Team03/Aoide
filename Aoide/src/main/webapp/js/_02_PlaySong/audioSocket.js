@@ -15,6 +15,7 @@ var playTime = document.getElementById( "playTime" );
 var progressBar = document.getElementById( "progressBar" );
 var volumeIcon = document.getElementById( "volumeIcon" );
 var controlIcon = document.getElementById( "controlIcon" );
+var aoideVolume;
 var drawChartTimerID;
 var trackCounterTimerID;
 var audioSocket;
@@ -55,6 +56,20 @@ function initial()
 	ranger.onchange = onVolumeChange;
 	controlIcon.onclick = control;
 	volumeIcon.onclick = volumeMuted;
+	aoideVolume = 0.09; //default sound volume
+	if ( window[ "localStorage" ] )
+	{
+		var value = localStorage.getItem( "Aoide_Volumn" );
+		if ( value )
+		{
+			aoideVolume = parseFloat( value );
+		}
+		else
+		{
+			localStorage.setItem( "Aoide_Volumn", aoideVolume );
+		}
+	}
+
 }
 
 function audioSocketInitialize()
@@ -67,7 +82,7 @@ function audioSocketInitialize()
 }
 function onOpen()
 {
-	tip.innerHTML = "Connecting...";
+	tip.innerHTML = "Waiting...";
 }
 
 function onMessage( event )
@@ -91,7 +106,7 @@ function onMessage( event )
 			singer.innerHTML = track.singer;
 			
 			audio.src = track.songFile;
-			audio.volume = 0.09;
+			audio.volume = aoideVolume;
 		}
 	}
 }
@@ -126,6 +141,8 @@ function stop()
 	clearInterval( drawChartTimerID );
 	clearInterval( trackCounterTimerID );
 	tip.innerHTML = "Waiting...";
+	trackName.innerHTML = ""; 
+	singer.innerHTML = "";
 	controlIcon.src = "views/dist/img/playbar/play.png";
 }
 
@@ -163,6 +180,11 @@ function onVolumeChange( event )
 {
 	var volume = event.target.value;
 	audio.volume = volume;
+	if ( window[ "localStorage" ] )
+	{
+		localStorage.setItem( "Aoide_Volumn", volume );
+	}
+	aoideVolume = volume;
 	volumeChangeHelper( volume )
 }
 
