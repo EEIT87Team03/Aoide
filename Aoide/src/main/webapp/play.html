@@ -18,7 +18,8 @@
 				<p>Sorry but audio is not supported in your browser.</p>
 			</audio>
 			<img src = "views/dist/img/playbar/play.png" id = "controlIcon">
-			<progress max="100" value="80"></progress>
+			<span id = "currentTime">00:00</span><span id = "duration" >00:00</span>
+			<progress id = "progressBar" max = "100" value = "0"></progress>
 			<img src = "views/dist/img/playbar/volume_low.png" id = "volumeIcon">
 			<input type = "range" id = "ranger" value = "0.09" min = "0" max = "1" step = "0.01">
 		</div>
