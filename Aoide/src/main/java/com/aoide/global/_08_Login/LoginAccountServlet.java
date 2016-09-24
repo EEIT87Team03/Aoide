@@ -52,11 +52,11 @@ public class LoginAccountServlet extends HttpServlet {
 		if(!Validator.isValidString(password)){
 			errorMsg.put("passwordError", "Please enter valid password");
 		}
-		// if error go to login.jsp
+		// if error go to home.jsp
 		if (!errorMsg.isEmpty()){
 			request.setAttribute("errorMsg", errorMsg);
 			request.setAttribute("enteredText", enteredText);
-			request.getRequestDispatcher("/views/global/_08_login.view/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/home.jsp").forward(request, response);
 			return;
 		}else{
 			// check the account and password correct or not
@@ -82,9 +82,9 @@ public class LoginAccountServlet extends HttpServlet {
 				memberBean = ms.getMemberBean(account);
 				// System.out.println("Last login date after login: " + memberBean.getLastLoginDate());
 				request.getSession().setAttribute( "member", memberBean );
-				response.sendRedirect( request.getContextPath() + "/welcome.html" );
+				response.sendRedirect( request.getContextPath() + "/index.jsp" );
 			}else{
-				// if login fail go to login.jsp
+				// if login fail go to home.jsp
 				if (memberBean == null){
 					errorMsg.put("accountError", "Please enter correct account");
 				}else{
@@ -95,7 +95,7 @@ public class LoginAccountServlet extends HttpServlet {
 				}
 				request.setAttribute("errorMsg", errorMsg);
 				request.setAttribute("enteredText", enteredText);
-				request.getRequestDispatcher("/views/global/_08_login.view/login.jsp").forward(request, response);
+				request.getRequestDispatcher("/home.jsp").forward(request, response);
 				return;
 			}
 		}

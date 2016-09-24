@@ -183,6 +183,30 @@ public class JdbcSongDAO implements SongDAO {
 			 .append("FROM song ")
 			 .append("WHERE song_id = ?")
 			 .toString();
+	
+	
+	private static final String GET_BY_AlBUM = new StringBuffer().append("SELECT ")
+			 .append("song_id,")
+			 .append("song_file,")
+			 .append("name,")
+			 .append("song_type,")
+			 .append("song_language,")
+			 .append("member_id,")
+			 .append("album_id,")
+			 .append("introduction_file,")
+			 .append("cover_file,")
+			 .append("lyrics_file,")
+			 .append("update_date,")
+			 .append("lastclick_date,")
+			 .append("clicks,")
+			 .append("favorite_counts,")
+			 .append("shares,")
+			 .append("score,")
+			 .append("length,")
+			 .append("singer ")
+			 .append("FROM song ")
+			 .append("WHERE album_id = ?")
+			 .toString();
 
 
 
@@ -765,7 +789,73 @@ public class JdbcSongDAO implements SongDAO {
 		}		
 
 	
-	
+	public List<SongVO> getSongsByAlbum(Integer albumId) {
+		List<SongVO>list = new ArrayList<SongVO>();
+			
+		    SongVO songVO = null;
+			Connection conn = null;
+			PreparedStatement ptmt = null;
+			ResultSet rs = null;
+			
+		    try{
+		    	conn = ConnectionBean.getConnection();
+		    	ptmt = conn.prepareStatement(GET_BY_AlBUM);
+		    	ptmt.setInt(1, albumId);
+		    	
+		    	rs = ptmt.executeQuery();
+		    	
+		    	while(rs.next()){
+					songVO = new SongVO();
+					songVO.setSongId(rs.getInt("song_id"));
+					songVO.setSongFile(rs.getString("song_file"));
+					songVO.setName(rs.getString("name"));
+					songVO.setSongType(rs.getString("song_type"));
+					songVO.setSongLanguage(rs.getString("song_language"));
+					songVO.setMemberId(rs.getInt("member_id"));
+					songVO.setAlbumId(rs.getInt("album_id"));
+					songVO.setIntroductionFile(rs.getString("introduction_file"));
+					songVO.setCoverFile(rs.getString("cover_file"));
+					songVO.setLyricsFile(rs.getString("lyrics_file"));
+					songVO.setUpdateDate(rs.getDate("update_date"));
+					songVO.setLastclickDate(rs.getTimestamp("lastclick_date"));
+					songVO.setClicks(rs.getInt("clicks"));
+					songVO.setFavoriteCounts(rs.getInt("favorite_counts"));
+					songVO.setShares(rs.getInt("shares"));
+					songVO.setScore(rs.getDouble("score"));
+					songVO.setLength(rs.getInt("length"));
+					songVO.setSinger(rs.getString("singer"));
+					list.add(songVO);
+		        }
+				
+		    } catch (SQLException e) {
+				throw new RuntimeException("Can't Use this Database."
+						+ e.getMessage());
+
+				} finally {
+					if (ptmt != null) {
+						try {
+							ptmt.close();
+						} catch (SQLException e1) {
+							e1.printStackTrace(System.err);
+
+						}
+
+						if (conn != null) {
+							try {
+								conn.close();
+
+							} catch (Exception e) {
+								e.printStackTrace(System.err);
+
+							}
+
+						}
+
+					}
+				}
+			return list;	
+		}		
+
 	
 	
 	
@@ -773,7 +863,7 @@ public class JdbcSongDAO implements SongDAO {
 	
 
 	public static void main(String[] args) {
-		System.out.println(GET_NAME_STMT);
+		System.out.println(GET_BY_AlBUM);
 	}
 
 }

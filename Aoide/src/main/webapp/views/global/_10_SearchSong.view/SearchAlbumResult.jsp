@@ -42,7 +42,9 @@
 								<tr>
 									<td><% out.print(i = i + 1); %></td>
 									<td>${result.albumId}</td>
-									<td>${result.name}</td>
+									<td>
+										<a href="<c:url value='/ListSongsOfAlbum?albumId=${result.albumId}'/>">${result.name}</a>
+									</td>
 									<td>${result.artist}</td>
 									<td>${result.updateDate}</td>
 								</tr>
