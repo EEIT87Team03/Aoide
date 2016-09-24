@@ -168,7 +168,7 @@ var easy_fancybox_handler = function(){
 <a href="StartDepositTokenServlet.member" target="aoide"><span class="glyphicon glyphicon-usd"></span>儲值點數</a>
 <a href="CheckTokenServlet" target="aoide"><span class="glyphicon glyphicon-list-alt"></span>查詢點數</a>
 </div></div></li>
-<li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="StartDonationServlet" target="aoide"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a></li>
+<li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="CheckCashRecordServlet.member" target="aoide"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a></li>
 </ul> <a href="" class="responsive-nav" data-toggle="#off-canvas-right" data-toggle-class="open">
 <span class="l-menu"></span>
 </a> </nav>
