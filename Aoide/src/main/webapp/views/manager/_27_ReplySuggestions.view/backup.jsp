@@ -10,34 +10,34 @@
   <c:import url="/template/htmlBlocks/head_library.html"/>
   <!-- head_library -->
   <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
-<title>建議資訊</title>
+<title>編輯會員資料</title>
 
 </head>
 <!-- <body class="hold-transition skin-blue fixed sidebar-mini"> -->
 <body>
 <!-- Site wrapper -->
 <!-- <div class="wrapper"> -->
-  <div>
+<div>
   <!-- header -->
-  <%-- <c:import url="/template/htmlBlocks/header.html"/> --%>
+<%--   <c:import url="/template/htmlBlocks/header.html"/> --%>
   <!-- header -->
 
   <!-- =============================================== -->
 
   <!-- sidebar -->
-  <%-- <c:import url="/template/htmlBlocks/sidebar_global.html"/> --%>
+<%--   <c:import url="/template/htmlBlocks/sidebar_global.html"/> --%>
   <!-- sidebar -->
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
 <!--   <div class="content-wrapper"> -->
-	<div>
+  <div>
     <!-- Content Header (Page header) -->
 <!--     <section class="content-header"> -->
 <!--       <h1> -->
-<!--         感謝您的建議 -->
-<!--         <small>建議內容</small> -->
+<!--         回覆建議 -->
+<!--         <small>編輯回覆內容</small> -->
 <!--       </h1> -->
 <!--       <ol class="breadcrumb"> -->
 <!--         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li> -->
@@ -60,7 +60,7 @@
           <!-- Collapsed box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">${suggestion.title}</h3>
+              <h3 class="box-title">${updatedSuggestion.title}</h3>
 
 <!--               <div class="box-tools pull-right"> -->
 <!--                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> -->
@@ -71,7 +71,12 @@
             <!-- /.box-header -->
             <div class="box-body">
               <label>Suggestion</label>
-              ${suggestion.suggestionContentFile}
+              <span>${updatedSuggestion.suggestionContentFile}</span>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <label>Reply</label>
+              ${updatedSuggestion.replyContentFile}
             </div>
             <!-- /.box-body -->
           </div>
@@ -93,11 +98,11 @@
   <!-- /.content-wrapper -->
 
   <!-- footer -->
-  <%-- <c:import url="/template/htmlBlocks/footer.html"/> --%>
+<%--   <c:import url="/template/htmlBlocks/footer.html"/> --%>
   <!-- footer -->
 
   <!-- Control Sidebar -->
-  <%-- <c:import url="/template/htmlBlocks/control_sidebar.html"/> --%>
+<%--   <c:import url="/template/htmlBlocks/control_sidebar.html"/> --%>
   <!-- Control Sidebar -->
 </div>
 <!-- ./wrapper -->

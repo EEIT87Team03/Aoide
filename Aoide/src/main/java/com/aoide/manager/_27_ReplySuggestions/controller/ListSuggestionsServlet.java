@@ -15,7 +15,7 @@ import com.aoide.manager._27_ReplySuggestions.model.SuggestionService;
 
 
 
-@WebServlet("/ListSuggestionsServlet")
+@WebServlet("/ListSuggestionsServlet.manager")
 public class ListSuggestionsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
