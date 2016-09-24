@@ -102,7 +102,7 @@ var easy_fancybox_handler = function(){
 <nav class="nav nav-horizontal">
 <ul id="menu-skrollex-menu-1" class="menu">
 <li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query.member" target="aoide"><span class="glyphicon glyphicon-user"></span>會員資料</a></li>
-<li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805"><a href="/Aoide/ListSuggestionsServlet.manager" target="aoide"><span class="glyphicon glyphicon-music"></span>測試測試測試用的</a></li>
+<li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805"><a href="/Aoide/Query.member" target="aoide"><span class="glyphicon glyphicon-music"></span>測試測試測試用的</a></li>
 <li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806"><a href="/Aoide/views/member/_22_ManageAlbum.view/ManageAlbum.jsp" target="aoide"><span class="glyphicon glyphicon-edit"></span>管理專輯</a></li>
 <li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span class="glyphicon glyphicon-heart"></span>收藏清單</a></li>
 <li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><a href="/Aoide/views/member/_19_20_ManageToken.view/ManageToken.jsp" target="aoide"><span class="glyphicon glyphicon-piggy-bank"></span>點數儲值</a></li>

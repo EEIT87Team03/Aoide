@@ -58,6 +58,35 @@ body{
     padding: 30px;
 }
 
+.box-widget {
+    border: none;
+    position: relative;
+}
+
+.widget-user .widget-user-header {
+    padding: 20px;
+    height: 120px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.widget-user .widget-user-image {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    margin-left: -45px;
+}
+
+.widget-user .widget-user-image>img {
+    width: 90px;
+    height: auto;
+    border: 3px solid #fff;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
 .box-body-content {
 	border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -67,7 +96,6 @@ body{
     background-color: #001a00;
     
 }
-
 
 .box-footer {
     border-top-left-radius: 0;
@@ -87,4 +115,8 @@ body{
     border-radius: 4px touch-action: manipulation !important;
     cursor: pointer !important;
     overflow: visible !important;
+}
+
+input {
+	color:black !important;
 }
