@@ -96,9 +96,9 @@ var easy_fancybox_handler = function(){
 </div>
 </div>
 <div class="page-border  heading top colors-a main-navigation"></div>
-<div class="page-border  heading bottom colors-a main-navigation">
+		<div class="page-border  heading bottom colors-a main-navigation">
 
-<input type = "text" id = "input" name = "input" size = "40">
+			<input type = "text" id = "input" name = "input" size = "40">
 			<!-- audio player -->
 			<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
 				<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
@@ -120,8 +120,8 @@ var easy_fancybox_handler = function(){
 				<div id = "chart"></div>
 				<span id = "toggle">&#9650;</span>
 			</div>
-	
-</div>
+			<!-- audio player -->
+		</div>
 
 
 <div class="page-border  heading left colors-a main-navigation">
