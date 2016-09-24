@@ -22,8 +22,8 @@ public class ListSongsOfAlbum extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// get album id
 		request.setCharacterEncoding("UTF-8");
-		Integer albumId = new Integer( request.getParameter("albumId").trim() );
-//		Integer albumId = 1;
+//		Integer albumId = new Integer( request.getParameter("albumId").trim() );
+		Integer albumId = 1;
 		
 		// call service get songs by album id and albumVO
 		List<SongVO> songs = new SearchSongService().getSongsByAlbum(albumId);

@@ -42,16 +42,16 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="result" items="${songs}">
+								<c:forEach var="aSong" items="${songs}">
 									<tr>
 										<td><% out.print(i = i + 1); %></td>
-										<td><a href="<c:url value='/BuildPlaylistServlet?id=${result.songId}'/>">點歌</a></td>
-										<td>${result.songId}</td>
-										<td><a href="<c:url value='/ShowSongInfo?id=${result.songId}'/>">${result.name}</a></td>
-										<td>${result.singer}</td>
-										<td>${result.songType}</td>
-										<td>${result.songLanguage}</td>
-										<td>${result.updateDate}</td>
+										<td><a href="<c:url value='/BuildPlaylistServlet?id=${aSong.songId}'/>">點歌</a></td>
+										<td>${aSong.songId}</td>
+										<td><a href="<c:url value='/GetSongInfo?id=${aSong.songId}'/>">${aSong.name}</a></td>
+										<td>${aSong.singer}</td>
+										<td>${aSong.songType}</td>
+										<td>${aSong.songLanguage}</td>
+										<td>${aSong.updateDate}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
