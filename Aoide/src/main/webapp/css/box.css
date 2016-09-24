@@ -30,7 +30,7 @@ body{
 }
 
 .box {
-	background-color: black !important;
+	background-color: black;
 	opacity: 0.8;
     position: relative;
     border-radius: 3px;
@@ -41,7 +41,7 @@ body{
 
 .box-header {
     display: block;
-    padding: 10px;
+    padding: 20px;
     position: relative;
 }
 
@@ -54,8 +54,20 @@ body{
     border-top-right-radius: 0;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-    padding: 10px;
+    border-bottom: 1px solid #f4f4f4 !important;
+    padding: 30px;
 }
+
+.box-body-content {
+	border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 20px;
+    background-color: #001a00;
+    
+}
+
 
 .box-footer {
     border-top-left-radius: 0;
