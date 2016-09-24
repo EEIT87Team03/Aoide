@@ -1,37 +1,37 @@
-package com.aoide.global.dataBaseManipulationObjects.song;
-
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.List;
-
-
-public class TestSongDAO {
-
-	public static void main(String[] args) {
-			JdbcSongDAO dao = new JdbcSongDAO();
-			
-			
-			// �s�W
-			SongVO songVO1 = new SongVO();
-			
-			songVO1.setSongFile("1");
-			songVO1.setName("111");
-			songVO1.setSongType("1");
-			songVO1.setSongLanguage("1");
-			songVO1.setMemberId(1);
-			songVO1.setAlbumId(1);
-			songVO1.setIntroductionFile("1");
-			songVO1.setCoverFile("DEFAULT");
-			songVO1.setLyricsFile("1");
-			songVO1.setUpdateDate(new Date(16543684L));
-			songVO1.setLastclickDate(new Timestamp(16543684L));
-			songVO1.setClicks(1);
-			songVO1.setFavoriteCounts(1);
-			songVO1.setShares(1);
-			songVO1.setScore(1.1);
-			songVO1.setLength(1);
-			songVO1.setSinger("abc");
-			dao.insert(songVO1);
+//package com.aoide.global.dataBaseManipulationObjects.song;
+//
+//import java.sql.Date;
+//import java.sql.Timestamp;
+//import java.util.List;
+//
+//
+//public class TestSongDAO {
+//
+//	public static void main(String[] args) {
+//			JdbcSongDAO dao = new JdbcSongDAO();
+//			
+//			
+//			// �s�W
+//			SongVO songVO1 = new SongVO();
+//			
+//			songVO1.setSongFile("1");
+//			songVO1.setName("111");
+//			songVO1.setSongType("1");
+//			songVO1.setSongLanguage("1");
+//			songVO1.setMemberId(1);
+//			songVO1.setAlbumId(1);
+//			songVO1.setIntroductionFile("1");
+//			songVO1.setCoverFile("DEFAULT");
+//			songVO1.setLyricsFile("1");
+//			songVO1.setUpdateDate(new Date(16543684L));
+//			songVO1.setLastclickDate(new Timestamp(16543684L));
+//			songVO1.setClicks(1);
+//			songVO1.setFavoriteCounts(1);
+//			songVO1.setShares(1);
+//			songVO1.setScore(1.1);
+//			songVO1.setLength("1");
+//			songVO1.setSinger("abc");
+//			dao.insert(songVO1);
 /*
 			// �ק�
 			SongVO songVO2 = new SongVO();
@@ -104,6 +104,6 @@ public class TestSongDAO {
 				System.out.println(aSongVO.getSinger());
 			}
 */
-	}
-
-}
+//	}
+//
+//}

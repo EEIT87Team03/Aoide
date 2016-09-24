@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import com.aoide.global.dataBaseManipulationObjects.favorite.FavoriteVO;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
+import com.aoide.member._12_UpdateFavorite.model.UpdateFavoriteService;
+import com.aoide.member._13_ShareSong.model.ShareService;
 import com.aoide.member._15_ListFavorite.model.ListFavoriteService;
 
 /**
@@ -32,14 +34,25 @@ public class ListFavoriteServlet extends HttpServlet {
 		  HttpSession session = null;
 		  session = request.getSession();
 		
-		  MemberVO memberVO = 
-		   (MemberVO) session.getAttribute("member");
-			
-			List<FavoriteVO> favoriteAdd = new ListFavoriteService().getFavoritesById(memberVO.getMemberId());
-			request.getSession().setAttribute("favorites", favoriteAdd);
-			
+		  MemberVO memberVO = (MemberVO) session.getAttribute("member");
 
-			String contextPath = request.getContextPath();
+
+			
+			
+		  List<FavoriteVO> favoriteAdd = new ListFavoriteService().getFavoritesById(memberVO.getMemberId());
+          Integer songId1 = (Integer) session.getAttribute("song1");
+		  
+		
+          SongVO songVO = new SongVO();
+  		
+  		
+		  SongVO songadd = new UpdateFavoriteService().insert(songId1);
+
+		request.getSession().setAttribute("favorites", favoriteAdd);
+		
+			
+			
+			  String contextPath = request.getContextPath();
 			response.sendRedirect(contextPath + "/views/member/_15_ListFavorite.view/FavoriteView.jsp");
 
 		}

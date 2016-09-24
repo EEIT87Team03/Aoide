@@ -59,5 +59,23 @@ public class ShareService {
 		return song;
 
 	}
+	
+	public List<SongVO> getSong(int songId) {
+
+		List<SongVO> songOne = new ArrayList<SongVO>();
+
+		for (SongVO songsVO : songDAO.findByOther(songId)) {
+
+			songOne.add(songsVO);
+
+		}
+
+		{
+
+		}
+		return songOne;
+	
+	}
+	
 }
 

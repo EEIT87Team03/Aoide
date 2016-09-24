@@ -43,7 +43,7 @@ public class UploadEditBullet extends HttpServlet{
 		
 		request.getSession().setAttribute("bulletVO", bulletVO);
 		String Path = request.getContextPath();
-		response.sendRedirect(Path + "/_24_EditBullet.view/UploadBulletDisplay.jsp");
+		response.sendRedirect(Path + "/views/manager/_24_EditBullet.view/UploadBulletDisplay.jsp");
 		
 	}
 }

@@ -10,5 +10,6 @@ public interface FavoriteDAO {
     public FavoriteVO findByPrimaryKey(Integer memberId,Integer songId);
     public List<FavoriteVO> finByMemberId(Integer memberId);
     public List<FavoriteVO> getAll();
+    public FavoriteVO getFavoritesBySong(Integer songId);
 
 }

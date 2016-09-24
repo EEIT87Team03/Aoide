@@ -4,12 +4,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>編輯歌曲</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<!--   <!-- head_library --> -->
+<%--   <c:import url="/template/htmlBlocks/head_library.html"/> --%>
+<!--   <!-- head_library --> -->
+<!--   <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script> -->
+<!-- <title>編輯歌曲</title> -->
+
+<link rel="stylesheet" href="/Aoide/template/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/assets/css/style.css?ver=8dba6713421708b83f224493838e3224">
+<link rel="stylesheet" href="http://skrollex-wp.x40.ru/anna/wp-content/themes/layerswp/assets/css/framework.css?ver=1.5.3">
+<link rel="stylesheet" href="/Aoide/css/box.css">
+
+
+
 </head>
 <body>
+<div class="wrapper">
+    <section class="content">
+    <div class="row">
+           <div class="col-md-2">
+        </div>
+         <div class="col-md-8">
+                <div class="box">
+		         <div class="box-header with-border">
+		         <div class="box-body">
 <% int i = 0; %>
-	<table class="table">
+	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>　</th>
@@ -40,7 +62,13 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<p>
 	<a href="ManageSong.jsp">回管理歌曲</a>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</section>
 </body>
 </html>

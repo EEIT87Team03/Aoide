@@ -6,9 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   
-  
   <!-- head_library -->
-  <c:import url="/template/htmlBlocks/head_library.html"/>
+<%--   <c:import url="/template/htmlBlocks/head_library.html"/> --%>
   <!-- head_library -->
 <title>Share Song</title>
 
@@ -32,20 +31,23 @@
 <title>share Song</title>
 
 
-
 </head>
+
+
 <body class="hold-transition skin-blue fixed sidebar-mini">
+
+
 <!-- Site wrapper -->
 
 <div class="wrapper">
   <!-- header -->
-  <c:import url="/template/htmlBlocks/header.html"/>
+<%--   <c:import url="/template/htmlBlocks/header.html"/> --%>
   <!-- header -->
 
   <!-- =============================================== -->
 
   <!-- sidebar -->
-  <c:import url="/template/htmlBlocks/sidebar_global.html"/>
+<%--   <c:import url="/template/htmlBlocks/sidebar_global.html"/> --%>
   <!-- sidebar -->
 
   <!-- =============================================== -->
@@ -67,7 +69,10 @@
 
     <!-- Main content -->
     <section class="content">
-<script type="text/javascript" src="../static/js/jquery-3.1.0.min.js"></script>
+
+
+
+
 
 
 
@@ -104,50 +109,29 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
+	
+
 
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
   {lang: 'zh-TW'}
 </script>
+<script>
 
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title"></h3>
-      
+function copyToClipboard(text) { 
+	
+	window.prompt("Copy to clipboard: Ctrl+C, Enter", text />); 
+	
+	} 
+
+</script>
 
 <title>Share</title>
-<!-- <script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script> -->
-<!-- <!-- Latest compiled and minified CSS --> 
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" -->
-<!-- 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" -->
-<!-- 	crossorigin="anonymous"> -->
 
-<!-- <!-- Optional theme --> 
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" -->
-<!-- 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" -->
-<!-- 	crossorigin="anonymous"> -->
-<!-- </head> -->
-<!-- <body> -->
-<!-- 	<div class="container"> -->
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-lg-1"></div> -->
-<!-- 			<div class="col-lg-10"> -->
-<!-- 				<div class="panel panel-primary"> -->
-<!-- 					<div class="panel-heading"> -->
-<!-- 						<a href=""></a> -->
-<!-- 					</div> -->
 					<div class="panel-body">
 
 						<table class="table">
-							
-							<tbody>
+										<tbody>
 
-				
-
-	
-						
 
 									<th>SongId</th>
 									<th>SongName</th>
@@ -158,33 +142,32 @@
 
 						
 						
-					
-							
+			
 								<c:forEach var="song" items="${getSong}">
 									<tr>
 
 										<td>${song.songId}</td>
                                         <td>${song.name}</td>
 
-										<%--  			    				      <td><a href="<c:url value='/GenerateReplyPageServlet?id=${iscore.songId}'/>" class="btn btn-info" role="button">評分</a></td> --%>
+					
+
+<!--  										<td><form>  -->
+<%--   												<a href=<c:url value='/ShareServlet.member?id=${song.songId}'/>   --%>
+<%--    												class="btn btn-info" role="button" onclick=<c:url value='/ShareServlet.member?id=${song.songId}/></a>  --%>
+<%--   													onClick=" <a href=<c:url value='/ShareServlet.member?id=${song.songId}'/>" >分享</a>   --%>
+</form></td>
+<%--                                            <button id="demo" onclick="copyToClipboard(document.getElementById('demo').innerHTML)"><a href=<c:url value='/ShareServlet.member?id=${song.songId}'></a></button>   --%>
+                                              
+ 											 
 
 
-										<%--                                          <td> <a href="getScore.jsp" value='/GenerateReplyPageServlet?id=${iscore.scoreValue}' class="btn btn-info" role="button">分享</a></td> --%>
-
-										<td><form>
-												<a href=<c:url value='/ShareServlet.member?id=${song.songId}'/> 
-													value='/SelectOne'
-													class="btn btn-info" role="button" 
-													onClick=" var name = prompt('網址.' , 'You link here') ; " >分享</a>
 
 
 
-
-											</form></td>
 								
 										<td><form>
 												<a class="btn btn-info" role="button" id="otherid" src="http://tomcat.apache.org/images/tomcat.png"
-													href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('http://tomcat.apache.org/'))));">FB分享</a>
+													href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('www.kimo.com.tw'))));">FB分享</a>
 											</form></td>
 										<td><form>
 										<g:plusone href='http://tomcat.apache.org/' src="http://tomcat.apache.org/images/tomcat.png"></g:plusone>
@@ -213,11 +196,7 @@
           </div>
         
       
-        <!-- /.box-body -->
 
-        <!-- /.box-footer-->
-    
-      <!-- /.box -->
 
 
     <!-- /.content -->

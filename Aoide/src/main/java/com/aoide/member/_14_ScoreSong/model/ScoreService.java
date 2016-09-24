@@ -27,9 +27,9 @@ public class ScoreService {
 
 	}
 
-	public ScoreVO getScoreById(Integer memberId, Integer songId) {
+	public ScoreVO getScoreById(Integer songId) {
 
-		return scoreDAO.findByPrimaryKey(memberId, songId);
+		return scoreDAO.findByPrimaryKey(songId);
 	}
 
 	public ScoreVO updateScore(ScoreVO scoreVO) {
@@ -61,7 +61,7 @@ public class ScoreService {
 
 	}
 	
-	
+
 	
 	
 	
