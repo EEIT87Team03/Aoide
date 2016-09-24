@@ -110,7 +110,7 @@ var easy_fancybox_handler = function(){
 <li id="menu-item-810" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-810">
 <!-- 登入後圖片 -->
 <c:if test="${! empty member }">
-	<a href="http://google.com.tw"><img height="40px" width="40px" src="data:image/*;base64,${member.picture}"></a>
+	<a href="Query.member"target="aoide"><img style="border-radius:50% ;margin-top:10px;"height="40px" width="40px" src="data:image/*;base64,${member.picture}"></a>
 </c:if>
 <!-- 登入後圖片 -->
 </li>

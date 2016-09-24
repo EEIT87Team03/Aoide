@@ -14,7 +14,7 @@ public class LoginOK extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String contextPath = request.getContextPath();
-		response.sendRedirect(contextPath + "/index(Billy).jsp");
+		response.sendRedirect(contextPath + "/index.jsp");
 	}
 
 
