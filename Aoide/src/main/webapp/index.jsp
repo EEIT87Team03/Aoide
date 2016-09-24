@@ -69,33 +69,33 @@ var easy_fancybox_handler = function(){
 </script>
 </head>
 <body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
-<div class="view full " id="layers-widget-skrollex-section-3">
-<div data-src="/Aoide/views/dist/img/aoide2.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/aoide3.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/aoide4.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/aoide5.jpg" class="bg-holder"></div>
-<div id="home" class="fg colors-b  full-size">
-<iframe src="" height="22"></iframe><br>
-<iframe src="" width="31"></iframe>
-<iframe src="home.jsp" height="820" width="1850" name="aoide"></iframe>
-</div>
-</div>
-<div class="gate colors-o">
-<div class="gate-content">
-<div class="gate-bar background-highlight"></div>
-<div class="preloader">
-<div class="preloader-container">
-<div class="circleOne border-heading"></div>
-<div class="circleTwo border-heading"></div>
-<div class="circleThree border-heading"></div>
-<div class="circleFour border-heading"></div>
-<div class="circleFive border-heading"></div>
-<div class="circleSix border-heading"></div>
-</div>
-</div> 
-</div>
-</div>
-<div class="page-border  heading top colors-a main-navigation"></div>
+	<div class="view full " id="layers-widget-skrollex-section-3">
+		<div data-src="/Aoide/views/dist/img/aoide2.jpg" class="bg-holder"></div>
+		<div data-src="/Aoide/views/dist/img/aoide3.jpg" class="bg-holder"></div>
+		<div data-src="/Aoide/views/dist/img/aoide4.jpg" class="bg-holder"></div>
+		<div data-src="/Aoide/views/dist/img/aoide5.jpg" class="bg-holder"></div>
+		<div id="home" class="fg colors-b  full-size">
+			<iframe src="" height="22"></iframe><br>
+			<iframe src="" width="31"></iframe>
+			<iframe src="home.jsp" height="820" width="1850" name="aoide"></iframe>
+		</div>
+	</div>
+	<div class="gate colors-o">
+		<div class="gate-content">
+			<div class="gate-bar background-highlight"></div>
+			<div class="preloader">
+				<div class="preloader-container">
+					<div class="circleOne border-heading"></div>
+					<div class="circleTwo border-heading"></div>
+					<div class="circleThree border-heading"></div>
+					<div class="circleFour border-heading"></div>
+					<div class="circleFive border-heading"></div>
+					<div class="circleSix border-heading"></div>
+				</div>
+			</div> 
+		</div>
+	</div>
+	<div class="page-border  heading top colors-a main-navigation"></div>
 		<div class="page-border  heading bottom colors-a main-navigation">
 
 			<input type = "text" id = "input" name = "input" size = "40">
