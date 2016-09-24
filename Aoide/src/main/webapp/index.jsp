@@ -92,14 +92,15 @@ var easy_fancybox_handler = function(){
 <div class="circleFive border-heading"></div>
 <div class="circleSix border-heading"></div>
 </div>
-</div> </div>
+</div> 
+</div>
 </div>
 <div class="page-border  heading top colors-a main-navigation"></div>
 <div class="page-border  heading bottom colors-a main-navigation">
 
 <input type = "text" id = "input" name = "input" size = "40">
-<!-- audio -->
-<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
+	<!-- audio -->
+	<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
 		<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
 		<div id = "info">
 			<h5 id = "tip"></h5>
@@ -110,8 +111,9 @@ var easy_fancybox_handler = function(){
 			<audio src = "#" id = "track">
 				<p>Sorry but audio is not supported in your browser.</p>
 			</audio>
-			<img src = "views/dist/img/playbar/pause.png" id = "controlIcon">
-			<progress max="100" value="80"></progress>
+			<img src = "views/dist/img/playbar/play.png" id = "controlIcon">
+			<h6 id = "playTime">00:00 / 00:00</h6>
+			<progress id = "progressBar" max = "100" value = "0"></progress>
 			<img src = "views/dist/img/playbar/volume_low.png" id = "volumeIcon">
 			<input type = "range" id = "ranger" value = "0.09" min = "0" max = "1" step = "0.01">
 		</div>
