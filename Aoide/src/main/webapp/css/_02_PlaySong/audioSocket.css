@@ -1,6 +1,6 @@
 #playbar 
 {
-   	opacity: 0.8;
+   	opacity: 0.8 !important;
  	background : #141313;
 	width: 100%;
 	text-align: center;
@@ -11,15 +11,17 @@
     margin: 0;
     padding: 0;
    	display : none;
+   	
    	-webkit-animation-name: slideIn;
     -webkit-animation-duration: 0.5s;
     animation-name: slideIn;
     animation-duration: 0.5s
 }
+
 progress 
 {
   height: 10px;
-  margin: 18px auto;
+  margin: 10px auto;
   -webkit-appearance: none;
 }
 progress::-webkit-progress-bar 
@@ -43,12 +45,40 @@ progress::-webkit-progress-value
 	background-size: 25px 14px, 100% 100%, 100% 100%;
 	-webkit-animation: move 5s linear 0 infinite;
 }
-@-webkit-keyframes move
+#ranger
 {
-	0% {background-position: 0px 0px, 0 0, 0 0}
-	100% {background-position: -100px 0px, 0 0, 0 0}
+  -webkit-appearance: none;
+  overflow: hidden; 
+  width: 50px;
+  height: 20px;
+  outline : none;      /* 避免點選會有藍線或虛線 */
+  background: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+  border: none;			/* 去除 focus 時候的外框虛線 */
 }
-#info, #cover, #controls, #chart, #chart:after, #chart div 
+
+#ranger::-webkit-slider-runnable-track
+{
+    width: 50px;
+    height: 2px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+#ranger::-webkit-slider-thumb 
+{
+    -webkit-appearance: none;
+    border: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #cc3d00;
+    margin-top: -4px;
+}
+
+#info, img, #controls, #chart, #chart:after, #chart div, #ranger 
 {
 	display: inline-block;
 }
@@ -62,16 +92,14 @@ progress::-webkit-progress-value
 	font-weight: normal;
 	font-family: Arial, Verdana, Sans-serif;
 }
-#status
+#controls
 {
-	margin: 0px 5px 10px 5px;
-	font-weight: normal;
-	font-family: Arial, Verdana, Sans-serif;
+	text-align: center;
+	vertical-align: bottom;
 }
 #chart
 {
-	margin: 1px;
-	padding: 1px;
+	margin-bottom: 2px;
 	width : 770px;
 }
 #chart:after
@@ -114,4 +142,10 @@ progress::-webkit-progress-value
 {
     from {bottom: -300px; opacity: 0}
     to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes move
+{
+	0% {background-position: 0px 0px, 0 0, 0 0}
+	100% {background-position: -100px 0px, 0 0, 0 0}
 }

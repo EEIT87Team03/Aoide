@@ -72,9 +72,12 @@
 					<thead>
 						<tr>
 							<th>　</th>
-							<th>專輯ID</th>
-							<th>專輯名稱</th>
+							<th>點歌</th>
+							<th>歌曲ID</th>
+							<th>歌名</th>
 							<th>演出者</th>
+							<th>類型</th>
+							<th>語言</th>
 							<th>上傳日期</th>
 						</tr>
 					</thead>
@@ -82,9 +85,12 @@
 						<c:forEach var="result" items="${searchList}">
 							<tr>
 								<td><% out.print(i = i + 1); %></td>
-								<td>${result.albumId}</td>
-								<td>${result.name}</td>
-								<td>${result.artist}</td>
+								<td><a href="<c:url value='/BuildPlaylistServlet?id=${result.songId}'/>">點歌</a></td>
+								<td>${result.songId}</td>
+								<td><a href="<c:url value='/ShowSongInfo?id=${result.songId}'/>">${result.name}</a></td>
+								<td>${result.singer}</td>
+								<td>${result.songType}</td>
+								<td>${result.songLanguage}</td>
 								<td>${result.updateDate}</td>
 							</tr>
 						</c:forEach>
