@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Aoide</title>
-<link rel="Shortcut Icon" type="image/x-icon" href="/Aoide/views/dist/img/AoideIcon.png" />
-<link rel="stylesheet" href="/Aoide/css/_02_PlaySong/audioSocket.css">		<!-- Byc -->
-<link rel="stylesheet" href="/Aoide/css/HoverableDropDown.css">
-<link rel="stylesheet" href="/Aoide/css/_05_DisplayDanmuku/barrager.css">
+<link rel="Shortcut Icon" type="image/x-icon" href="views/dist/img/AoideIcon.png" />
+<link rel="stylesheet" href="css/_02_PlaySong/audioSocket.css">		<!-- Byc -->
+<link rel="stylesheet" href="css/HoverableDropDown.css">
+<link rel="stylesheet" href="css/_05_DisplayDanmuku/barrager.css">
 <link rel="stylesheet" href="danmmu/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
@@ -70,10 +70,10 @@ var easy_fancybox_handler = function(){
 </head>
 <body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
 <div class="view full " id="layers-widget-skrollex-section-3">
-<div data-src="/Aoide/views/dist/img/aoide2.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/aoide3.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/aoide4.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/aoide5.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/aoide2.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/aoide3.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/aoide4.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/aoide5.jpg" class="bg-holder"></div>
 <div id="home" class="fg colors-b  full-size">
 <iframe src="" height="22"></iframe><br>
 <iframe src="" width="31"></iframe>
@@ -95,9 +95,9 @@ var easy_fancybox_handler = function(){
 </div> </div>
 </div>
 <div class="page-border  heading top colors-a main-navigation"></div>
-<div class="page-border  heading bottom colors-a main-navigation">
+<div class="page-border  heading bottom colors-b main-navigation">
 
-<input type = "text" id = "input" name = "input" size = "40">
+<input type = "text" id = "input" name = "input" size = "40" placeholder="在此輸入文字後按ENTER即可發送彈幕，點選右方箭頭展開歌曲播放資訊">
 <!-- audio -->
 <div id = "playbar" oncontextmenu = "window.event.returnValue = false">
 		<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
@@ -116,15 +116,17 @@ var easy_fancybox_handler = function(){
 	<span id = "toggle">&#9650;</span>
 </div>
 
-
 <div class="page-border  heading left colors-a main-navigation">
 <ul>
-<li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　<li><a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　<li><a href="/Aoide/views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li></ul>
+<li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
+<li><a href="views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　
+<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
+<li><a href="views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>
+</ul>
 </div>
 <div class="page-border  heading right colors-a main-navigation"></div>
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
 <div class="layout-boxed top-nav-inner clearfix">
-<span class="menu-toggle ext-nav-toggle" data-target=".ext-nav"><span></span></span>
 <nav class="nav nav-horizontal">
 <ul id="menu-skrollex-menu-1" class="menu">
 <li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query.member" target="aoide"><span class="glyphicon glyphicon-user"></span>會員資料</a></li>
@@ -132,7 +134,7 @@ var easy_fancybox_handler = function(){
 <div class="dropdown"><a class="dropbtn">
 <span class="glyphicon glyphicon-music"></span>管理歌曲
 </a><div class="dropdown-content">
-<a href="/Aoide/views/member/_16_ManageSong.view/UploadSong.jsp" target="aoide"><span class="glyphicon glyphicon-upload"></span>上傳歌曲</a>
+<a href="views/member/_16_ManageSong.view/UploadSong.jsp" target="aoide"><span class="glyphicon glyphicon-upload"></span>上傳歌曲</a>
 <a href="ListSongServlet.member" target="aoide"><span class="glyphicon glyphicon-pencil"></span>編輯歌曲</a>
 </div></div></li>
 <li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806">
@@ -190,44 +192,10 @@ var easy_fancybox_handler = function(){
 <i class="l-close"></i>
 Close
 </a>
-<div class="content-box nav-mobile page-transition">
-<nav class="nav nav-vertical"><ul id="menu-skrollex-menu-2" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="http://skrollex-wp.x40.ru/anna/#home">Home</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805"><a href="http://skrollex-wp.x40.ru/anna/#about">About</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806"><a href="http://skrollex-wp.x40.ru/anna/#team">Team</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="http://skrollex-wp.x40.ru/anna/#services">Services</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808"><a href="http://skrollex-wp.x40.ru/anna/#work">Work</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="http://skrollex-wp.x40.ru/anna/#skills">Skills</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-810"><a href="http://skrollex-wp.x40.ru/anna/blog/">Blog</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-811"><a href="http://skrollex-wp.x40.ru/anna/#contact">Contact</a></li>
-</ul></nav> </div>
-</div> <section class="wrapper-site">
-<div class="ext-nav scroll-bar page-transition heading non-preloading background-t">
-<div class="view half-height">
-<img alt class="bg static" src="http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/assets/preset-images/bg-john-kraus-2.jpg"/>
-<div class="fg no-top-padding no-bottom-padding  full-height">
-<div class="full-height">
-<div class="pure-g full-height">
-<a href="/Aoide/views/global/_08_login.view/login.jsp" class="position-relative pure-u-1 pure-u-sm-12-24 colors-r full-height" target="aoide">
-<div>
-<span class="side-label highlight">Login</span>
-<span class="side-title heading">登入</span>
 </div>
-</a>
-<a href="/Aoide/views/global/_07_Register.view/register.jsp" class="position-relative pure-u-1 pure-u-sm-12-24 colors-s full-height" target="aoide">
-<div>
-<span class="side-label highlight">Register</span>
-<span class="side-title heading">註冊</span>
-</div>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<script src="/Aoide/js/_05_DisplayDanmuku/jquery.barrager.js"></script>
-<script src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
-<script src="/Aoide/js/_02_PlaySong/audioSocket.js"></script>
+<script src="js/_05_DisplayDanmuku/jquery.barrager.js"></script>
+<script src="js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
+<script src="js/_02_PlaySong/audioSocket.js"></script>
 <script src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script>
 /* <![CDATA[ */
