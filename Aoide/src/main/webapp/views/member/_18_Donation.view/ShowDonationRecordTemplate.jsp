@@ -16,7 +16,7 @@
 <!-- <c:import url="/views/global/_05_DisplayDanmuku/_05_DisplayDanmuku_library_css.html"/> -->
 <!-- _05_DisplayDanmuku_library_css -->
 
-<title>Home</title>
+<title>贊助紀錄</title>
 </head>
 <!-- <body class="hold-transition skin-blue fixed sidebar-mini"> -->
 <body>
