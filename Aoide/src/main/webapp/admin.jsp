@@ -152,9 +152,6 @@ var easy_fancybox_handler = function(){
 Close
 </a>
 </div>
-<script src="js/_05_DisplayDanmuku/jquery.barrager.js"></script>
-<script src="js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
-<script src="js/_02_PlaySong/audioSocket.js"></script>
 <script src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script>
 /* <![CDATA[ */
