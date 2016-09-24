@@ -8,10 +8,7 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Aoide</title>
 <link rel="Shortcut Icon" type="image/x-icon" href="views/dist/img/AoideIcon.png" />
-<link rel="stylesheet" href="css/_02_PlaySong/audioSocket.css">		<!-- Byc -->
 <link rel="stylesheet" href="css/HoverableDropDown.css">
-<link rel="stylesheet" href="css/_05_DisplayDanmuku/barrager.css">
-<link rel="stylesheet" href="danmmu/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Comments Feed" href="http://skrollex-wp.x40.ru/anna/comments/feed/"/>
@@ -34,8 +31,7 @@
 <link rel='stylesheet' id='skrollex_child_styles-css' href='http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/assets/css/style.css?ver=8dba6713421708b83f224493838e3224' type='text/css' media='all'/>
 <link rel='stylesheet' id='theme-color-schemes-css' href='http://skrollex-wp.x40.ru/anna/wp-content/themes/skrollex/assets/css/colors-preset-anna.css?ver=1466432178' type='text/css' media='all'/>
 <link rel='stylesheet' id='fancybox-css' href='http://skrollex-wp.x40.ru/anna/wp-content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.7.min.css?ver=1.5.7' type='text/css' media='screen'/>
-<!-- <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script> -->
-<script src="danmmu/js/jquery-1.9.1.min.js"></script>
+<script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
 <script src='http://skrollex-wp.x40.ru/anna/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
 <script src='http://skrollex-wp.x40.ru/anna/wp-content/themes/layerswp/assets/js/plugins.js?ver=1.5.3'></script>
 <link rel='https://api.w.org/' href='http://skrollex-wp.x40.ru/anna/wp-json/'/>
@@ -70,14 +66,12 @@ var easy_fancybox_handler = function(){
 </head>
 <body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
 <div class="view full " id="layers-widget-skrollex-section-3">
-<div data-src="views/dist/img/aoide2.jpg" class="bg-holder"></div>
-<div data-src="views/dist/img/aoide3.jpg" class="bg-holder"></div>
-<div data-src="views/dist/img/aoide4.jpg" class="bg-holder"></div>
-<div data-src="views/dist/img/aoide5.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/manage1.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/manage2.jpg" class="bg-holder"></div>
 <div id="home" class="fg colors-b  full-size">
 <iframe src="" height="22"></iframe><br>
 <iframe src="" width="31"></iframe>
-<iframe src="home.jsp" height="820" width="1850" name="aoide"></iframe>
+<iframe src="home2.jsp" height="820" width="1850" name="aoide"></iframe>
 <div class="flask-bubbles from-bottom svg-overlay bottom fixed hide-on-mobile">
 <div class="background-heading bubble b0"></div>
 <div class="background-heading bubble b1"></div>
@@ -107,74 +101,23 @@ var easy_fancybox_handler = function(){
 </div> </div>
 </div>
 <div class="page-border  heading top colors-a main-navigation"></div>
-<div class="page-border  heading bottom colors-b main-navigation">
-
-<input type = "text" id = "input" name = "input" size = "40" placeholder="在此輸入文字後按ENTER即可發送彈幕，點選右方箭頭展開歌曲播放資訊">
-<!-- audio -->
-<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
-		<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
-		<div id = "info">
-			<h5 id = "tip"></h5>
-			<span id = "trackName"></span>
-			<span id = "singer"></span>
-		</div>
-		<div id = "controls">
-			<audio src = "#" id = "track">
-				<p>Sorry but audio is not supported in your browser.</p>
-			</audio>
-			<img src = "views/dist/img/playbar/pause.png" id = "controlIcon">
-			<progress max="100" value="80"></progress>
-			<img src = "views/dist/img/playbar/volume_low.png" id = "volumeIcon">
-			<input type = "range" id = "ranger" value = "0.09" min = "0" max = "1" step = "0.01">
-		</div>
-		<div id = "chart"></div>
-	</div>
-	<span id = "toggle">&#9650;</span>
-</div>
-
-<div class="page-border  heading left colors-a main-navigation">
-<ul>
-<li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
-<li><a href="views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　
-<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
-<li><a href="views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>
-</ul>
-</div>
+<div class="page-border  heading bottom colors-b main-navigation">Admin<span>istrator</span></div>
+<div class="page-border  heading left colors-a main-navigation"></div>
 <div class="page-border  heading right colors-a main-navigation"></div>
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
 <div class="layout-boxed top-nav-inner clearfix">
 <nav class="nav nav-horizontal">
 <ul id="menu-skrollex-menu-1" class="menu">
-<li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query.member" target="aoide"><span class="glyphicon glyphicon-user"></span>會員資料</a></li>
-<li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805">
-<div class="dropdown"><a class="dropbtn">
-<span class="glyphicon glyphicon-music"></span>管理歌曲
-</a><div class="dropdown-content">
-<a href="views/member/_16_ManageSong.view/UploadSong.jsp" target="aoide"><span class="glyphicon glyphicon-upload"></span>上傳歌曲</a>
-<a href="ListSongServlet.member" target="aoide"><span class="glyphicon glyphicon-pencil"></span>編輯歌曲</a>
-</div></div></li>
-<li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806">
-<div class="dropdown"><a class="dropbtn">
-<span class="glyphicon glyphicon-cd"></span>管理專輯
-</a><div class="dropdown-content">
-<a href="BuildAlbumServlet.member" target="aoide"><span class="glyphicon glyphicon-record"></span>建立專輯</a>
-<a href="ListAlbumServlet.member" target="aoide"><span class="glyphicon glyphicon-edit"></span>編輯專輯</a>
-</div></div></li>
-<li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span class="glyphicon glyphicon-heart"></span>收藏清單</a></li>
-<li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808">
-<div class="dropdown"><a class="dropbtn">
-<span class="glyphicon glyphicon-piggy-bank"></span>點數中心
-</a><div class="dropdown-content">
-<a href="StartDepositTokenServlet.member" target="aoide"><span class="glyphicon glyphicon-usd"></span>儲值點數</a>
-<a href="CheckTokenServlet" target="aoide"><span class="glyphicon glyphicon-list-alt"></span>查詢點數</a>
-</div></div></li>
-<li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="StartDonationServlet" target="aoide"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a></li>
+<li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="EditBulletList" target="aoide"><span class="glyphicon glyphicon-bullhorn"></span>管理公告</a></li>
+<li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805"><a href="ListAccusementServlet.manager" target="aoide"><span class="glyphicon glyphicon-screenshot"></span>檢舉案件</a></li>
+<li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806"><a href="ListSuggestionsServlet.manager" target="aoide"><span class="glyphicon glyphicon-comment"></span>回覆建議</a></li>
+<li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="" target="aoide"><span class="glyphicon glyphicon-shopping-cart"></span>管理廣告</a></li>
 </ul> <a href="" class="responsive-nav" data-toggle="#off-canvas-right" data-toggle-class="open">
 <span class="l-menu"></span>
 </a> </nav>
 <div class="logo">
 <div class="site-description">
-<h3 class="sitename sitetitle"><a href="home.jsp" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></a></h3>
+<h3 class="sitename sitetitle"><a href="" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-flash"></span></span></a></h3>
 </div>
 </div>
 </div>
