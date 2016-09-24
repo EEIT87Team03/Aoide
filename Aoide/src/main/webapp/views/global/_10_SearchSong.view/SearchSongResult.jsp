@@ -88,6 +88,7 @@
 								<td><a href="<c:url value='/BuildPlaylistServlet?id=${result.songId}'/>">點歌</a></td>
 								<td>${result.songId}</td>
 								<td><a href="<c:url value='/ShowSongInfo?id=${result.songId}'/>">${result.name}</a></td>
+								<td><a href="<c:url value='/GetSongInfo?id=${result.songId}'/>">${result.singer}</a></td>	
 								<td>${result.singer}</td>
 								<td>${result.songType}</td>
 								<td>${result.songLanguage}</td>

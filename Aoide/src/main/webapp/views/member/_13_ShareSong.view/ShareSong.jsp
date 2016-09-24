@@ -5,10 +5,10 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  
-  <!-- head_library -->
-<%--   <c:import url="/template/htmlBlocks/head_library.html"/> --%>
-  <!-- head_library -->
+  <script type="text/javascript" src="../../../static/js/jquery-1.9.1.min.js"></script>
+
+
+
 <title>Share Song</title>
 
 
@@ -117,13 +117,22 @@
 </script>
 <script>
 
-function copyToClipboard(text) { 
-	
-	window.prompt("Copy to clipboard: Ctrl+C, Enter", text />); 
-	
-	} 
+
+$(function () {
+    $('#copy-btn').zclip({
+        path: 'CSS/js/ZeroClipboard.swf',
+        copy: function () {
+            return $('#ipt').val();
+        }
+    }).click(function () {
+        $("#ipt").val('');
+        alert('已複製到剪貼薄');
+    });
+});
 
 </script>
+
+
 
 <title>Share</title>
 
@@ -151,12 +160,13 @@ function copyToClipboard(text) {
 
 					
 
-<!--  										<td><form>  -->
-<%--   												<a href=<c:url value='/ShareServlet.member?id=${song.songId}'/>   --%>
-<%--    												class="btn btn-info" role="button" onclick=<c:url value='/ShareServlet.member?id=${song.songId}/></a>  --%>
-<%--   													onClick=" <a href=<c:url value='/ShareServlet.member?id=${song.songId}'/>" >分享</a>   --%>
-</form></td>
-<%--                                            <button id="demo" onclick="copyToClipboard(document.getElementById('demo').innerHTML)"><a href=<c:url value='/ShareServlet.member?id=${song.songId}'></a></button>   --%>
+  										<td><form>  
+  								<button><a href=<c:url value='/ShareServlet.member?id=${song.songId}'/> class="btn btn-info" role="button" onclick="window.clipboardData.setData('text', 'This is sample text');"/>
+  								
+  								
+  								</button>
+  								</a></form></td>
+<%--                                            <button id="demo" onclick="copyToClipboard(document.getElementById('demo').innerHTML)"><a href=<c:url value='/ShareServlet.member?id=${song.songId}'></a></button> > --%>
                                               
  											 
 
@@ -166,6 +176,9 @@ function copyToClipboard(text) {
 
 								
 										<td><form>
+										
+										<input style="width:300px; margin-left:15px;" type="text" id="ipt" value="http://www.minwt.com"/>
+        <a href=<c:url value='/ShareServlet.member?id=${song.songId}'/>  id="copy-btn">複製</a>
 												<a class="btn btn-info" role="button" id="otherid" src="http://tomcat.apache.org/images/tomcat.png"
 													href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('www.kimo.com.tw'))));">FB分享</a>
 											</form></td>
