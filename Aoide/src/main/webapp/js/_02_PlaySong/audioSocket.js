@@ -10,6 +10,9 @@ var tip = document.getElementById( "tip" ); //need another name
 var playbar = document.getElementById( "playbar" );
 var toggle =  document.getElementById( "toggle" );
 var chart = document.getElementById( "chart" );
+var ranger = document.getElementById( "ranger" );
+var volumeIcon = document.getElementById( "volumeIcon" );
+var controlIcon = document.getElementById( "controlIcon" );
 var timerID;
 var audioSocket;
 var audioContext;
@@ -44,11 +47,24 @@ function initial()
 	var bufferLength = analyser.frequencyBinCount;
 	dataArray = new Uint8Array( bufferLength );
 	
-	audioSocket = new WebSocket( asUri );
-	audioSocket.onmessage = onMessage;
-	audioSocket.onclose = onClose();
-	audio.onended = onEnded;
+	audioSocketInitialize();
 	toggle.onclick = onToggle;
+	ranger.onchange = onVolumeChange;
+	controlIcon.onclick = control;
+	volumeIcon.onclick = volumeMuted;
+}
+
+function audioSocketInitialize()
+{
+	audioSocket = new WebSocket( asUri );
+	audioSocket.onopen = onOpen;
+	audioSocket.onmessage = onMessage;
+	audioSocket.onclose = onClose;
+	audio.onended = onEnded;
+}
+function onOpen()
+{
+	tip.innerHTML = "Connecting...";
 }
 
 function onMessage( event )
@@ -72,11 +88,14 @@ function onMessage( event )
 			singer.innerHTML = track.singer;
 			audio.src = track.songFile;
 			audio.volume = 0.09;
-			
 		}
 	}
 }
-
+function onEnded( event )
+{
+	audioSocket.send( "[NEXT]" );
+	stop();
+}
 function onClose( event )
 {
 	console.log( "Websocket closed connection..." );
@@ -87,19 +106,32 @@ function start()
 	updateChart();
 	timerID = setInterval( updateChart, 15 );
 	tip.innerHTML = "Now Playing";
-	onToggle();
+	controlIcon.src = "views/dist/img/playbar/pause.png";
+	if ( playbar.style.display == "none" )
+	{
+		onToggle();
+	}
 }
 
 function stop()
 {
 	clearInterval( timerID );
-	tip.innerHTML = "";
+	tip.innerHTML = "Waiting...";
+	controlIcon.src = "views/dist/img/playbar/play.png";
 }
 
-function onEnded( event )
+function control()
 {
-	audioSocket.send( "[NEXT]" );
-	stop();
+	if ( audio.paused )
+	{
+		audioSocketInitialize();
+	}
+	else
+	{
+		audio.pause();
+		audioSocket.close();
+		stop();
+	}
 }
 
 function onToggle( event )
@@ -118,6 +150,41 @@ function onToggle( event )
 	}
 }
 
+function onVolumeChange( event ) 
+{
+	var volume = event.target.value;
+	audio.volume = volume;
+	volumeChangeHelper( volume )
+}
+
+function volumeChangeHelper( value )
+{
+	if ( value == 0 )
+	{
+		volumeIcon.src = "views/dist/img/playbar/volume_none.png";
+	}
+	else if ( value > 0.5 )
+	{
+		volumeIcon.src = "views/dist/img/playbar/volume_high.png";
+	}
+	else
+	{
+		volumeIcon.src = "views/dist/img/playbar/volume_low.png";
+	}
+}
+
+function volumeMuted()
+{
+	audio.muted = !audio.muted;
+	if ( audio.muted )
+	{
+		volumeChangeHelper( 0 );
+	}
+	else
+	{
+		volumeChangeHelper( audio.volume );
+	}
+}
 function updateChart() 
 {	
     analyser.getByteFrequencyData( dataArray );
