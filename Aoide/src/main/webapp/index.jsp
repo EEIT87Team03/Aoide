@@ -118,9 +118,9 @@ var easy_fancybox_handler = function(){
 					<input type = "range" id = "ranger" value = "0.09" min = "0" max = "1" step = "0.01">
 				</div>
 				<div id = "chart"></div>
-				<span id = "toggle">&#9650;</span>
 			</div>
 			<!-- audio player -->
+			<span id = "toggle">&#9650;</span>
 		</div>
 
 
