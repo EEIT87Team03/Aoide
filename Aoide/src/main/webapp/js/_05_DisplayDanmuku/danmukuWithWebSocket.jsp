@@ -14,7 +14,7 @@
     				memberId = ${member.memberId};
     				</c:if>
     				<c:if test="${empty member }">
-    				memberId = 0;
+    				memberId = 5;
     				</c:if>
     				
     				
