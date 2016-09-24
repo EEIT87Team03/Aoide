@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Comments Feed" href="http://skrollex-wp.x40.ru/anna/comments/feed/"/>
-<style type="text/css">#wp-admin-bar-layers-edit-layout .ab-icon:before{font-family:"layers-interface"!important;content:"\e62f"!important;font-size:16px!important;}</style>
+<style>#wp-admin-bar-layers-edit-layout .ab-icon:before{font-family:"layers-interface"!important;content:"\e62f"!important;font-size:16px!important;}</style>
 <link rel='stylesheet' id='contact-form-7-css' href='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.4.2' type='text/css' media='all'/>
 <link rel='stylesheet' id='layers-google-fonts-css' href='//fonts.googleapis.com/css?family=Ubuntu%3Aregular%2Citalic%2C700%2C300%2C300italic%2C500%2C500italic%2C700italic%7COswald%3Aregular%2C700%2C300&#038;ver=1.5.3' type='text/css' media='all'/>
 <link rel='stylesheet' id='layers-framework-css' href='http://skrollex-wp.x40.ru/anna/wp-content/themes/layerswp/assets/css/framework.css?ver=1.5.3' type='text/css' media='all'/>
@@ -46,11 +46,11 @@
 <link rel='shortlink' href='http://skrollex-wp.x40.ru/anna/'/>
 <link rel="alternate" type="application/json+oembed" href="http://skrollex-wp.x40.ru/anna/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fskrollex-wp.x40.ru%2Fanna%2F"/>
 <link rel="alternate" type="text/xml+oembed" href="http://skrollex-wp.x40.ru/anna/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fskrollex-wp.x40.ru%2Fanna%2F&#038;format=xml"/>
-<style type="text/css" id="layers-inline-styles-header">body{font-family:"Ubuntu",Helvetica,sans-serif;}h1,h2,h3,h4,h5,h6,.heading{font-family:"Oswald",Helvetica,sans-serif;}button,.button,input[type=submit]{font-family:"Oswald",Helvetica,sans-serif;}</style> 
+<style id="layers-inline-styles-header">body{font-family:"Ubuntu",Helvetica,sans-serif;}h1,h2,h3,h4,h5,h6,.heading{font-family:"Oswald",Helvetica,sans-serif;}button,.button,input[type=submit]{font-family:"Oswald",Helvetica,sans-serif;}</style> 
 <meta property="og:title" content=""/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content=""/>
-<style type="text/css">.recentcomments a{display:inline!important;padding:0!important;margin:0!important;}</style> 
+<style>.recentcomments a{display:inline!important;padding:0!important;margin:0!important;}</style> 
 <script>
 /* <![CDATA[ */
 var fb_timeout = null;
@@ -107,9 +107,13 @@ var easy_fancybox_handler = function(){
 			<span id = "singer"></span>
 		</div>
 		<div id = "controls">
-			<audio src = "#" id = "track" controls>
+			<audio src = "#" id = "track">
 				<p>Sorry but audio is not supported in your browser.</p>
 			</audio>
+			<img src = "views/dist/img/playbar/pause.png" id = "controlIcon">
+			<progress max="100" value="80"></progress>
+			<img src = "views/dist/img/playbar/volume_low.png" id = "volumeIcon">
+			<input type = "range" id = "ranger" value = "0.09" min = "0" max = "1" step = "0.01">
 		</div>
 		<div id = "chart"></div>
 	</div>
