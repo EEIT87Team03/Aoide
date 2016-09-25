@@ -21,19 +21,17 @@
 					  <!-- Default box -->
 				      <div class="box">
 				        <div class="box-header with-border">
-				          <h3 class="box-title">搜尋結果</h3>
+				          <h3 class="box-title">${type1}</h3>
 				        </div>
 				        <!-- /.box-body -->
 				        <div class="box-body">
 					    <!-- /.table -->
-					    ${type1}
 						<% int i = 0; %>
 						<table class="table">
 							<thead>
 								<tr>
 									<th>　</th>
 									<th>點歌</th>
-									<th>歌曲ID</th>
 									<th>歌名</th>
 									<th>演出者</th>
 									<th>類型</th>
@@ -45,10 +43,9 @@
 								<c:forEach var="result" items="${searchList}">
 									<tr>
 										<td><% out.print(i = i + 1); %></td>
-										<td><a href="<c:url value='/BuildPlaylistServlet?id=${result.songId}'/>">點歌</a></td>
-										<td>${result.songId}</td>
-										<td><a href="<c:url value='/ShowSongInfo?id=${result.songId}'/>">${result.name}</a></td>
-										<td><a href="<c:url value='/GetSongInfo?id=${result.songId}'/>">${result.singer}</a></td>
+										<td><u><a href="<c:url value='/BuildPlaylistServlet?id=${result.songId}'/>">點歌</a></u></td>
+										<!-- <td><a href="<c:url value='/ShowSongInfo?id=${result.songId}'/>">${result.name}</a></td> -->
+										<td><u><a href="<c:url value='/GetSongInfo?id=${result.songId}'/>">${result.name}</a></u></td>
 										<td>${result.singer}</td>
 										<td>${result.songType}</td>
 										<td>${result.songLanguage}</td>
@@ -57,8 +54,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						 <p>共有<% out.print(i); %>項符合搜尋結果</p>
-					     <p><a href="SearchSong.jsp">回搜尋歌曲</a></p>
+						 <p>共有 <% out.print(i); %> 項符合搜尋結果</p>
 				         <!-- /.table -->
 				       </div>
 				        <!-- /.box-body -->
@@ -83,6 +79,5 @@
     
 <!-- body-library  -->
 <c:import url="/TestHTML/body_library.html"/>
->>>>>>> branch 'master' of https://github.com/EEIT87Team03/Aoide.git
 </body>
 </html>

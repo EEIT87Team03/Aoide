@@ -238,7 +238,7 @@ Close
 </div>
 </section>
 <script src="/Aoide/js/_05_DisplayDanmuku/jquery.barrager.js"></script>
-<script src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
+<script src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocketTEST.jsp"></script>
 <script src="/Aoide/js/_02_PlaySong/audioSocket.js"></script>
 <script src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script>
@@ -306,13 +306,13 @@ jQuery(document).on('ready post-load', easy_fancybox_handler );
                             </div>
                         </div>
                         <div class="form-group">
-                            <label  class="col-sm-2 control-label" >高度</label>
+                            <label  class="col-sm-2 control-label" >彈幕飛行高度</label>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                  <input style="outline: none" type="radio" name="bottomradio"   value="0" checked="checked"> 随机
+                                  <input style="outline: none" type="radio" name="bottomradio"   value="0" checked="checked"> 隨機
                                 </label>
                                 <label class="radio-inline">                    
-                                   <input style="outline: none" type="radio" name="bottomradio"   value="1" > 设置
+                                   <input style="outline: none" type="radio" name="bottomradio"   value="1" > 設定
                                 </label>
                             </div>
                             <div class="col-sm-2">
@@ -320,7 +320,7 @@ jQuery(document).on('ready post-load', easy_fancybox_handler );
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label" >图片</label>
+                            <label class="col-sm-2 control-label" >彈幕附加圖片</label>
                             <div class="col-sm-6">
                                 <label class="radio-inline">
                                   <input style="outline: none" type="radio" name="img"  value="cute.png" checked=""> cute.png
@@ -334,7 +334,7 @@ jQuery(document).on('ready post-load', easy_fancybox_handler );
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label" >颜色</label>
+                            <label class="col-sm-2 control-label" >彈幕顏色</label>
                             <div class="col-sm-6">
                                 <input style="outline: none"  type="text" value="fff" name="color" class="pick-a-color form-control">
                             </div>
