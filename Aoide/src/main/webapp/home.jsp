@@ -67,6 +67,16 @@ var easy_fancybox_handler = function(){
   <link rel="stylesheet" href="/Aoide/css/_07_Register/registerAndLogin.css">
   <script src="/Aoide/js/_07_Register/registerValidator.js"></script>
   <script src="/Aoide/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
+  <style type="text/css">
+	#logoutBtn{
+		position: absolute;
+	    top: 20px;
+	    right: 20px;
+	    width: 100px;
+	    height: 50px;
+	    display: none;
+    }
+</style>
 <!-- =========================================== -->
 </head>
 <body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
@@ -113,7 +123,11 @@ var easy_fancybox_handler = function(){
 </div> <div class="layout-boxed section-top"><div class="home-b-uptitle heading">We <span>Are</span></div>
 <h1 class="home-b-title">A<span>O</span>IDE</h1>
 <p class="home-b-details heading">colorful in <span>your</span> life.</p>
-
+<!-- login state div -->
+<div id="loginStateBox">
+	<button id="logoutBtn" class="button heading-x background-x hover-light">LOGOUT</button>
+</div>
+<!-- /.login state div -->
 <!-- login / register btn -->
 <!-- ======================== -->
 <!-- <p class="home-b-buttons"><a class="button heading-y background-y hover-light" href="/Aoide/views/global/_08_login.view/login.jsp" target="aoide">Login</a><a class="button heading-x background-x hover-light" href="/Aoide/views/global/_07_Register.view/register.jsp" target="aoide">Register</a></p> -->

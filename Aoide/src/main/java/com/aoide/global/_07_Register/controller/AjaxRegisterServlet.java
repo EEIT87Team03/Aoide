@@ -33,7 +33,7 @@ public class AjaxRegisterServlet extends HttpServlet {
 		String account = request.getParameter( "account" ).trim();
 		String password = request.getParameter( "password" ).trim();
 		
-		System.out.printf("name: %s; email: %s; account: %s; password: %s", name, email, account, password );
+//		System.out.printf("name: %s; email: %s; account: %s; password: %s", name, email, account, password );
 		
 		// check the input, add error message
 		Map<String,String> errorMsg = new HashMap<>();

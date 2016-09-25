@@ -1,15 +1,15 @@
 window.onload = function ()/*regist function*/
 {
-    document.getElementById("name").onblur = checkName;
-    document.getElementById("email").onblur = checkEmail;
-    document.getElementById("account").onblur = checkAccount;
-    document.getElementById("password").onblur = checkPassword;
+    document.getElementById("name2").onblur = checkName;
+    document.getElementById("email2").onblur = checkEmail;
+    document.getElementById("account2").onblur = checkAccount;
+    document.getElementById("password2").onblur = checkPassword;
     document.getElementById("rePassword").onblur = checkRePassword;
 }
 
 function checkName()
 {
-    var inputName = document.getElementById("name").value;
+    var inputName = document.getElementById("name2").value;
 
     if (inputName == "")
     {
@@ -23,7 +23,7 @@ function checkName()
 
 function checkEmail()
 {
-    var inputEmail = document.getElementById("email").value;
+    var inputEmail = document.getElementById("email2").value;
 
     if (!inputEmail.match("^(\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3})$"))
     {
@@ -37,7 +37,7 @@ function checkEmail()
 
 function checkAccount()
 {
-    var inputAccount = document.getElementById("account").value;
+    var inputAccount = document.getElementById("account2").value;
     
     if (inputAccount.length < 5)
     {
@@ -62,7 +62,7 @@ function checkAccount()
 
 function checkPassword()
 {
-    var inputPassword = document.getElementById("password").value;
+    var inputPassword = document.getElementById("password2").value;
 
     if (!inputPassword.match("^([a-zA-Z0-9]{6,18}?)$"))
     {
