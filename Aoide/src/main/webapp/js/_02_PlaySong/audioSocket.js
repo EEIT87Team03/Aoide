@@ -140,12 +140,12 @@ function start()
 
 function stop()
 {
-	clearInterval( drawChartTimerID );
-	clearInterval( trackCounterTimerID );
 	tip.innerHTML = "Waiting...";
 	trackName.innerHTML = ""; 
 	singer.innerHTML = "";
 	controlIcon.src = "views/dist/img/playbar/play.png";
+	clearInterval( drawChartTimerID );
+	clearInterval( trackCounterTimerID );
 }
 
 function control()
