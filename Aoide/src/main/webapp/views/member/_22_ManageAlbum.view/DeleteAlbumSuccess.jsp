@@ -5,9 +5,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- head-library  -->
+<c:import url="/TestHTML/head_library.html"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>刪除成功</title>
 </head>
 <body>
+	<div class="container-fluid">
+  		<div class="row">
+			<div class="col-xs-6 col-md-3"></div>
+			<div class="col-xs-6 col-md-6" id="middleContent">
+            <!-- ========================================= -->
+				<div class="box">
 <% int i = 0; %>
 	刪除成功!!
 <p>
@@ -42,6 +51,16 @@
 		</tbody>
 	</table>
 <p>
-<a href="<c:url value = '/ListAlbumServlet.member'/>">回編輯專輯</a>
+<a href="<c:url value = '/ListAlbumServlet.member'/>">回編輯專輯</a><input type="submit"
+							class="btn" value="送出">
+
+						<!-- ========================================= -->
+				</div>
+				<div class="col-xs-6 col-md-3"></div>
+			</div>
+		</div>
+</div>
+		<!-- body-library  -->
+		<c:import url="/TestHTML/body_library.html" />
 </body>
 </html>

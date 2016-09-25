@@ -149,7 +149,7 @@
 																							
   								                    onClick=" var name = prompt('網址.' , 'localhost8080/Aoide/ShareServlet.member?id=${song.songId}') ; " >分享</a>
   								
-  								</a></form></td>
+  								</form></td>
 
                                               
  									
