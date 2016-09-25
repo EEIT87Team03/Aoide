@@ -110,7 +110,6 @@ var easy_fancybox_handler = function(){
 	<div class="page-border  heading top colors-a main-navigation"></div>
 		<div class="page-border  heading bottom colors-b main-navigation">
 
-			<input type = "text" id = "input" name = "input" size = "40" placeholder="在此輸入文字後按ENTER即可發送彈幕，點選右方箭頭展開歌曲播放資訊">>
 			<!-- audio player -->
 			<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
 				<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
@@ -132,19 +131,20 @@ var easy_fancybox_handler = function(){
 				<div id = "chart"></div>
 			</div>
 			<!-- audio player -->
-			<span id = "toggle">&#9650;</span><!-- audio player toggle -->
 		</div>
 
 
 <div class="page-border  heading left colors-a main-navigation">
-<ul>
-<li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
-<li><a href="views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　
-<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
-<li><a href="views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>
-</ul>
+	<ul>
+		<li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
+		<li><a href="views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　
+		<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
+		<li><a href="views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>　
+		<li><a href="#"><span id = "toggle" class = "glyphicon glyphicon-play-circle"></span></a></li><!-- audio player toggle -->
+	</ul>
 </div>
-<div class="page-border  heading right colors-a main-navigation"></div>
+
+<div class="page-border  heading right colors-a main-navigation"><input type = "text" id = "input" name = "input" size = "40" placeholder="在此輸入文字後按ENTER即可發送彈幕，點選右方箭頭展開歌曲播放資訊"></div>
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
 <div class="layout-boxed top-nav-inner clearfix">
 <nav class="nav nav-horizontal">

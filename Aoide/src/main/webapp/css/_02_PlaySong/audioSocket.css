@@ -155,9 +155,6 @@ progress::-webkit-progress-value
 
 #toggle
 {
-	position: fixed;
-    right: 10px;
-    bottom : 1px;
     color: white;
 }
 #toggle:hover, #toggle:focus 

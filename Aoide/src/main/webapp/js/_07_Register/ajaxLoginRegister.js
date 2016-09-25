@@ -19,18 +19,16 @@ $( "#loginForm" ).submit(function( event ) {
     var posting = $.post( url, { account: account, password: password }, function(data){
     	console.log("data: " + data);
     	if(data == "loginSuccess"){
-    		alert("welcome aoide");
+    		alert("welcome Aoide");
     		$("#id02").hide();
     		$("#loginBtn").remove();
     		$("#regstBtn").remove();
-    		
+    		// display the logout button
+    		$("#logoutBtn").show();
     	}else{
     		alert("please sign again");
     	}
-
-
     } );// end $.post()
-
 } ); // end submit()
 
 // register request with js
@@ -45,13 +43,14 @@ $( "#regstForm" ).submit(function( event ) {
   	password = $("#password2").val(),
   	url = $form.attr( "action" );
 
+  	/*
   	console.log(name);
   	console.log(email);
   	console.log(account);
   	console.log(password);
   	console.log(url);
-	
-
+    */
+  	
   	// Send the data using post
     var posting = $.post( url, { name: name,email: email, account: account, password: password }, function(data){
     	console.log("data: " + data);
@@ -59,12 +58,24 @@ $( "#regstForm" ).submit(function( event ) {
     		alert("Register Success");
     		$("#id01").hide();
     		$("#regstBtn").remove();
-    		
     	}else{
     		alert("please register again");
     	}
+    } );// end $.post()
+} ); // end submit()
 
-
+// logout request with js
+$( "#logoutBtn" ).click(function() {
+	var url = "/Aoide/AjaxLogoutServlet";
+	// Send the get request
+    var posting = $.get( url, function(data){
+    	console.log("data: " + data);
+    	if(data == "logoutSuccess"){
+    		alert("Logout Success");
+    		$("#logoutBtn").remove();
+    	}else{
+    		alert("Please Logout again");
+    	}
     } );// end $.post()
 
-} ); // end submit()
+} ); // end click()	
