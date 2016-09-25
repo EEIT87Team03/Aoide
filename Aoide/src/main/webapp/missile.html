@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Missile Launcher</title>
-<script src="template/plugins/ckeditor/ckeditor.js"></script>
+<script src="/Aoide/template/plugins/ckeditor/ckeditor.js"></script>
 <style>
 
 </style>
@@ -12,8 +12,10 @@
 	<div>
 		<textarea name= "content"  id = "launcher" rows="10" cols="80" ></textarea>
 	 	<script>
-			CKEDITOR.replace( "launcher", { width: "600", height: "200" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
+			CKEDITOR.replace( "launcher", { toolbar : "MissileLauncherTools" ,width: "590", height: "200" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
 	 	</script>
 	</div>  											
 </body>
 </html>
+		
+	
