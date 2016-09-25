@@ -14,33 +14,32 @@
 
 
 </head>
-<body class="hold-transition skin-blue fixed sidebar-mini">
+<!-- <body class="hold-transition skin-blue fixed sidebar-mini"> -->
 <!-- Site wrapper -->
 
 <div class="wrapper">
   <!-- header -->
-  <c:import url="/template/htmlBlocks/header.html"/>
+<%--   <c:import url="/template/htmlBlocks/header.html"/> --%>
   <!-- header -->
 
   <!-- =============================================== -->
 
   <!-- sidebar -->
-  <c:import url="/template/htmlBlocks/sidebar_global.html"/>
+<%--   <c:import url="/template/htmlBlocks/sidebar_global.html"/> --%>
   <!-- sidebar -->
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<!--   <div class="content-wrapper"> -->
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+<!--     <section class="content-header"> -->
       <h1>
-        Updatefavorite
-        <small>favorite</small>
+       <small>&lt;&lt;<a href="index.jsp">回首頁</a>&gt;&gt;</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="\Aoide\_14_Score.view\index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Song</a></li>
+<!--       <ol class="breadcrumb"> -->
+<!--         <li><a href="\Aoide\_14_Score.view\index.jsp"><i class="fa fa-dashboard"></i> Home</a></li> -->
+<!--         <li><a href="#">Song</a></li> -->
 <!--         <li class="active">Fixed</li> -->
       </ol>
     </section>
@@ -119,17 +118,17 @@
   <!-- /.content-wrapper -->
 
   <!-- footer -->
-  <c:import url="/template/htmlBlocks/footer.html"/>
+<%--   <c:import url="/template/htmlBlocks/footer.html"/> --%>
   <!-- footer -->
 
   <!-- Control Sidebar -->
-  <c:import url="/template/htmlBlocks/control_sidebar.html"/>
+<%--   <c:import url="/template/htmlBlocks/control_sidebar.html"/> --%>
   <!-- Control Sidebar -->
 
 <!-- ./wrapper -->
 
 <!-- body_library -->
-<c:import url="/template/htmlBlocks/body_library.html"/>
+<%-- <c:import url="/template/htmlBlocks/body_library.html"/> --%>
 <!-- body_library -->
 </body>
 </html>

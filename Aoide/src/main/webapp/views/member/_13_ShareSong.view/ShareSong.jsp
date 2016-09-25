@@ -12,7 +12,6 @@
 <title>Share Song</title>
 
 
-
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -72,7 +71,28 @@
 
 
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
+<div class="fb-like" data-href="http://localhost:8080/Aoide/index.jsp" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+
+<div class="fb-follow" data-href="http://localhost:8080/Aoide/index.jsp" data-layout="standard" data-size="small" data-show-faces="true"></div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 
@@ -116,6 +136,18 @@
   {lang: 'zh-TW'}
 </script>
 
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
 <title>Share</title>
 
 					<div class="panel-body">
@@ -153,12 +185,14 @@
 
                                               
  									
-										<td><form>
+<!-- 										<td><form> -->
 										
 		
-												<a  id="otherid" src="http://tomcat.apache.org/images/tomcat.png"
-													href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('www.kimo.com.tw'))));">FB分享</a>
-											</form></td>
+<!-- 												<a  id="otherid" src="http://tomcat.apache.org/images/tomcat.png" -->
+<!-- 													href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('www.kimo.com.tw'))));">FB分享</a> -->
+<!-- 											</form></td> -->
+
+
 										<td><form>
 										<g:plusone href='http://tomcat.apache.org/' src="http://tomcat.apache.org/images/tomcat.png"></g:plusone>
 											</form></td>

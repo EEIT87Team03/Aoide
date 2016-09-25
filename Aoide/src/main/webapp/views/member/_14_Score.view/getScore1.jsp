@@ -71,9 +71,9 @@
        </svg></button>
 
       
-      <ol class="breadcrumb">
-        <li><a href="\Aoide\_14_Score.view\index.jsp"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Song</a></li>
+<!--       <ol class="breadcrumb"> -->
+<!--         <li><a href="\Aoide\_14_Score.view\index.jsp"><i class="fa fa-dashboard"></i> Home</a></li> -->
+<!--         <li><a href="#">Song</a></li> -->
 <!--         <li class="active">Fixed</li> -->
       </ol>
     </section>
@@ -128,36 +128,7 @@
 
 	
 	
-	// 	var gb = 0;
 
-// 	function myFunction(event) {
-		
-		
-// 		var a = "too bad";
-// 		var b = "bad";
-// 		var c = "so so";
-// 		var d = "good";
-// 		var e = "very well";
-
-		//    		 var bb = a.onclick = document.getElementById("g7").id
-		//     		 alert(bb);
-
-// 		v = document.getElementById("G8").innerText;
-
-// 		if (v == document.getElementById("1").id) {
-// 			alert(a);
-// 		} else if (v == document.getElementById("2").id) {
-// 			alert(b);
-// 		} else if (v == document.getElementById("3").id) {
-// 			alert(c);
-
-// 		} else if (v == document.getElementById("4").id) {
-// 			alert(d);
-
-// 		} else if (v == document.getElementById("5").id)
-// 			alert(e);
-         
-// 	}
 
  function sendStat() {
 		alert(v);
@@ -259,8 +230,7 @@
 						<table class="table">
 							<thead>
 								<tr>
-<!-- 									<th>MemberId</th> -->
-<!-- 									<th>SongId</th>			 -->
+
 									<th>ScoreValue</th>
 									<br>
 									<th>CommentFile</th>
@@ -270,8 +240,7 @@
 
 
 								<tr>
-<%-- 									<td>${scoreVO.memberId}</td> --%>
-<%-- 									<td>${scoreVO.songId}</td> --%>
+
 									
 									<td>
 										<!-- 顯示star與取值 -->
@@ -333,17 +302,17 @@
   <!-- /.content-wrapper -->
 
   <!-- footer -->
-  <c:import url="/template/htmlBlocks/footer.html"/>
+<%--   <c:import url="/template/htmlBlocks/footer.html"/> --%>
   <!-- footer -->
 
   <!-- Control Sidebar -->
-  <c:import url="/template/htmlBlocks/control_sidebar.html"/>
+<%--   <c:import url="/template/htmlBlocks/control_sidebar.html"/> --%>
   <!-- Control Sidebar -->
 
 <!-- ./wrapper -->
 
 <!-- body_library -->
-<c:import url="/template/htmlBlocks/body_library.html"/>
+<%-- <c:import url="/template/htmlBlocks/body_library.html"/> --%>
 <!-- body_library -->
 </body>
 </html>
