@@ -8,7 +8,6 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Aoide</title>
 <link rel="Shortcut Icon" type="image/x-icon" href="views/dist/img/AoideIcon.png" />
-<link rel="stylesheet" href="css/HoverableDropDown.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Comments Feed" href="http://skrollex-wp.x40.ru/anna/comments/feed/"/>
@@ -101,7 +100,7 @@ var easy_fancybox_handler = function(){
 </div> </div>
 </div>
 <div class="page-border  heading top colors-a main-navigation"></div>
-<div class="page-border  heading bottom colors-b main-navigation">Admin<span>istrator</span></div>
+<div class="page-border  heading bottom colors-a main-navigation">Admin<span>istrator</span></div>
 <div class="page-border  heading left colors-a main-navigation"></div>
 <div class="page-border  heading right colors-a main-navigation"></div>
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
