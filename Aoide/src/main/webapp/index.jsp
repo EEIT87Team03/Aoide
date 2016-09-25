@@ -141,7 +141,7 @@ var easy_fancybox_handler = function(){
 				<button type="button" id = "fire"><h2>Missile Launcher</h2></button>
 			</div>
 			<div>
-				<textarea name= "content"  id = "missile" rows="10" cols="80" ></textarea>
+				<textarea id = "missile" rows="10" cols="80"></textarea>
 			 	<script>
 					CKEDITOR.replace( "missile", { toolbar : "MissileLauncherTools" ,width: "590", height: "200" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
 			 	</script>
