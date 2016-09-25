@@ -32,3 +32,39 @@ $( "#loginForm" ).submit(function( event ) {
     } );// end $.post()
 
 } ); // end submit()
+
+// register request with js
+$( "#regstForm" ).submit(function( event ) {
+	// stop request from form
+	event.preventDefault();
+	// Get some values from elements on the page:
+  	var $form = $( this ),
+  	name = $("#name2").val(), 
+  	email = $("#email2").val(),
+  	account = $("#account2").val(),
+  	password = $("#password2").val(),
+  	url = $form.attr( "action" );
+
+  	console.log(name);
+  	console.log(email);
+  	console.log(account);
+  	console.log(password);
+  	console.log(url);
+	
+
+  	// Send the data using post
+    var posting = $.post( url, { name: name,email: email, account: account, password: password }, function(data){
+    	console.log("data: " + data);
+    	if(data == "regstSuccess"){
+    		alert("Register Success");
+    		$("#id01").hide();
+    		$("#regstBtn").remove();
+    		
+    	}else{
+    		alert("please register again");
+    	}
+
+
+    } );// end $.post()
+
+} ); // end submit()
