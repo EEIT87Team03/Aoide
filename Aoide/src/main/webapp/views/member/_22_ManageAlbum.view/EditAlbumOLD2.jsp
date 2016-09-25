@@ -1,24 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- head-library  -->
-<c:import url="/TestHTML/head_library.html"/>
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<!-- head_library -->
+<c:import url="/template/htmlBlocks/head_library.html" />
+<!-- head_library -->
+<title>編輯專輯</title>
+<script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
 </head>
 <body>
-<%
+	<%
 		int i = 0;
 		int j = 0;
 	%>
-	<div class="container-fluid">
-  		<div class="row">
-			<div class="col-xs-6 col-md-3"></div>
-			<div class="col-xs-6 col-md-6" id="middleContent">
-            <!-- ========================================= -->
+	<!-- Site wrapper -->
+	<div class="wrapper">
+
+		<!-- Main content -->
+		<section class="content">
+
+			<!-- Default box -->
+<!-- 			<div class="box"> -->
 			<div class="box" >
 
 
@@ -137,14 +145,19 @@
 
 
 			</div>
-            
-            <!-- ========================================= -->
-			</div>
-			<div class="col-xs-6 col-md-3"></div>
-		</div>
-    </div>
-    
-<!-- body-library  -->
-<c:import url="/TestHTML/body_library.html"/>
+			<!-- /.box-body -->
+	</div>
+	<!-- /.box -->
+
+	</section>
+	<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
+
+	<!-- ./wrapper -->
+
+	<!-- body_library -->
+	<c:import url="/template/htmlBlocks/body_library.html" />
+	<!-- body_library -->
 </body>
 </html>
