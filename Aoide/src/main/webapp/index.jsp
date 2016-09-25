@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/_02_PlaySong/audioSocket.css">		<!-- Byc -->
 <link rel="stylesheet" href="css/HoverableDropDown.css">
 <link rel="stylesheet" href="css/_05_DisplayDanmuku/barrager.css">
+
 <link rel="stylesheet" href="danmmu/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
@@ -36,6 +37,7 @@
 <link rel='stylesheet' id='fancybox-css' href='http://skrollex-wp.x40.ru/anna/wp-content/plugins/easy-fancybox/fancybox/jquery.fancybox-1.3.7.min.css?ver=1.5.7' type='text/css' media='screen'/>
 <!-- <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script> -->
 <script src="danmmu/js/jquery-1.9.1.min.js"></script>
+<script src="/Aoide/template/plugins/ckeditor/ckeditor.js"></script>
 <script src='http://skrollex-wp.x40.ru/anna/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
 <script src='http://skrollex-wp.x40.ru/anna/wp-content/themes/layerswp/assets/js/plugins.js?ver=1.5.3'></script>
 <link rel='https://api.w.org/' href='http://skrollex-wp.x40.ru/anna/wp-json/'/>
@@ -51,6 +53,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:url" content=""/>
 <style>.recentcomments a{display:inline!important;padding:0!important;margin:0!important;}</style> 
+<link rel="stylesheet" href="css/_05_DisplayDanmuku/missileLauncher.css">
 <script>
 /* <![CDATA[ */
 var fb_timeout = null;
@@ -132,6 +135,18 @@ var easy_fancybox_handler = function(){
 			<div id = "chart"></div>
 		</div>
 		<!-- audio player -->
+		<div id = "missileLauncher">
+			<div id = "warhead">
+				<span id = "destructor">×</span>
+				<button type="button" id = "fire"><h2>Missile Launcher</h2></button>
+			</div>
+			<div>
+				<textarea name= "content"  id = "missile" rows="10" cols="80" ></textarea>
+			 	<script>
+					CKEDITOR.replace( "missile", { toolbar : "MissileLauncherTools" ,width: "590", height: "200" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
+			 	</script>
+			</div>		
+		</div>
 	</div>
 <!-- 左 -->
 <div class="page-border  heading left colors-a main-navigation">
@@ -142,7 +157,7 @@ var easy_fancybox_handler = function(){
 		<li><a href= "views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>　　
 		<li><span><span class="glyphicon glyphicon-minus"></span></span></li>　　
 		<li><a href= "#"><span id = "toggle" class = "glyphicon glyphicon-play-circle" title="歌曲資訊"></span></a></li>　<!-- audio player toggle -->
-		<li><a href= "#"><span class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>
+		<li><a href= "#"><span id = "launcher" class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>
 	</ul>
 </div>
 <!-- 右 -->
@@ -218,7 +233,8 @@ Close
 </div>
 <script src="js/_05_DisplayDanmuku/jquery.barrager.js"></script>
 <script src="js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
-<script src="js/_02_PlaySong/audioSocket.js"></script>
+<script src="js/_05_DisplayDanmuku/missileLauncher.js"></script>
+<script src="js/_02_PlaySong/audioSocket.js"></script>							<!-- audio player javascript source-->			
 <script src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script>
 /* <![CDATA[ */

@@ -5,16 +5,92 @@
 <title>Missile Launcher</title>
 <script src="/Aoide/template/plugins/ckeditor/ckeditor.js"></script>
 <style>
+#missileLauncher
+{
+	position: fixed;
+	left: 0;
+	bottom: 15%;
+	z-index: 1;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	
+	-webkit-animation-name: launcherDisplay;
+    -webkit-animation-duration: 0.4s;
+    animation-name: launcherDisplay;
+    animation-duration: 0.4s
+	
+}
+#warhead 
+{
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+#destructor 
+{
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+#destructor:hover, #destructor:focus 
+{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Add Animation */
+@-webkit-keyframes launcherDisplay 
+{
+    from { left:-300px; opacity:1 } 
+    to { left:0; opacity:1}
+}
+
+@keyframes launcherDisplay 
+{
+    from { left:-300px; opacity:1 }
+    to { left:0; opacity:1 }
+}
 
 </style>
 </head>
 <body>
+
+<div id = "missileLauncher">
+	<div id = "warhead">
+		<span id = "destructor">×</span>
+		<h2>Missile Launcher</h2>
+	</div>
 	<div>
-		<textarea name= "content"  id = "launcher" rows="10" cols="80" ></textarea>
+		<textarea name= "content"  id = "missile" rows="10" cols="80" ></textarea>
 	 	<script>
-			CKEDITOR.replace( "launcher", { toolbar : "MissileLauncherTools" ,width: "590", height: "200" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
+			CKEDITOR.replace( "missile", { toolbar : "MissileLauncherTools" ,width: "590", height: "200" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
 	 	</script>
-	</div>  											
+	</div>
+	<div>
+		<button type="button" id = "fire">Fire</button>
+	</div>
+</div>
+ 
+<script>
+var missileLauncher = document.getElementById( "missileLauncher" );
+var fireBtn = document.getElementById("fire");
+var destructorSpan = document.getElementsById( "destructor" );
+destructorSpan.onclick = 
+	function() 
+	{
+		missileLauncher.style.display = "none";
+	};
+// When the user clicks the button, open the modal 
+// btn.onclick = function() {
+//     modal.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+
+
+</script>
+											
 </body>
 </html>
 		
