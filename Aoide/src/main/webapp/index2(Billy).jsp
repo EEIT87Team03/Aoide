@@ -323,13 +323,13 @@ jQuery(document).on('ready post-load', easy_fancybox_handler );
                             <label class="col-sm-2 control-label" >彈幕附加圖片</label>
                             <div class="col-sm-6">
                                 <label class="radio-inline">
-                                  <input style="outline: none" type="radio" name="img"  value="cute.png" checked=""> cute.png
+                                  <input style="outline: none" type="radio" name="img"  value="cute.png" > cute.png
                                 </label>
                                 <label class="radio-inline">
                                   <input style="outline: none" type="radio" name="img"  value="haha.gif"> haha.gif
                                 </label>
                                 <label class="radio-inline">
-                                  <input style="outline: none" type="radio" name="img"   value="none">  无图
+                                  <input style="outline: none" type="radio" name="img"   value="none" checked=""> 空白
                                 </label>
                             </div>
                         </div>
