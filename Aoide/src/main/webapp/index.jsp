@@ -108,33 +108,33 @@ var easy_fancybox_handler = function(){
 		</div>
 	</div>
 	<div class="page-border  heading top colors-a main-navigation"></div>
-		<div class="page-border  heading bottom colors-b main-navigation">
-
-			<!-- audio player -->
-			<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
-				<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
-				<div id = "info">
-					<h5 id = "tip"></h5>
-					<span id = "trackName"></span>
-					<span id = "singer"></span>
-				</div>
-				<div id = "controls">
-					<audio src = "#" id = "track">
-						<p>Sorry but audio is not supported in your browser.</p>
-					</audio>
-					<img id = "controlIcon" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAvRJREFUSImtlD9IHEEUxr+Z2T1sIuoqRBAFwSLqNRIL5YgY7cQiGtOlCUHBFBJEJBAISggiGizExoBcoxBJOisRssGzsVK5EFD8Bwp6orubhfNuMm/T5NQzd+cq+brZ+d73m8fMPgafam1tfaCU+ggARPTaNM2ffurYTYZQKFSo6/o7xtgrANrfz7+JaNLzvCHTNK07AZqamjQhxEsies85N7LYTgC8NQzj0/z8vPINaG5ufgxggjEWzHW6lIhoXQjRt7S09C0noKWlpVIpNcY5f+InOIO+CCEGFhcXd9IAjY2N9/Ly8t4QUT/nPHDHcAAAESUYY2NENGKapisAoKqq6gWAEcaYuGru7u5GV1cXHMfBwcGBX4bmuu4j13Xdo6OjZS2XMz8/H/X19SgtLUV7ezvC4TC2tray+uPxOBzHgVIKuq4L4PLZ5VRZWRmICD09PTg7O8P09DRisdjFvpQStm0jmUz+U8v9AACgvLwchmGgoKAAg4OD6OzsBOcclmUhFotlDL8VAAAqKipgGAaICA0NDZidncXw8DACgezv4laAFKSoqAiVlZUoKSlBW1sbVlZW0NHR8X8AAEBEIKK0tZQyo9fXJafkeR62t7dhWRZs28b5+TmWl5cxNDQEpTJOiuwAz/PSTuV5HnZ2dmBZFoQQWFhYwNzcXNbgnIBEIgHHcS4Anudhd3cXtm3j8PAQo6OjODk5ubnl6wCl1EXrV7W3t4f9/X2Mj49jc3PTV3AaQEop4vE4XNdN2zw9PUUkEsHMzAwikcitglNiABAMBguJaFxK+ZxzfquLvy4i+h0IBMKMsYGNjY2ztHFdV1cXTCQSU0qp0F3COeffdV3vXVtbi6Z1cF3BYPBpMpkcY4xV+AzeZYz1R6PRr9f3RKaC4+PjH7W1tZNSSpJSPmSMZZwFjLFfmqZ9KC4ufra6uhrN6LnpdNXV1fcBTBBRFy7/fNI07TPnvG99ff04V/2NgJRqamrqiWgKADjnvdFodNVP3R/54E8M4bEcuAAAAABJRU5ErkJggg==">
-					<h6 id = "playTime">00:00 / 00:00</h6>
-					<progress id = "progressBar" max = "100" value = "0"></progress>
-					<img id = "volumeIcon" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMASURBVEiJ1ZW/b1tVFMc/98VObBdSICJJg1OnkaOaCJKBCMGCECsgwZANMSIGJv6ADvwLHRk7RoIFJBYkqxJSpUhFCkOhGHCQ0/ASGwensf1+3PNlSOO6UUlooEO/0pXuuzo6n/c99513nCQep4LHmv2JArTb7Zc7nc7C/w3IDhIFQdbMZsIwPHcWwOjxg3q9ntvb3Xt9b2+vBBBF0RZAIVOYfRTAaGu3fbXV/DO89+xarVYFYH19PZHkJRWr1WpmcnJyx3vf75ufrNfruVMBYfjXpWbY+k6yT2R6BqC10/pYnlvNZvPt1dVVH1m05b3PLF9engFEj4ZzqSsUCjMnAnZ2Wu8HJDeFViRx1Cup3PeSkPEZwPT0dEOSV6AZgIn+RJMUpOzgHjIA7Xb7fNRPruDct+C7TsEXD2u/qannboR3dr/C6Z3t7d03Llx4/rqkTix7FshQJkq2E3Ok+QccxAfxRUyfkupNjEsycXzdl30pE05+CcDFrkeaUqvVCoc26SlRDnADgKScTEiK8BROAvjU/yQT5qkAxC7uAYyPjOcBXNZ1nXOu0WjkBiWSZHa4cQTOOOX/ZBJy92NShr7jGNKhmw0A0iSIZEJoDO+7JzoQl2WClB8BFClPCh3f6QEI5ZVIxWKxP3CwH7VuP5U//+EI/CCTN9h38PRDX9/rPQE42wDAkYeUcrncBUj7acFlXR/QALC4uBgD145yNH5tvOJNa8DycO7fbjdeDQK9C9wslWevV6vVzPzM/LgCxUBaq9XGMkEuyIjeAyU6ruJ88Wdl/Gugz4f7wAX2liSQXQEoTZVesCAYscTuAHg/NgFg3g5OBADMzc31S+WLH5npA5m+Ach3x656z0ppofT12traiAVWtDj2m+HmFuDGvJ+VJMseAgHcWSfaxsbGucLo+EoKm5XKXD38JZzcT3ovKnU7Cy+Vbp3q4DQtLS0dkElvVCpzdYC73buzJDBuud+H4/7TPCiXy9HR3kbMe0V/TC1NHQzHnLlE/1ZPzkz+J/0NC1XVmvhIxnEAAAAASUVORK5CYII=">
-					<input type = "range" id = "ranger" value = "0.09" min = "0" max = "1" step = "0.01">
-				</div>
-				<div id = "chart"></div>
+	<!-- 下 -->
+	<div class="page-border  heading bottom colors-a main-navigation">
+		<a href="home.jsp" target="aoide" title="回首頁"><span class="glyphicon glyphicon-home"></span></a>
+		<!-- audio player -->
+		<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
+			<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
+			<div id = "info">
+				<h5 id = "tip"></h5>
+				<span id = "trackName"></span>
+				<span id = "singer"></span>
 			</div>
-			<!-- audio player -->
-			<span id = "toggle">&#9650;</span><!-- audio player toggle -->
+			<div id = "controls">
+				<audio src = "#" id = "track">
+					<p>Sorry but audio is not supported in your browser.</p>
+				</audio>
+				<img id = "controlIcon" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAvRJREFUSImtlD9IHEEUxr+Z2T1sIuoqRBAFwSLqNRIL5YgY7cQiGtOlCUHBFBJEJBAISggiGizExoBcoxBJOisRssGzsVK5EFD8Bwp6orubhfNuMm/T5NQzd+cq+brZ+d73m8fMPgafam1tfaCU+ggARPTaNM2ffurYTYZQKFSo6/o7xtgrANrfz7+JaNLzvCHTNK07AZqamjQhxEsies85N7LYTgC8NQzj0/z8vPINaG5ufgxggjEWzHW6lIhoXQjRt7S09C0noKWlpVIpNcY5f+InOIO+CCEGFhcXd9IAjY2N9/Ly8t4QUT/nPHDHcAAAESUYY2NENGKapisAoKqq6gWAEcaYuGru7u5GV1cXHMfBwcGBX4bmuu4j13Xdo6OjZS2XMz8/H/X19SgtLUV7ezvC4TC2tray+uPxOBzHgVIKuq4L4PLZ5VRZWRmICD09PTg7O8P09DRisdjFvpQStm0jmUz+U8v9AACgvLwchmGgoKAAg4OD6OzsBOcclmUhFotlDL8VAAAqKipgGAaICA0NDZidncXw8DACgezv4laAFKSoqAiVlZUoKSlBW1sbVlZW0NHR8X8AAEBEIKK0tZQyo9fXJafkeR62t7dhWRZs28b5+TmWl5cxNDQEpTJOiuwAz/PSTuV5HnZ2dmBZFoQQWFhYwNzcXNbgnIBEIgHHcS4Anudhd3cXtm3j8PAQo6OjODk5ubnl6wCl1EXrV7W3t4f9/X2Mj49jc3PTV3AaQEop4vE4XNdN2zw9PUUkEsHMzAwikcitglNiABAMBguJaFxK+ZxzfquLvy4i+h0IBMKMsYGNjY2ztHFdV1cXTCQSU0qp0F3COeffdV3vXVtbi6Z1cF3BYPBpMpkcY4xV+AzeZYz1R6PRr9f3RKaC4+PjH7W1tZNSSpJSPmSMZZwFjLFfmqZ9KC4ufra6uhrN6LnpdNXV1fcBTBBRFy7/fNI07TPnvG99ff04V/2NgJRqamrqiWgKADjnvdFodNVP3R/54E8M4bEcuAAAAABJRU5ErkJggg==">
+				<h6 id = "playTime">00:00 / 00:00</h6>
+				<progress id = "progressBar" max = "100" value = "0"></progress>
+				<img id = "volumeIcon" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMASURBVEiJ1ZW/b1tVFMc/98VObBdSICJJg1OnkaOaCJKBCMGCECsgwZANMSIGJv6ADvwLHRk7RoIFJBYkqxJSpUhFCkOhGHCQ0/ASGwensf1+3PNlSOO6UUlooEO/0pXuuzo6n/c99513nCQep4LHmv2JArTb7Zc7nc7C/w3IDhIFQdbMZsIwPHcWwOjxg3q9ntvb3Xt9b2+vBBBF0RZAIVOYfRTAaGu3fbXV/DO89+xarVYFYH19PZHkJRWr1WpmcnJyx3vf75ufrNfruVMBYfjXpWbY+k6yT2R6BqC10/pYnlvNZvPt1dVVH1m05b3PLF9engFEj4ZzqSsUCjMnAnZ2Wu8HJDeFViRx1Cup3PeSkPEZwPT0dEOSV6AZgIn+RJMUpOzgHjIA7Xb7fNRPruDct+C7TsEXD2u/qannboR3dr/C6Z3t7d03Llx4/rqkTix7FshQJkq2E3Ok+QccxAfxRUyfkupNjEsycXzdl30pE05+CcDFrkeaUqvVCoc26SlRDnADgKScTEiK8BROAvjU/yQT5qkAxC7uAYyPjOcBXNZ1nXOu0WjkBiWSZHa4cQTOOOX/ZBJy92NShr7jGNKhmw0A0iSIZEJoDO+7JzoQl2WClB8BFClPCh3f6QEI5ZVIxWKxP3CwH7VuP5U//+EI/CCTN9h38PRDX9/rPQE42wDAkYeUcrncBUj7acFlXR/QALC4uBgD145yNH5tvOJNa8DycO7fbjdeDQK9C9wslWevV6vVzPzM/LgCxUBaq9XGMkEuyIjeAyU6ruJ88Wdl/Gugz4f7wAX2liSQXQEoTZVesCAYscTuAHg/NgFg3g5OBADMzc31S+WLH5npA5m+Ach3x656z0ppofT12traiAVWtDj2m+HmFuDGvJ+VJMseAgHcWSfaxsbGucLo+EoKm5XKXD38JZzcT3ovKnU7Cy+Vbp3q4DQtLS0dkElvVCpzdYC73buzJDBuud+H4/7TPCiXy9HR3kbMe0V/TC1NHQzHnLlE/1ZPzkz+J/0NC1XVmvhIxnEAAAAASUVORK5CYII=">
+				<input type = "range" id = "ranger" value = "0.09" min = "0" max = "1" step = "0.01">
+			</div>
+			<div id = "chart"></div>
 		</div>
-
-
+		<!-- audio player -->
+		<span id = "toggle">&#9650;</span><!-- audio player toggle -->
+	</div>
+<!-- 左 -->
 <div class="page-border  heading left colors-a main-navigation">
 <ul>
 <li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
@@ -143,7 +143,9 @@ var easy_fancybox_handler = function(){
 <li><a href="views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>
 </ul>
 </div>
+<!-- 右 -->
 <div class="page-border  heading right colors-a main-navigation"><input type = "text" id = "input" name = "input" size = "40" placeholder="在此輸入文字後按ENTER即可發送彈幕，點選右方箭頭展開歌曲播放資訊"></div>
+
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
 <div class="layout-boxed top-nav-inner clearfix">
 <nav class="nav nav-horizontal">
@@ -177,7 +179,7 @@ var easy_fancybox_handler = function(){
 </a> </nav>
 <div class="logo">
 <div class="site-description">
-<h3 class="sitename sitetitle"><a href="home.jsp" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></a></h3>
+<h3 class="sitename sitetitle">A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></h3>
 </div>
 </div>
 </div>
