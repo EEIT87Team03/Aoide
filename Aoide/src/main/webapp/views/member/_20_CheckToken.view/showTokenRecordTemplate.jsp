@@ -14,7 +14,7 @@
   		<div class="row">
 			<div class="col-xs-6 col-md-3"></div>
 			<div class="col-xs-6 col-md-6" id="middleContent">
-            <!-- ========================================= -->
+            <!-- ========================================== -->
 			<div class="box">
 							<div class="box-header">
 								<h3 class="box-title">以下是點數紀錄~</h3>
