@@ -43,7 +43,7 @@ public class UseTokenService {
 		// update member tokenTotal
 		BigDecimal tokenTotal = member.getTokenTotal().subtract( (BigDecimal.valueOf(tokenVolume)) );
 		member.setTokenTotal(tokenTotal);
-		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		memberDAO.update(member);
 	}
 	@Transactional(transactionManager="transactionManager",propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
@@ -60,7 +60,7 @@ public class UseTokenService {
 		// update member tokenTotal
 		BigDecimal tokenTotal = member.getTokenTotal().add((BigDecimal.valueOf(tokenVolume)));
 		member.setTokenTotal(tokenTotal);
-		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		memberDAO.update(member);
 	}
 	

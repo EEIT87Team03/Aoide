@@ -37,7 +37,6 @@ public class GetSongInfo extends HttpServlet {
 		
 		String contextPath = request.getContextPath();
 		response.sendRedirect(contextPath + "/GetScoreServlet.member");
-
 	}
 
 	

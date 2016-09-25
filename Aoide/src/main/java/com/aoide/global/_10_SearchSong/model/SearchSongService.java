@@ -48,5 +48,10 @@ public class SearchSongService {
 		}
 		return OneSong;
 	}
+	
+	public List<SongVO> getSongsByAlbum(Integer albumId) {
+		return songDAO.getSongsByAlbum(albumId);
+	}
+	
 
 }
