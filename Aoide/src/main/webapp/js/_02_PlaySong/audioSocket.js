@@ -15,6 +15,7 @@ var playTime = document.getElementById( "playTime" );
 var progressBar = document.getElementById( "progressBar" );
 var volumeIcon = document.getElementById( "volumeIcon" );
 var controlIcon = document.getElementById( "controlIcon" );
+var playbarVisible;
 var aoideVolume;
 var drawChartTimerID;
 var trackCounterTimerID;
@@ -52,6 +53,7 @@ function initial()
 	dataArray = new Uint8Array( bufferLength );
 	
 	audioSocketInitialize();
+	playbarVisible = false;
 	toggle.onclick = onToggle;
 	ranger.onchange = onVolumeChange;
 	controlIcon.onclick = control;
@@ -69,7 +71,7 @@ function initial()
 			localStorage.setItem( "Aoide_Volumn", aoideVolume );
 		}
 	}
-
+	
 }
 
 function audioSocketInitialize()
@@ -130,7 +132,7 @@ function start()
 	
 	tip.innerHTML = "Now Playing";
 	controlIcon.src = "views/dist/img/playbar/pause.png";
-	if ( playbar.style.display == "none" )
+	if ( playbarVisible === false )
 	{
 		onToggle();
 	}
@@ -162,17 +164,16 @@ function control()
 
 function onToggle( event )
 {
-	var str = toggle.textContent;	
-	
-	if ( str === "▲" )
+
+	if ( playbarVisible === false )
 	{
-		toggle.innerHTML = "&#9660";
 		playbar.style.display = "block";
+		playbarVisible = true;
 	}
-	else if ( str === "▼" )
+	else if ( playbarVisible === true )
 	{
-		toggle.innerHTML = "&#9650";
 		playbar.style.display = "none";
+		playbarVisible = false;
 	}
 }
 
