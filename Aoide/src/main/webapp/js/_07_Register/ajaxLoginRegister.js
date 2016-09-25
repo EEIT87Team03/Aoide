@@ -25,6 +25,7 @@ $( "#loginForm" ).submit(function( event ) {
     		$("#regstBtn").remove();
     		// display the logout button
     		$("#logoutBtn").show();
+    		$("#memberLoginHead").css('visibility', 'visible');
     	}else{
     		alert("please sign again");
     	}
@@ -78,4 +79,4 @@ $( "#logoutBtn" ).click(function() {
     	}
     } );// end $.post()
 
-} ); // end click()	
+} ); // end click()

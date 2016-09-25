@@ -68,15 +68,29 @@ var easy_fancybox_handler = function(){
   <script src="/Aoide/js/_07_Register/registerValidator.js"></script>
   <script src="/Aoide/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
   <style type="text/css">
-	#logoutBtn{
+	#loginStateBox{
 		position: absolute;
 	    top: 20px;
 	    right: 20px;
+	}
+	
+	#logoutBtn{
 	    width: 100px;
 	    height: 50px;
 	    display: none;
     }
-</style>
+
+	.img-circle {
+		width: 90px;
+    	height: auto;
+    	border: 3px solid #fff;
+    	border-radius: 50%;
+	}
+	
+	#memberLoginHead{
+		visibility: hidden;
+	}
+	</style>
 <!-- =========================================== -->
 </head>
 <body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
@@ -126,6 +140,7 @@ var easy_fancybox_handler = function(){
 <!-- login state div -->
 <div id="loginStateBox">
 	<button id="logoutBtn" class="button heading-x background-x hover-light">LOGOUT</button>
+	<img class="img-circle" id = "memberLoginHead" src="data:image/*;base64,${member.picture}">
 </div>
 <!-- /.login state div -->
 <!-- login / register btn -->
