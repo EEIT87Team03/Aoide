@@ -194,9 +194,13 @@ function volumeChangeHelper( value )
 	{
 		volumeIcon.src = "views/dist/img/playbar/volume_none.png";
 	}
-	else if ( value > 0.5 )
+	else if ( value >= 0.66 )
 	{
 		volumeIcon.src = "views/dist/img/playbar/volume_high.png";
+	}
+	else if ( value >= 0.33 )
+	{
+		volumeIcon.src = "views/dist/img/playbar/volume_medium.png";
 	}
 	else
 	{
