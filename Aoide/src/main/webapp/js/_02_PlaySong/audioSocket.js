@@ -1,19 +1,23 @@
 /**
- * 
+ * websocket and web audio api
  */
 var asUri = "ws://localhost:8080/Aoide/play";
 var cover = document.getElementById( "cover" );
 var audio = document.getElementById( "track" );
 var trackName = document.getElementById( "trackName" );
 var singer = document.getElementById( "singer" );
-var tip = document.getElementById( "tip" ); //need another name
+var tip = document.getElementById( "tip" );
 var playbar = document.getElementById( "playbar" );
 var toggle =  document.getElementById( "toggle" );
 var chart = document.getElementById( "chart" );
 var ranger = document.getElementById( "ranger" );
+var playTime = document.getElementById( "playTime" );
+var progressBar = document.getElementById( "progressBar" );
 var volumeIcon = document.getElementById( "volumeIcon" );
 var controlIcon = document.getElementById( "controlIcon" );
-var timerID;
+var aoideVolume;
+var drawChartTimerID;
+var trackCounterTimerID;
 var audioSocket;
 var audioContext;
 var audioSource
@@ -52,6 +56,20 @@ function initial()
 	ranger.onchange = onVolumeChange;
 	controlIcon.onclick = control;
 	volumeIcon.onclick = volumeMuted;
+	aoideVolume = 0.09; //default sound volume
+	if ( window[ "localStorage" ] )
+	{
+		var value = localStorage.getItem( "Aoide_Volumn" );
+		if ( value )
+		{
+			aoideVolume = parseFloat( value );
+		}
+		else
+		{
+			localStorage.setItem( "Aoide_Volumn", aoideVolume );
+		}
+	}
+
 }
 
 function audioSocketInitialize()
@@ -64,7 +82,7 @@ function audioSocketInitialize()
 }
 function onOpen()
 {
-	tip.innerHTML = "Connecting...";
+	tip.innerHTML = "Waiting...";
 }
 
 function onMessage( event )
@@ -86,8 +104,9 @@ function onMessage( event )
 			cover.src = track.coverFile;
 			trackName.innerHTML = track.name + " - "; 
 			singer.innerHTML = track.singer;
+			
 			audio.src = track.songFile;
-			audio.volume = 0.09;
+			audio.volume = aoideVolume;
 		}
 	}
 }
@@ -104,7 +123,11 @@ function onClose( event )
 function start()
 {
 	updateChart();
-	timerID = setInterval( updateChart, 15 );
+	drawChartTimerID = setInterval( updateChart, 15 );
+	
+	//updateProgress();
+	trackCounterTimerID = setInterval( updateProgress, 1000 );
+	
 	tip.innerHTML = "Now Playing";
 	controlIcon.src = "views/dist/img/playbar/pause.png";
 	if ( playbar.style.display == "none" )
@@ -115,8 +138,11 @@ function start()
 
 function stop()
 {
-	clearInterval( timerID );
+	clearInterval( drawChartTimerID );
+	clearInterval( trackCounterTimerID );
 	tip.innerHTML = "Waiting...";
+	trackName.innerHTML = ""; 
+	singer.innerHTML = "";
 	controlIcon.src = "views/dist/img/playbar/play.png";
 }
 
@@ -154,6 +180,11 @@ function onVolumeChange( event )
 {
 	var volume = event.target.value;
 	audio.volume = volume;
+	if ( window[ "localStorage" ] )
+	{
+		localStorage.setItem( "Aoide_Volumn", volume );
+	}
+	aoideVolume = volume;
 	volumeChangeHelper( volume )
 }
 
@@ -185,6 +216,30 @@ function volumeMuted()
 		volumeChangeHelper( audio.volume );
 	}
 }
+
+function updateProgress()
+{
+	var current = parseInt( audio.currentTime );
+	var total = parseInt( audio.duration );
+	
+	if ( current <= total )
+	{
+		var temp1 = new Date( current * 1000 );
+		var temp2 = new Date( total * 1000 );
+		
+		var currentTime = ( temp1.getMinutes() < 10 ? "0" + temp1.getMinutes() : temp1.getMinutes() ) + ":" 
+								+ ( temp1.getSeconds() < 10 ? "0" + temp1.getSeconds() : temp1.getSeconds() );
+		
+		var duration = ( temp2.getMinutes() < 10 ? "0" + temp2.getMinutes() : temp2.getMinutes() ) + ":" 
+							 + ( temp2.getSeconds() < 10 ? "0" + temp2.getSeconds() : temp2.getSeconds() );
+		
+		playTime.innerHTML = currentTime + " / " + duration;
+		
+		var percent = Math.floor( current / total  * 100 );
+		progressBar.value = percent;
+	}
+}
+
 function updateChart() 
 {	
     analyser.getByteFrequencyData( dataArray );
