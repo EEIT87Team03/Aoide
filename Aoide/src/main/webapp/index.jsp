@@ -132,16 +132,18 @@ var easy_fancybox_handler = function(){
 			<div id = "chart"></div>
 		</div>
 		<!-- audio player -->
-		<span id = "toggle">&#9650;</span><!-- audio player toggle -->
 	</div>
 <!-- 左 -->
 <div class="page-border  heading left colors-a main-navigation">
-<ul>
-<li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
-<li><a href="views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　
-<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
-<li><a href="views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>
-</ul>
+	<ul>
+		<li><a href= "#" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
+		<li><a href= "views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　
+		<li><a href= "PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
+		<li><a href= "views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>　　
+		<li><span class="glyphicon glyphicon-minus"></span></li>　　
+		<li><a href= "#"><span id = "toggle" class = "glyphicon glyphicon-play-circle" title="歌曲資訊"></span></a></li>　<!-- audio player toggle -->
+		<li><a href= "#"><span class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>
+	</ul>
 </div>
 <!-- 右 -->
 <div class="page-border  heading right colors-a main-navigation"><input type = "text" id = "input" name = "input" size = "40" placeholder="在此輸入文字後按ENTER即可發送彈幕，點選右方箭頭展開歌曲播放資訊"></div>

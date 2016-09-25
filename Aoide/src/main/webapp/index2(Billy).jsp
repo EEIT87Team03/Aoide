@@ -9,6 +9,10 @@
 <title>Aoide</title>
 <link rel="Shortcut Icon" type="image/x-icon" href="/Aoide/views/dist/img/AoideIcon.png" />
 <link rel="stylesheet" href="/Aoide/css/ModalBox.css"> <!-- Billy -->
+<link rel="stylesheet" href="/Aoide/css/pick-a-color-1.2.3.min.css"> <!-- Billy -->
+<link rel="stylesheet" href="/Aoide/css/style.css"> <!-- Billy -->
+<link rel="stylesheet" href="/Aoide/css/shCoreDefault.css"> <!-- Billy -->
+
 <link rel="stylesheet" href="/Aoide/css/_02_PlaySong/audioSocket.css">		<!-- Byc -->
 <link rel="stylesheet" href="/Aoide/css/HoverableDropDown.css">
 <link rel="stylesheet" href="/Aoide/css/_05_DisplayDanmuku/barrager.css">
@@ -271,6 +275,10 @@ jQuery(document).on('ready post-load', easy_fancybox_handler );
 </script>
 
 
+<script src="/Aoide/js/pick-a-color-1.2.3.min.js"></script><!-- Billy -->
+<script src="/Aoide/js/tinycolor-0.9.15.min.js"></script><!-- Billy -->
+
+
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -285,56 +293,50 @@ jQuery(document).on('ready post-load', easy_fancybox_handler );
       <p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
                           <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label" >文字</label>
+                            <label class="col-sm-2 control-label" >彈幕開頭文字</label>
                             <div class="col-sm-6">
-                                <input class="form-control" name="info" type="text" placeholder="弹幕文字信息"/>
+                                <input style="outline: none" class="form-control" name="info" type="text" placeholder="弹幕文字信息"/>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-sm-2 control-label" >延迟</label>
+                            <label class="col-sm-2 control-label" >彈幕飛行速度(越小越快，預設6)</label>
                             <div class="col-sm-2">
-                                <input  class="form-control"  name="speed" type="text" placeholder="6" value="6" />
+                                <input style="outline: none" class="form-control"  name="speed" type="text" placeholder="6" value="6" />
                             </div>
-                      
-                            <label class="col-sm-2 control-label" >关闭按钮</label>
-                            <div class="col-sm-2">
-                                <input  class="form-control"  name="close" type="checkbox" checked   >
-                            </div>
-                            
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label" >高度</label>
+                            <label  class="col-sm-2 control-label" >高度</label>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                  <input type="radio" name="bottomradio"   value="0" checked="checked"> 随机
+                                  <input style="outline: none" type="radio" name="bottomradio"   value="0" checked="checked"> 随机
                                 </label>
                                 <label class="radio-inline">                    
-                                   <input type="radio" name="bottomradio"   value="1" > 设置
+                                   <input style="outline: none" type="radio" name="bottomradio"   value="1" > 设置
                                 </label>
                             </div>
                             <div class="col-sm-2">
-                                <input class="form-control" name="bottom" type="text" placeholder="70"  value="70"   />
+                                <input style="outline: none" class="form-control" name="bottom" type="text" placeholder="70"  value="70"   />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" >图片</label>
                             <div class="col-sm-6">
                                 <label class="radio-inline">
-                                  <input type="radio" name="img"  value="cute.png" checked=""> cute.png
+                                  <input style="outline: none" type="radio" name="img"  value="cute.png" checked=""> cute.png
                                 </label>
                                 <label class="radio-inline">
-                                  <input type="radio" name="img"  value="haha.gif"> haha.gif
+                                  <input style="outline: none" type="radio" name="img"  value="haha.gif"> haha.gif
                                 </label>
                                 <label class="radio-inline">
-                                  <input type="radio" name="img"   value="none">  无图
+                                  <input style="outline: none" type="radio" name="img"   value="none">  无图
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" >颜色</label>
                             <div class="col-sm-6">
-                                <input type="text" value="fff" name="color" class="pick-a-color form-control">
+                                <input style="outline: none"  type="text" value="fff" name="color" class="pick-a-color form-control">
                             </div>
                         </div>
                     </form>
@@ -348,6 +350,9 @@ jQuery(document).on('ready post-load', easy_fancybox_handler );
 </div>
 
 <script>
+
+	$(".pick-a-color").pickAColor();
+
     // Get the modal
     var modal = document.getElementById('myModal');
 
