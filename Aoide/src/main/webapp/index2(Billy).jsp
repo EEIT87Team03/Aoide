@@ -8,6 +8,11 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Aoide</title>
 <link rel="Shortcut Icon" type="image/x-icon" href="/Aoide/views/dist/img/AoideIcon.png" />
+<link rel="stylesheet" href="/Aoide/css/ModalBox.css"> <!-- Billy -->
+<link rel="stylesheet" href="/Aoide/css/pick-a-color-1.2.3.min.css"> <!-- Billy -->
+<link rel="stylesheet" href="/Aoide/css/style.css"> <!-- Billy -->
+<link rel="stylesheet" href="/Aoide/css/shCoreDefault.css"> <!-- Billy -->
+
 <link rel="stylesheet" href="/Aoide/css/_02_PlaySong/audioSocket.css">		<!-- Byc -->
 <link rel="stylesheet" href="/Aoide/css/HoverableDropDown.css">
 <link rel="stylesheet" href="/Aoide/css/_05_DisplayDanmuku/barrager.css">
@@ -126,7 +131,7 @@ var easy_fancybox_handler = function(){
 
 <div class="page-border  heading left colors-a main-navigation">
 <ul>
-<li><a href="" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　<li><a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　<li><a href="/Aoide/views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li></ul>
+<li><a href="javascript:abc()" target=""><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　<li><a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　<li><a href="PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　<li><a href="/Aoide/views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li></ul>
 </div>
 <div class="page-border  heading right colors-a main-navigation"></div>
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
@@ -233,7 +238,7 @@ Close
 </div>
 </section>
 <script src="/Aoide/js/_05_DisplayDanmuku/jquery.barrager.js"></script>
-<script src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
+<script src="/Aoide/js/_05_DisplayDanmuku/danmukuWithWebSocketTEST.jsp"></script>
 <script src="/Aoide/js/_02_PlaySong/audioSocket.js"></script>
 <script src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script>
@@ -268,5 +273,127 @@ var layers_script_settings = {"header_sticky_breakpoint":"270"};
 <script>
 jQuery(document).on('ready post-load', easy_fancybox_handler );
 </script>
+
+
+<script src="/Aoide/js/pick-a-color-1.2.3.min.js"></script><!-- Billy -->
+<script src="/Aoide/js/tinycolor-0.9.15.min.js"></script><!-- Billy -->
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">�</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+                          <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >彈幕開頭文字</label>
+                            <div class="col-sm-6">
+                                <input style="outline: none" class="form-control" name="info" type="text" placeholder="弹幕文字信息"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >彈幕飛行速度(越小越快，預設6)</label>
+                            <div class="col-sm-2">
+                                <input style="outline: none" class="form-control"  name="speed" type="text" placeholder="6" value="6" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label" >彈幕飛行高度</label>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                  <input style="outline: none" type="radio" name="bottomradio"   value="0" checked="checked"> 隨機
+                                </label>
+                                <label class="radio-inline">                    
+                                   <input style="outline: none" type="radio" name="bottomradio"   value="1" > 設定
+                                </label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input style="outline: none" class="form-control" name="bottom" type="text" placeholder="70"  value="70"   />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >彈幕附加圖片</label>
+                            <div class="col-sm-6">
+                                <label class="radio-inline">
+                                  <input style="outline: none" type="radio" name="img"  value="cute.png" checked=""> cute.png
+                                </label>
+                                <label class="radio-inline">
+                                  <input style="outline: none" type="radio" name="img"  value="haha.gif"> haha.gif
+                                </label>
+                                <label class="radio-inline">
+                                  <input style="outline: none" type="radio" name="img"   value="none">  无图
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >彈幕顏色</label>
+                            <div class="col-sm-6">
+                                <input style="outline: none"  type="text" value="fff" name="color" class="pick-a-color form-control">
+                            </div>
+                        </div>
+                    </form>
+      <p>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+	$(".pick-a-color").pickAColor();
+
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    
+    function abc(){
+    	modal.style.display = "block";
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
