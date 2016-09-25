@@ -5,10 +5,10 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  
-  <!-- head_library -->
-<%--   <c:import url="/template/htmlBlocks/head_library.html"/> --%>
-  <!-- head_library -->
+  <script type="text/javascript" src="../../../static/js/jquery-1.9.1.min.js"></script>
+
+
+
 <title>Share Song</title>
 
 
@@ -115,15 +115,6 @@
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
   {lang: 'zh-TW'}
 </script>
-<script>
-
-function copyToClipboard(text) { 
-	
-	window.prompt("Copy to clipboard: Ctrl+C, Enter", text />); 
-	
-	} 
-
-</script>
 
 <title>Share</title>
 
@@ -151,22 +142,21 @@ function copyToClipboard(text) {
 
 					
 
-<!--  										<td><form>  -->
-<%--   												<a href=<c:url value='/ShareServlet.member?id=${song.songId}'/>   --%>
-<%--    												class="btn btn-info" role="button" onclick=<c:url value='/ShareServlet.member?id=${song.songId}/></a>  --%>
-<%--   													onClick=" <a href=<c:url value='/ShareServlet.member?id=${song.songId}'/>" >分享</a>   --%>
-</form></td>
-<%--                                            <button id="demo" onclick="copyToClipboard(document.getElementById('demo').innerHTML)"><a href=<c:url value='/ShareServlet.member?id=${song.songId}'></a></button>   --%>
+  										<td><form>  
+  						
+  								<a href=<c:url value='/ShareServlet.member?id=${song.songId}'/> 
+													
+																							
+  								                    onClick=" var name = prompt('網址.' , 'localhost8080/Aoide/ShareServlet.member?id=${song.songId}') ; " >分享</a>
+  								
+  								</form></td>
+
                                               
- 											 
-
-
-
-
-
-								
+ 									
 										<td><form>
-												<a class="btn btn-info" role="button" id="otherid" src="http://tomcat.apache.org/images/tomcat.png"
+										
+		
+												<a  id="otherid" src="http://tomcat.apache.org/images/tomcat.png"
 													href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('www.kimo.com.tw'))));">FB分享</a>
 											</form></td>
 										<td><form>
