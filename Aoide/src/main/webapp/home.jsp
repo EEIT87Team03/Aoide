@@ -173,7 +173,7 @@ var easy_fancybox_handler = function(){
 </div>
 <!-- /.login-box -->
 </div>
-<script type="text/javascript" src="/Aoide/js/_07_Register/ajaxLoginRegister.js"></script>
+
 <!-- ======================== -->
 <!-- register form -->
 
@@ -183,25 +183,25 @@ var easy_fancybox_handler = function(){
 	  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 	  <h5><a href="../../index2.html"><b>Aoide</b></a></h5>
 	  <p class="login-box-msg">Register a new membership</p>
-		   <form action="<c:url value='/CreateAccount'/>" method="post">
+		   <form id="regstForm" action="<c:url value='/AjaxRegisterServlet'/>" method="post">
 		      <div class="form-group has-feedback">
 		        <label id="nameError">${errorMsg.nameError}</label>
-		        <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+		        <input type="text" name="name" id="name2" class="form-control" placeholder="Name">
 		        <span class="glyphicon glyphicon-user form-control-feedback"></span>
 		      </div>
 		      <div class="form-group has-feedback">
 		        <label id="emailError">${errorMsg.emailError}</label>
-		        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+		        <input type="email" name="email" id="email2" class="form-control" placeholder="Email">
 		        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 		      </div>
 		      <div class="form-group has-feedback">
 		        <label id="accountError">${errorMsg.accountError}</label>
-		        <input type="text" name="account" id="account" class="form-control" placeholder="Account">
+		        <input type="text" name="account" id="account2" class="form-control" placeholder="Account">
 		        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		      </div>
 		      <div class="form-group has-feedback">
 		        <label id="passwordError">${errorMsg.passwordError}</label>
-		        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+		        <input type="password" name="password" id="password2" class="form-control" placeholder="Password">
 		        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
 		      </div>
 		      <div class="form-group has-feedback">
@@ -230,7 +230,8 @@ var easy_fancybox_handler = function(){
 <!-- /.register-box -->
 
 </div>
-
+<!-- ajaxLoginRegister.js for login and register -->
+<script type="text/javascript" src="/Aoide/js/_07_Register/ajaxLoginRegister.js"></script>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
