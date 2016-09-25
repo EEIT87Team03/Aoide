@@ -19,8 +19,9 @@
 		        	<br>
 		        	<br>
 		        	<form action="<c:url value ='/SearchSongServlet'/>" method="post" style="text-align: center;">
-						搜尋：<input type="text" name="searchSong" style="color:black">　
-						<input class="btn" type="submit" value="送出" style="color:black">　${errorMsg.emptySearchMsg}
+						搜尋：<input type="text" name="searchSong" style="color:black" autofocus>　
+						<input class="btn" type="submit" value="送出" style="color:black">
+						<p>${errorMsg.emptySearchMsg}
 						<p>
 						<input type="radio" name="searchType" value="name" checked>搜尋歌名　
 						<input type="radio" name="searchType" value="singer">搜尋歌手　

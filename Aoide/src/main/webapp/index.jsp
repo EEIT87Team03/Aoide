@@ -110,7 +110,7 @@ var easy_fancybox_handler = function(){
 	<div class="page-border  heading top colors-a main-navigation"></div>
 	<!-- 下 -->
 	<div class="page-border  heading bottom colors-a main-navigation">
-		<a href="home.jsp" target="aoide" title="回首頁"><span class="glyphicon glyphicon-home"></span></a>
+		<a href="home.jsp" target="aoide" title="回首頁"><span><span class="glyphicon glyphicon-home"></span></span></a>
 		<!-- audio player -->
 		<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
 			<img src = "http://localhost:8080/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
@@ -140,7 +140,7 @@ var easy_fancybox_handler = function(){
 		<li><a href= "views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　
 		<li><a href= "PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
 		<li><a href= "views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>　　
-		<li><span class="glyphicon glyphicon-minus"></span></li>　　
+		<li><span><span class="glyphicon glyphicon-minus"></span></span></li>　　
 		<li><a href= "#"><span id = "toggle" class = "glyphicon glyphicon-play-circle" title="歌曲資訊"></span></a></li>　<!-- audio player toggle -->
 		<li><a href= "#"><span class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>
 	</ul>
@@ -152,30 +152,30 @@ var easy_fancybox_handler = function(){
 <div class="layout-boxed top-nav-inner clearfix">
 <nav class="nav nav-horizontal">
 <ul id="menu-skrollex-menu-1" class="menu">
-<li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query.member" target="aoide"><span class="glyphicon glyphicon-user"></span>會員資料</a></li>
+<li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query.member" target="aoide"><span><span class="glyphicon glyphicon-user"></span></span>會員資料</a></li>
 <li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805">
 <div class="dropdown"><a class="dropbtn">
-<span class="glyphicon glyphicon-music"></span>管理歌曲
+<span><span class="glyphicon glyphicon-music"></span></span>管理歌曲
 </a><div class="dropdown-content">
-<a href="views/member/_16_ManageSong.view/UploadSong.jsp" target="aoide"><span class="glyphicon glyphicon-upload"></span>上傳歌曲</a>
-<a href="ListSongServlet.member" target="aoide"><span class="glyphicon glyphicon-pencil"></span>編輯歌曲</a>
+<a href="views/member/_16_ManageSong.view/UploadSong.jsp" target="aoide"><span><span class="glyphicon glyphicon-upload"></span></span>上傳歌曲</a>
+<a href="ListSongServlet.member" target="aoide"><span><span class="glyphicon glyphicon-pencil"></span></span>編輯歌曲</a>
 </div></div></li>
 <li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806">
 <div class="dropdown"><a class="dropbtn">
-<span class="glyphicon glyphicon-cd"></span>管理專輯
+<span><span class="glyphicon glyphicon-cd"></span></span>管理專輯
 </a><div class="dropdown-content">
-<a href="BuildAlbumServlet.member" target="aoide"><span class="glyphicon glyphicon-record"></span>建立專輯</a>
-<a href="ListAlbumServlet.member" target="aoide"><span class="glyphicon glyphicon-edit"></span>編輯專輯</a>
+<a href="BuildAlbumServlet.member" target="aoide"><span><span class="glyphicon glyphicon-record"></span></span>建立專輯</a>
+<a href="ListAlbumServlet.member" target="aoide"><span><span class="glyphicon glyphicon-edit"></span></span>編輯專輯</a>
 </div></div></li>
-<li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span class="glyphicon glyphicon-heart"></span>收藏清單</a></li>
+<li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span><span class="glyphicon glyphicon-heart"></span></span>收藏清單</a></li>
 <li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808">
 <div class="dropdown"><a class="dropbtn">
-<span class="glyphicon glyphicon-piggy-bank"></span>點數中心
+<span><span class="glyphicon glyphicon-piggy-bank"></span></span>點數中心
 </a><div class="dropdown-content">
-<a href="StartDepositTokenServlet.member" target="aoide"><span class="glyphicon glyphicon-usd"></span>儲值點數</a>
-<a href="CheckTokenServlet" target="aoide"><span class="glyphicon glyphicon-list-alt"></span>查詢點數</a>
+<a href="StartDepositTokenServlet.member" target="aoide"><span><span class="glyphicon glyphicon-usd"></span></span>儲值點數</a>
+<a href="CheckTokenServlet" target="aoide"><span><span class="glyphicon glyphicon-list-alt"></span></span>查詢點數</a>
 </div></div></li>
-<li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="CheckCashRecordServlet.member" target="aoide"><span class="glyphicon glyphicon-gift"></span>贊助紀錄</a></li>
+<li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="CheckCashRecordServlet.member" target="aoide"><span><span class="glyphicon glyphicon-gift"></span></span>贊助紀錄</a></li>
 </ul> <a href="" class="responsive-nav" data-toggle="#off-canvas-right" data-toggle-class="open">
 <span class="l-menu"></span>
 </a> </nav>

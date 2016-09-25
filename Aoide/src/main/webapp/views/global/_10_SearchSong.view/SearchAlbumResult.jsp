@@ -20,18 +20,16 @@
     			<section class="content">
 	    		  <div class="box">
 			        <div class="box-header with-border">
-			          <h3 class="box-title">搜尋結果</h3>
+			          <h3 class="box-title">${type1}</h3>
 			        </div>
 			        <!-- /.box-body -->
 			        <div class="box-body">
 				    <!-- /.table -->
-				    ${type1}
 					<% int i = 0; %>
 					<table class="table">
 						<thead>
 							<tr>
 								<th>　</th>
-								<th>專輯ID</th>
 								<th>專輯名稱</th>
 								<th>演出者</th>
 								<th>上傳日期</th>
@@ -41,9 +39,8 @@
 							<c:forEach var="result" items="${searchList}">
 								<tr>
 									<td><% out.print(i = i + 1); %></td>
-									<td>${result.albumId}</td>
 									<td>
-										<a href="<c:url value='/ListSongsOfAlbum?albumId=${result.albumId}'/>">${result.name}</a>
+										<u><a href="<c:url value='/ListSongsOfAlbum?albumId=${result.albumId}'/>">${result.name}</a></u>
 									</td>
 									<td>${result.artist}</td>
 									<td>${result.updateDate}</td>
@@ -51,8 +48,7 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					 <p>共有<% out.print(i); %>項符合搜尋結果</p>
-				     <p><a href="SearchSong.jsp">回搜尋歌曲</a></p>
+					 <p>共有 <% out.print(i); %> 項符合搜尋結果</p>
 			         <!-- /.table -->
 			       </div>
 			        <!-- /.box-body -->
