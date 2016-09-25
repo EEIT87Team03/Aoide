@@ -27,21 +27,18 @@ public class AjaxLoginServlet extends HttpServlet {
 		String account = request.getParameter( "account" ).trim();
 		String password = request.getParameter( "password" ).trim();
 		
-//		System.out.println("account/password: " + account + "/" + password);
-		
 		// call service get member bean
 		MemberService ms = new MemberService();
 		MemberVO memberBean = ms.getMemberBean( account );
 		
-		// decide respond content
+		// generate respond content and put member in session
 		String loginState = null;
 		if( (memberBean != null) && password.equals( memberBean.getPassword()) ){
+			request.getSession().setAttribute( "member", memberBean );
 			loginState = "loginSuccess";
 		}else{
 			loginState = "loginFail";
 		}
-		
-//		System.out.println("loginState: " + loginState);
 		
 		// generate respond
 		response.setContentType("text/plain; charset=UTF-8");
