@@ -133,37 +133,36 @@ var easy_fancybox_handler = function(){
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-	
-    <form action="<c:url value='/Login'/>" method="post">
-      <div class="form-group has-feedback">
-        <label>${errorMsg.accountError}</label>
-        <input type = "text" class="form-control" name = "account" id = "account" value="${enteredText.account }" placeholder="Account">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <label>${errorMsg.passwordError}</label>
-        <input type = "password" class="form-control" name = "password" id = "password" placeholder="Password" >
-        <!-- <input type="password" class="form-control" placeholder="Password"> -->
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
-          </div>
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-        </div>
-        <!-- /.col -->
-      </div>
-    </form>
-    </div>
-    <!-- /.social-auth-links -->
+	    <form id="loginForm" action="<c:url value='/Login'/>" method="post">
+	      <div class="form-group has-feedback">
+	        <label>${errorMsg.accountError}</label>
+	        <input type = "text" class="form-control" name = "account" id = ":" value="${enteredText.account }" placeholder="Account">
+	        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+	        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+	      </div>
+	      <div class="form-group has-feedback">
+	        <label>${errorMsg.passwordError}</label>
+	        <input type = "password" class="form-control" name = "password" id = "password" placeholder="Password" >
+	        <!-- <input type="password" class="form-control" placeholder="Password"> -->
+	        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+	      </div>
+	      <div class="row">
+	        <div class="col-xs-8">
+	          <div class="checkbox icheck">
+	            <label>
+	              <input type="checkbox"> Remember Me
+	            </label>
+	          </div>
+	        </div>
+	        <!-- /.col -->
+	        <div class="col-xs-4">
+	          <button id="loginBtn" type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+	        </div>
+	        <!-- /.col -->
+	      </div>
+	    </form>
+   </div>
+   <!-- /.login-box-body -->
 
     <a href="#">I forgot my password</a><br>
     <a href="register.html" class="text-center">Register a new membership</a>
@@ -173,7 +172,7 @@ var easy_fancybox_handler = function(){
 </div>
 <!-- /.login-box -->
 </div>
-
+<script type="text/javascript" src="/Aoide/js/_07_Register/ajaxLoginRegister.js"></script>
 <!-- ======================== -->
 <!-- register form -->
 
