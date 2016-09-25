@@ -37,7 +37,6 @@
               </div>
               </form>
           </div>
-			<input type="submit" class="btn btn-primary" value="Submit">
             
             <!-- ========================================= -->
 			</div>
@@ -47,7 +46,8 @@
     
 <!-- body-library  -->
 <c:import url="/TestHTML/body_library.html"/>
-<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+<!-- <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script> -->
+<script src="/Aoide/template/plugins/ckeditor/ckeditor.js"></script>
 <script>
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor

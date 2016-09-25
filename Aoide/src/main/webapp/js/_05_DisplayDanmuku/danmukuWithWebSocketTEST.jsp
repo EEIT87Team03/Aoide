@@ -82,6 +82,11 @@
 							    			            old_ie_color: '#ffffff', //ie低版兼容色,不能与网页背景相同,默认黑色 
 							    			            'memberID' : memberId
 							    			        }
+							    			        if($('input:radio[name=img]:checked').val()=='none'){
+							    			        	item.img ='';
+							    			        }
+							    			        
+							    			        
 							    			        var abc = JSON.stringify(item);
         												//var text = document.getElementById( "input" ).value;
         												//clientSocket.send( memberId + "&" + text);
