@@ -66,6 +66,7 @@ var easy_fancybox_handler = function(){
 <!-- login / register css,js -->
   <link rel="stylesheet" href="/Aoide/css/_07_Register/registerAndLogin.css">
   <script src="/Aoide/js/_07_Register/registerValidator.js"></script>
+  <script src="/Aoide/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- =========================================== -->
 </head>
 <body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
@@ -119,8 +120,8 @@ var easy_fancybox_handler = function(){
 <p class="home-b-buttons">
 <!-- <a class="button heading-y background-y hover-light" href="/Aoide/views/global/_08_login.view/login.jsp" target="aoide">Login</a> -->
 
-<button class="button heading-y background-y hover-light" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">LOGIN</button>
-<button class="button heading-x background-x hover-light" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">REGISTER</button>
+<button id="loginBtn" class="button heading-y background-y hover-light" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">LOGIN</button>
+<button id="regstBtn" class="button heading-x background-x hover-light" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">REGISTER</button>
 </p>
 <!-- ======================== -->
 <!-- login form -->
@@ -133,10 +134,10 @@ var easy_fancybox_handler = function(){
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-	    <form id="loginForm" action="<c:url value='/Login'/>" method="post">
+	    <form id="loginForm" action="<c:url value='/AjaxLoginServlet'/>" method="post">
 	      <div class="form-group has-feedback">
 	        <label>${errorMsg.accountError}</label>
-	        <input type = "text" class="form-control" name = "account" id = ":" value="${enteredText.account }" placeholder="Account">
+	        <input type = "text" class="form-control" name = "account" id = "account" value="${enteredText.account }" placeholder="Account">
 	        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 	        <span class="glyphicon glyphicon-user form-control-feedback"></span>
 	      </div>
@@ -156,7 +157,7 @@ var easy_fancybox_handler = function(){
 	        </div>
 	        <!-- /.col -->
 	        <div class="col-xs-4">
-	          <button id="loginBtn" type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+	          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
 	        </div>
 	        <!-- /.col -->
 	      </div>
