@@ -22,7 +22,7 @@
 							<form action="<c:url value ='/DeleteEditBullet'/>" method="post">
 								delete：<input type="text" name="deleteBullet">
 								<p>
-									<input type="submit" value="送出">
+									<input class="btn"type="submit" value="送出">
 							</form>
 						</div>
 					</div>

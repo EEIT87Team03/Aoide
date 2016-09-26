@@ -20,7 +20,7 @@
 						<div class="box-body">
 
 							<h1>刪除成功!!</h1>
-							<p>
+							<hr>
 								<a href="<c:url value ='/EditBulletList'/>">回上一頁</a>
 							</p>
 						</div>

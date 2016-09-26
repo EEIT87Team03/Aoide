@@ -28,7 +28,7 @@ public class BanMemberServlet extends HttpServlet {
 		System.out.println("BanState: " + accused.getBanState());
 		memberService.updateMemberData(accused);
 		// go to ListAccusementServlet
-		request.getRequestDispatcher("/ListAccusementServlet").forward(request, response);
+		request.getRequestDispatcher("/ListAccusementServlet.manager").forward(request, response);
 		return;
 	}
 

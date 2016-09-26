@@ -30,9 +30,9 @@
 				          <table class="table">
 				            <thead>
 				              <tr>
-				              <th>No</th>
-				              <th>Date</th>
-				              <th>Title</th>
+				              <th>建議編號</th>
+				              <th>建議日期</th>
+				              <th>建議標題</th>
 				              <th></th>
 				            </tr>
 				            </thead>

@@ -68,7 +68,7 @@ var easy_fancybox_handler = function(){
 <div data-src="views/dist/img/manage1.jpg" class="bg-holder"></div>
 <div data-src="views/dist/img/manage2.jpg" class="bg-holder"></div>
 <div id="home" class="fg colors-b  full-size">
-<iframe src="" height="22"></iframe><br>
+<iframe src="" height="17"></iframe><br>
 <iframe src="" width="31"></iframe>
 <iframe src="home2.jsp" height="820" width="1850" name="aoide"></iframe>
 <div class="flask-bubbles from-bottom svg-overlay bottom fixed hide-on-mobile">
@@ -107,10 +107,9 @@ var easy_fancybox_handler = function(){
 <div class="layout-boxed top-nav-inner clearfix">
 <nav class="nav nav-horizontal">
 <ul id="menu-skrollex-menu-1" class="menu">
-<li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="EditBulletList" target="aoide"><span><span class="glyphicon glyphicon-bullhorn"></span></span>管理公告</a></li>
+<li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="EditBulletList.manager" target="aoide"><span><span class="glyphicon glyphicon-bullhorn"></span></span>管理公告</a></li>
 <li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805"><a href="ListAccusementServlet.manager" target="aoide"><span><span class="glyphicon glyphicon-screenshot"></span></span>檢舉案件</a></li>
 <li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806"><a href="ListSuggestionsServlet.manager" target="aoide"><span><span class="glyphicon glyphicon-comment"></span></span>回覆建議</a></li>
-<li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="" target="aoide"><span><span class="glyphicon glyphicon-shopping-cart"></span></span>管理廣告</a></li>
 </ul> <a href="" class="responsive-nav" data-toggle="#off-canvas-right" data-toggle-class="open">
 <span class="l-menu"></span>
 </a> </nav>

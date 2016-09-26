@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- head-library  -->
 <c:import url="/TestHTML/head_library.html"/>
+<script src="/Aoide/template/plugins/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -23,21 +24,21 @@
 							<form action="<c:url value ='/ModifyEditBullet'/>" method="post">
 
 								日期：${bulletVO.date}
-								<p>
+								<hr>
 
 									contentFile：<input class="form-control" type="text"
 										name="contentFile" value="${bulletVO.contentFile}">
-								<p>
+								<hr>
 
 									title：
 									<textarea name="title" id="title">${bulletVO.title}</textarea>
 									<script>
 										CKEDITOR.replace('title');
 									</script>
-								<p>
+								<hr>
 
-									<input type="submit" value="送出"> <input type="reset"
-										value="清除">
+									<input class="btn" type="submit" value="送出"> 
+									<input class="btn" type="reset"  value="清除">
 							</form>
 							<a href="<c:url value ='/EditBulletList'/>">回列表頁</a>
 						</div>
