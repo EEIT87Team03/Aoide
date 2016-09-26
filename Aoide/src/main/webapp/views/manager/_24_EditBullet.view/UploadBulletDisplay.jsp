@@ -19,24 +19,27 @@
 					<div class="box-header with-border">
 						<div class="box-body">
 
-							Date：${bulletVO.date}
-							<p>
-								ContentFile：${bulletVO.contentFile}
-								<p>Title：${bulletVO.title}
-						
-							<p>
+							公告日期：${bulletVO.date}
+							<hr>
+							公告標題：${bulletVO.title}
+							
+							<hr>
+							
+							公告內容：${bulletVO.contentFile}
+
+							<hr>
 
 							<a href="<c:url value ='/EditBulletList'/>">回列表頁</a>
-						</p>
+						</div>
 					</div>
 				</div>
+				<!-- ========================================= -->
 			</div>
-            <!-- ========================================= --></div>
 			<div class="col-xs-6 col-md-3"></div>
 		</div>
-    </div>
-    
-<!-- body-library  -->
-<c:import url="/TestHTML/body_library.html" />
+	</div>
+
+	<!-- body-library  -->
+	<c:import url="/TestHTML/body_library.html" />
 </body>
 </html>

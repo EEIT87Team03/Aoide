@@ -20,10 +20,10 @@
 						<div class="box-body">
 
 							No :${bulletVO.bulletId}
-							<p>Date：${bulletVO.date}
-							<p>ContentFile：${bulletVO.contentFile}
-							<p>Title：${bulletVO.title}
-							<p>
+							<hr>Date：${bulletVO.date}
+							<hr>ContentFile：${bulletVO.contentFile}
+							<hr>Title：${bulletVO.title}
+							<hr>
 
 								<a href="<c:url value ='/EditBulletList'/>">回上一頁</a>
 							</p>

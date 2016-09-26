@@ -2,12 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <!-- head-library  -->
 <c:import url="/TestHTML/head_library.html" />
+<script src="/Aoide/template/plugins/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -22,21 +25,21 @@
 							<form action="<c:url value ='/UploadEditBullet'/>" method="post">
 
 								<!-- 		date：<input type="text" name="date"><p> -->
-								contentFile：<input class="form-control" type="text"
+								公告標題：<input class="form-control" type="text"
 									name="contentFile">
-								<p>
-									title：
+								<hr>
+									公告內容：
 									<textarea name="title" id="title"></textarea>
 									<script>
 										CKEDITOR.replace('title');
 									</script>
 
 
-									<p>
-									<input class="btn" type="submit" value="送出"> <input
-										type="reset" value="清除">
+									<hr>
+									<input class="btn" type="submit" value="送出"> 
+									<input class="btn" type="reset" value="清除">
 								
-								<p>
+								<hr>
 									<a href="<c:url value ='/EditBulletList'/>">回列表頁</a>
 							
 							</form>
