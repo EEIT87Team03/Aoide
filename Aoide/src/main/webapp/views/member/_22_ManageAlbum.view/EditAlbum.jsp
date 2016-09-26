@@ -85,7 +85,7 @@
 										<td>${mySong.songType}</td>
 										<td>${mySong.songLanguage}</td>
 										<td>${mySong.updateDate}</td>
-										<td><input type="button" value="移除"
+										<td><input class="btn" type="button" value="移除"
 											onclick="location.href='<c:url value='/RemoveAlbumidServlet.member?id=${mySong.songId}'/>'">
 										</td>
 									</tr>

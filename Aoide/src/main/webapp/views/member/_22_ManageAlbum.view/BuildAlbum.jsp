@@ -21,6 +21,7 @@
 				<!-- ========================================= -->
 				<div class="box">			
 				<%  int i = 0;%>
+				<div class="box-body">
 					<form action="<c:url value ='/BuildAlbumSuccessServlet.member'/>"
 						method="post" enctype="multipart/form-data">
 						上傳專輯封面：<input type="file" name="coverFile">
@@ -81,7 +82,7 @@
 							class="btn" value="送出">
 							<hr>
 							<a href="ManageAlbum.jsp">回管理專輯</a>
-
+						</div>
 						<!-- ========================================= -->
 				</div>
 				<div class="col-xs-6 col-md-3"></div>
