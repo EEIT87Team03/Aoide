@@ -56,7 +56,6 @@
 									</c:forEach>
 								</tbody>
 							</table>
-							<a href="ManageSong.jsp">回管理歌曲</a>
 						</div>
 					</div>
 				</div>
