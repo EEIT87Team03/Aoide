@@ -25,23 +25,23 @@
 						method="post" enctype="multipart/form-data">
 						上傳專輯封面：<input type="file" name="coverFile">
 						${errorMsg.emptyPartMsg}
-						<p>
+						<hr>
 							專輯名稱：<input type="text" name="name" value="${enteredText.name}">
 							${errorMsg.emptyNameMsg}
-						<p>
+						<hr>
 							演出者：<input type="text" name="artist"
 								value="${enteredText.artist}">
 							${errorMsg.emptyArtistMsg}
-						<p>
+						<hr>
 							專輯簡介：
 							<textarea name="introductionFile" id="introductionFile">${enteredText.introductionFile}</textarea>
 							<script>
 								CKEDITOR.replace('introductionFile');
 							</script>
-						<p>
+						
 						<hr>
 						<p>請選擇要加入專輯的未分類歌曲：
-						<p>
+						<hr>
 						<table class="table">
 							<thead>
 								<tr>
@@ -76,9 +76,11 @@
 							</tbody>
 						</table>
 					</form>
-					<p>
-						<a href="ManageAlbum.jsp">回管理專輯</a> <input type="submit"
+					<hr>
+						 <input type="submit"
 							class="btn" value="送出">
+							<hr>
+							<a href="ManageAlbum.jsp">回管理專輯</a>
 
 						<!-- ========================================= -->
 				</div>
