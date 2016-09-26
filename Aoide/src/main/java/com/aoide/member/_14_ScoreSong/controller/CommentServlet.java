@@ -35,7 +35,7 @@ public class CommentServlet extends HttpServlet {
 		
 //		Integer songId = Integer.parseInt(request.getParameter("id"));
 		
-		
+//		int song = 8;
 		
 		request.setCharacterEncoding("UTF-8");
 		

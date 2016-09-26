@@ -47,10 +47,11 @@ public class GetScoreServlet extends HttpServlet implements Servlet {
 		ScoreVO scoreVO = new ScoreVO();
 		scoreVO.setSongId(songId1);
 		scoreVO.setMemberId(memberId);
-       
-		
+
 		session.setAttribute("scoreVO", scoreVO);
 		new ScoreService().calculatorAVG(songId1);
+		
+		
 		
 		
 
