@@ -37,8 +37,8 @@ $( "#loginForm" ).submit(function( event ) {
     	if(data.loginState == "loginSuccess"){
     		alert("welcome Aoide");
     		$("#id02").hide();
-    		$("#loginBtn").remove();
-    		$("#regstBtn").remove();
+    		$("#loginBtn").hide();
+    		$("#regstBtn").hide();
     		// display the logout button
     		$("#logoutBtn").show();
     		$("#memberLoginHead").attr("src", data.pictureSource).css('visibility', 'visible');
@@ -89,7 +89,10 @@ $( "#logoutBtn" ).click(function() {
     	console.log("data: " + data);
     	if(data == "logoutSuccess"){
     		alert("Logout Success");
-    		$("#logoutBtn").remove();
+    		$("#logoutBtn").hide();
+        $("#loginBtn").show();
+        $("#regstBtn").show();
+        $("#memberLoginHead").css('visibility', 'hidden');
     	}else{
     		alert("Please Logout again");
     	}
