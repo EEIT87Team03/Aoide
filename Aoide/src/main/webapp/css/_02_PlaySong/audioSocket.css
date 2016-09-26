@@ -153,13 +153,13 @@ progress::-webkit-progress-value
     vertical-align: bottom;
 }
 
-#toggle
+#toggle, #launcher
 {
     color: white;
 }
-#toggle:hover, #toggle:focus 
+#toggle:hover, #toggle:focus, #launcher:hover, #launcher:focus  
 {
-    color: #000;
+    color: #f4511e;
     text-decoration: none;
     cursor: pointer;
 }
