@@ -8,6 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- head-library  -->
 <c:import url="/TestHTML/head_library.html"/>
+<style>
+.sp {
+    font-size: 20pt;
+}
+</style>
 </head>
 <body>
 	<div class="container-fluid">
@@ -21,11 +26,11 @@
 		        	<form action="<c:url value ='/SearchSongServlet'/>" method="post" style="text-align: center;">
 						搜尋：<input type="text" name="searchSong" style="color:black" autofocus>　
 						<input class="btn" type="submit" value="送出" style="color:black">
-						<p>${errorMsg.emptySearchMsg}
+						<p><span class="sp">${errorMsg.emptySearchMsg}</span>
 						<p>
-						<input type="radio" name="searchType" value="name" checked>搜尋歌名　
-						<input type="radio" name="searchType" value="singer">搜尋歌手　
-						<input type="radio" name="searchType" value="album">搜尋專輯
+						<input type="radio" name="searchType" value="name" checked> 搜尋歌名　
+						<input type="radio" name="searchType" value="singer"> 搜尋歌手　
+						<input type="radio" name="searchType" value="album"> 搜尋專輯
 					</form>
 						<div style="padding-left: 215px;">
 							<p>點歌規則:</p>
