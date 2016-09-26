@@ -1,3 +1,18 @@
+// check login request with js
+$(function() {
+  var url = "/Aoide/AjaxCheckMemberLoginServlet";
+
+  $.get( url, function(data){
+    console.log(data.isLogin)
+    if ( data.isLogin == "true") {
+        $("#loginBtn").hide();
+        $("#regstBtn").hide();
+        $("#logoutBtn").show();
+        $("#memberLoginHead").css('visibility', 'visible');
+    }
+  }) // end $.get()
+}) // end $.ready()
+
 
 // login request with js
 $( "#loginForm" ).submit(function( event ) {
