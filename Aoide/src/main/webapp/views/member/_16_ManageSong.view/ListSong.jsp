@@ -60,7 +60,6 @@
 						</div>
 					</div>
 				</div>
-			<input type="submit" class="btn" value="Submit">
             
             <!-- ========================================= -->
 			</div>
