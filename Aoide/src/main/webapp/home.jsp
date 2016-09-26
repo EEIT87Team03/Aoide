@@ -359,17 +359,17 @@ window.onclick = function(event) {
 <div class="slideshow-container" >
 <center>
 <div class="mySlides fade">
-  <img alt=""src="/Aoide/files/ad_img_files/Songid1.jpg" width="400" height="400">
+  <img alt=""src="/Aoide/files/song_cover_files/Songid1.jpg" width="400" height="400">
   <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
-  <img alt=""src="/Aoide/files/ad_img_files/Songid2.jpg" width="400" height="400">
+  <img alt=""src="/Aoide/files/song_cover_files/Songid2.jpg" width="400" height="400">
   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
-  <img alt=""src="/Aoide/files/ad_img_files/Songid3.jpg" width="400" height="400">
+  <img alt=""src="/Aoide/files/song_cover_files/Songid3.jpg" width="400" height="400">
   <div class="text">Caption Three</div>
 </div>
 </center>
