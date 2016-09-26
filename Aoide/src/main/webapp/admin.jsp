@@ -68,9 +68,9 @@ var easy_fancybox_handler = function(){
 <div data-src="views/dist/img/manage1.jpg" class="bg-holder"></div>
 <div data-src="views/dist/img/manage2.jpg" class="bg-holder"></div>
 <div id="home" class="fg colors-b  full-size">
-<iframe src="" height="22"></iframe><br>
+<iframe src="" height="17"></iframe><br>
 <iframe src="" width="31"></iframe>
-<iframe src="" height="820" width="1850" name="aoide"></iframe>
+<iframe src="home2.jsp" height="820" width="1850" name="aoide"></iframe>
 <div class="flask-bubbles from-bottom svg-overlay bottom fixed hide-on-mobile">
 <div class="background-heading bubble b0"></div>
 <div class="background-heading bubble b1"></div>

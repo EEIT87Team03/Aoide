@@ -150,7 +150,7 @@ var easy_fancybox_handler = function(){
 <!-- 左 -->
 <div class="page-border  heading left colors-a main-navigation">
 	<ul>
-		<li><a href= "views/manager/_24_EditBullet.view/BulletListMember.jsp" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
+		<li><a href= "EditBulletList001" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
 		<li><a href= "views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　
 		<li><a href= "PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
 		<li><a href= "views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>　　
