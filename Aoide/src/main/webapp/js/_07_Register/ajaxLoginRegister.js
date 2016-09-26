@@ -1,3 +1,18 @@
+// check login request with js
+$(function() {
+  var url = "/Aoide/AjaxCheckMemberLoginServlet";
+
+  $.get( url, function(data){
+    console.log(data.isLogin)
+    if ( data.isLogin == "true") {
+        $("#loginBtn").hide();
+        $("#regstBtn").hide();
+        $("#logoutBtn").show();
+        $("#memberLoginHead").css('visibility', 'visible');
+    }
+  }) // end $.get()
+}) // end $.ready()
+
 
 // login request with js
 $( "#loginForm" ).submit(function( event ) {
@@ -17,15 +32,16 @@ $( "#loginForm" ).submit(function( event ) {
 
   	// Send the data using post
     var posting = $.post( url, { account: account, password: password }, function(data){
-    	console.log("data: " + data);
-    	if(data == "loginSuccess"){
+    	console.log(data);
+
+    	if(data.loginState == "loginSuccess"){
     		alert("welcome Aoide");
     		$("#id02").hide();
-    		$("#loginBtn").remove();
-    		$("#regstBtn").remove();
+    		$("#loginBtn").hide();
+    		$("#regstBtn").hide();
     		// display the logout button
     		$("#logoutBtn").show();
-    		$("#memberLoginHead").css('visibility', 'visible');
+    		$("#memberLoginHead").attr("src", data.pictureSource).css('visibility', 'visible');
     	}else{
     		alert("please sign again");
     	}
@@ -73,7 +89,10 @@ $( "#logoutBtn" ).click(function() {
     	console.log("data: " + data);
     	if(data == "logoutSuccess"){
     		alert("Logout Success");
-    		$("#logoutBtn").remove();
+    		$("#logoutBtn").hide();
+        $("#loginBtn").show();
+        $("#regstBtn").show();
+        $("#memberLoginHead").css('visibility', 'hidden');
     	}else{
     		alert("Please Logout again");
     	}
