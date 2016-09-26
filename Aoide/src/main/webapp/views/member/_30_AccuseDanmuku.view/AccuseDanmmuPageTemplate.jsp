@@ -24,7 +24,7 @@
               
             </div>
             <!-- /.box-header -->
-            <form action="<c:url value='/SaveAccuseDanmukuServlet'/>" method="post">
+            <form action="<c:url value='/SaveAccuseDanmukuServlet.member'/>" method="post">
             <div class="box-body pad">
               
                     <textarea id="editor1" name="replyContent" rows="10" cols="80">
@@ -40,9 +40,13 @@
             
             <!-- ========================================= -->
 			</div>
+			
 			<div class="col-xs-6 col-md-3"></div>
 		</div>
     </div>
+    <script>
+    
+    </script>
     
 <!-- body-library  -->
 <c:import url="/TestHTML/body_library.html"/>
@@ -54,7 +58,9 @@
     // instance, using default configuration.
     CKEDITOR.replace('editor1');
     //bootstrap WYSIHTML5 - text editor
-    $(".textarea").wysihtml5();
+    //$(".textarea").wysihtml5();
+    
+    
   });
 </script>
 </body>
