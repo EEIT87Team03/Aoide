@@ -16,8 +16,7 @@
 			<div class="col-xs-6 col-md-6" id="middleContent">
             <!-- ========================================= -->
 			<div class="box">
-		         <div class="box-header with-border">
-		         <div class="box-body">
+		         <div class="box-body table-responsive no-padding">
 
 			<td><div align="right">
 					<input class="btn btn-primary" type="button" value="新增" 
@@ -54,7 +53,6 @@
 			</table>
 			<br>
 		</div>
-	</div>
 	</div>
             
             <!-- ========================================= -->
