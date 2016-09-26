@@ -14,7 +14,7 @@ import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.manager._24_EditBullet.model.BulletService;
 
-@WebServlet("/EditBulletList")
+@WebServlet("/EditBulletList.manager")
 public class EditBulletList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

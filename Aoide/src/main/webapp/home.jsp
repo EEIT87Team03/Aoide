@@ -11,7 +11,66 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Feed" href="http://skrollex-wp.x40.ru/anna/feed/"/>
 <link rel="alternate" type="application/rss+xml" title="SKROLL[EX] &raquo; Comments Feed" href="http://skrollex-wp.x40.ru/anna/comments/feed/"/>
-<style>#wp-admin-bar-layers-edit-layout .ab-icon:before{font-family:"layers-interface"!important;content:"\e62f"!important;font-size:16px!important;}</style>
+<style>#wp-admin-bar-layers-edit-layout .ab-icon:before{font-family:"layers-interface"!important;content:"\e62f"!important;font-size:16px!important;}
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active {
+  background-color: #717171;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 4.5s;
+  animation-name: fade;
+  animation-duration: 4.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
 <link rel='stylesheet' id='contact-form-7-css' href='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.4.2' type='text/css' media='all'/>
 <link rel='stylesheet' id='layers-google-fonts-css' href='//fonts.googleapis.com/css?family=Ubuntu%3Aregular%2Citalic%2C700%2C300%2C300italic%2C500%2C500italic%2C700italic%7COswald%3Aregular%2C700%2C300&#038;ver=1.5.3' type='text/css' media='all'/>
 <link rel='stylesheet' id='layers-framework-css' href='http://skrollex-wp.x40.ru/anna/wp-content/themes/layerswp/assets/css/framework.css?ver=1.5.3' type='text/css' media='all'/>
@@ -295,35 +354,57 @@ window.onclick = function(event) {
 <div data-src="http://skrollex-wp.x40.ru/anna/wp-content/uploads/sites/49/2015/11/bg-stephane-4-bw.jpg" class="bg-holder"></div>
 <div data-src="http://skrollex-wp.x40.ru/anna/wp-content/uploads/sites/49/2015/11/bg-stephane-3-bw.jpg" class="bg-holder"></div>
 <div id="about" class="fg colors-c ">
-<div class="layout-boxed section-top"><h3 class="heading-section-title">About</h3>
-<p class="header-details"><span>We Create</span> Awesome Stuff</p>
-<p class="lead">We are&nbsp;<span>Creative Team</span>&nbsp;located in Kalura, Bovlandia. Tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div> <div class="section-cols layout-boxed">
-<div class="pure-g"> <div class="layers-widget-skrollex-section-55c8d1dfc0f70041705364 pure-u-1 pure-u-md-8-24  col-padding">
-<div class="col-icon color-heading">
-<i class="li_bulb"></i>
+<div class="layout-boxed section-top"><h3 class="heading-section-title">advert</h3></div>
+<p>
+<div class="slideshow-container" >
+<center>
+<div class="mySlides fade">
+  <img alt=""src="/Aoide/files/ad_img_files/Songid1.jpg" width="400" height="400">
+  <div class="text">Caption Text</div>
 </div>
-<div class="col-content">
-<h5 class="heading-col-title">Web <span>Development</span></h5>
-<p>Praesent sodales, quam vitae gravida interdum, ex mi bibendum enim, sit amet tristique mi quam vel odio. Donec non nunc condimentum, hendrerit elit sed, condimentum magna. Suspendisse imperdiet purus vel ornare cursus.</p>
-</div></div> <div class="layers-widget-skrollex-section-55c8d1dfc0f7c247758097 pure-u-1 pure-u-md-8-24  col-padding">
-<div class="col-icon color-heading">
-<i class="li_t-shirt"></i>
+
+<div class="mySlides fade">
+  <img alt=""src="/Aoide/files/ad_img_files/Songid2.jpg" width="400" height="400">
+  <div class="text">Caption Two</div>
 </div>
-<div class="col-content">
-<h5 class="heading-col-title">Internet <span>Marketing</span></h5>
-<p>Curabitur et diam elementum, mollis tortor a, malesuada turpis. Vivamus gravida, justo et molestie sollicitudin, erat lorem tempus eros, vel laoreet nibh urna ac nunc, vestibulum neque vitae pellentesque efficitur.</p>
-</div></div> <div class="layers-widget-skrollex-section-55c8d1dfc0f82428538252 pure-u-1 pure-u-md-8-24  col-padding">
-<div class="col-icon color-heading">
-<i class="li_megaphone"></i>
+
+<div class="mySlides fade">
+  <img alt=""src="/Aoide/files/ad_img_files/Songid3.jpg" width="400" height="400">
+  <div class="text">Caption Three</div>
 </div>
-<div class="col-content">
-<h5 class="heading-col-title">Client <span>Support</span></h5>
-<p>Sed porta erat vel ipsum maximus, eget maximus est maximus. Maecenas at venenatis nibh, sit amet suscipit odio. In feugiat vehicula dui. In felis enim, maximus a dolor semper efficitur elit euismod magna quis commodo.</p>
-</div></div></div> </div>
+</center>
+</div>
+<br>
+
+<div style="text-align:center" id="PushButton">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
 </div>
 </div>
 </section>
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+</script>
 <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */

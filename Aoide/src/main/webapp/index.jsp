@@ -150,7 +150,7 @@ var easy_fancybox_handler = function(){
 <!-- 左 -->
 <div class="page-border  heading left colors-a main-navigation">
 	<ul>
-		<li><a href= "#" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
+		<li><a href= "views/manager/_24_EditBullet.view/BulletListMember.jsp" target="aoide"><span class="glyphicon glyphicon-th-list" title="網站公告"></span></a></li>　
 		<li><a href= "views/global/_10_SearchSong.view/SearchSong.jsp" target="aoide"><span class="glyphicon glyphicon-search" title="搜尋歌曲"></span></a></li>　
 		<li><a href= "PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
 		<li><a href= "views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>　　
@@ -181,7 +181,7 @@ var easy_fancybox_handler = function(){
 <a href="BuildAlbumServlet.member" target="aoide"><span><span class="glyphicon glyphicon-record"></span></span>建立專輯</a>
 <a href="ListAlbumServlet.member" target="aoide"><span><span class="glyphicon glyphicon-edit"></span></span>編輯專輯</a>
 </div></div></li>
-<li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span><span class="glyphicon glyphicon-heart"></span></span>收藏清單</a></li>
+<li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ShowFavoriteServlet.member" target="aoide"><span><span class="glyphicon glyphicon-heart"></span></span>收藏清單</a></li>
 <li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808">
 <div class="dropdown"><a href="#" class="dropbtn">
 <span><span class="glyphicon glyphicon-piggy-bank"></span></span>點數中心
