@@ -17,14 +17,15 @@ $( "#loginForm" ).submit(function( event ) {
 
   	// Send the data using post
     var posting = $.post( url, { account: account, password: password }, function(data){
-    	console.log("data: " + data);
-    	if(data == "loginSuccess"){
+    	console.log(data);
+
+    	if(data.loginState == "loginSuccess"){
     		alert("welcome Aoide");
     		$("#id02").hide();
     		$("#loginBtn").remove();
     		$("#regstBtn").remove();
     		// display the logout button
-    		$("#logoutBtn").show();
+    		$("#logoutBtn").attr("src", data.pictureSource).show();
     		$("#memberLoginHead").css('visibility', 'visible');
     	}else{
     		alert("please sign again");
