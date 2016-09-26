@@ -160,7 +160,7 @@ var easy_fancybox_handler = function(){
 	</ul>
 </div>
 <!-- 右 -->
-<div class="page-border  heading right colors-a main-navigation"><input type = "text" id = "input" name = "input" size = "40" placeholder="在此輸入文字後按ENTER即可發送彈幕，點選右方箭頭展開歌曲播放資訊"></div>
+<div class="page-border  heading right colors-a main-navigation"></div>
 
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
 <div class="layout-boxed top-nav-inner clearfix">
@@ -168,14 +168,14 @@ var easy_fancybox_handler = function(){
 <ul id="menu-skrollex-menu-1" class="menu">
 <li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query.member" target="aoide"><span><span class="glyphicon glyphicon-user"></span></span>會員資料</a></li>
 <li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805">
-<div class="dropdown"><a class="dropbtn">
+<div class="dropdown"><a href="#" class="dropbtn">
 <span><span class="glyphicon glyphicon-music"></span></span>管理歌曲
 </a><div class="dropdown-content">
 <a href="views/member/_16_ManageSong.view/UploadSong.jsp" target="aoide"><span><span class="glyphicon glyphicon-upload"></span></span>上傳歌曲</a>
 <a href="ListSongServlet.member" target="aoide"><span><span class="glyphicon glyphicon-pencil"></span></span>編輯歌曲</a>
 </div></div></li>
 <li id="menu-item-806" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-806">
-<div class="dropdown"><a class="dropbtn">
+<div class="dropdown"><a href="#"class="dropbtn">
 <span><span class="glyphicon glyphicon-cd"></span></span>管理專輯
 </a><div class="dropdown-content">
 <a href="BuildAlbumServlet.member" target="aoide"><span><span class="glyphicon glyphicon-record"></span></span>建立專輯</a>
@@ -183,11 +183,11 @@ var easy_fancybox_handler = function(){
 </div></div></li>
 <li id="menu-item-807" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-807"><a href="ListFavoriteServlet.member" target="aoide"><span><span class="glyphicon glyphicon-heart"></span></span>收藏清單</a></li>
 <li id="menu-item-808" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-808">
-<div class="dropdown"><a class="dropbtn">
+<div class="dropdown"><a href="#" class="dropbtn">
 <span><span class="glyphicon glyphicon-piggy-bank"></span></span>點數中心
 </a><div class="dropdown-content">
 <a href="StartDepositTokenServlet.member" target="aoide"><span><span class="glyphicon glyphicon-usd"></span></span>儲值點數</a>
-<a href="CheckTokenServlet" target="aoide"><span><span class="glyphicon glyphicon-list-alt"></span></span>查詢點數</a>
+<a href="CheckTokenServlet.member" target="aoide"><span><span class="glyphicon glyphicon-list-alt"></span></span>查詢點數</a>
 </div></div></li>
 <li id="menu-item-809" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-809"><a href="CheckCashRecordServlet.member" target="aoide"><span><span class="glyphicon glyphicon-gift"></span></span>贊助紀錄</a></li>
 </ul> <a href="" class="responsive-nav" data-toggle="#off-canvas-right" data-toggle-class="open">
@@ -195,7 +195,7 @@ var easy_fancybox_handler = function(){
 </a> </nav>
 <div class="logo">
 <div class="site-description">
-<h3 class="sitename sitetitle">A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></h3>
+<a href="home.jsp" target="aoide" title="回首頁"><h3 class="sitename sitetitle">A<span>O</span>IDE <span><span class="glyphicon glyphicon-fire"></span></span></h3></a>
 </div>
 </div>
 </div>

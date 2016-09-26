@@ -377,23 +377,5 @@ jQuery(document).on('ready post-load', easy_fancybox_handler );
     	modal.style.display = "block";
     }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
