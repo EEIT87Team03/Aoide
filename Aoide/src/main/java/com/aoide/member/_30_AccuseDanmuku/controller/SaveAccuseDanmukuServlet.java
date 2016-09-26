@@ -16,7 +16,7 @@ import com.aoide.member._30_AccuseDanmuku.model.SaveAccuseDanmukuService;
 /**
  * Servlet implementation class SaveAccuseDanmukuServlet
  */
-@WebServlet("/SaveAccuseDanmukuServlet")
+@WebServlet("/SaveAccuseDanmukuServlet.member")
 public class SaveAccuseDanmukuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
