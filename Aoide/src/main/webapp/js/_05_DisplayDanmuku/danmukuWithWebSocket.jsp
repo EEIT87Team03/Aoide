@@ -88,7 +88,7 @@
         											
         											
         											
-       document.getElementById("input").addEventListener("keypress", function(event)
+       /*document.getElementById("input").addEventListener("keypress", function(event)
        																 {
        																 	 var message = document.getElementById( "input" ).value;
 																		 if(event.keyCode == 13){
@@ -97,7 +97,7 @@
 																				document.getElementById("input").value="";
 																		  }
 	     															  }
-	   													);
+	   													);*/
         											      											
        document.getElementById( "fire" ).addEventListener( "click", 
        														function()

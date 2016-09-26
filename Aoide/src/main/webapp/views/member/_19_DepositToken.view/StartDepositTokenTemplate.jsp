@@ -31,7 +31,7 @@
 						<!-- /.box-body -->
 
 						<div class="box-footer">
-							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="submit" class="btn btn-primary">下一步</button>
 						</div>
 					</form>
 				</div>
