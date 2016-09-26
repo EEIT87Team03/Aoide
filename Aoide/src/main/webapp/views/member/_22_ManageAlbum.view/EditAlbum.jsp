@@ -85,7 +85,7 @@
 										<td>${mySong.songType}</td>
 										<td>${mySong.songLanguage}</td>
 										<td>${mySong.updateDate}</td>
-										<td><input type="button" value="移除"
+										<td><input class="btn" type="button" value="移除"
 											onclick="location.href='<c:url value='/RemoveAlbumidServlet.member?id=${mySong.songId}'/>'">
 										</td>
 									</tr>
@@ -123,14 +123,14 @@
 										<td>${mySong.songType}</td>
 										<td>${mySong.songLanguage}</td>
 										<td>${mySong.updateDate}</td>
-										<td><input type="button" value="加入"
+										<td><input class="btn" type="button" value="加入"
 											onclick="location.href='<c:url value='/AddtoAlbumServlet.member?id=${mySong.songId}'/>'">
 										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						<input type="submit" value="送出">
+						<input class="btn" type="submit" value="送出">
 					</form>
 
 				</div>

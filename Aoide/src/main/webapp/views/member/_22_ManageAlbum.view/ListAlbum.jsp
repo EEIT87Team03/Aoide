@@ -37,15 +37,14 @@
 					<td>${myAlbum.name}</td>
 					<td>${myAlbum.artist}</td>
 					<td>${myAlbum.updateDate}</td>
-					<td><input type="button" value="編輯" onclick="location.href='<c:url value='/EditAlbumServlet.member?id=${myAlbum.albumId}'/>'">　
-						<input type="button" value="刪除" onclick="location.href='<c:url value='/DeleteAlbumServlet.member?id=${myAlbum.albumId}'/>'">
+					<td><input class="btn" type="button" value="編輯" onclick="location.href='<c:url value='/EditAlbumServlet.member?id=${myAlbum.albumId}'/>'">　
+						<input class="btn" type="button" value="刪除" onclick="location.href='<c:url value='/DeleteAlbumServlet.member?id=${myAlbum.albumId}'/>'">
 					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<p>
-	<a href="ManageAlbum.jsp">回管理專輯</a>
         </div>
         <!-- /.box-body -->
       </div>

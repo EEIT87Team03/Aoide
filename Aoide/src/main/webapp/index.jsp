@@ -161,7 +161,7 @@ var easy_fancybox_handler = function(){
 	</ul>
 </div>
 <!-- 右 -->
-<div class="page-border  heading right colors-a main-navigation"><input type = "text" id = "input" name = "input" size = "40" placeholder="在此輸入文字後按ENTER即可發送彈幕，點選右方箭頭展開歌曲播放資訊"></div>
+<div class="page-border  heading right colors-a main-navigation"></div>
 
 <section id="top-nav" class="page-transition main-navigation heading colors-a top-nav-logo-left" data-colors-1="colors-a" data-colors-2="colors-a">
 <div class="layout-boxed top-nav-inner clearfix">
