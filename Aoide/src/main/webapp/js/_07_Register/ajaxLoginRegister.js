@@ -25,8 +25,8 @@ $( "#loginForm" ).submit(function( event ) {
     		$("#loginBtn").remove();
     		$("#regstBtn").remove();
     		// display the logout button
-    		$("#logoutBtn").attr("src", data.pictureSource).show();
-    		$("#memberLoginHead").css('visibility', 'visible');
+    		$("#logoutBtn").show();
+    		$("#memberLoginHead").attr("src", data.pictureSource).css('visibility', 'visible');
     	}else{
     		alert("please sign again");
     	}
