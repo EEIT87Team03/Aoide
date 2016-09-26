@@ -19,14 +19,16 @@
 					<div class="box-header with-border">
 						<div class="box-body">
 
-							No :${bulletVO.bulletId}
-							<hr>Date：${bulletVO.date}
-							<hr>ContentFile：${bulletVO.contentFile}
-							<hr>Title：${bulletVO.title}
+							<p>公告編號 : ${bulletVO.bulletId}</p>
+							<hr><p>公告日期：${bulletVO.date}</p>
+							<hr>公告標題：<p>${bulletVO.title}</p>
 							<hr>
-
+							<label>公告內容</label>
+							<div class="box-body-content">
+								${bulletVO.contentFile}
+							</div>
+							<hr>
 								<a href="<c:url value ='/EditBulletList'/>">回上一頁</a>
-							</p>
 						</div>
 					</div>
 				</div>
