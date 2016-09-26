@@ -38,8 +38,9 @@
 	                    </div>
 	                    <div class="col-xs-5">
 	                        <div class="form-group">
-	                          <label>Title</label>
+	                          <label>建議標題</label>
 	                          ${suggestion.title}
+	                          <hr>
 	                        </div> 
 	                    </div>
 	                    <div class="col-xs-6">
@@ -53,8 +54,9 @@
 	                    </div>
 	                    <div class="col-xs-5">
 	                        <div class="form-group">
-	                          <label>Suggestion</label>
+	                          <label>建議內容</label>
 	                          ${suggestion.suggestionContentFile}
+	                          <hr>
 	                        </div> 
 	                    </div>
 	                    <div class="col-xs-6">
@@ -68,7 +70,7 @@
 	                    </div>
 	                    <div class="col-xs-10">
 	                      <div class="form-group">
-	                        <label>Reply</label>
+	                        <label>回覆</label>
 	                        <textarea name="replyContent"  id="replyContent" rows="10" cols="80" >
 	                        </textarea>
 	                        <script>

@@ -31,7 +31,7 @@ public class RemoveAccusement extends HttpServlet {
 		// delete accusement
 		new ManageAccusementService().removeAccusement(accusementId);
 		// go to ListAccusementServlet
-		request.getRequestDispatcher("/ListAccusementServlet").forward(request, response);
+		request.getRequestDispatcher("/ListAccusementServlet.manager").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
