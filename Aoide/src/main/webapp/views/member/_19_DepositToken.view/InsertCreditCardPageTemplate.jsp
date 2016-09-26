@@ -48,7 +48,7 @@
                   <input type=text  name=pan_no4 size=3 value="" maxlength=3 >
                   <hr>
                   <label>信用卡到期(月/年)</label>
-                  <select>
+                  <select style="background-color:#141313 !important ;opacity: 0.8 !important">
 					 <option>1</option>
 					 <option>2</option>
 					 <option>3</option>
@@ -63,7 +63,7 @@
 					 <option>12</option>
 				  </select>
 				  /
-				  <select>
+				  <select  style="background-color:#141313 !important ;opacity: 0.8 !important">
 					 <option>2016</option>
 					 <option>2017</option>
 					 <option>2018</option>
@@ -95,5 +95,16 @@
     
 <!-- body-library  -->
 <c:import url="/TestHTML/body_library.html"/>
+<script>
+  function setBlur(obj,target2)
+  {
+     var target =document.getElementById(target2);
+       if( obj.value.length ==obj.getAttribute('maxlength'))
+           {
+               target.focus();
+           }
+       return;
+  } 
+</script>
 </body>
 </html>

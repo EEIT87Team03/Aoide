@@ -25,8 +25,10 @@ public class TurnToInsertCreditCardPageServletD extends HttpServlet {
 			String cash_volumeError = "請輸入一個正確的數字";
 			request.getSession().setAttribute("cash_volumeError", cash_volumeError);
 
-			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/views/member/_18_Donation.view/StartDonationPageTemplate.jsp");
+//			String contextPath = request.getContextPath();
+//			response.sendRedirect(contextPath + "/views/member/_18_Donation.view/StartDonationPageTemplate.jsp");
+			request.getRequestDispatcher("/views/member/_18_Donation.view/StartDonationPageTemplate.jsp").forward(request, response);
+			return;
 
 		} else {
 			
