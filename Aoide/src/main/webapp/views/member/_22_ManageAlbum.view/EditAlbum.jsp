@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- head-library  -->
 <c:import url="/TestHTML/head_library.html"/>
+<script src="/Aoide/template/plugins/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 <%

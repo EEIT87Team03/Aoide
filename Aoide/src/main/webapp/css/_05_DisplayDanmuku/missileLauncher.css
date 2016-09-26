@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+#missileLauncher
+{
+	opacity: 0.9 !important;
+	display: none;
+	position: fixed;
+	left: 30px;
+	top: 20%;
+	z-index: 1;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	
+	-webkit-animation-name: launcherDisplay;
+    -webkit-animation-duration: 0.4s;
+    animation-name: launcherDisplay;
+    animation-duration: 0.4s
+	
+}
+#warhead 
+{
+	opacity: 0.9 !important;
+	background : #0d0d0d;
+    padding: 5px 16px;
+    color: white;
+}
+
+#destructor 
+{
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+#destructor:hover, #destructor:focus 
+{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#fire
+{
+	border-radius: 4px;
+	border: none;
+	text-align: center;
+  	padding: 5px;
+  	width: 350px;
+  	transition: all 0.5s;
+  	cursor: pointer;
+
+}
+
+#fire h2 
+{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+#fire h2:after 
+{
+  content: '>>FIRE';
+  color: #000 !important;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -25px;
+  transition: 0.5s;
+}
+#fire:hover h2 
+{
+/* 	color: #000 !important; */
+  	padding-right: 45px;
+}
+#fire:hover h2:after 
+{
+	opacity: 1;
+	right: -10px;
+}
+
+
+/* Add Animation */
+@-webkit-keyframes launcherDisplay 
+{
+    from { left: -600px; opacity:0 } 
+    to { left: 25px; opacity:1}
+}
+
+@keyframes launcherDisplay 
+{
+    from { left: -600px; opacity:0 }
+    to { left: 25px; opacity:1 }
+}

@@ -81,8 +81,8 @@
         											
         											
         											
-                               function sendDanmu(){
-        											var message = document.getElementById( "input" ).value;
+                               function sendDanmu( value ){
+        											var message = value;
         											var item = {
 							    			            info: message, //彈幕文字
 							    			            href: '/Aoide/AccuseDanmukuServlet?id=' + memberId + '&text=' + message , //點選彈幕的連結網址
@@ -101,14 +101,21 @@
         											
         											
         											
-       document.getElementById("input").addEventListener("keypress", function(event){
-																			if(event.keyCode == 13){
+       document.getElementById("input").addEventListener("keypress", function(event)
+       																 {
+       																 	 var message = document.getElementById( "input" ).value;
+																		 if(event.keyCode == 13){
 																				//alert("ENTER!");
-																				sendDanmu();
+																				sendDanmu( message );
 																				document.getElementById("input").value="";
-																		    }
+																		  }
 	     															  }
-	   );
+	   													);
         											      											
-        
+       document.getElementById( "fire" ).addEventListener( "click", 
+       														function()
+       														{
+       															sendDanmu( CKEDITOR.instances.missile.getData() );
+       														}
+       													 ); 
         
