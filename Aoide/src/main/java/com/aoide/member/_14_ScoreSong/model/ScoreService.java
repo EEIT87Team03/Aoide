@@ -7,6 +7,7 @@ import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 import com.aoide.global.dataBaseManipulationObjects.score.JdbcScoreDAO;
 import com.aoide.global.dataBaseManipulationObjects.score.ScoreDAO;
 import com.aoide.global.dataBaseManipulationObjects.score.ScoreVO;
+import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.global.dataBaseManipulationObjects.suggestion.SuggestionVO;
 
 public class ScoreService {
@@ -55,8 +56,12 @@ public class ScoreService {
 	}// end getUnreplySuggestions()
 
 	
-	public ScoreVO calculatorAVG(int scoreValue) {
-		return scoreDAO.calculatorAVG(scoreValue);
+	public ScoreVO calculatorAVG(int songId) {
+		
+		ScoreVO avg = scoreDAO.findByPrimaryKey(songId);
+		avg.getScoreValue().equals(avg);
+ 
+		return scoreDAO.calculatorAVG(songId);
 
 
 	}

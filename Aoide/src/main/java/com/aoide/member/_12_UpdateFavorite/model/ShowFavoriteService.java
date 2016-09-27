@@ -12,34 +12,25 @@ import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 
 public class ShowFavoriteService {
 	
-	
+	// Constructors
 	FavoriteDAO favoriteDAO = new JdbcFavoriteDAO();
 	SongDAO songDAO = new JdbcSongDAO();
 	
+	// Methods
 	public List<FavoriteVO> getFavoriteById(Integer memberId) {
-		
-		
-		
-		// TODO Auto-generated method stub
 		return favoriteDAO.finByMemberId(memberId);
 	}
-
 	public String getSongNameBySongId(Integer songId) {
-		
 		SongVO songVO = songDAO.findByPrimaryKey(songId);
-		
-		
-		
 		return songVO.getName();
 	}
-	
-      public String getSinger(Integer songId) {
-		
+    public String getSinger(Integer songId) {
 		SongVO songVO = songDAO.findByPrimaryKey(songId);
-		
-
 		return songVO.getSinger();
 	}
+    public List<SongVO> getFavoriteSongs(Integer memberId){
+    	return favoriteDAO.getFavoriteSongs(memberId);
+    }
 	
 	
 	
