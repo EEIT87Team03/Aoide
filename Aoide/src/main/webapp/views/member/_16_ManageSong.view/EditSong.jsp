@@ -29,9 +29,10 @@
 					<!--         </div> -->
 					<div class="box-body">
 						正在編輯歌曲：${song.name}
-						<p>
+						<p><p>
 							<img src="${song.coverFile}" width="300" height="300">
-						<p>上傳日期：${song.updateDate}
+						<p>
+							上傳日期：${song.updateDate}
 						<p>
 						<hr>
 						<p>
@@ -68,9 +69,8 @@
 									CKEDITOR.replace('lyricsFile');
 								</script>
 							<hr>
-								<input type="submit" value="送出">
+								<input type="submit" class="btn" value="送出">
 						</form>
-						<a href="<c:url value = '/ListSongServlet.member'/>">回歌曲列表</a>
 					</div>
 				</div>
 

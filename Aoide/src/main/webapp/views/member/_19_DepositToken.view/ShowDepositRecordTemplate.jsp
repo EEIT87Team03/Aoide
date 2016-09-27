@@ -17,25 +17,25 @@
             <!-- ========================================= -->
 			<div class="box">
 							<div class="box-header">
-								<h3 class="box-title">以下是本次的儲值紀錄~</h3>
+								<h3 class="box-title">儲值成功!以下是本次的儲值紀錄~</h3>
 
 							</div>
 							<!-- /.box-header -->
 							<div class="box-body table-responsive no-padding">
-								<table class="table table-hover">
+								<table class="table">
 									<tr>
 									<th>交易ID</th>
 									<th>交易日期</th>
-									<th>贊助者ID</th>
-									<th>被贊助者ID</th>
+							    <!--<th>贊助者ID</th>
+									<th>被贊助者ID</th>-->
 									<th>贊助金額</th>
 									<th>獲得點數</th>
 								</tr>
 									<tr>
 										<td>${cashRecordVO.cashRecordId}</td>
 										<td>${cashRecordVO.date}</td>
-										<td>${cashRecordVO.sponsorId}</td>
-										<td>${cashRecordVO.recipientId}</td>
+										<!--  <td>${cashRecordVO.sponsorId}</td>
+										<td>${cashRecordVO.recipientId}</td>-->
 										<td>${cashRecordVO.cashVolume}</td>
 										<td>${cashRecordVO.tokenVolume}</td>
 									</tr>

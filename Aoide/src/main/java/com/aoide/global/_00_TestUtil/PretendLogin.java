@@ -19,7 +19,7 @@ import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 /**
  * Servlet Filter implementation class PretendLogin
  */
-@WebFilter(urlPatterns = { "*.member" , "/_17_EditInfo.view/editInfo.jsp"})
+//@WebFilter(urlPatterns = { "*.member" , "/_17_EditInfo.view/editInfo.jsp"})
 public class PretendLogin implements Filter {
 
     // Constructor

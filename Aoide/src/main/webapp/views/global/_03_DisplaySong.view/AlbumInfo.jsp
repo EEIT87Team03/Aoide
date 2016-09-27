@@ -47,7 +47,7 @@
 										<td><% out.print(i = i + 1); %></td>
 										<td><a href="<c:url value='/BuildPlaylistServlet?id=${aSong.songId}'/>">點歌</a></td>
 										<td>${aSong.songId}</td>
-										<td><a href="<c:url value='/GetSongInfo?id=${aSong.songId}'/>">${aSong.name}</a></td>
+										<td><a href="<c:url value='/DisplaySongServlet?id=${aSong.songId}'/>">${aSong.name}</a></td>
 										<td>${aSong.singer}</td>
 										<td>${aSong.songType}</td>
 										<td>${aSong.songLanguage}</td>

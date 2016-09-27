@@ -15,17 +15,17 @@
 			<div class="col-xs-6 col-md-3"></div>
 			<div class="col-xs-6 col-md-6" id="middleContent">
             <!-- ========================================= -->
+            
 			<div class="box">
 					<div class="box-header with-border">
 						<div class="box-body">
 							<%
 								int i = 0;
 							%>
-							<table class="table table-bordered">
+							<table class="table">
 								<thead>
 									<tr>
-										<th></th>
-										<th>歌曲ID</th>
+										<th>　</th>
 										<th>歌名</th>
 										<th>演出者</th>
 										<th>類型</th>
@@ -42,16 +42,12 @@
 													out.print(i = i + 1);
 												%>
 											</td>
-											<td>${mySong.songId}</td>
 											<td>${mySong.name}</td>
 											<td>${mySong.singer}</td>
 											<td>${mySong.songType}</td>
 											<td>${mySong.songLanguage}</td>
 											<td>${mySong.updateDate}</td>
-											<td><input type="button" value="編輯" class="btn"
-												onclick="location.href='<c:url value='/EditSongServlet.member?id=${mySong.songId}'/>'">
-												
-											</td>
+											<td><input type="button" value="編輯" class="btn" onclick="location.href='<c:url value='/EditSongServlet.member?id=${mySong.songId}'/>'"></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -59,7 +55,7 @@
 						</div>
 					</div>
 				</div>
-            
+           
             <!-- ========================================= -->
 			</div>
 		</div>

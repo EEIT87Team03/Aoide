@@ -29,7 +29,7 @@
 
 							<hr>
 
-							<a href="<c:url value ='/EditBulletList'/>">回列表頁</a>
+							<a href="<c:url value ='/EditBulletList.manager'/>">回列表頁</a>
 						</div>
 					</div>
 				</div>

@@ -52,10 +52,10 @@ public class UpdateSongServlet extends HttpServlet {
 			
 		}else{
 			if(!Validator.isImage(part)){
-				errorMsg.put("emptyPartMsg", "只能上傳圖片檔案");
+				errorMsg.put("emptyPartMsg", "*只能上傳圖片檔案");
 			}else{
 				if(!Validator.isPartOverSize(part, 5242880)){
-					errorMsg.put("emptyPartMsg", "圖片檔案上傳請勿超過5MB");
+					errorMsg.put("emptyPartMsg", "*圖片檔案上傳請勿超過5MB");
 				}else{
 //					final String coverFilename = getFileName(part).trim();
 //					int index = coverFilename.lastIndexOf('.');
@@ -79,7 +79,7 @@ public class UpdateSongServlet extends HttpServlet {
 		String lyricsFile = request.getParameter("lyricsFile").trim();
 		
 		if (!Validator.isValidString(name)){
-			errorMsg.put("emptyNameMsg", "請輸入歌名");
+			errorMsg.put("emptyNameMsg", "*請輸入歌名");
 		}else{
 			enteredText.put("name", name);
 			enteredText.put("songType", songType);
@@ -89,7 +89,7 @@ public class UpdateSongServlet extends HttpServlet {
 		}
 		
 		if(!Validator.isValidString(singer)){
-			errorMsg.put("emptySingerMsg", "請輸入演出者");
+			errorMsg.put("emptySingerMsg", "*請輸入演出者");
 		}else{
 			enteredText.put("singer", singer);
 			enteredText.put("songType", songType);

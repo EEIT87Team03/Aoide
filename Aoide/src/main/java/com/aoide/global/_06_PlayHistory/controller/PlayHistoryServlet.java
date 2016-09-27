@@ -27,7 +27,7 @@ public class PlayHistoryServlet extends HttpServlet {
 //		new_clickhistoryVO.setSongId(2);
 //		//將新的clickhistoryVO物件放入資料庫
 //		new PlayHistoryService().insetNewClickHistory(new_clickhistoryVO);
-		
+		request.setCharacterEncoding("UTF-8");
 		
 		
 		//呼叫PlayHistoryService().getAllClickhistory()將從資料庫獲取全部的ClickhistoryVO物件
@@ -52,6 +52,7 @@ public class PlayHistoryServlet extends HttpServlet {
 		
 		//呼叫JSP  showPlayHistory.jsp
 		String contextPath = request.getContextPath();
+		response.setContentType("text/html;charset=UTF-8");
 		response.sendRedirect(contextPath + "/views/global/_06_PlayHistory.view/showPlayHistoryTemplate.jsp");
 		
 	}

@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
+
 
 @WebFilter( urlPatterns = { "*.member" }, dispatcherTypes = { DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE } )
 public class IdentityAuthenticationFilter implements Filter 
@@ -35,12 +37,19 @@ public class IdentityAuthenticationFilter implements Filter
 	{
 		HttpServletRequest req = ( HttpServletRequest ) request;
 		HttpSession session = req.getSession();
-		if ( session.getAttribute( "member" ) == null )
+		MemberVO member = (MemberVO) session.getAttribute( "member" );
+		if ( member == null )
 		{
-			( ( HttpServletResponse ) response ).sendRedirect( req.getContextPath() + "/Aoide/home.jsp" );
+			( ( HttpServletResponse ) response ).sendRedirect( req.getContextPath() + "/home.jsp" );
+		}
+		else if( member.getBanState() ) // if the member is baned
+		{
+			( ( HttpServletResponse ) response ).sendRedirect( req.getContextPath() + "/views/member/_17_EditInfo.view/banPage.jsp" );
 		}
 		else
+		{
 			chain.doFilter( request, response );
+		}
 	}
 
 	public void init( FilterConfig fConfig ) throws ServletException
