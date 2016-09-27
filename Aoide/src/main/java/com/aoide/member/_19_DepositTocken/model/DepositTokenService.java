@@ -5,10 +5,14 @@ import com.aoide.global.dataBaseManipulationObjects.cashRecord.CashRecordVO;
 import com.aoide.global.dataBaseManipulationObjects.cashRecord.JdbcCashRecordDAO;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberService;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
+import com.aoide.global.dataBaseManipulationObjects.tokenRecord.JdbcTokenRecordDAO;
+import com.aoide.global.dataBaseManipulationObjects.tokenRecord.TokenRecordDAO;
+import com.aoide.global.dataBaseManipulationObjects.tokenRecord.TokenRecordVO;
 
 public class DepositTokenService {
 	
 	CashRecordDAO cashRecordDAO = new JdbcCashRecordDAO();
+	TokenRecordDAO tokenRecordDAO = new JdbcTokenRecordDAO();
 	MemberService memberService = new MemberService();
 
 	public Integer insertNewCashRecord(CashRecordVO new_CashRecordVO) {
@@ -24,6 +28,12 @@ public class DepositTokenService {
 	public void updateMemberVO(MemberVO memberVO) {
 		
 		memberService.updateMemberData(memberVO);
+		
+	}
+
+	public void insertNewTokenRecord(TokenRecordVO new_TokenRecordVO) {
+		
+		tokenRecordDAO.insert(new_TokenRecordVO);
 		
 	}
 
