@@ -16,13 +16,15 @@
 			<div class="col-xs-6 col-md-3"></div>
 			<div class="col-xs-6 col-md-6" id="middleContent">
             <!-- ========================================= -->
+            <section class="content">
 				<div class="box">
+				<div class="box-header">
+							<h3 class="box-title"><b>刪除成功</b></h3>
+						</div>
+						<div class="box-body">
 <% int i = 0; %>
-	刪除成功!!
-<p>
-		<hr>
 		<p>
-			已從刪除專輯裡移入未分類的歌曲：
+			<label>已從刪除專輯裡移入未分類的歌曲：</label>
 		<p>
 		<table class="table">
 		<thead>
@@ -51,6 +53,7 @@
 						<!-- ========================================= -->
 				</div>
 				<div class="col-xs-6 col-md-3"></div>
+				</section>
 			</div>
 		</div>
 </div>
