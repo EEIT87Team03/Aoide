@@ -40,7 +40,7 @@
 									<input class="btn" type="reset" value="清除">
 								
 								<hr>
-									<a href="<c:url value ='/EditBulletList'/>">回列表頁</a>
+									<a href="<c:url value ='/EditBulletList.manager'/>">回列表頁</a>
 							
 							</form>
 						</div>
