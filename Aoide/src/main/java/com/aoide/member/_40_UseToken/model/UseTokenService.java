@@ -58,7 +58,7 @@ public class UseTokenService {
 		tokenRecordDAO.insert(tokenRecord);
 		
 		// update member tokenTotal
-		BigDecimal tokenTotal = member.getTokenTotal().add((BigDecimal.valueOf(tokenVolume)));
+		BigDecimal tokenTotal = member.getTokenTotal().add( ( BigDecimal.valueOf(tokenVolume) ) );
 		member.setTokenTotal(tokenTotal);
 //		member.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		memberDAO.update(member);
