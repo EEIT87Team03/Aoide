@@ -16,8 +16,11 @@
 			<div class="col-xs-6 col-md-3"></div>
 			<div class="col-xs-6 col-md-6" id="middleContent">
             <!-- ========================================= -->
+            <section class="content">
 			<div class="box">
-
+<div class="box-header">
+							<h3 class="box-title"><b>本次修改紀錄</b></h3>
+						</div>
         <div class="box-body">
         
         	<img src="${updateAlbum.coverFilePath}" width="300" height="300">
@@ -59,7 +62,7 @@
         </div>
         <!-- /.box-body -->
       </div>
-            
+            </section>
             <!-- ========================================= -->
 			</div>
 			<div class="col-xs-6 col-md-3"></div>
