@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>建立專輯</title>
-<script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
+<script src="/Aoide/template/plugins/ckeditor/ckeditor.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- head-library  -->
 <c:import url="/TestHTML/head_library.html" />
@@ -42,13 +42,11 @@
 						
 						<hr>
 						<p>請選擇要加入專輯的未分類歌曲：
-						<hr>
 						<table class="table">
 							<thead>
 								<tr>
-									<th></th>
+									<th>　</th>
 									<th>加入</th>
-									<th>歌曲ID</th>
 									<th>歌名</th>
 									<th>演出者</th>
 									<th>類型</th>
@@ -66,7 +64,6 @@
 										</td>
 										<td><input type="checkbox" name="check"
 											value="${mySong.songId}"></td>
-										<td>${mySong.songId}</td>
 										<td>${mySong.name}</td>
 										<td>${mySong.singer}</td>
 										<td>${mySong.songType}</td>
@@ -80,8 +77,6 @@
 					<hr>
 						 <input type="submit"
 							class="btn" value="送出">
-							<hr>
-							<a href="ManageAlbum.jsp">回管理專輯</a>
 						</div>
 						<!-- ========================================= -->
 				</div>

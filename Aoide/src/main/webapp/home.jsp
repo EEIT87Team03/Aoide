@@ -312,6 +312,21 @@ window.onclick = function(event) {
 </div></div></div> </div>
 </div>
 </div>
+<div class="view x40-widget widget  " id="layers-widget-skrollex-section-10">
+<div data-src="http://skrollex-wp.x40.ru/anna/wp-content/uploads/sites/49/2015/11/bg-stephane-8.jpg" class="bg-holder"></div>
+<div data-src="http://skrollex-wp.x40.ru/anna/wp-content/uploads/sites/49/2015/11/bg-stephane-44.jpg" class="bg-holder"></div>
+<div class="fg colors-d  half-size">
+<div class="layout-boxed section-top"><div class="slogan"><span class="textillate" data-textillate-options="{loop:true, in:{effect:'fadeInRight', reverse:true}, out:{effect:'fadeOutLeft', sequence:true}}"><span class="texts"><span>We Are Designers</span><span>We Are Programmers</span><span>We Are Coders</span><span>We Are Developers</span><span>We Are Creative</span></span></span></div>
+<p class="text-center">— Lorem ipsum dolor sit amet —</p>
+</div> </div>
+</div>
+<div class="gallery-item-content"><h4 class="heading-subsection-title text-center">Single <span>Image</span></h4>
+<div class="row responsive-wide"><div class="col-padding pure-u-1 pure-u-lg-18-24"><div class="default-slider hold" data-swiper-options="{touchRatio: 0, speed: 300}">
+<div class="swiper-wrapper">
+<div class="swiper-slide" data-hold-img="http://skrollex-wp.x40.ru/anna/wp-content/uploads/sites/49/2015/11/portfolio-full-1.jpg" data-as-bg="no"></div>
+</div>
+</div>
+</div></div>
 </section>
 <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script type='text/javascript'>

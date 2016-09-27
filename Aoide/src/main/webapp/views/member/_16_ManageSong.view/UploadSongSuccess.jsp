@@ -32,7 +32,7 @@
 <!--           </div> -->
 <!--         </div> -->
 							<div class="box-header">
-								<h3 class="box-title">上傳成功!!!以下是本次上傳紀錄</h3>
+								<h3 class="box-title"><b>本次上傳紀錄</b></h3>
 
 							</div>
 
@@ -54,8 +54,6 @@
 		<label>歌詞：${song.lyricsFile}</label>
 	<hr>
 		<label>上傳日期：${song.updateDate}</label>
-	<hr>
-		<a href="ManageSong.jsp">回管理歌曲</a>
         </div>
         <!-- /.box-body -->
         <!-- /.box-footer-->

@@ -48,13 +48,13 @@ public class UploadSongServlet extends HttpServlet {
 
 		final Part part = request.getPart("songFile");
 		if(Validator.isEmptyPart(part)){
-			errorMsg.put("emptyPartMsg", "請選擇歌曲");
+			errorMsg.put("emptyPartMsg", "*請選擇歌曲");
 		}else{
 			if(!Validator.isAudio(part)){
-				errorMsg.put("emptyPartMsg", "只能上傳音樂檔案");
+				errorMsg.put("emptyPartMsg", "*只能上傳音樂檔案");
 			}else{
 				if(!Validator.isPartOverSize(part, 26214400)){
-					errorMsg.put("emptyPartMsg", "音樂檔案上傳請勿超過25MB");
+					errorMsg.put("emptyPartMsg", "*音樂檔案上傳請勿超過25MB");
 				}else{
 					//final String songFilename = getFileName(part).trim();
 					//int index = songFilename.lastIndexOf('.');
@@ -70,10 +70,10 @@ public class UploadSongServlet extends HttpServlet {
 			
 		}else{
 			if(!Validator.isImage(part2)){
-				errorMsg.put("emptyPart2Msg", "只能上傳圖片檔案");
+				errorMsg.put("emptyPart2Msg", "*只能上傳圖片檔案");
 			}else{
 				if(!Validator.isPartOverSize(part2, 5242880)){
-					errorMsg.put("emptyPart2Msg", "圖片檔案上傳請勿超過5MB");
+					errorMsg.put("emptyPart2Msg", "*圖片檔案上傳請勿超過5MB");
 				}else{
 					// final String coverFilename = getFileName(part2).trim();
 					// int index2 = coverFilename.lastIndexOf('.');
@@ -99,7 +99,7 @@ public class UploadSongServlet extends HttpServlet {
 		
 		String name = request.getParameter("name");
 		if(!Validator.isValidString(name)){
-			errorMsg.put("emptyNameMsg", "請輸入歌名");
+			errorMsg.put("emptyNameMsg", "*請輸入歌名");
 		}else{
 			enteredText.put("name", name);
 			enteredText.put("songType", songType);
@@ -110,7 +110,7 @@ public class UploadSongServlet extends HttpServlet {
 		
 		String singer = request.getParameter("singer");
 		if(!Validator.isValidString(singer)){
-			errorMsg.put("emptySingerMsg", "請輸入演出者");
+			errorMsg.put("emptySingerMsg", "*請輸入演出者");
 		}else{
 			enteredText.put("singer", singer);
 			enteredText.put("songType", songType);
