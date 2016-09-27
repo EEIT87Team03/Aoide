@@ -46,7 +46,7 @@
 			                  </tr>
 			                  <tr>
 			                  	<td>封鎖帳號</td>
-			                  	<td>${aAccusement.state}</td>
+			                  	<td>${aAccusement.accused.banState}</td>
 			                  </tr>
 			                  <tr>
 			                    <td>檢舉原因</td>
