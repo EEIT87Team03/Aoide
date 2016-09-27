@@ -25,7 +25,7 @@
 						<table class="table">
 							<tr>
 								<th>播放歷史ID</th>
-								<th>播放歌曲ID</th>
+								<th>播放歌曲名稱</th>
 								<th>撥放日期</th>
 							</tr>
 							<c:forEach var="clickhistory" items="${clickhistorysList}"

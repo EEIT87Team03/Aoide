@@ -30,7 +30,7 @@
 									<th>被贊助者ID</th>
 									<th>贊助金額</th>
 								</tr>
-									<c:forEach var = "cashRecordList.manager" items="${cashRecordList}">
+									<c:forEach var = "cashRecordList" items="${cashRecordList}">
 									<tr>
 										<td>${cashRecordList.cashRecordId}</td>
 										<td>${cashRecordList.date}</td>

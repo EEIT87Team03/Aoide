@@ -17,7 +17,7 @@
             <!-- ========================================= -->
 			<div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">輸入信用卡資訊頁面頁面</h3>
+              <h3 class="box-title">請輸入您的信用卡資訊</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
