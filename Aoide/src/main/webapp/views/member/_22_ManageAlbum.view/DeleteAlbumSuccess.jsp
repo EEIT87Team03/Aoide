@@ -28,7 +28,6 @@
 		<thead>
 			<tr>
 				<th>　</th>
-				<th>歌曲ID</th>
 				<th>歌名</th>
 				<th>演出者</th>
 				<th>類型</th>
@@ -40,7 +39,6 @@
 			<c:forEach var="mySong" items="${mySongList}">
 				<tr>
 					<td><% out.print(i = i + 1); %></td>
-					<td>${mySong.songId}</td>
 					<td>${mySong.name}</td>
 					<td>${mySong.singer}</td>
 					<td>${mySong.songType}</td>
@@ -50,10 +48,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-<p>
-<a href="<c:url value = '/ListAlbumServlet.member'/>">回編輯專輯</a><input type="submit"
-							class="btn" value="送出">
-
 						<!-- ========================================= -->
 				</div>
 				<div class="col-xs-6 col-md-3"></div>
