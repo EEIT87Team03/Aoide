@@ -23,9 +23,7 @@
 							<h3 class="box-title"><b>本次修改紀錄</b></h3>
 						</div>
 			            <div class="box-body">
-							<embed style="background-color:white"src="${song.songFile}" autostart="false"><!-- chrome預設開啟，設false也沒用 -->
-							<hr>
-							<img src="${song.coverFile}" width="300" height="300">
+							<img src="${updateSong.coverFile}" width="300" height="300">
 							<hr>
 							<label>歌名：${updateSong.name}</label>
 							<hr>
@@ -38,8 +36,6 @@
 							<label>歌曲簡介：${updateSong.introductionFile}</label>
 							<hr>
 							<label>歌詞：${updateSong.lyricsFile}</label>
-							<hr>
-							<label>上傳日期：${updateSong.updateDate}</label>
 						 </div>
 			             <!-- /.box-body -->
 			        <!-- /.box-footer-->
