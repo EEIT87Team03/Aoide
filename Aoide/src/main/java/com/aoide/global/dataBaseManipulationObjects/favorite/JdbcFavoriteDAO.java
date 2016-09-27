@@ -24,6 +24,30 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
 	private static final String GET_FAVORITES_BY_MEMBERID = "SELECT * FROM favorite WHERE member_id=?";
 	private static final String GET_FAVORITES_BY_SONGCOUNTS = "SELECT * FROM favorite WHERE song_id=?";
 	
+	private static final String GET_FAVORITE_SONGS_BY_MEMBERID = new StringBuffer().append("SELECT ")
+			 .append("s.song_id,")
+			 .append("s.song_file,")
+			 .append("s.name,")
+			 .append("s.song_type,")
+			 .append("s.song_language,")
+			 .append("s.member_id,")
+			 .append("s.album_id,")
+			 .append("s.introduction_file,")
+			 .append("s.cover_file,")
+			 .append("s.lyrics_file,")
+			 .append("s.update_date,")
+			 .append("s.lastclick_date,")
+			 .append("s.clicks,")
+			 .append("s.favorite_counts,")
+			 .append("s.shares,")
+			 .append("s.score,")
+			 .append("s.length,")
+			 .append("s.singer ")
+			 .append("FROM song s ")
+			 .append("JOIN favorite f ")
+			 .append("ON s.song_id = f.song_id ")
+			 .append("WHERE f.member_id = ?;")
+			 .toString();
 	
 	@Override
 	public void insert(FavoriteVO favoriteVO) {
@@ -281,42 +305,40 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
 	
         public static void main(String[]args){
 		
+        System.out.println(GET_FAVORITE_SONGS_BY_MEMBERID);	
+        	
 		JdbcFavoriteDAO dao = new JdbcFavoriteDAO();
 		
-		//insert
-		
-		FavoriteVO favoriteVO1 = new FavoriteVO();
-		favoriteVO1.setMemberId(1);
-		favoriteVO1.setSongId(1);
-		dao.insert(favoriteVO1);
-	
-		
-		//modify
-		
-		FavoriteVO favoriteVO2 = new FavoriteVO();
-		favoriteVO2.setMemberId(2);
-		favoriteVO2.setSongId(2);
-		dao.update(favoriteVO2);
-		
-		//delete
-		
-		FavoriteVO favoriteVO3 = new FavoriteVO();
-		favoriteVO3.setMemberId(3);
-		favoriteVO3.setSongId(3);
-		dao.delete(1, 3);
-		
-		
-		//check
-		List<FavoriteVO>list = dao.getAll();
-		for(FavoriteVO aChi : list){
-			System.out.println(aChi.getMemberId());
-			System.out.println(aChi.getSongId());
-					
-			
-			
-			
-		}
-		
+//		//insert
+//		
+//		FavoriteVO favoriteVO1 = new FavoriteVO();
+//		favoriteVO1.setMemberId(1);
+//		favoriteVO1.setSongId(1);
+//		dao.insert(favoriteVO1);
+//	
+//		
+//		//modify
+//		
+//		FavoriteVO favoriteVO2 = new FavoriteVO();
+//		favoriteVO2.setMemberId(2);
+//		favoriteVO2.setSongId(2);
+//		dao.update(favoriteVO2);
+//		
+//		//delete
+//		
+//		FavoriteVO favoriteVO3 = new FavoriteVO();
+//		favoriteVO3.setMemberId(3);
+//		favoriteVO3.setSongId(3);
+//		dao.delete(1, 3);
+//		
+//		
+//		//check
+//		List<FavoriteVO>list = dao.getAll();
+//		for(FavoriteVO aChi : list){
+//			System.out.println(aChi.getMemberId());
+//			System.out.println(aChi.getSongId());
+//		}
+//		
 		
 	}
 
@@ -492,7 +514,9 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
     				}
 				return favoriteVO;
     				
-    		}		
+    		}
+    
+    	
 	
 	
 
