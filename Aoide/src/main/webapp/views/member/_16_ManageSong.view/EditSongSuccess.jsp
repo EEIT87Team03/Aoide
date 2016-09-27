@@ -31,23 +31,19 @@
 <!--         </div> -->
         <div class="box-body">
           
-		<img src="${song.coverFile}" width="300" height="300">
-	<p>
-		歌名：${updateSong.name}
-	<p>
-		演出者：${updateSong.singer}
-	<p>
-		類型：${updateSong.songType}
-	<p>
-		語言：${updateSong.songLanguage}
-	<p>
-		歌曲簡介：${updateSong.introductionFile}
-	<p>
-		歌詞：${updateSong.lyricsFile}
-	<p>
-		<a href="<c:url value = '/ListSongServlet.member'/>">回歌曲列表</a>
-		</p>
-
+		<img src="${updateSong.coverFile}" width="300" height="300">
+	<hr>
+		<label>歌名：${updateSong.name}</label>
+	<hr>
+		<label>演出者：${updateSong.singer}</label>
+	<hr>
+		<label>類型：${updateSong.songType}</label>
+	<hr>
+		<label>語言：${updateSong.songLanguage}</label>
+	<hr>
+		<label>歌曲簡介：${updateSong.introductionFile}</label>
+	<hr>
+		<label>歌詞：${updateSong.lyricsFile}</label>
 </div>
 </div>
 </section>

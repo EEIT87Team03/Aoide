@@ -37,7 +37,7 @@ public class SearchSongServlet extends HttpServlet {
 		String contextPath = request.getContextPath();
 		
 		if(!Validator.isValidString(search)){
-			errorMsg.put("emptySearchMsg", "請輸入搜尋字串");
+			errorMsg.put("emptySearchMsg", "*請輸入搜尋字串");
 			request.setAttribute("errorMsg", errorMsg);
 			request.getRequestDispatcher("/views/global/_10_SearchSong.view/SearchSong.jsp").forward(request, response);
 			return;
