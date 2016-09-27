@@ -24,98 +24,26 @@ import com.aoide.member._12_UpdateFavorite.model.UpdateFavoriteService;
 public class ShowFavoriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//從Session物件中獲得已登入會員的資料
+		// get member id 
 		MemberVO member = (MemberVO) request.getSession().getAttribute("member");
 		
-		//使用UpdateFavoriteService().getFavoriteById(member.getMemberId())獲得特定ID的FavoriteVO物件串
-		List<FavoriteVO> favoriteVOList = new ShowFavoriteService().getFavoriteById(member.getMemberId());
-		
-		//以SongId來呼叫ShowFavoriteService().getSongNameBySongId(clickhistorys.getSongId())以獲得歌曲名字
-		List<String> songNameList = new ArrayList();
-		for(FavoriteVO favoriteVO : favoriteVOList){
-			
-			String songName = new ShowFavoriteService().getSongNameBySongId(favoriteVO.getSongId());
-			songNameList.add(songName);
-	
-		}
+		// call service to get favorite songs
+		List<SongVO> songs = new ShowFavoriteService().getFavoriteSongs( member.getMemberId() );
+//		List<SongVO> songs = new ShowFavoriteService().getFavoriteSongs( 1 );
 		
 		
-		List<String> singer = new ArrayList();
-		for(FavoriteVO favoriteVO : favoriteVOList){
-			
-			String singerName = new ShowFavoriteService().getSinger(favoriteVO.getSongId());
-			singer.add(singerName);
-	
-		}
+		// put songs in session
+		request.getSession().setAttribute("songs", songs);
 		
-		
-
-		//將歌曲名的List物件加入Session物件
-		request.getSession().setAttribute("songIdList", songNameList);
-		request.getSession().setAttribute("singers", singer);
-		
-		
-		//將FavoriteVO物件串放入Session物件中
-		request.getSession().setAttribute("favoriteVOList", favoriteVOList);
-		
-		//導向顯示頁面
-		String context = request.getContextPath();
-		response.sendRedirect(context + "/views/member/_12_UpdateFavorite.view/ShowFavoritePage.jsp");
-//		response.sendRedirect(context + "/ListFavoriteServlet.member");
-		
-		
-		
-		
-		
-		
-		
-		
-		/*
-		 * 
-		 * 
-		 * 
-		 * 
-		Integer songId = null;
-		Integer memberId = null;
-		String songIdStr = null;
-		HttpSession session = null;
-		MemberO member = null;
-		UpdateFavoriteService service = null;
-		
-		// get memberId and songId
-		request.setCharacterEncoding("UTF-8");
-		songIdStr = request.getParameter("SongId").trim();
-		if((songIdStr != null) && (songIdStr.length() != 0)){
-			songId = Integer.parseInt(songIdStr);
-		}
-		
-		session = request.getSession();
-		session.getAttribute("loginMember");
-		if(member != null){
-			memberId = member.getMemberId();
-		}
-		
-		// call service to update Favorite
-		service = new UpdateFavoriteService();
-		service.updateFavoriteList(memberId, songId);
-		service.updateSongFavoriteCounts(songId);
-		
-		// go xxx.jsp
-		 * 
-		 * 
-		 * 
-		 */
-		
-		
-		
-		
+		// go to listFavorite.jsp
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath + "/views/member/_12_UpdateFavorite.view/ShowFavoritePage.jsp");
 	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+	}
+	
 }

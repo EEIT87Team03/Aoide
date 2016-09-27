@@ -514,7 +514,77 @@ public class JdbcFavoriteDAO implements FavoriteDAO{
     				}
 				return favoriteVO;
     				
+    		} // getFavoritesBySong()
+    	
+    	@Override
+    	public List<SongVO> getFavoriteSongs(Integer memberId) {
+    		List<SongVO> list = new ArrayList<SongVO>();
+    		SongVO songVO = null;
+
+    		Connection conn = null;
+    		PreparedStatement pstmt = null;
+    		ResultSet rs = null;
+
+    		try {
+
+    			conn = ConnectionBean.getConnection();
+    			pstmt = conn.prepareStatement(GET_FAVORITE_SONGS_BY_MEMBERID);
+    			pstmt.setInt(1, memberId);
+    			rs = pstmt.executeQuery();
+
+    			while (rs.next()) {
+    				songVO = new SongVO();
+    				songVO.setSongId(rs.getInt("song_id"));
+    				songVO.setSongFile(rs.getString("song_file"));
+    				songVO.setName(rs.getString("name"));
+    				songVO.setSongType(rs.getString("song_type"));
+    				songVO.setSongLanguage(rs.getString("song_language"));
+    				songVO.setMemberId(rs.getInt("member_id"));
+    				songVO.setAlbumId(rs.getInt("album_id"));
+    				songVO.setIntroductionFile(rs.getString("introduction_file"));
+    				songVO.setCoverFile(rs.getString("cover_file"));
+    				songVO.setLyricsFile(rs.getString("lyrics_file"));
+    				songVO.setUpdateDate(rs.getDate("update_date"));
+    				songVO.setLastclickDate(rs.getTimestamp("lastclick_date"));
+    				songVO.setClicks(rs.getInt("clicks"));
+    				songVO.setFavoriteCounts(rs.getInt("favorite_counts"));
+    				songVO.setShares(rs.getInt("shares"));
+    				songVO.setScore(rs.getDouble("score"));
+    				songVO.setLength(rs.getInt("length"));
+    				songVO.setSinger(rs.getString("singer"));
+    				list.add(songVO); // Store the row in the list
+    			}
+
+    			// Handle any SQL errors
+    		} catch (SQLException se) {
+    			throw new RuntimeException("A database error occured. " + se.getMessage());
+    			// Clean up JDBC resources
+    		} finally {
+    			if (rs != null) {
+    				try {
+    					rs.close();
+    				} catch (SQLException se) {
+    					se.printStackTrace(System.err);
+    				}
+    			}
+    			if (pstmt != null) {
+    				try {
+    					pstmt.close();
+    				} catch (SQLException se) {
+    					se.printStackTrace(System.err);
+    				}
+    			}
+    			if (conn != null) {
+    				try {
+    					conn.close();
+    				} catch (Exception e) {
+    					e.printStackTrace(System.err);
+    				}
+    			}
     		}
+    		return list;
+
+    	}
     
     	
 	

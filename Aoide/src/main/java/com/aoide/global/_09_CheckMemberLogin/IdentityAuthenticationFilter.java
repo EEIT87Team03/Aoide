@@ -37,7 +37,7 @@ public class IdentityAuthenticationFilter implements Filter
 		HttpSession session = req.getSession();
 		if ( session.getAttribute( "member" ) == null )
 		{
-			( ( HttpServletResponse ) response ).sendRedirect( req.getContextPath() + "/Aoide/home.jsp" );
+			( ( HttpServletResponse ) response ).sendRedirect( req.getContextPath() + "/home.jsp" );
 		}
 		else
 			chain.doFilter( request, response );
