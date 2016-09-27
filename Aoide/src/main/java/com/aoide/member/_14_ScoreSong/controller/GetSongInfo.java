@@ -16,7 +16,7 @@ import com.aoide.global.dataBaseManipulationObjects.song.SongVO;
 import com.aoide.member._14_ScoreSong.model.ScoreService;
 
 
-@WebServlet("/GetSongInfo")
+@WebServlet("/GetSongInfo.member")
 public class GetSongInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,10 +28,11 @@ public class GetSongInfo extends HttpServlet {
 		
 
         
-		
-		Integer songId = Integer.parseInt(request.getParameter("id"));
+//		
+//		Integer songId = Integer.parseInt(request.getParameter("id"));
 		HttpSession session = request.getSession();
-		session.setAttribute("song1", songId);
+//		session.setAttribute("song1", songId);
+		Integer songId = (Integer) session.getAttribute("song1");
 
 		List<SongVO> point =  new SearchSongService().getSongOne(songId);
 		request.getSession().setAttribute("getScore", point);
