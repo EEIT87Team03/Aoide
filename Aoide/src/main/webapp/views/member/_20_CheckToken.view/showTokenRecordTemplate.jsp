@@ -17,7 +17,7 @@
             <!-- ========================================== -->
 			<div class="box">
 							<div class="box-header">
-								<h3 class="box-title">以下是點數紀錄~</h3>
+								<h3 class="box-title">以下是點數交易紀錄~</h3>
 
 							</div>
 							<!-- /.box-header -->
