@@ -103,6 +103,7 @@
        														function()
        														{
        															sendDanmu( CKEDITOR.instances.missile.getData() );
+       															CKEDITOR.instances.missile.setData( "" );
        														}
        													 ); 
         

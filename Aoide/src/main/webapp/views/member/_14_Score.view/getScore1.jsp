@@ -41,7 +41,7 @@
 							SongInfo <small>do something</small>
 						</h1>
 						<br>
-						<a href="song.mp3" title="播放"><svg fill="#000000" height="24"
+						<a href="<c:url value='/BuildPlaylistServlet?id='/>"><svg fill="#000000" height="24"
 								viewBox="0 0 24 24" width="24"
 								xmlns="http://www.w3.org/2000/svg"> <path
 								d="M8 5v14l11-7z" /> <path d="M0 0h24v24H0z" fill="none" /> </svg></a> <script
@@ -151,12 +151,13 @@
 										true);
 								xhr.setRequestHeader("Content-Type",
 										"application/x-www-form-urlencoded");
-								var comment = document
-										.getElementById("launcher").value;
+// 								var comment = document
+// 										.getElementById("launcher").value;
+                                var comment = CKEDITOR.instances.reply.getData()
 								console.log(comment);
 								xhr.send("socreStar=" + v + "&comment="
 										+ comment);
-
+// 								cke_1_contents
 							}
 						</script> <!-- Default box -->
 						<div class="box">
@@ -188,9 +189,15 @@
 												<td>${songOne.singer}</td>
 												<td>${songOne.songType}</td>
 												<td>${songOne.songLanguage}</td>
-												<td>${songOne.updateDate}</td>
-												<td>${songOne.coverFile}</td>
-											</tr>
+												<td>${songOne.updateDate}</td> 
+ 											
+                                                <td>
+                                               	
+<!--   	                 <img src = "/Aoide/files/song_cover_files/Songid01.jpg">   -->
+
+    	                                   <img src="${songOne.coverFile}">
+             
+                                                </td>											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
@@ -260,9 +267,9 @@
 												</td>
 						</tr>
 												
-				<td><textarea name="replyContent" id="launcher" rows="5" cols="60" ></textarea>
+				<td><textarea name="replyContent" id="reply" rows="5" cols="60" ></textarea>
 				        <script>	                     	      
-			CKEDITOR.replace("launcher");		
+ 			CKEDITOR.replace("reply",{ toolbar : "Basic" });		
 	 	</script>    	
 </tbody>
 
