@@ -70,8 +70,8 @@ var easy_fancybox_handler = function(){
   <style type="text/css">
 	#loginStateBox{
 		position: fixed;
-	    top: -50px;
-	    right: -10px;
+	    top: 20px;
+	    right: 20px;
 	}
 	
 	#logoutBtn{
