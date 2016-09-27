@@ -18,9 +18,10 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 													.append("recipient_id,")
 													.append("token_volume,")
 													.append("sponsor_balance,")
-													.append("recipien_balance")
+													.append("recipien_balance,")
+													.append("sponsor_id")
 													.append(") ")
-													.append("VALUES(?,?,?,?)")
+													.append("VALUES(?,?,?,?,?)")
 													.toString();
 	
 	
@@ -102,6 +103,7 @@ public class JdbcTokenRecordDAO implements TokenRecordDAO{
 			pstmt.setInt(2, TokenRecordVO.getTokenVolume());
 			pstmt.setInt(3, TokenRecordVO.getSponsorBalance());
 			pstmt.setInt(4, TokenRecordVO.getRecipienBalance());
+			pstmt.setInt(5, TokenRecordVO.getSponsorId());
 
 			pstmt.executeUpdate();
 

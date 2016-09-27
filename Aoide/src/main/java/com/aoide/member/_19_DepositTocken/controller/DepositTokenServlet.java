@@ -78,6 +78,8 @@ public class DepositTokenServlet extends HttpServlet {
 			//製作一個新的Token_RecordVO物件
 			TokenRecordVO new_TokenRecordVO = new TokenRecordVO();
 			// 將贊助者ID、被贊助者ID、贊助金額、獲得點數、TYPE加入新的VO物件
+			new_TokenRecordVO.setSponsorId(sponsor_id);
+			new_TokenRecordVO.setRecipientId(recipient_id);
 			new_TokenRecordVO.setTokenVolume(token_volume);
 			new_TokenRecordVO.setRecipienBalance(new_TokenTotal.intValue());
 			//呼叫Service新增一筆TokenRecordVO物件
