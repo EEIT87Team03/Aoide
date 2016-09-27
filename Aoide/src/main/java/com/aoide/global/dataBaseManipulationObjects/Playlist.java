@@ -24,6 +24,11 @@ public class Playlist
 		size = 0;
 	}
 	
+	public List< TrackVO > getPlaylist()
+	{
+		return list;
+	}
+	
 	public TrackVO getCurrentPlayingTrack()
 	{
 		return currentPlayingTrack;

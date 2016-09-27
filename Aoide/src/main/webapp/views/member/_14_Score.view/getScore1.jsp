@@ -15,7 +15,7 @@
 <c:import url="/TestHTML/head_library.html" />
 
 
-<title>SongInfo</title>
+<title>評分評論</title>
 
 <script type="text/javascript" src="../../../static/js/jquery-1.9.1.min.js"></script>
 </head>
@@ -38,7 +38,7 @@
 						<!-- Content Header (Page header) -->
 						<section class="content-header">
 						<h1>
-							SongInfo <small>do something</small>
+							寫出您對此首歌的意見 <small>(分數必填)</small>
 						</h1>
 						<br>
 		
@@ -169,10 +169,10 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th>MemberId</th>
-											<th>Date</th>
-											<th>ScoreValue</th>
-											<th>CommentFile</th>
+											<th>會員</th>
+											<th>日期</th>
+											<th>給的分數</th>
+											<th>評論內容</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -190,7 +190,8 @@
 								</table>
 								<br>
 								<div class="panel-body">
-
+								    <table class="table">
+                                  
 									<table class="table">
 										<thead>
 											<tr>

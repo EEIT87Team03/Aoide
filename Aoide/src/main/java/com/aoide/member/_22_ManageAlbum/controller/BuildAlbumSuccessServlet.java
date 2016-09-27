@@ -55,10 +55,10 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 			
 		}else{
 			if(!Validator.isImage(part)){
-				errorMsg.put("emptyPartMsg", "只能上傳圖片檔案");
+				errorMsg.put("emptyPartMsg", "*只能上傳圖片檔案");
 			}else{
 				if(!Validator.isPartOverSize(part, 5242880)){
-					errorMsg.put("emptyPartMsg", "圖片檔案上傳請勿超過5MB");
+					errorMsg.put("emptyPartMsg", "*圖片檔案上傳請勿超過5MB");
 				}else{
 //					final String coverFilename = getFileName(part).trim();
 //					int index = coverFilename.lastIndexOf('.');
@@ -79,7 +79,7 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 		
 		String name = request.getParameter("name");
 		if(!Validator.isValidString(name)){
-			errorMsg.put("emptyNameMsg", "請輸入專輯名稱");
+			errorMsg.put("emptyNameMsg", "*請輸入專輯名稱");
 		}else{
 			enteredText.put("name", name);
 			enteredText.put("introductionFile", introductionFile);
@@ -87,7 +87,7 @@ public class BuildAlbumSuccessServlet extends HttpServlet {
 		
 		String artist = request.getParameter("artist");
 		if(!Validator.isValidString(artist)){
-			errorMsg.put("emptyArtistMsg", "請輸入演出者");
+			errorMsg.put("emptyArtistMsg", "*請輸入演出者");
 		}else{
 			enteredText.put("artist", artist);
 			enteredText.put("introductionFile", introductionFile);

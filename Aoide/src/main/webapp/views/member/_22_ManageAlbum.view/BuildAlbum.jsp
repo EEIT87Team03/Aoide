@@ -24,24 +24,20 @@
 				<div class="box-body">
 					<form action="<c:url value ='/BuildAlbumSuccessServlet.member'/>"
 						method="post" enctype="multipart/form-data">
-						上傳專輯封面：<input type="file" name="coverFile">
-						${errorMsg.emptyPartMsg}
+						<label>上傳專輯封面：</label><input type="file" name="coverFile">${errorMsg.emptyPartMsg}
 						<hr>
-							專輯名稱：<input type="text" name="name" value="${enteredText.name}">
-							${errorMsg.emptyNameMsg}
+							<label>專輯名稱：</label><input type="text" name="name" value="${enteredText.name}">　${errorMsg.emptyNameMsg}
 						<hr>
-							演出者：<input type="text" name="artist"
-								value="${enteredText.artist}">
-							${errorMsg.emptyArtistMsg}
+							<label>演出者：</label><input type="text" name="artist"　value="${enteredText.artist}">　${errorMsg.emptyArtistMsg}
 						<hr>
-							專輯簡介：
+							<label>專輯簡介：</label>
 							<textarea name="introductionFile" id="introductionFile">${enteredText.introductionFile}</textarea>
 							<script>
 								CKEDITOR.replace('introductionFile');
 							</script>
 						
 						<hr>
-						<p>請選擇要加入專輯的未分類歌曲：
+						<p><label>請選擇要加入專輯的未分類歌曲：</label>
 						<table class="table">
 							<thead>
 								<tr>
@@ -73,10 +69,9 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<input type="submit" class="btn" value="送出">
 					</form>
 					<hr>
-						 <input type="submit"
-							class="btn" value="送出">
 						</div>
 						<!-- ========================================= -->
 				</div>

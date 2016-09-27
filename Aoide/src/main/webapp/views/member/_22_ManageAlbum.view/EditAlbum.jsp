@@ -27,42 +27,35 @@
 				<div class="box-body">
 				<label>正在編輯專輯：${album.name}</label>
 					
-					<p>
+					<p><p>
 						<img src="${album.coverFilePath}" width="300" height="300">
 						<p>
 						<label>建立日期：${album.updateDate}</label>
 					<p>
-				
-				
-				
-				
-				
+				<hr>
+				<p>
 					<form role="form"
 						action="<c:url value ='/UpdateAlbumServlet.member'/>"
 						method="post" enctype="multipart/form-data">
-						<label>上傳專輯封面：</label><input type="file" name="coverFile">
-						${errorMsg.emptyPartMsg}
+						<label>上傳專輯封面：</label><input type="file" name="coverFile">${errorMsg.emptyPartMsg}
 						<hr>
 						<label>專輯名稱：</label><input type="text" name="name"
-							placeholder="${album.name}" value="${enteredText.name}">
-						${errorMsg.emptyNameMsg}
+							placeholder="${album.name}" value="${enteredText.name}">　${errorMsg.emptyNameMsg}
 						<hr>
 						<label>演出者：</label><input type="text" name="artist"
-							placeholder="${album.artist}" value="${enteredText.artist}">
-						${errorMsg.emptyArtistMsg}
+							placeholder="${album.artist}" value="${enteredText.artist}">　${errorMsg.emptyArtistMsg}
 						<hr>
 						<label>專輯簡介：</label>
 						<textarea name="introductionFile" id="introductionFile">${album.introductionFilePath}${enteredText.introductionFile}</textarea>
 						<script>CKEDITOR.replace('introductionFile');</script>
 						<hr>
 						<hr>
-						<p>移除專輯裡的歌曲：
+						<p><label>移除專輯裡的歌曲：</label>
 						<p>
 						<table class="table">
 							<thead>
 								<tr>
-									<th></th>
-									<th>歌曲ID</th>
+									<th>　</th>
 									<th>歌名</th>
 									<th>演出者</th>
 									<th>類型</th>
@@ -79,7 +72,6 @@
 												out.print(i = i + 1);
 											%>
 										</td>
-										<td>${mySong.songId}</td>
 										<td>${mySong.name}</td>
 										<td>${mySong.singer}</td>
 										<td>${mySong.songType}</td>
@@ -94,13 +86,12 @@
 						</table>
 						<p>
 						<hr>
-						<p>加入未分類專輯的歌曲：
+						<p><label>加入未分類專輯的歌曲：</label>
 						<p>
 						<table class="table">
 							<thead>
 								<tr>
-									<th></th>
-									<th>歌曲ID</th>
+									<th>　</th>
 									<th>歌名</th>
 									<th>演出者</th>
 									<th>類型</th>
@@ -117,7 +108,6 @@
 												out.print(j = j + 1);
 											%>
 										</td>
-										<td>${mySong.songId}</td>
 										<td>${mySong.name}</td>
 										<td>${mySong.singer}</td>
 										<td>${mySong.songType}</td>
