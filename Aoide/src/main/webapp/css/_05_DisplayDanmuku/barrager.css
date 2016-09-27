@@ -31,7 +31,7 @@
 	height: 100%;
 }
 
-.barrage_box div.p a {
+.barrage_box div.p a p{
 	margin-right: 2px;
 	font-size: 50px;/*字體大小*/
 	color: #fff;
