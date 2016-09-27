@@ -73,10 +73,10 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<input type="submit" class="btn" value="送出">
 					</form>
 					<hr>
-						 <input type="submit"
-							class="btn" value="送出">
+						 
 						</div>
 						<!-- ========================================= -->
 				</div>
