@@ -8,23 +8,29 @@ CKEDITOR.editorConfig = function( config ) {
 	// %REMOVE_START%
 	// The configuration options below are needed when running CKEditor from source files.
 	config.plugins = 'dialogui,dialog,a11yhelp,dialogadvtab,basicstyles,clipboard,button,panelbutton,panel,floatpanel,colorbutton,colordialog,templates,menu,contextmenu,resize,toolbar,elementspath,enterkey,entities,popup,filebrowser,find,floatingspace,listblock,richcombo,font,fakeobjects,format,horizontalrule,htmlwriter,wysiwygarea,image,indent,indentblock,indentlist,smiley,justify,link,list,liststyle,magicline,maximize,newpage,pagebreak,pastetext,pastefromword,preview,print,removeformat,save,selectall,showblocks,showborders,sourcearea,specialchar,scayt,stylescombo,tab,table,tabletools,undo,wsc,base64image,fastimage,autolink,autoembed,videodetector';
+	
 	config.skin = 'moono-dark';
+	config.toolbarCanCollapse = true;
+	 config.toolbarStartupExpanded = false;
+	//config.resize_enabled = false; 
+	//config.fontSize_defaultLabel = '24px';
+	
 	// %REMOVE_END%
 
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	// remove plugins : about, iframe, forms, blockquote, language, bidi, youtube, menubutton, div, bgimage, 
-	config.toolbar = 'MissileLauncherTools';
-	 
+	config.toolbar = 'Full'; 
+	
 	config.toolbar_MissileLauncherTools =
 		[
 			{ name: 'clipboard', items : [ 'Undo','Redo', '-','Cut','Copy','Paste','PasteText' ] },
 			{ name: 'editing', items : [ 'Find','Replace','-','SelectAll' ] },
-			{ name: 'insert', items : [ 'Smiley','SpecialChar', 'VideoDetector' ] },
-			{ name: 'styles', items : [ 'Styles','Format' ] },
-			{ name: 'basicstyles', items : [ 'Font', 'FontSize', 'TextColor', 'BGColor','Bold','Italic','Strike', 'Underline','-','RemoveFormat' ] },
-			{ name: 'tools', items : [  'Image', 'base64image', 'Source','Maximize' ] }
+			{ name: 'insert', items : [ 'Smiley','SpecialChar', '-', 'VideoDetector', 'Image', 'base64image' ] },
+			{ name: 'fonts', items : [  'Font', 'FontSize' ] },
+			{ name: 'basicstyles', items : [  'TextColor', 'BGColor','Bold','Italic','Strike', 'Underline','-','RemoveFormat' ] },
+			{ name: 'tools', items : [  'Source' ] }
 		];
 	
 	config.toolbar_Full =
@@ -48,6 +54,6 @@ CKEDITOR.editorConfig = function( config ) {
 	
 	config.toolbar_Basic =
 		[
-			['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','About']
+			['Bold', 'Italic', '-', 'Font', 'FontSize', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','About']
 		];
 };

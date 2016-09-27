@@ -69,9 +69,9 @@ var easy_fancybox_handler = function(){
   <script src="/Aoide/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
   <style type="text/css">
 	#loginStateBox{
-		position: absolute;
-	    top: 20px;
-	    right: 20px;
+		position: fixed;
+	    top: -50px;
+	    right: -10px;
 	}
 	
 	#logoutBtn{
