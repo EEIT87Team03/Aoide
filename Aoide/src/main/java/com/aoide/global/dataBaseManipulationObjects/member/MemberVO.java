@@ -3,7 +3,9 @@ package com.aoide.global.dataBaseManipulationObjects.member;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-public class MemberVO implements java.io.Serializable
+import com.aoide.global.dataBaseManipulationObjects.ValueObject;
+
+public class MemberVO implements java.io.Serializable, ValueObject
 {
 	private Integer memberId;
 	private String account;

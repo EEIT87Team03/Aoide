@@ -3,7 +3,9 @@ package com.aoide.global.dataBaseManipulationObjects.album;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class AlbumVO implements Serializable 
+import com.aoide.global.dataBaseManipulationObjects.ValueObject;
+
+public class AlbumVO implements Serializable, ValueObject 
 {
 	private Integer albumId;
 	private Integer memberId;

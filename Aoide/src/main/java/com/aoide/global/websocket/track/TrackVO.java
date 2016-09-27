@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class TrackVO implements Serializable
+import com.aoide.global.dataBaseManipulationObjects.ValueObject;
+
+public class TrackVO implements Serializable, ValueObject
 {
 	
 	// Fields
