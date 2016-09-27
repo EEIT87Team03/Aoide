@@ -21,18 +21,15 @@
 						<form role="form"
 							action="<c:url value ='/UploadSongServlet.member'/>"
 							method="post" enctype="multipart/form-data">
-							<label>上傳歌曲：</label><input type="file" name="songFile">
-							${errorMsg.emptyPartMsg}
+							<label>上傳歌曲：</label><input type="file" name="songFile">${errorMsg.emptyPartMsg}
 							<hr>
-							<label>上傳封面圖片：</label><input type="file" name="coverFile">
-							${errorMsg.emptyPart2Msg}
+							<label>上傳封面圖片：</label><input type="file" name="coverFile">${errorMsg.emptyPart2Msg}
 							<hr>
 							<label>歌名：</label><input type="text" name="name"
-								value="${enteredText.name}"> ${errorMsg.emptyNameMsg}
+								value="${enteredText.name}">　${errorMsg.emptyNameMsg}
 							<hr>
 							<label>演出者：</label><input type="text" name="singer"
-								value="${enteredText.singer}">
-							${errorMsg.emptySingerMsg}
+								value="${enteredText.singer}">　${errorMsg.emptySingerMsg}
 							<hr>
 							<label>類型：</label><input type="text" name="songType"
 								value="${enteredText.songType}">

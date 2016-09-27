@@ -17,12 +17,12 @@
 			<div class="col-xs-6 col-md-6" id="middleContent">
             <!-- ========================================= -->
 			<div class="box">
+			<div class="box-header with-border">
         <div class="box-body">
-          <table class="table table-hover">
+          <table class="table">
 		<thead>
 			<tr>
 				<th>　</th>
-				<th>專輯ID</th>
 				<th>專輯名稱</th>
 				<th>演出者</th>
 				<th>建立日期</th>
@@ -33,7 +33,6 @@
 			<c:forEach var="myAlbum" items="${myAlbumList}">
 				<tr>
 					<td><% out.print(i = i + 1); %></td>
-					<td>${myAlbum.albumId}</td>
 					<td>${myAlbum.name}</td>
 					<td>${myAlbum.artist}</td>
 					<td>${myAlbum.updateDate}</td>
@@ -44,7 +43,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<p>
+        </div>
         </div>
         <!-- /.box-body -->
       </div>

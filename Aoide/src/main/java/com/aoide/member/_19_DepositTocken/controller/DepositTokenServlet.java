@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.aoide.global._00_TestUtil.Validator;
 import com.aoide.global.dataBaseManipulationObjects.cashRecord.CashRecordVO;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
+import com.aoide.global.dataBaseManipulationObjects.tokenRecord.TokenRecordVO;
 import com.aoide.member._18_Donation.model.DonationService;
 import com.aoide.member._19_DepositTocken.model.DepositTokenService;
 
@@ -57,6 +58,13 @@ public class DepositTokenServlet extends HttpServlet {
 			//呼叫Service新增一筆CashRecord並獲取回傳的ID
 			Integer insert_id = new DepositTokenService().insertNewCashRecord(new_CashRecordVO);
 			/*System.out.println("此次交易紀錄的ID:" + insert_id);*/
+			
+			//製作一個新的Token_RecordVO物件
+			TokenRecordVO new_TokenRecordVO = new TokenRecordVO();
+			// 將贊助者ID、被贊助者ID、贊助金額、獲得點數、TYPE加入新的VO物件
+			
+			//呼叫Service新增一筆
+			
 			
 			//用回傳的ID查詢該筆紀錄
 			CashRecordVO cashRecordVO = new DepositTokenService().getCashRecordById(insert_id);

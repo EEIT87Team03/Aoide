@@ -28,26 +28,22 @@
 					<!--           </div> -->
 					<!--         </div> -->
 					<div class="box-body">
-						正在編輯歌曲：${song.name}
-						<p>
+						<label>正在編輯歌曲：${song.name}</label>
+						<p><p>
 							<img src="${song.coverFile}" width="300" height="300">
-						<p>上傳日期：${song.updateDate}
+						<p>
+							<label>上傳日期：${song.updateDate}</label>
 						<p>
 						<hr>
 						<p>
-						<form class="box-body"
-							action="<c:url value ='/UpdateSongServlet.member'/>"
-							method="post" enctype="multipart/form-data"
-							class="table table-bordered">
-							上傳封面圖片：<input type="file" name="coverFile">
-							${errorMsg.emptyPartMsg}
+						<form action="<c:url value ='/UpdateSongServlet.member'/>" method="post" enctype="multipart/form-data">
+							<label>上傳封面圖片：</label><input type="file" name="coverFile">${errorMsg.emptyPartMsg}
 							<hr>
 								<label>歌名：</label><input type="text" name="name" placeholder="${song.name}"
-									value="${enteredText.name}"> ${errorMsg.emptyNameMsg}
+									value="${enteredText.name}">　${errorMsg.emptyNameMsg}
 							<hr>
 								<label>演出者：</label><input type="text" name="singer"
-									placeholder="${song.singer}" value="${enteredText.singer}">
-								${errorMsg.emptySingerMsg}
+									placeholder="${song.singer}" value="${enteredText.singer}">　${errorMsg.emptySingerMsg}
 							<hr>
 								<label>類型：</label><input type="text" name="songType"
 									placeholder="${song.songType}" value="${enteredText.songType}">
@@ -68,9 +64,8 @@
 									CKEDITOR.replace('lyricsFile');
 								</script>
 							<hr>
-								<input type="submit" value="送出">
+								<input type="submit" class="btn" value="送出">
 						</form>
-						<a href="<c:url value = '/ListSongServlet.member'/>">回歌曲列表</a>
 					</div>
 				</div>
 

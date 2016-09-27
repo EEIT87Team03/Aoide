@@ -120,3 +120,7 @@ body{
 input {
 	color:black !important;
 }
+
+input[type="file"] {
+    color: white !important;
+}

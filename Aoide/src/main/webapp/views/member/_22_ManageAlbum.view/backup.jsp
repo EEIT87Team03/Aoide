@@ -18,7 +18,6 @@
 			<div class="col-xs-6 col-md-6" id="middleContent">
 
 				<!-- ========================================= -->
-				<section class="content">
 					<div class="box">
 						<div class="box-header with-border">
 			              <h3 class="box-title">專輯編輯成功</h3>
@@ -69,14 +68,13 @@
 									</c:forEach>
 								</tbody>
 							</table>
-							<p>	
-								<a href="<c:url value='/ListAlbumServlet.member'/>" class="btn">回管理專輯</a>
+							<p>
+								<a href="ManageAlbum.jsp" type="submit" class="btn" value="Submit">回管理專輯</a>
 							</p>
 						</div>
 						<!-- /.box-body  -->	
 					</div>
-				    <!-- /.box  -->	
-				</section>			
+				    <!-- /.box  -->				
 			    <!-- ========================================= -->
 				</div>
 				<div class="col-xs-6 col-md-3"></div>
