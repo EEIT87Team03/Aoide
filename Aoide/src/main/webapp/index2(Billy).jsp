@@ -139,7 +139,7 @@ var easy_fancybox_handler = function(){
 <span class="menu-toggle ext-nav-toggle" data-target=".ext-nav"><span></span></span>
 <nav class="nav nav-horizontal">
 <ul id="menu-skrollex-menu-1" class="menu">
-<li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query.member" target="aoide"><span class="glyphicon glyphicon-user"></span>會員資料</a></li>
+<li id="menu-item-804" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-804"><a href="Query" target="aoide"><span class="glyphicon glyphicon-user"></span>會員資料</a></li>
 <li id="menu-item-805" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-805">
 <div class="dropdown"><a class="dropbtn">
 <span class="glyphicon glyphicon-music"></span>管理歌曲
