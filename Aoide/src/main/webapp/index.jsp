@@ -143,11 +143,11 @@ var easy_fancybox_handler = function(){
 			<div>
 				<textarea id = "missile"></textarea>
 			 	<script>
-					CKEDITOR.replace( "missile", { toolbar : "MissileLauncherTools" ,width: "530", height: "100" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
+					CKEDITOR.replace( "missile", { toolbar : "MissileLauncherTools" ,width: "450", height: "150" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
 			 	</script>
 			</div>		
 		</div>
-		<!-- missile launcher 				MissileLauncherTools-->
+		<!-- missile launcher -->
 	</div>
 <!-- 左 -->
 <div class="page-border  heading left colors-a main-navigation">

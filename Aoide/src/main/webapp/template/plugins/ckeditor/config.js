@@ -13,13 +13,12 @@ CKEDITOR.editorConfig = function( config ) {
 	config.toolbarCanCollapse = true;
 	 config.toolbarStartupExpanded = false;
 	//config.resize_enabled = false; 
-	//config.fontSize_defaultLabel = '24px';
-	
+	config.fontSize_defaultLabel = '24px';
 	// %REMOVE_END%
 
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
-	// config.uiColor = '#AADC6E';
+	//config.uiColor = '#AADC6E';
 	// remove plugins : about, iframe, forms, blockquote, language, bidi, youtube, menubutton, div, bgimage, 
 	config.toolbar = 'Full'; 
 	
@@ -30,7 +29,6 @@ CKEDITOR.editorConfig = function( config ) {
 			{ name: 'insert', items : [ 'Smiley','SpecialChar', '-', 'VideoDetector', 'Image', 'base64image' ] },
 			{ name: 'fonts', items : [  'Font', 'FontSize' ] },
 			{ name: 'basicstyles', items : [  'TextColor', 'BGColor','Bold','Italic','Strike', 'Underline','-','RemoveFormat' ] },
-			{ name: 'tools', items : [  'Source' ] }
 		];
 	
 	config.toolbar_Full =
