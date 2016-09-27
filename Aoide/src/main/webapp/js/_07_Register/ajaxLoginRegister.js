@@ -19,10 +19,14 @@ $( "#loginForm" ).submit(function( event ) {
 	// stop request from form
 	event.preventDefault();
 	// Get some values from elements on the page:
-  	var $form = $( this ),
-  	account = $("#account").val(), 
-  	password = $("#password").val(),
-  	url = $form.attr( "action" );
+	var $form = $( this ),
+	account = $("#account").val(), 
+	password = $("#password").val(),
+	url = $form.attr( "action" );
+	
+	// clear the input value of account and password
+	$("#account").val("");
+	$("#password").val("");
 
   	/*
   	console.log(account);
@@ -43,7 +47,7 @@ $( "#loginForm" ).submit(function( event ) {
     		$("#logoutBtn").show();
     		$("#memberLoginHead").attr("src", data.pictureSource).css('visibility', 'visible');
     	}else{
-    		alert("please sign again");
+    		alert("Please sign again");
     	}
     } );// end $.post()
 } ); // end submit()
@@ -76,7 +80,7 @@ $( "#regstForm" ).submit(function( event ) {
     		$("#id01").hide();
     		$("#regstBtn").remove();
     	}else{
-    		alert("please register again");
+    		alert("Please register again");
     	}
     } );// end $.post()
 } ); // end submit()
@@ -90,9 +94,9 @@ $( "#logoutBtn" ).click(function() {
     	if(data == "logoutSuccess"){
     		alert("Logout Success");
     		$("#logoutBtn").hide();
-        $("#loginBtn").show();
-        $("#regstBtn").show();
-        $("#memberLoginHead").css('visibility', 'hidden');
+            $("#loginBtn").show();
+            $("#regstBtn").show();
+            $("#memberLoginHead").css('visibility', 'hidden');
     	}else{
     		alert("Please Logout again");
     	}

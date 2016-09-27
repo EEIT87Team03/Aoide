@@ -134,18 +134,20 @@ var easy_fancybox_handler = function(){
 			<div id = "chart"></div>
 		</div>
 		<!-- audio player -->
+		<!-- missile launcher -->
 		<div id = "missileLauncher">
 			<div id = "warhead">
 				<span id = "destructor">×</span>
 				<button type="button" id = "fire"><h2>Missile Launcher</h2></button>
 			</div>
 			<div>
-				<textarea id = "missile" rows="10" cols="80"></textarea>
+				<textarea id = "missile"></textarea>
 			 	<script>
-					CKEDITOR.replace( "missile", { toolbar : "MissileLauncherTools" ,width: "590", height: "200" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
+					CKEDITOR.replace( "missile", { toolbar : "MissileLauncherTools" ,width: "530", height: "100" }  );// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.		
 			 	</script>
 			</div>		
 		</div>
+		<!-- missile launcher 				MissileLauncherTools-->
 	</div>
 <!-- 左 -->
 <div class="page-border  heading left colors-a main-navigation">

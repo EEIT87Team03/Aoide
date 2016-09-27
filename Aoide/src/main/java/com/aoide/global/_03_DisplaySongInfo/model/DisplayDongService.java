@@ -9,8 +9,6 @@ public class DisplayDongService {
 	SongDAO songDAO  = new JdbcSongDAO();
 
 	public SongVO getSongById(Integer song_id) {
-		
-		
 		return songDAO.findByPrimaryKey(song_id);
 	}
 

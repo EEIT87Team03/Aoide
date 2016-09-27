@@ -20,20 +20,20 @@
 					<div class="box-header with-border">
 						<div class="box-body">
 
-							<h3>Modify</h3>
+							<h3>編輯公告</h3>
 							<form action="<c:url value ='/ModifyEditBullet'/>" method="post">
 
 								日期：${bulletVO.date}
 								<hr>
 
-									contentFile：<input class="form-control" type="text"
-										name="contentFile" value="${bulletVO.contentFile}">
+								<label>公告標題</label>
+								<input class="form-control" type="text" name="title" value="${bulletVO.contentFile}">
 								<hr>
 
-									title：
-									<textarea name="title" id="title">${bulletVO.title}</textarea>
+									<label>公告內容</label>
+									<textarea name="contentFile"  id="contentFile" >${bulletVO.title}</textarea>
 									<script>
-										CKEDITOR.replace('title');
+										CKEDITOR.replace('contentFile');
 									</script>
 								<hr>
 
