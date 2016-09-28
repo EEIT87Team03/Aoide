@@ -43,7 +43,7 @@
 								<c:forEach var="result" items="${searchList}">
 									<tr>
 										<td><% out.print(i = i + 1); %></td>
-										<td><u><a href="<c:url value='/BuildPlaylistServlet?id=${result.songId}'/>">點歌</a></u></td>
+										<td><u><a href="<c:url value='/BuildPlaylist?songId=${result.songId}'/>">點歌</a></u></td>
 										<!-- <td><a href="<c:url value='/ShowSongInfo?id=${result.songId}'/>">${result.name}</a></td> -->
 										<td><u><a href="<c:url value='/DisplaySongServlet?id=${result.songId}'/>">${result.name}</a></u></td>
 										<td>${result.singer}</td>

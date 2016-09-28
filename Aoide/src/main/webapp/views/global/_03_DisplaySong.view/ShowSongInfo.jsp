@@ -24,7 +24,7 @@
 						<div class="box-header with-border">
 							<table class="table">
 								<a
-									href="<c:url value='/BuildPlaylistServlet?id=${songVO.songId}'/>"><svg
+									href="<c:url value='/BuildPlaylist?songId=${songVO.songId}'/>"><svg
 										fill="#000000" height="24" viewBox="0 0 24 24" width="40"
 										xmlns="http://www.w3.org/2000/svg"> <path
 											d="M8 5v14l11-7z" /> <path d="M0 0h24v24H0z" fill="none" /> </svg></a>
