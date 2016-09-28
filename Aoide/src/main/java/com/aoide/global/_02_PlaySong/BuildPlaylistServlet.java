@@ -37,10 +37,13 @@ public class BuildPlaylistServlet extends HttpServlet
 //		playlist.add( vo1 );
 //		playlist.add( vo2 );
 //		playlist.add( vo3 );
+
 		//response.sendRedirect( request.getContextPath() + "/play.html" );
 		//response.sendRedirect( request.getContextPath() + "/index.jsp" );
-		
-		
+
+//		response.sendRedirect( request.getContextPath() + "/play.html" );
+//		response.sendRedirect( request.getContextPath() + "/index.jsp" );
+
 		TrackVO vo = ts.getTrackBean( id );
 		if ( canPlay( vo ) && updateSuccess( vo, ts ) )
 		{

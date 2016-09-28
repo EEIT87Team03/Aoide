@@ -28,6 +28,7 @@
 			<div class="col-xs-6 col-md-6" id="middleContent">
 				<!-- ========================================= -->
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
 
 				<!-- Site wrapper -->
 
@@ -99,7 +100,7 @@
 								xhr.onload = function() {
 									if (this.status == 200) {
 										alert("評論已送出");
-										top.location.href = "<c:url value='/GetScoreServlet.member'/>"
+										window.location.href = "<c:url value='/GetScoreServlet.member'/>"
 
 									} else {
 
@@ -249,7 +250,8 @@
 			</div>
 		</div>
 	</div>
-
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57ea63172c50a682"></script>
 </body>
 </html>
 

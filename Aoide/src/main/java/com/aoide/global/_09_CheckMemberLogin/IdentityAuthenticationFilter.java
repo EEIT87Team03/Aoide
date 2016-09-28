@@ -43,8 +43,8 @@ public class IdentityAuthenticationFilter implements Filter
 			( ( HttpServletResponse ) response ).sendRedirect( req.getContextPath() + "/home.jsp" );
 		}
 		else if( member.getBanState() ) // if the member is baned
-		{
-			( ( HttpServletResponse ) response ).sendRedirect( req.getContextPath() + "/views/member/_17_EditInfo.view/banPage.jsp" );
+		{     
+			( ( HttpServletResponse ) response ).sendRedirect( req.getContextPath() + "/views/global/_08_login.view/banPage.jsp" );
 		}
 		else
 		{

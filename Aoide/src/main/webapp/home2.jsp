@@ -110,8 +110,8 @@ var easy_fancybox_handler = function(){
 </div>
 <section class="wrapper-site">
 <div class="view x40-widget widget  " id="layers-widget-skrollex-section-3">
-<div data-src="/Aoide/views/dist/img/manage3.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/manage4.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/manage3.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/manage4.jpg" class="bg-holder"></div>
 <div id="home" class="fg colors-b  full-size">
 <div class="layout-boxed section-top">
 <!-- login state div -->

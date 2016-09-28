@@ -16,19 +16,30 @@
 
 <title>Share Song</title>
 
+<head>
 
 
-
-<link rel="canonical" href="http://www.example.com" />
+<%-- <link rel="canonical" href="<c:url value='/DisplaySongServlet?id=${result.songId}'/>" /> --%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>share Song</title>
+
+   <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+	<meta property="og:url"           content="http://localhost:8080/Aoide/index.jsp" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="Aoide" />
+	<meta property="og:description"   content="Share Your Song" />
+	<meta property="og:image"         content="${song.coverFile}" />
 
 
 </head>
 <body>
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<!-- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57ea63172c50a682"></script> -->
 
-
+<script src='https://googledrive.com/host/0BykclfTTti-0SlU3SDg5RUVtNlk/TOC_date_FB_main.js' type='text/javascript'></script>
+<script src='https://googledrive.com/host/0BykclfTTti-0SlU3SDg5RUVtNlk/TOC_date_FB_display.js' type='text/javascript'></script>
 
 
 
@@ -47,46 +58,6 @@
 									<section class="content">
 
 
-
-									<div id="fb-root"></div>
-									<script>
-										(function(d, s, id) {
-											var js, fjs = d
-													.getElementsByTagName(s)[0];
-											if (d.getElementById(id))
-												return;
-											js = d.createElement(s);
-											js.id = id;
-											js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7";
-											fjs.parentNode
-													.insertBefore(js, fjs);
-										}(document, 'script', 'facebook-jssdk'));
-									</script>
-
-									<div class="fb-like"
-										data-href="http://localhost:8080/Aoide/index.jsp"
-										data-layout="standard" data-action="like" data-size="small"
-										data-show-faces="true" data-share="true"></div>
-
-
-									<div class="fb-follow"
-										data-href="http://localhost:8080/Aoide/index.jsp"
-										data-layout="standard" data-size="small"
-										data-show-faces="true"></div>
-
-									<div id="fb-root"></div>
-									<script>
-										(function(d, s, id) {
-											var js, fjs = d
-													.getElementsByTagName(s)[0];
-											if (d.getElementById(id))
-												return;
-											js = d.createElement(s);
-											js.id = id;
-											js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7";
-											fjs.parentNode
-													.insertBefore(js, fjs);
-										}(document, 'script', 'facebook-jssdk'));
 									</script> <!--     FB function --> <script>
 	window.___gcfg = {
 		lang : 'en-US',
@@ -103,25 +74,14 @@
 		lang: 'zh-TW'
 	}
 </script> <!-- Load Facebook SDK for JavaScript -->
-									<div id="fb-root"></div>
-									<script>
-										(function(d, s, id) {
-											var js, fjs = d
-													.getElementsByTagName(s)[0];
-											if (d.getElementById(id))
-												return;
-											js = d.createElement(s);
-											js.id = id;
-											js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
-											fjs.parentNode
-													.insertBefore(js, fjs);
-										}(document, 'script', 'facebook-jssdk'));
-									</script> <script type="text/javascript"
-										src="https://apis.google.com/js/plusone.js">
-		{
-			lang: 'zh-TW'
-		}
-	</script>
+		<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 									<div id="fb-root"></div>
@@ -153,8 +113,8 @@
 												<th>SongName</th>
 
 												<th>ShareLink</th>
-												<th>FB Share</th>
-												<th>Google+ Share</th>
+												<th>Share</th>
+<!-- 												<th>Google+ Share</th> -->
 
 
 
@@ -164,6 +124,8 @@
 
 														<td>${song.songId}</td>
 														<td>${song.name}</td>
+														<table class="table">
+														<td><img src='${song.coverFile}'></td>
 
 
 
@@ -181,19 +143,20 @@
 														<td><form>
 
 
-																<a id="otherid"
-																	src="http://tomcat.apache.org/images/tomcat.png"
-																	class="btn"
-																	href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('www.kimo.com.tw'))));">FB分享</a>
+
+<div class="fb-share-button" data-href="<c:url value='Aoide/ShareServlet.member?id=${song.songId}'/>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2FAoide%2Findex.jsp&amp;src=sdkpreparse">分享</a></div>
+
+<!-- 																<a id="otherid"  -->
+<%-- 																	src='${song.coverFile}' --%>
+<!--  																	class="btn"  -->
+<!--  																	href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('http://www.aoide.ch/'))));">FB分享</a> -->
 																
 															</form></td>
 
-
-														<td><form>
-																<g:plusone href='http://tomcat.apache.org/'src="http://tomcat.apache.org/images/tomcat.png"></g:plusone>
-															</form></td>
-
-													</tr>
+                                                     <form>
+ 														<g:plusone href='http://localhost:8080/Aoide/DisplaySongServlet?=?id=${song.songId}' src="http://tomcat.apache.org/images/tomcat.png"></g:plusone>
+                                                                                       
+													</tr></form>
 												</c:forEach>
 											</tbody>
 
@@ -210,5 +173,6 @@
 
 	<!-- body-library  -->
 	<c:import url="/TestHTML/body_library.html" />
+
 </body>
 </html>
