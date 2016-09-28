@@ -22,6 +22,8 @@ public class StartDonationServlet extends HttpServlet {
 		String recipient_id = request.getParameter("recipient_id");
 		String recipient_Account = new DonationService().getAccountById(recipient_id);
 		
+		request.getSession().setAttribute("recipient_Account", recipient_Account);
+		
 		
 		
 		
