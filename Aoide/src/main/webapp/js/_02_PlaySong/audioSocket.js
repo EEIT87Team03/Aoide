@@ -55,7 +55,7 @@ function initial()
 	
 	audioSocketInitialize();
 	playbarVisible = false;
-	audio.onended = onEnded;
+	audio.onended = audioEnded;
 	toggle.onclick = onToggle;
 	ranger.onchange = onVolumeChange;
 	controlIcon.onclick = control;
@@ -82,6 +82,7 @@ function audioSocketInitialize()
 	audioSocket = new WebSocket( asUri );
 	audioSocket.onopen = onOpen;
 	audioSocket.onmessage = onMessage;
+	audioSocket.onerror = onError;
 	audioSocket.onclose = onClose;
 }
 function onOpen()
@@ -99,7 +100,6 @@ function onMessage( event )
 		{
 			var time = parseInt( message.split( "[INIT_TIME]" )[ 1 ] );
 			audio.currentTime = time;
-			audio.play();
 			start();
 		}
 		else if ( message.indexOf( "[CURRENT]" ) == 0 )
@@ -111,22 +111,31 @@ function onMessage( event )
 			audio.src = track.songFile;
 			audio.volume = aoideVolume;
 		}
-		else if ( message.indexOf( "[ALL]" ) == 0 )
-		{
-			var playlist = JSON.parse( message.split( "[ALL]" )[ 1 ] );
-		}
 	}
+	
+	if ( message.indexOf( "[ALL]" ) == 0 )
+	{
+		var playlist = JSON.parse( message.split( "[ALL]" )[ 1 ] );
+		alert( playlist.length );
+	}
+}
+
+function onError( event )
+{
+	console.log( "Error occured..." );
+	audioSocketInitialize();
 }
 
 function onClose( event )
 {
 	console.log( "Websocket closed connection..." );
+	stop();
 }
 
-function onEnded( event )
+function audioEnded( event )
 {
 	audioSocket.send( "[NEXT]" );
-	stop();
+	end();
 }
 
 
@@ -137,6 +146,7 @@ function getPlaylist()
 
 function start()
 {
+	audio.play();
 	updateChart();
 	drawChartTimerID = setInterval( updateChart, 15 );
 	
@@ -149,13 +159,22 @@ function start()
 	{
 		onToggle();
 	}
+	
+}
+
+function end()
+{
+	trackInfoReset( "Waiting..." );
+	controlIcon.src = "views/dist/img/playbar/play.png";
+	clearInterval( drawChartTimerID );
+	clearInterval( trackCounterTimerID );
 }
 
 function stop()
-{
-	tip.innerHTML = "Waiting...";
-	trackName.innerHTML = ""; 
-	singer.innerHTML = "";
+{	
+	audio.pause();
+	audioSocket.close();
+	trackInfoReset( "Stop Connecting..." );
 	controlIcon.src = "views/dist/img/playbar/play.png";
 	clearInterval( drawChartTimerID );
 	clearInterval( trackCounterTimerID );
@@ -169,10 +188,20 @@ function control()
 	}
 	else
 	{
-		audio.pause();
-		audioSocket.close();
 		stop();
+		resetChart()
 	}
+}
+
+
+function trackInfoReset( status )
+{
+	tip.innerHTML = status;
+	trackName.innerHTML = ""; 
+	singer.innerHTML = "";
+	cover.src = "/Aoide/files/song_cover_files/default.jpg";
+	playTime.innerHTML = "00:00 / 00:00"
+	progressBar.value = 0;
 }
 
 function onToggle( event )
@@ -267,3 +296,12 @@ function updateChart()
       chart.childNodes[ j ].style.background = "rgba( " + ( 255 - j ) + "," + j + ", " + j * 2 + ", 1 )";
     }
  }
+
+function resetChart() 
+{
+	for( var j = 0; j < 256; j++ )
+    {
+      chart.childNodes[ j ].style.height = dataArray[ j ] * 0 + "px";
+      chart.childNodes[ j ].style.background = "rgba( " + ( 255 - j ) + "," + j + ", " + j * 2 + ", 1 )";
+    }
+}

@@ -9,6 +9,7 @@
 <title>Aoide</title>
 <link rel="Shortcut Icon" type="image/x-icon" href="views/dist/img/AoideIcon.png" />
 <link rel="stylesheet" href="css/_02_PlaySong/audioSocket.css">		<!-- Byc -->
+<link rel="stylesheet" href="css/_02_PlaySong/playlist.css">		<!-- Byc -->
 <link rel="stylesheet" href="css/HoverableDropDown.css">
 <link rel="stylesheet" href="css/_05_DisplayDanmuku/barrager.css">
 <link rel="stylesheet" href="danmmu/css/bootstrap.min.css" media="screen" />

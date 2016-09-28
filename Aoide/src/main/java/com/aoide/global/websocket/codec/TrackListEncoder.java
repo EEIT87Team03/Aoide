@@ -28,7 +28,7 @@ public class TrackListEncoder implements Encoder.Text< List< TrackVO > >
 	public String encode( List< TrackVO > list ) throws EncodeException 
 	{
 		try 
-		{
+		{	
 			return "[ALL]" + JsonConverter.convertToJsonArray( list ).toString();
 		} 
 		catch ( Exception e ) 
