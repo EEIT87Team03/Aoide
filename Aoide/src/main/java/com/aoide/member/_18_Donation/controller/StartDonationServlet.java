@@ -18,9 +18,8 @@ public class StartDonationServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String recipient_id = "5";
-		//String recipient_id = request.getParameter("recipient_id");
-		
+//		String recipient_id = "5";
+		String recipient_id = request.getParameter("recipient_id");
 		String recipient_Account = new DonationService().getAccountById(recipient_id);
 		
 		
