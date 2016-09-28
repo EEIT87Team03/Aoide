@@ -13,10 +13,10 @@ public class Playlist
 	private static List< TrackVO > list = new ArrayList<>();
 	private List< PlaylistListener > listeners = new ArrayList<>();
 	private Timer timer;
-	private	volatile TrackVO currentPlayingTrack;
 	private volatile int size;
-	private int currentPlayingTrackLength;
-	private int currentPlayingTrackMaxLength;
+	private volatile int currentPlayingTrackLength;
+	private volatile int currentPlayingTrackMaxLength;
+	private	volatile TrackVO currentPlayingTrack;
 	
 	public Playlist()
 	{

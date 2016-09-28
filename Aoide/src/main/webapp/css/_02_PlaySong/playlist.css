@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+#playlistMenu
+{
+    color: white;
+}
+#playlistMenu:hover, #playlistMenu:focus  
+{
+    color: #f4511e;
+    text-decoration: none;
+    cursor: pointer;
+}

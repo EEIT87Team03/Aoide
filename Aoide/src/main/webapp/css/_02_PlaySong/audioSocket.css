@@ -134,7 +134,8 @@ progress::-webkit-progress-value
 }
 #chart
 {
-	margin: 0 0 2px 0;
+	padding: 0;
+	margin: 0;
 	width : 770px;
 	height: 60px;
 }
@@ -142,7 +143,7 @@ progress::-webkit-progress-value
 
 {
 	content: "";
-    height: 60px;
+    height: 70px;
 }
   
 #chart div 
@@ -153,11 +154,11 @@ progress::-webkit-progress-value
     vertical-align: bottom;
 }
 
-#toggle, #launcher
+#toggle, #launcher, #playlistMenu
 {
     color: white;
 }
-#toggle:hover, #toggle:focus, #launcher:hover, #launcher:focus  
+#toggle:hover, #toggle:focus, #launcher:hover, #launcher:focus, #playlistMenu:hover, #playlistMenu:focus  
 {
     color: #f4511e;
     text-decoration: none;

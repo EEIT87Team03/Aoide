@@ -18,9 +18,10 @@ import javax.websocket.server.ServerEndpoint;
 
 import com.aoide.global.dataBaseManipulationObjects.Playlist;
 import com.aoide.global.listener.PlaylistListener;
+import com.aoide.global.websocket.codec.TrackListEncoder;
 import com.aoide.global.websocket.codec.TrackVOEncoder;
 
-@ServerEndpoint( value = "/play", configurator = HttpSessionConfigurator.class, encoders = { TrackVOEncoder.class} )
+@ServerEndpoint( value = "/play", configurator = HttpSessionConfigurator.class, encoders = { TrackVOEncoder.class, TrackListEncoder.class } )
 public class BroadcastAudioServer implements PlaylistListener
 {
 	private Session wsSession;
@@ -36,25 +37,39 @@ public class BroadcastAudioServer implements PlaylistListener
 		
 		this.wsSession = session;
         this.httpSession = ( HttpSession ) config.getUserProperties().get( HttpSession.class.getName() );
-        
         servletContext = httpSession.getServletContext();
+        
         playlist = ( Playlist ) servletContext.getAttribute( Playlist.class.getName() );
         playlist.addListener( this );
+        
         System.out.println( "BroadcastAudioServer open session..." );
 	}
 	
 	@OnMessage
     public void handleMessage( String message ) 
 	{
-		if ( message.equals( "[NEXT]" ) && playlist.hasNext() )
+		try
 		{
-			sendPlayingTrack();
+			if ( message.equals( "[NEXT]" ) && playlist.hasNext() )
+			{
+				sendPlayingTrack();
+			}
+			else if ( message.equals( "[ALL]" ) )
+			{
+				sendObject( playlist.getPlaylist() );
+			}
+		}
+		catch( Exception e )
+		{
+			System.out.println( "Error updating a client : " + e.getMessage() );
+			e.printStackTrace();
 		}
 	}
 	
 	@OnClose
     public void onClose( CloseReason reason ) 
 	{
+		sessionList.remove( wsSession );
 		playlist.removeListener( this );
 		System.out.println( "Close Session..." + reason.toString() );
 	}
@@ -68,22 +83,20 @@ public class BroadcastAudioServer implements PlaylistListener
 	@Override
 	public void listen() 
 	{
-		sendPlayingTrack();
-	}
-	
-	public void sendPlayingTrack()
-	{
 		try 
 		{
-			sendObject( playlist.getCurrentPlayingTrack() );
-			sendMessage( "[INIT_TIME] " + playlist.getCurrentPlayingTrackLength() );
+			sendPlayingTrack();
 		} 
-		catch ( Exception e ) 
+		catch( Exception e )
 		{
-			System.out.println("Error updating a client : " + e.getMessage() );
 			e.printStackTrace();
 		}
-		
+	}
+	
+	public void sendPlayingTrack() throws IOException, EncodeException
+	{
+		sendObject( playlist.getCurrentPlayingTrack() );
+		sendMessage( "[INIT_TIME]" + playlist.getCurrentPlayingTrackLength() );
 	}
 	
 	private void broadcastObject( Object vo ) 

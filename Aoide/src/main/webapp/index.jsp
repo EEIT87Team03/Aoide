@@ -9,6 +9,7 @@
 <title>Aoide</title>
 <link rel="Shortcut Icon" type="image/x-icon" href="views/dist/img/AoideIcon.png" />
 <link rel="stylesheet" href="css/_02_PlaySong/audioSocket.css">		<!-- Byc -->
+<link rel="stylesheet" href="css/_02_PlaySong/playlist.css">		<!-- Byc -->
 <link rel="stylesheet" href="css/HoverableDropDown.css">
 <link rel="stylesheet" href="css/_05_DisplayDanmuku/barrager.css">
 <link rel="stylesheet" href="danmmu/css/bootstrap.min.css" media="screen" />
@@ -157,8 +158,9 @@ var easy_fancybox_handler = function(){
 		<li><a href= "PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
 		<li><a href= "views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>　　
 		<li><span><span class="glyphicon glyphicon-minus"></span></span></li>　　
+		<li><a href= "#"><span id = "launcher" class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>　
 		<li><a href= "#"><span id = "toggle" class = "glyphicon glyphicon-play-circle" title="開啟/關閉歌曲資訊"></span></a></li>　<!-- audio player toggle -->
-		<li><a href= "#"><span id = "launcher" class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>
+		<li><a href= "#"><span id = "playlistMenu" class = "glyphicon glyphicon-list-alt"></span></a></li>　
 	</ul>
 </div>
 <!-- 右 -->

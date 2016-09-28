@@ -1,6 +1,7 @@
 package com.aoide.global._02_PlaySong;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -36,15 +37,15 @@ public class BuildPlaylistServlet extends HttpServlet
 		playlist.add( vo1 );
 		playlist.add( vo2 );
 		playlist.add( vo3 );
+
 		//response.sendRedirect( request.getContextPath() + "/play.html" );
 		response.sendRedirect( request.getContextPath() + "/index.jsp" );
-		
-//		
+
 //		TrackVO vo = ts.getTrackBean( id );
-//		if ( canPlay( vo ) )
+//		if ( canPlay( vo ) && updateSuccess( vo, ts ) )
 //		{
 //			playlist.add( vo );
-//			response.getWriter().write( "Add to playlist successfully" );
+//			response.getWriter().write( "Add track to playlist successfully" );
 //		}
 //		else
 //		{
@@ -60,8 +61,22 @@ public class BuildPlaylistServlet extends HttpServlet
 
 	private boolean canPlay( TrackVO vo )
 	{	
-		//System.out.println( System.currentTimeMillis() );
-		//System.out.println( vo.getLastclickDate().getTime() );
-		return true;
+		int cooldown = 0 * 60 * 1000;
+		long current = System.currentTimeMillis();
+		long lastClick = vo.getLastclickDate().getTime();
+		
+		if ( current - lastClick >= cooldown )
+			return true;
+		else
+			return false;
+	}
+	
+	private boolean updateSuccess( TrackVO vo, TrackService ts )
+	{
+		vo.setLastclickDate( new Timestamp( System.currentTimeMillis()) );
+		if ( ts.updateTrackInfo( vo ) > 0 )
+			return true;
+		else
+			return false;
 	}
 }

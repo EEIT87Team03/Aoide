@@ -100,7 +100,7 @@
 								xhr.onload = function() {
 									if (this.status == 200) {
 										alert("評論已送出");
-										top.location.href = "<c:url value='/GetScoreServlet.member'/>"
+										window.location.href = "<c:url value='/GetScoreServlet.member'/>"
 
 									} else {
 
