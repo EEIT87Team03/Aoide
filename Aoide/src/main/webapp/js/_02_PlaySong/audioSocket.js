@@ -16,11 +16,8 @@ var progressBar = document.getElementById( "progressBar" );
 var volumeIcon = document.getElementById( "volumeIcon" );
 var controlIcon = document.getElementById( "controlIcon" );
 
-var playlistSpan = document.getElementById( "playlistMenu" );	//playlist component
-var closer = document.getElementById( "closer" );
-var arrayList = document.getElementById( "list" );
-var playlist = document.getElementById( "playlist" );
-var playlistFooter = document.getElementById( "playlistFooter" );
+var arrayList = document.getElementById( "list" );				  //playlist component
+var playlistFooter = document.getElementById( "playlistFooter" ); //playlist component
 
 var playbarVisible;
 var aoideVolume;
@@ -352,15 +349,4 @@ function resetChart()
       chart.childNodes[ j ].style.height = dataArray[ j ] * 0 + "px";
       chart.childNodes[ j ].style.background = "rgba( " + ( 255 - j ) + "," + j + ", " + j * 2 + ", 1 )";
     }
-}
-
-function playlistClose() 
-{
-	playlist.style.display = "none";
-};
-
-function showPlaylist()
-{
-	
-	playlist.style.display = "block";
 }

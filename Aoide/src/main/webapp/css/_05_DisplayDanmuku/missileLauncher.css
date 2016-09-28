@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 #missileLauncher
 {
-	opacity: 0.9 !important;
+	opacity: 0.8 !important;
 	display: none;
 	position: fixed;
 	left: 30px;
@@ -82,11 +82,11 @@
 @-webkit-keyframes launcherDisplay 
 {
     from { left: -600px; opacity:0 } 
-    to { left: 25px; opacity:1}
+    to { left: 25px; opacity:0.8 }
 }
 
 @keyframes launcherDisplay 
 {
     from { left: -600px; opacity:0 }
-    to { left: 25px; opacity:1 }
+    to { left: 25px; opacity:0.8 }
 }

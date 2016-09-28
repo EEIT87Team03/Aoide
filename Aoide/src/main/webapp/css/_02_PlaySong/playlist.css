@@ -4,24 +4,26 @@
 {
 	display: none;
 	position: fixed;
-	left: 40%;
-	bottom: 50%;
+	right: 10%;
+	top: 20%;
 	z-index: 1;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	width: 400px;
 	background : #0d0d0d;
-	opacity: 0.9 !important;
-	-webkit-animation-name: playlistDisplay;
-    -webkit-animation-duration: 08s;
-    animation-name: playlistDisplay;
-    animation-duration: 0.8s
+	opacity: 0.8 !important;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	
+	-webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.8s;
+    animation-name: animatetop;
+    animation-duration: 0.8s;
 }
 #playlistHeader 
 {
-	opacity: 0.9 !important;
 	border-bottom: 2px white solid !important;
     padding: 5px 16px;
     color: white;
+    background-color: #000208;
 }
 
 #playlistMenu
@@ -39,23 +41,23 @@
 {
 	border: none !important;
 	text-align: center;
-	vertical-align: center !important;
+	vertical-align: middle !important;
 }
 
-tr: nth-child( even )
+tr:nth-child( even )
 {
-	background-color: #f2f2f2 !important;
+	background-color: #171819 !important;
 }
 
 /* Add Animation */
-@-webkit-keyframes playlistDisplay 
+@-webkit-keyframes animatetop 
 {
-    from { top: -300px; opacity:1 } 
-    to { top: 25%; opacity:1}
+    from { top: -300px; opacity:0 } 
+    to { top: 20%; opacity:0.8 }
 }
 
-@keyframes playlistDisplay 
+@keyframes animatetop 
 {
-    from { top:-300px; opacity:1 }
-    to { top: 25%; opacity:1 }
+    from { top:-300px; opacity:0 }
+    to { top: 20%; opacity:0.8 }
 }

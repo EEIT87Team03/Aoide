@@ -150,7 +150,7 @@ var easy_fancybox_handler = function(){
 		</div>
 		<!-- missile launcher -->
 		<!-- playlist -->
-		<div id = "playlist">
+		<div id = "playlist" draggable="true">
 			<div id = "playlistHeader">
 				<span id = "closer" class = "closebtn">×</span>
 				<h2>Scheduling Playlist</h2>
