@@ -76,7 +76,7 @@ var easy_fancybox_handler = function(){
 	#logoutBtn{
 	    width: 100px;
 	    height: 50px;
-	    display: block;
+	    display: none;
     	margin-left: auto;
     	margin-right: auto;
     }
