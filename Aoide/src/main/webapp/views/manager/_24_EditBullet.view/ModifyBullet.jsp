@@ -27,11 +27,11 @@
 								<hr>
 
 								<label>公告標題</label>
-								<input class="form-control" type="text" name="title" value="${bulletVO.contentFile}">
+								<input class="form-control" type="text" name="title" value="${bulletVO.title}">
 								<hr>
 
 									<label>公告內容</label>
-									<textarea name="contentFile"  id="contentFile" >${bulletVO.title}</textarea>
+									<textarea name="contentFile"  id="contentFile" >${bulletVO.contentFile}</textarea>
 									<script>
 										CKEDITOR.replace('contentFile');
 									</script>
