@@ -44,69 +44,7 @@
 <style type="text/css" id="layers-inline-styles-header">body{font-family:"Ubuntu",Helvetica,sans-serif;}h1,h2,h3,h4,h5,h6,.heading{font-family:"Oswald",Helvetica,sans-serif;}button,.button,input[type=submit]{font-family:"Oswald",Helvetica,sans-serif;}</style> <meta property="og:title" content=""/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content=""/>
-<style type="text/css">.recentcomments a{display:inline!important;padding:0!important;margin:0!important;}
-
-* {box-sizing:border-box}
-body {font-family: Verdana,sans-serif;}
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-/* The dots/bullets/indicators */
-.dot {
-  height: 13px;
-  width: 13px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-.active {
-  background-color: #717171;
-}
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 4.5s;
-  animation-name: fade;
-  animation-duration: 4.5s;
-}
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
-
-</style>
- 
+<style type="text/css">.recentcomments a{display:inline!important;padding:0!important;margin:0!important;}</style>
 <script type="text/javascript">
 /* <![CDATA[ */
 var fb_timeout = null;
@@ -171,9 +109,9 @@ var easy_fancybox_handler = function(){
 </div>
 <section class="wrapper-site">
 <div class="view x40-widget widget  " id="layers-widget-skrollex-section-3">
-<div data-src="/Aoide/views/dist/img/aoide6.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/aoide7.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/aoide8.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/aoide6.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/aoide7.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/aoide8.jpg" class="bg-holder"></div>
 <div id="home" class="fg colors-b  full-size">
 <a href="#scroll-down" class="arrow-scroll svg-overlay bottom fixed hide-on-mobile">
 <svg version="1.1" x="0px" y="0px" width="40.73px" height="110px" viewBox="0 0 40.73 99.511" enable-background="new 0 0 40.73 99.511" xml:space="preserve">
@@ -345,68 +283,11 @@ window.onclick = function(event) {
 <div data-src="http://skrollex-wp.x40.ru/anna/wp-content/uploads/sites/49/2015/11/bg-stephane-8.jpg" class="bg-holder"></div>
 <div data-src="http://skrollex-wp.x40.ru/anna/wp-content/uploads/sites/49/2015/11/bg-stephane-44.jpg" class="bg-holder"></div>
 <div class="fg colors-d  half-size">
-<div class="layout-boxed section-top"><div class="slogan"><span class="textillate" data-textillate-options="{loop:true, in:{effect:'fadeInRight', reverse:true}, out:{effect:'fadeOutLeft', sequence:true}}"><span class="texts"><span>We Are Designers</span><span>We Are Programmers</span><span>We Are Coders</span><span>We Are Developers</span><span>We Are Creative</span></span></span></div>
-<p class="text-center">— Lorem ipsum dolor sit amet —</p>
+<div class="layout-boxed section-top"><div class="slogan"><span class="textillate" data-textillate-options="{loop:true, in:{effect:'fadeInRight', reverse:true}, out:{effect:'fadeOutLeft', sequence:true}}"><span class="texts"><span>Mellow</span><span>Romantic</span><span>Tranquil</span><span>Upbeat</span><span>Wild</span></span></span></div>
+<p class="text-center">— Life exists for the love of music or beautiful things —</p>
 </div> </div>
 </div>
-
-<div class="view x40-widget widget   text-bg" id="layers-widget-skrollex-section-5" data-text-effect-selector="h1,h2,h3,h4" data-text-effect="effect-a-animated">
-<div data-src="http://skrollex-wp.x40.ru/anna/wp-content/uploads/sites/49/2015/11/bg-stephane-4-bw.jpg" class="bg-holder"></div>
-<div data-src="http://skrollex-wp.x40.ru/anna/wp-content/uploads/sites/49/2015/11/bg-stephane-3-bw.jpg" class="bg-holder"></div>
-<div id="about" class="fg colors-c ">
-<div class="layout-boxed section-top"><h3 class="heading-section-title">ADVERT</h3></div>
-<p>
-<center>
-<div class="slideshow-container" >
-
-<div class="mySlides fade">
-  <img alt=""src="/Aoide/files/song_cover_files/Songid01.jpg" width="300" height="300">
-  <div class="text">Caption Text</div>
-</div>
-
-<div class="mySlides fade">
-  <img alt=""src="/Aoide/files/song_cover_files/Songid02.jpg" width="300" height="300">
-  <div class="text">Caption Two</div>
-</div>
-
-<div class="mySlides fade">
-  <img alt=""src="/Aoide/files/song_cover_files/Songid03.jpg" width="300" height="300">
-  <div class="text">Caption Three</div>
-</div>
-
-</div>
-<br>
-
-<div style="text-align:center" id="PushButton">
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>
-</center>
-</div>
-</div>
 </section>
-<script>
-var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex> slides.length) {slideIndex = 1}
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 5000); // Change image every 2 seconds
-}
-</script>
 <script type='text/javascript' src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */
