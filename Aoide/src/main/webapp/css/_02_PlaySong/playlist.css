@@ -2,10 +2,11 @@
 
 #playlist
 {
+	z-index: 2 !important;
 	display: none;
 	position: fixed;
-	right: 10%;
-	top: 20%;
+	left: 1200px;
+	top: 200px;
 	z-index: 1;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	width: 400px;

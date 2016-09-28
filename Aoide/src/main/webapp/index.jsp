@@ -71,8 +71,8 @@ var easy_fancybox_handler = function(){
 /* ]]> */
 </script>
 </head>
-<body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
-	<div class="view full " id="layers-widget-skrollex-section-3">
+<body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k" ondragover="allowDrop(event);" ondrop="onDrop(event);">
+	<div class="view full " id="layers-widget-skrollex-section-3"  >
 		<div data-src="views/dist/img/aoide2.jpg" class="bg-holder"></div>
 		<div data-src="views/dist/img/aoide3.jpg" class="bg-holder"></div>
 		<div data-src="views/dist/img/aoide4.jpg" class="bg-holder"></div>
