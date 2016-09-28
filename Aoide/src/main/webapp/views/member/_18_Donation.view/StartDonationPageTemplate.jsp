@@ -24,8 +24,8 @@
             <form role="form" method="POST" action="<c:url value='/TurnToInsertCreditCardPageServletD.member' />"  id="DonationServlet" >
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">你要贊助的人ID(此應該為一個死值)</label>
-                  <input type="text" class="form-control " id="exampleInputEmail1" placeholder="對方的ID(從SESSION獲得)" disabled="disabled">
+                  <label for="exampleInputEmail1">受贊助人帳號</label>
+                  <input type="text" class="form-control " id="exampleInputEmail1" placeholder="${recipient_Account}" disabled="disabled">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">贊助金額</label><font color = 'red' size='-1'>   ${cash_volumeError}</font>
