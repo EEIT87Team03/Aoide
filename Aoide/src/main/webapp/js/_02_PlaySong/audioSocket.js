@@ -15,7 +15,13 @@ var playTime = document.getElementById( "playTime" );
 var progressBar = document.getElementById( "progressBar" );
 var volumeIcon = document.getElementById( "volumeIcon" );
 var controlIcon = document.getElementById( "controlIcon" );
-var playlistSpan = document.getElementById( "playlistMenu" );
+
+var playlistSpan = document.getElementById( "playlistMenu" );	//playlist component
+var closer = document.getElementById( "closer" );
+var arrayList = document.getElementById( "list" );
+var playlist = document.getElementById( "playlist" );
+var playlistFooter = document.getElementById( "playlistFooter" );
+
 var playbarVisible;
 var aoideVolume;
 var drawChartTimerID;
@@ -53,14 +59,18 @@ function initial()
 	var bufferLength = analyser.frequencyBinCount;
 	dataArray = new Uint8Array( bufferLength );
 	
-	audioSocketInitialize();
+	audioSocketInitialize();		//audio websocket 
+	
 	playbarVisible = false;
 	audio.onended = audioEnded;
 	toggle.onclick = onToggle;
 	ranger.onchange = onVolumeChange;
 	controlIcon.onclick = control;
 	volumeIcon.onclick = volumeMuted;
-	playlistSpan.onclick = getPlaylist;
+	
+	playlistSpan.onclick = showPlaylist;		//playlist
+	closer.onclick = playlistClose;
+	
 	aoideVolume = 0.09; //default sound volume
 	if ( window[ "localStorage" ] )
 	{
@@ -88,6 +98,7 @@ function audioSocketInitialize()
 function onOpen()
 {
 	tip.innerHTML = "Waiting...";
+	audioSocket.send( "[ALL]" );
 }
 
 function onMessage( event )
@@ -115,8 +126,46 @@ function onMessage( event )
 	
 	if ( message.indexOf( "[ALL]" ) == 0 )
 	{
-		var playlist = JSON.parse( message.split( "[ALL]" )[ 1 ] );
-		alert( playlist.length );
+		var trackArray = JSON.parse( message.split( "[ALL]" )[ 1 ] );
+
+		for ( var i = 0; i < trackArray.length; i++ )
+		{
+
+			var coverImg = document.createElement( "img" );
+			coverImg.src = trackArray[ i ].coverFile;
+			coverImg.style.width = "50px";
+			coverImg.style.height = "50px";
+				
+			var temp = document.createTextNode( trackArray[ i ].name + " - " + trackArray[ i ].singer );
+			
+			var row = arrayList.insertRow( i );
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			cell1.appendChild( coverImg );
+			cell2.appendChild( temp );				
+		}
+	}
+	else if ( message.indexOf( "[NEW]" ) == 0 )
+	{
+		var newTrack = JSON.parse( message.split( "[NEW]" )[ 1 ] );
+		var rows = arrayList.rows.length;
+		var newRow = arrayList.insertRow( rows );
+		var cell1 = newRow.insertCell( 0 );
+		var cell2 = newRow.insertCell( 1 );
+		
+		var coverImg = document.createElement( "img" );
+		coverImg.src = newTrack.coverFile;
+		coverImg.style.width = "50px";
+		coverImg.style.height = "50px";
+		
+		var temp = document.createTextNode( newTrack.name + " - " + newTrack.singer );
+		cell1.appendChild( coverImg );
+		cell2.appendChild( temp );	
+	}
+	
+	if ( arrayList.rows.length > 0 )
+	{
+		playlistFooter.innerHTML = "On-Demand Tracks";
 	}
 }
 
@@ -136,12 +185,6 @@ function audioEnded( event )
 {
 	audioSocket.send( "[NEXT]" );
 	end();
-}
-
-
-function getPlaylist()
-{
-	audioSocket.send( "[ALL]" );
 }
 
 function start()
@@ -168,6 +211,11 @@ function end()
 	controlIcon.src = "views/dist/img/playbar/play.png";
 	clearInterval( drawChartTimerID );
 	clearInterval( trackCounterTimerID );
+	arrayList.deleteRow( 0 );
+	if ( arrayList.rows.length == 0 )
+	{
+		playlistFooter.innerHTML = "None";
+	}
 }
 
 function stop()
@@ -304,4 +352,15 @@ function resetChart()
       chart.childNodes[ j ].style.height = dataArray[ j ] * 0 + "px";
       chart.childNodes[ j ].style.background = "rgba( " + ( 255 - j ) + "," + j + ", " + j * 2 + ", 1 )";
     }
+}
+
+function playlistClose() 
+{
+	playlist.style.display = "none";
+};
+
+function showPlaylist()
+{
+	
+	playlist.style.display = "block";
 }

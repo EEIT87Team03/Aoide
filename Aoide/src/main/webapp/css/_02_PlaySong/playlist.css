@@ -1,5 +1,29 @@
 @CHARSET "UTF-8";
 
+#playlist
+{
+	display: none;
+	position: fixed;
+	left: 40%;
+	bottom: 50%;
+	z-index: 1;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	width: 400px;
+	background : #0d0d0d;
+	opacity: 0.9 !important;
+	-webkit-animation-name: playlistDisplay;
+    -webkit-animation-duration: 08s;
+    animation-name: playlistDisplay;
+    animation-duration: 0.8s
+}
+#playlistHeader 
+{
+	opacity: 0.9 !important;
+	border-bottom: 2px white solid !important;
+    padding: 5px 16px;
+    color: white;
+}
+
 #playlistMenu
 {
     color: white;
@@ -9,4 +33,29 @@
     color: #f4511e;
     text-decoration: none;
     cursor: pointer;
+}
+
+#list, #list td
+{
+	border: none !important;
+	text-align: center;
+	vertical-align: center !important;
+}
+
+tr: nth-child( even )
+{
+	background-color: #f2f2f2 !important;
+}
+
+/* Add Animation */
+@-webkit-keyframes playlistDisplay 
+{
+    from { top: -300px; opacity:1 } 
+    to { top: 25%; opacity:1}
+}
+
+@keyframes playlistDisplay 
+{
+    from { top:-300px; opacity:1 }
+    to { top: 25%; opacity:1 }
 }

@@ -138,7 +138,7 @@ var easy_fancybox_handler = function(){
 		<!-- missile launcher -->
 		<div id = "missileLauncher">
 			<div id = "warhead">
-				<span id = "destructor">×</span>
+				<span id = "destructor" class = "closebtn">×</span>
 				<button type="button" id = "fire"><h2>Missile Launcher</h2></button>
 			</div>
 			<div>
@@ -149,6 +149,16 @@ var easy_fancybox_handler = function(){
 			</div>		
 		</div>
 		<!-- missile launcher -->
+		<!-- playlist -->
+		<div id = "playlist">
+			<div id = "playlistHeader">
+				<span id = "closer" class = "closebtn">×</span>
+				<h2>Scheduling Playlist</h2>
+			</div>
+			<table id = "list"></table>
+			<h5 id = "playlistFooter">None</h5>
+		</div>
+		<!-- playlist -->
 	</div>
 <!-- 左 -->
 <div class="page-border  heading left colors-a main-navigation">
@@ -236,8 +246,9 @@ Close
 </div>
 <script src="js/_05_DisplayDanmuku/jquery.barrager.js"></script>
 <script src="js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
-<script src="js/_05_DisplayDanmuku/missileLauncher.js"></script>
-<script src="js/_02_PlaySong/audioSocket.js"></script>							<!-- audio player javascript source-->			
+<script src="js/_05_DisplayDanmuku/missileLauncher.js"></script>			<!-- missile launcher javascript source-->
+<script src="js/_02_PlaySong/audioSocket.js"></script>						<!-- audio player javascript source-->	
+<script src="js/_02_PlaySong/playlist.js"></script>							<!-- audio player javascript source-->			
 <script src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script>
 /* <![CDATA[ */

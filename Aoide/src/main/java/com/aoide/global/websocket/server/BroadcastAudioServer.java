@@ -1,6 +1,6 @@
 package com.aoide.global.websocket.server;
 
-import java.io.IOException; 
+import java.io.IOException;  
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +16,12 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import com.aoide.global.dataBaseManipulationObjects.JsonConverter;
 import com.aoide.global.dataBaseManipulationObjects.Playlist;
 import com.aoide.global.listener.PlaylistListener;
 import com.aoide.global.websocket.codec.TrackListEncoder;
 import com.aoide.global.websocket.codec.TrackVOEncoder;
+import com.aoide.global.websocket.track.TrackVO;
 
 @ServerEndpoint( value = "/play", configurator = HttpSessionConfigurator.class, encoders = { TrackVOEncoder.class, TrackListEncoder.class } )
 public class BroadcastAudioServer implements PlaylistListener
@@ -93,6 +95,18 @@ public class BroadcastAudioServer implements PlaylistListener
 		}
 	}
 	
+	@Override
+	public void update( TrackVO vo ) 
+	{
+		try 
+		{
+			sendMessage( "[NEW]" + JsonConverter.convertToJsonObject( vo ).toString() );
+		} 
+		catch( Exception e )
+		{
+			e.printStackTrace();
+		}
+	}
 	public void sendPlayingTrack() throws IOException, EncodeException
 	{
 		sendObject( playlist.getCurrentPlayingTrack() );

@@ -64,7 +64,7 @@ public class Playlist
 			result = list.add( vo );
 			System.out.println( "add : " + vo );
 		}
-		notifyListeners();
+		notifyListeners( vo );
 		
 		return result;
 	}
@@ -100,11 +100,12 @@ public class Playlist
 		}
 	}
 	
-	public void notifyListeners()
+	public void notifyListeners( TrackVO vo )
 	{
 		for ( PlaylistListener listener : listeners )
 		{
 			listener.listen();
+			listener.update( vo );
 		}
 	}
 	

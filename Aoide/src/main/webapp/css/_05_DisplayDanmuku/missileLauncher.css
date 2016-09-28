@@ -23,14 +23,14 @@
     color: white;
 }
 
-#destructor 
+.closebtn
 {
     color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-#destructor:hover, #destructor:focus 
+.closebtn:hover, .closebtn:focus 
 {
     color: #000;
     text-decoration: none;
