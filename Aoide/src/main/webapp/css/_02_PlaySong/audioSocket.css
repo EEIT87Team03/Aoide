@@ -153,11 +153,11 @@ progress::-webkit-progress-value
     vertical-align: bottom;
 }
 
-#toggle, #launcher
+#toggle, #launcher, #playlistMenu
 {
     color: white;
 }
-#toggle:hover, #toggle:focus, #launcher:hover, #launcher:focus  
+#toggle:hover, #toggle:focus, #launcher:hover, #launcher:focus, #playlistMenu:hover, #playlistMenu:focus  
 {
     color: #f4511e;
     text-decoration: none;

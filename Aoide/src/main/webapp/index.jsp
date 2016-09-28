@@ -157,8 +157,9 @@ var easy_fancybox_handler = function(){
 		<li><a href= "PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
 		<li><a href= "views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>　　
 		<li><span><span class="glyphicon glyphicon-minus"></span></span></li>　　
+		<li><a href= "#"><span id = "launcher" class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>　
 		<li><a href= "#"><span id = "toggle" class = "glyphicon glyphicon-play-circle" title="開啟/關閉歌曲資訊"></span></a></li>　<!-- audio player toggle -->
-		<li><a href= "#"><span id = "launcher" class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>
+		<li><a href= "#"><span id = "playlistMenu" class = "glyphicon glyphicon-list-alt"></span></a></li>　
 	</ul>
 </div>
 <!-- 右 -->

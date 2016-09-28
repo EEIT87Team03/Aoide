@@ -15,6 +15,7 @@ var playTime = document.getElementById( "playTime" );
 var progressBar = document.getElementById( "progressBar" );
 var volumeIcon = document.getElementById( "volumeIcon" );
 var controlIcon = document.getElementById( "controlIcon" );
+var playlistSpan = document.getElementById( "playlistMenu" );
 var playbarVisible;
 var aoideVolume;
 var drawChartTimerID;
@@ -54,10 +55,12 @@ function initial()
 	
 	audioSocketInitialize();
 	playbarVisible = false;
+	audio.onended = onEnded;
 	toggle.onclick = onToggle;
 	ranger.onchange = onVolumeChange;
 	controlIcon.onclick = control;
 	volumeIcon.onclick = volumeMuted;
+	playlistSpan.onclick = getPlaylist;
 	aoideVolume = 0.09; //default sound volume
 	if ( window[ "localStorage" ] )
 	{
@@ -80,7 +83,6 @@ function audioSocketInitialize()
 	audioSocket.onopen = onOpen;
 	audioSocket.onmessage = onMessage;
 	audioSocket.onclose = onClose;
-	audio.onended = onEnded;
 }
 function onOpen()
 {
@@ -95,31 +97,42 @@ function onMessage( event )
 	{
 		if ( message.indexOf( "[INIT_TIME]" ) == 0 )
 		{
-			var time = parseInt( message.slice( 12, message.length ) );
+			var time = parseInt( message.split( "[INIT_TIME]" )[ 1 ] );
 			audio.currentTime = time;
 			audio.play();
 			start();
 		}
-		else
+		else if ( message.indexOf( "[CURRENT]" ) == 0 )
 		{
-			var track = JSON.parse( message );
+			var track = JSON.parse( message.split( "[CURRENT]" )[ 1 ] );
 			cover.src = track.coverFile;
 			trackName.innerHTML = track.name + " - "; 
 			singer.innerHTML = track.singer;
-			
 			audio.src = track.songFile;
 			audio.volume = aoideVolume;
 		}
+		else if ( message.indexOf( "[ALL]" ) == 0 )
+		{
+			var playlist = JSON.parse( message.split( "[ALL]" )[ 1 ] );
+		}
 	}
 }
+
+function onClose( event )
+{
+	console.log( "Websocket closed connection..." );
+}
+
 function onEnded( event )
 {
 	audioSocket.send( "[NEXT]" );
 	stop();
 }
-function onClose( event )
+
+
+function getPlaylist()
 {
-	console.log( "Websocket closed connection..." );
+	audioSocket.send( "[ALL]" );
 }
 
 function start()
