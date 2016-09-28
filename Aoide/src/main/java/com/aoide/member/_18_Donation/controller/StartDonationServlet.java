@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.aoide.member._18_Donation.model.DonationService;
+
 
 @WebServlet("/StartDonationServlet")
 public class StartDonationServlet extends HttpServlet {
@@ -19,7 +21,7 @@ public class StartDonationServlet extends HttpServlet {
 		String recipient_id = "5";
 		//String recipient_id = request.getParameter("recipient_id");
 		
-		//String recipient_Account = new DonationService()
+		String recipient_Account = new DonationService().getAccountById(recipient_id);
 		
 		
 		
