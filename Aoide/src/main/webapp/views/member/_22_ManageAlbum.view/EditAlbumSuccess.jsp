@@ -16,12 +16,15 @@
 			<div class="col-xs-6 col-md-3"></div>
 			<div class="col-xs-6 col-md-6" id="middleContent">
             <!-- ========================================= -->
+            <section class="content">
 			<div class="box">
-
+<div class="box-header">
+							<h3 class="box-title"><b>本次修改紀錄</b></h3>
+						</div>
         <div class="box-body">
         
         	<img src="${updateAlbum.coverFilePath}" width="300" height="300">
-	<p>
+	<p><p>
 		<label>專輯名稱：${updateAlbum.name}</label>
 	<p>
 		<label>演出者：${updateAlbum.artist}</label>
@@ -36,7 +39,6 @@
 		<thead>
 			<tr>
 				<th>　</th>
-				<th>歌曲ID</th>
 				<th>歌名</th>
 				<th>演出者</th>
 				<th>類型</th>
@@ -48,7 +50,6 @@
 			<c:forEach var="mySong" items="${mySongList}">
 				<tr>
 					<td><% out.print(i = i + 1); %></td>
-					<td>${mySong.songId}</td>
 					<td>${mySong.name}</td>
 					<td>${mySong.singer}</td>
 					<td>${mySong.songType}</td>
@@ -58,17 +59,10 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<p>
-	<a href="<c:url value = '/ListAlbumServlet.member'/>">回專輯列表</a>
-        
         </div>
         <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
       </div>
-            
+            </section>
             <!-- ========================================= -->
 			</div>
 			<div class="col-xs-6 col-md-3"></div>

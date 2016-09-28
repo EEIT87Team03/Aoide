@@ -31,8 +31,8 @@
 		            </div>
 		            <div class="widget-user-image">
 		              <!--<img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar">-->
-		              <img class="img-circle" id = "current" src="data:image/*;base64,${member.picture}" alt="User Avatar">
-		              <img class="img-circle" src="#" id = "preview"  alt = "preview image" style = "display : none"/>
+		              <img class="img-circle"  src="data:image/*;base64,${member.picture}" alt="User Avatar">
+<!-- 		              <img class="img-circle" src="#" id = "preview"  alt = "preview image" style = "display : none"/> -->
 		            </div>
 		            <!-- /.box-header -->
 		            <!-- =========================================================== -->
@@ -194,6 +194,8 @@
     </div>
     
 <!-- body-library  -->
+
+<script src="<c:url value='/js/_17_EditInfo/ajaxUploadImage.js'/>"></script>
 <c:import url="/TestHTML/body_library.html"/>
 </body>
 </html>

@@ -20,30 +20,29 @@
 				<!-- ========================================= -->
 				<section class="content">
 					<div class="box">
-						<div class="box-header with-border">
-			              <h3 class="box-title">專輯編輯成功</h3>
-			            </div>
+						<div class="box-header">
+							<h3 class="box-title"><b>本次建立紀錄</b></h3>
+						</div>
 			            <!-- /.box-header with-border -->
 						<div class="box-body">
 							<%
 								int i = 0;
 							%>
 							<img src="${album.coverFilePath}" width="300" height="300">
-							<br>
-							<br>
-							<p>專輯名稱：${album.name}
-							<p>演出者：${album.artist}
-							<p>專輯簡介：${album.introductionFilePath}
-							<p>建立日期：${album.updateDate}
+							<p>
+							<p>
+							<p><label>專輯名稱：${album.name}</label>
+							<p><label>演出者：${album.artist}</label>
+							<p><label>專輯簡介：${album.introductionFilePath}</label>
+							<p><label>建立日期：${album.updateDate}</label>
 							<p>
 							<hr>
-							<p>已加入專輯的歌曲：
+							<p><label>已加入專輯的歌曲：</label>
 							<p>
 							<table class="table">
 								<thead>
 									<tr>
-										<th></th>
-										<th>歌曲ID</th>
+										<th>　</th>
 										<th>歌名</th>
 										<th>演出者</th>
 										<th>類型</th>
@@ -59,7 +58,6 @@
 													out.print(i = i + 1);
 												%>
 											</td>
-											<td>${mySong.songId}</td>
 											<td>${mySong.name}</td>
 											<td>${mySong.singer}</td>
 											<td>${mySong.songType}</td>
@@ -69,9 +67,6 @@
 									</c:forEach>
 								</tbody>
 							</table>
-							<p>	
-								<a href="<c:url value='/ListAlbumServlet.member'/>" class="btn">回管理專輯</a>
-							</p>
 						</div>
 						<!-- /.box-body  -->	
 					</div>

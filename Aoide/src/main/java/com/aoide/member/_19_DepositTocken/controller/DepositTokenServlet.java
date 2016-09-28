@@ -48,7 +48,7 @@ public class DepositTokenServlet extends HttpServlet {
 
 			// 製作一個新的VO物件
 			CashRecordVO new_CashRecordVO = new CashRecordVO();
-			// 將贊助者ID、被贊助者ID、贊助金額、獲得點數、TYPE加入新的VO物件
+			// 將儲值者ID、被儲值者ID、贊助金額、獲得點數、TYPE加入新的VO物件
 			new_CashRecordVO.setSponsorId(sponsor_id);
 			new_CashRecordVO.setRecipientId(recipient_id);
 			new_CashRecordVO.setCashVolume(int_cash_volume);
@@ -59,11 +59,7 @@ public class DepositTokenServlet extends HttpServlet {
 			Integer insert_id = new DepositTokenService().insertNewCashRecord(new_CashRecordVO);
 			/*System.out.println("此次交易紀錄的ID:" + insert_id);*/
 			
-			//製作一個新的Token_RecordVO物件
-			TokenRecordVO new_TokenRecordVO = new TokenRecordVO();
-			// 將贊助者ID、被贊助者ID、贊助金額、獲得點數、TYPE加入新的VO物件
 			
-			//呼叫Service新增一筆
 			
 			
 			//用回傳的ID查詢該筆紀錄
@@ -75,8 +71,19 @@ public class DepositTokenServlet extends HttpServlet {
 			memberVO.setTokenTotal(new_TokenTotal);
 			System.out.println("Token:" + memberVO.getTokenTotal());
 			
+			//更新資料庫的memberVO
 			new DepositTokenService().updateMemberVO(memberVO);
 			request.getSession().setAttribute("member", memberVO);
+			
+			//製作一個新的Token_RecordVO物件
+			TokenRecordVO new_TokenRecordVO = new TokenRecordVO();
+			// 將贊助者ID、被贊助者ID、贊助金額、獲得點數、TYPE加入新的VO物件
+			new_TokenRecordVO.setSponsorId(sponsor_id);
+			new_TokenRecordVO.setRecipientId(recipient_id);
+			new_TokenRecordVO.setTokenVolume(token_volume);
+			new_TokenRecordVO.setRecipienBalance(new_TokenTotal.intValue());
+			//呼叫Service新增一筆TokenRecordVO物件
+			new DepositTokenService().insertNewTokenRecord(new_TokenRecordVO);
 			
 			
 			String contextPath = request.getContextPath();
