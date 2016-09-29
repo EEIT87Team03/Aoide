@@ -11,7 +11,6 @@
 </head>
 <body>
 <script>
-
 function play( event )
 { 		  
 	event.preventDefault();
@@ -22,7 +21,7 @@ function play( event )
 	 	{ 
 			if ( this.status == 200 ) 
 			{
-				alert( this.responseText );
+				console.log( this.responseText );
 			}
 			
 		};
