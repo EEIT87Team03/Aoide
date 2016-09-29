@@ -1,8 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-		var wsUri = "ws://localhost:8080/Aoide/danmu";
+		var wsUri = createWebSocketUrl( "/Aoide/danmu" );
     	var clientSocket = new WebSocket( wsUri );
-    	var username = "";
-    	
+	
+function createWebSocketUrl( s ) 
+{
+    var loc = window.location;
+    return ( ( loc.protocol === "https:") ? "wss://" : "ws://" ) + loc.host + s;
+}  	
     	
     	//當網頁啟動時所觸發的方法
     	clientSocket.onopen = 
