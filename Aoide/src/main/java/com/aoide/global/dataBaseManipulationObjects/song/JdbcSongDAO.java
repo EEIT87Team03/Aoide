@@ -8,13 +8,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.aoide.global.dataBaseManipulationObjects.AutoInvoker;
 import com.aoide.global.dataBaseManipulationObjects.ConnectionBean;
+import com.aoide.global.dataBaseManipulationObjects.DataSourceProxy;
 import com.aoide.global.dataBaseManipulationObjects.favorite.FavoriteVO;
 import com.aoide.global.dataBaseManipulationObjects.score.ScoreVO;
 
 public class JdbcSongDAO implements SongDAO {
 	// Fields
-	private static final String INSERT_STMT = "INSERT INTO song(song_file, name, song_type,	song_language, member_id, album_id, introduction_file, cover_file, lyrics_file,	update_date, lastclick_date, clicks, favorite_counts, shares, score, length, singer)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	private static final String INSERT_STMT = 
+			"INSERT INTO song ( [song_file], [name], [song_type], [song_language], [member_id], [album_id], [introduction_file], [lyrics_file], [length], [singer] ) "
+			+ "VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
 	
 	private static final String UPDATE_STMT = new StringBuffer().append("UPDATE song ")
 																.append("SET ")
@@ -212,66 +216,27 @@ public class JdbcSongDAO implements SongDAO {
 
 
 	// Method
-	public Integer insert( SongVO songVO ) 
+	public Integer insert( SongVO vo ) 
 	{
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		Integer id = null;
-
-		try 
+		int insertionCount = 0, id = -1;
+		
+		try( Connection conn = DataSourceProxy.getConnection();
+			 PreparedStatement pstmt = AutoInvoker.invoke( conn, INSERT_STMT, vo ) )
 		{
+			insertionCount = pstmt.executeUpdate();
+			ResultSet keys = pstmt.getGeneratedKeys();
 
-			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(INSERT_STMT, Statement.RETURN_GENERATED_KEYS);
-
-			pstmt.setString(1, songVO.getSongFile());
-			pstmt.setString(2, songVO.getName());
-			pstmt.setString(3, songVO.getSongType());
-			pstmt.setString(4, songVO.getSongLanguage());
-			pstmt.setInt(5, songVO.getMemberId());
-			pstmt.setInt(6, songVO.getAlbumId());
-			pstmt.setString(7, songVO.getIntroductionFile());
-			pstmt.setString(8, songVO.getCoverFile());
-			pstmt.setString(9, songVO.getLyricsFile());
-			pstmt.setDate(10, songVO.getUpdateDate());
-			pstmt.setTimestamp(11, songVO.getLastclickDate());
-			pstmt.setInt(12, songVO.getClicks());
-			pstmt.setInt(13, songVO.getFavoriteCounts());
-			pstmt.setInt(14, songVO.getShares());
-			pstmt.setDouble(15, songVO.getScore());
-			pstmt.setInt(16, songVO.getLength());
-			pstmt.setString(17, songVO.getSinger());
-
-			pstmt.executeUpdate();
-
-			ResultSet keys = null;
-			keys = pstmt.getGeneratedKeys();
-
-			if (keys.next()) {
+			if ( keys.next() ) 
+			{
 				id = (Integer) keys.getInt(1);
-			}
-
-			// Handle any SQL errors
-		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. " + se.getMessage());
-			// Clean up JDBC resources
-		} finally {
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException se) {
-					se.printStackTrace(System.err);
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (Exception e) {
-					e.printStackTrace(System.err);
-				}
+				return id;
 			}
 		}
-		return id;
+		catch( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return insertionCount;
 	}
 
 	@Override
@@ -862,8 +827,19 @@ public class JdbcSongDAO implements SongDAO {
 	
 	
 
-	public static void main(String[] args) {
-		System.out.println(GET_BY_AlBUM);
+	public static void main(String[] args) 
+	{
+		SongVO songVO = new SongVO();
+		songVO.setSongFile( "E:////" );
+		songVO.setName("ABCD");
+		
+		songVO.setMemberId( 1 );
+		songVO.setAlbumId(1);
+		
+		songVO.setLength(240);
+		songVO.setSinger("12345");
+		SongDAO dao = new JdbcSongDAO();
+		System.out.println(dao.insert(songVO));
 	}
 
 }

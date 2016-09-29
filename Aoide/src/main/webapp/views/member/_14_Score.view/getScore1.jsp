@@ -49,8 +49,8 @@
 							var v = 0;
 							function rate(obj, oEvent) {
 
-								var imgSrc = "http://www.miankoutu.com/uploadfiles/2015-9-24/20159248311132.png";
-								var imgSrc_2 ="http://www.miankoutu.com/uploadfiles/2015-9-24/2015924831100.png";
+								var imgSrc = "/Aoide/static/img/songinfo_icons/empty_star.png";
+								var imgSrc_2 ="/Aoide/static/img/songinfo_icons/full_strar .png";
 
 								if (obj.rateFlag)
 									return;
@@ -215,15 +215,15 @@
 
 
 														<a id="1" name="1" title="1"><img
-															src="http://www.miankoutu.com/uploadfiles/2015-9-24/20159248311132.png" /></a>
+															src="/Aoide/static/img/songinfo_icons/empty_star.png" /></a>
 														<a id="2" name="2" title="2"><img
-															src="http://www.miankoutu.com/uploadfiles/2015-9-24/20159248311132.png" /></a>
+															src="/Aoide/static/img/songinfo_icons/empty_star.png" /></a>
 														<a id="3" name="3" title="3"><img
-															src="http://www.miankoutu.com/uploadfiles/2015-9-24/20159248311132.png" /></a>
+															src="/Aoide/static/img/songinfo_icons/empty_star.png" /></a>
 														<a id="4" name="4" title="4"><img
-															src="http://www.miankoutu.com/uploadfiles/2015-9-24/20159248311132.png" /></a>
+															src="/Aoide/static/img/songinfo_icons/empty_star.png" /></a>
 														<a id="5" name="5" title="5"><img
-															src="http://www.miankoutu.com/uploadfiles/2015-9-24/20159248311132.png" /></a>
+															src="/Aoide/static/img/songinfo_icons/empty_star.png" /></a>
 														<br> &nbsp; &nbsp; 您給了: &nbsp; <span id="G8"
 															style="width: 120px; height: 40px; font-size: 14px;">__</span>分
 

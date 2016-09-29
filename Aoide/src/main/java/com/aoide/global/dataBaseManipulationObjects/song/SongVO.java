@@ -6,23 +6,23 @@ import java.sql.Timestamp;
 public class SongVO {
 	
 	// Fields
-	private int songId; 
+	private Integer songId; 
 	private String songFile;
 	private String name;
 	private String songType;
 	private String songLanguage;
-	private int memberId;
-	private int albumId = 1;
+	private Integer memberId;
+	private Integer albumId = 1;
 	private String introductionFile;
 	private String coverFile;
 	private String lyricsFile;
 	private Date updateDate;
 	private Timestamp lastclickDate;   
-	private int clicks;
-	private int favoriteCounts;
-	private int shares;
-	private double score;
-	private int length;
+	private Integer clicks;
+	private Integer favoriteCounts;
+	private Integer shares;
+	private Double score;
+	private Integer length;
 	private String singer;
 	
 	// Constructors
