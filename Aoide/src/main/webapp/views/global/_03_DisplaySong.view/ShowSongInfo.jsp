@@ -50,7 +50,7 @@ alert("xxx");
 					<!-- Default box -->
 					<div class="box">
 						<div class="box-body">
-							<a href="<c:url value='/BuildPlaylist?songId=${songVO.songId}' onclick="play()" />"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg"> 
+							<a href="<c:url value='/BuildPlaylist?songId=${songVO.songId}'  />"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg"> 
 								<path d="M8 5v14l11-7z" /> <path d="M0 0h24v24H0z" fill="none" /> </svg></a>
 								<script type="text/javascript" src="http://mediaplayer.yahoo.com/js"></script>
 
