@@ -10,9 +10,31 @@
 <c:import url="/TestHTML/head_library.html"/>
 </head>
 <body>
+
 <script type="text/javascript">
 
 
+function play( event )
+{ 		  
+	event.preventDefault();
+	xhr = new XMLHttpRequest();
+
+	xhr.onload = 
+		function() 
+	 	{ 
+			if ( this.status == 200 ) 
+			{
+// 				alert( this.responseText );
+			}
+			
+			
+			
+			
+		};
+		xhr.open( "get", "/Aoide/BuildPlaylist?songId="+ '${songVO.songId}',false);
+		xhr.send();
+
+} 
 
 </script>		
 
@@ -26,12 +48,8 @@
 				<section class="content">
 					<!-- Default box -->
 					<div class="box">
-						<div class="box-body">
-						
-						<button onclick="play()"></button>
-							<a href="<c:url value='/BuildPlaylist?songId=${songVO.songId}'  />"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg"> 
-								<path d="M8 5v14l11-7z" /> <path d="M0 0h24v24H0z" fill="none" /> </svg></a>
-								<script type="text/javascript" src="http://mediaplayer.yahoo.com/js"></script>
+
+					
 
 							<button style="background-color: #C2C2FF" title="蒐藏" onclick="location.href='<c:url value='/UpdateFavoriteServlet.member'/>'">
 								<img src="/Aoide/static/img/songinfo_icons/add_favorite.png">
@@ -46,6 +64,12 @@
 							</button>
 							<!-- top buttons ============================-->
 							<br>
+							
+								<div class="box-body">
+							<button><a href = "#" onclick="play(event)" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg"> 
+
+								<path d="M8 5v14l11-7z" /> <path d="M0 0h24v24H0z" fill="none" /> </svg></a>
+								<script type="text/javascript" src="http://mediaplayer.yahoo.com/js"></script></button>
 							<!-- song info table -->
 							<table class="table">
 								<thead>

@@ -250,7 +250,7 @@
 			</div>
 		</div>
 	</div>
-<small>&lt;&lt;<a href="index.jsp">回前頁</a>&gt;&gt;</small>
+
 </body>
 </html>
 
