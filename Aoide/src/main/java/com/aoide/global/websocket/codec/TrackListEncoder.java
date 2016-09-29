@@ -1,5 +1,7 @@
 package com.aoide.global.websocket.codec;
 
+import java.util.List;
+
 import javax.websocket.EncodeException;
 import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
@@ -7,7 +9,7 @@ import javax.websocket.EndpointConfig;
 import com.aoide.global.dataBaseManipulationObjects.JsonConverter;
 import com.aoide.global.websocket.track.TrackVO;
 
-public class TrackVOEncoder implements Encoder.Text< TrackVO >
+public class TrackListEncoder implements Encoder.Text< List< TrackVO > > 
 {
 
 	@Override
@@ -17,19 +19,19 @@ public class TrackVOEncoder implements Encoder.Text< TrackVO >
 	}
 
 	@Override
-	public void init( EndpointConfig config ) 
+	public void init(EndpointConfig arg0) 
 	{
-	
+
 	}
 
 	@Override
-	public String encode( TrackVO vo ) throws EncodeException 
+	public String encode( List< TrackVO > list ) throws EncodeException 
 	{
 		try 
-		{
-			return "[CURRENT]" + JsonConverter.convertToJsonObject( vo ).toString();
+		{	
+			return "[ALL]" + JsonConverter.convertToJsonArray( list ).toString();
 		} 
-		catch ( Exception e) 
+		catch ( Exception e ) 
 		{
 			e.printStackTrace();
 		}

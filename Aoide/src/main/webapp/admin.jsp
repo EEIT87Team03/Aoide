@@ -115,7 +115,7 @@ var easy_fancybox_handler = function(){
 </a> </nav>
 <div class="logo">
 <div class="site-description">
-<h3 class="sitename sitetitle"><a href="" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-flash"></span></span></a></h3>
+<h3 class="sitename sitetitle"><a href="home2.jsp" target="aoide" title="回首頁"> A<span>O</span>IDE <span><span class="glyphicon glyphicon-flash"></span></span></a></h3>
 </div>
 </div>
 </div>

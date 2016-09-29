@@ -21,7 +21,7 @@
 
 							<h1>刪除成功!!</h1>
 							<hr>
-								<a href="<c:url value ='/EditBulletList'/>">回上一頁</a>
+								<a href="<c:url value ='/EditBulletList.manager'/>">回上一頁</a>
 							</p>
 						</div>
 					</div>

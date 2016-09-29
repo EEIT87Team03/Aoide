@@ -21,7 +21,7 @@ import javax.json.JsonWriter;
 import com.aoide.global.dataBaseManipulationObjects.ObjectPropertyBuilder;
 import com.aoide.global.dataBaseManipulationObjects.member.MemberVO;
 
-public class JsonConverter //no support array type
+public class JsonConverter
 {
 
 	public static JsonObject convertToJsonObject( Object vo ) 

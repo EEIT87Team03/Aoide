@@ -69,15 +69,17 @@ var easy_fancybox_handler = function(){
   <script src="/Aoide/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
   <style type="text/css">
 	#loginStateBox{
-		position: fixed;
-	    top: -50px;
-	    right: -10px;
+/* 		position: fixed; */
+/* 	    top: 20px; */
+/* 	    right: 20px; */
 	}
 	
 	#logoutBtn{
 	    width: 100px;
 	    height: 50px;
 	    display: none;
+    	margin-left: auto;
+    	margin-right: auto;
     }
 
 	.img-circle {
@@ -85,6 +87,9 @@ var easy_fancybox_handler = function(){
     	height: auto;
     	border: 3px solid #fff;
     	border-radius: 50%;
+    	display: block;
+    	margin-left: auto;
+    	margin-right: auto;
 	}
 	
 	#memberLoginHead{
@@ -110,23 +115,22 @@ var easy_fancybox_handler = function(){
 </div>
 <section class="wrapper-site">
 <div class="view x40-widget widget  " id="layers-widget-skrollex-section-3">
-<div data-src="/Aoide/views/dist/img/manage3.jpg" class="bg-holder"></div>
-<div data-src="/Aoide/views/dist/img/manage4.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/manage3.jpg" class="bg-holder"></div>
+<div data-src="views/dist/img/manage4.jpg" class="bg-holder"></div>
 <div id="home" class="fg colors-b  full-size">
 <div class="layout-boxed section-top">
-<!-- login state div -->
-<div id="loginStateBox">
-	<button id="logoutBtn" class="button heading-x background-x hover-light">LOGOUT</button>
-	<img class="img-circle" id = "memberLoginHead" src="data:image/*;base64,${member.picture}">
-</div>
-<!-- /.login state div -->
-<!-- login / register btn -->
 <!-- ======================== -->
 <!-- <p class="home-b-buttons"><a class="button heading-y background-y hover-light" href="/Aoide/views/global/_08_login.view/login.jsp" target="aoide">Login</a><a class="button heading-x background-x hover-light" href="/Aoide/views/global/_07_Register.view/register.jsp" target="aoide">Register</a></p> -->
 <p class="home-b-buttons">
 <!-- <a class="button heading-y background-y hover-light" href="/Aoide/views/global/_08_login.view/login.jsp" target="aoide">Login</a> -->
 <button id="loginBtn" class="button heading-y background-y hover-light" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">LOGIN</button>
 </p>
+
+<div id="loginStateBox">
+	<img class="img-circle" id = "memberLoginHead" src="data:image/*;base64,${member.picture}">
+	<br>
+	<button id="logoutBtn" class="button heading-x background-x hover-light">LOGOUT</button>
+</div>
 <!-- ======================== -->
 <!-- login form -->
 <div id="id02" class="modal">

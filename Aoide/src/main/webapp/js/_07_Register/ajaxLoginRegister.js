@@ -7,7 +7,7 @@ $(function() {
     if ( data.isLogin == "true") {
         $("#loginBtn").hide();
         $("#regstBtn").hide();
-        $("#logoutBtn").show();
+        $("#logoutBtn").css('display','block');
         $("#memberLoginHead").css('visibility', 'visible');
     }
   }) // end $.get()
@@ -44,7 +44,7 @@ $( "#loginForm" ).submit(function( event ) {
     		$("#loginBtn").hide();
     		$("#regstBtn").hide();
     		// display the logout button
-    		$("#logoutBtn").show();
+    		$("#logoutBtn").css('display','block');
     		$("#memberLoginHead").attr("src", data.pictureSource).css('visibility', 'visible');
     	}else{
     		alert("Please sign again");

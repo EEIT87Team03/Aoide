@@ -9,6 +9,7 @@
 <title>Aoide</title>
 <link rel="Shortcut Icon" type="image/x-icon" href="views/dist/img/AoideIcon.png" />
 <link rel="stylesheet" href="css/_02_PlaySong/audioSocket.css">		<!-- Byc -->
+<link rel="stylesheet" href="css/_02_PlaySong/playlist.css">		<!-- Byc -->
 <link rel="stylesheet" href="css/HoverableDropDown.css">
 <link rel="stylesheet" href="css/_05_DisplayDanmuku/barrager.css">
 <link rel="stylesheet" href="danmmu/css/bootstrap.min.css" media="screen" />
@@ -70,8 +71,8 @@ var easy_fancybox_handler = function(){
 /* ]]> */
 </script>
 </head>
-<body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k">
-	<div class="view full " id="layers-widget-skrollex-section-3">
+<body id="skrollex-body" class="home page page-id-26 page-template page-template-builder page-template-builder-php no-colors-label background-k" ondragover="allowDrop(event);" ondrop="onDrop(event);">
+	<div class="view full " id="layers-widget-skrollex-section-3"  >
 		<div data-src="views/dist/img/aoide2.jpg" class="bg-holder"></div>
 		<div data-src="views/dist/img/aoide3.jpg" class="bg-holder"></div>
 		<div data-src="views/dist/img/aoide4.jpg" class="bg-holder"></div>
@@ -137,7 +138,7 @@ var easy_fancybox_handler = function(){
 		<!-- missile launcher -->
 		<div id = "missileLauncher">
 			<div id = "warhead">
-				<span id = "destructor">×</span>
+				<span id = "destructor" class = "closebtn">×</span>
 				<button type="button" id = "fire"><h2>Missile Launcher</h2></button>
 			</div>
 			<div>
@@ -148,6 +149,16 @@ var easy_fancybox_handler = function(){
 			</div>		
 		</div>
 		<!-- missile launcher -->
+		<!-- playlist -->
+		<div id = "playlist" draggable="true">
+			<div id = "playlistHeader">
+				<span id = "closer" class = "closebtn">×</span>
+				<h2>Scheduling Playlist</h2>
+			</div>
+			<table id = "list"></table>
+			<h5 id = "playlistFooter">None</h5>
+		</div>
+		<!-- playlist -->
 	</div>
 <!-- 左 -->
 <div class="page-border  heading left colors-a main-navigation">
@@ -157,8 +168,9 @@ var easy_fancybox_handler = function(){
 		<li><a href= "PlayHistoryServlet" target="aoide"><span class="glyphicon glyphicon-time" title="播放紀錄"></span></a></li>　
 		<li><a href= "views/global/_04_PutSuggestion.view/enterSuggestion.jsp" target="aoide"><span class="glyphicon glyphicon-envelope" title="反應建議"></span></a></li>　　
 		<li><span><span class="glyphicon glyphicon-minus"></span></span></li>　　
+		<li><a href= "#"><span id = "launcher" class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>　
 		<li><a href= "#"><span id = "toggle" class = "glyphicon glyphicon-play-circle" title="開啟/關閉歌曲資訊"></span></a></li>　<!-- audio player toggle -->
-		<li><a href= "#"><span id = "launcher" class="glyphicon glyphicon-send" title="發送彈幕"></span></a></li>
+		<li><a href= "#"><span id = "playlistMenu" class = "glyphicon glyphicon-list-alt"></span></a></li>　
 	</ul>
 </div>
 <!-- 右 -->
@@ -234,8 +246,9 @@ Close
 </div>
 <script src="js/_05_DisplayDanmuku/jquery.barrager.js"></script>
 <script src="js/_05_DisplayDanmuku/danmukuWithWebSocket.jsp"></script>
-<script src="js/_05_DisplayDanmuku/missileLauncher.js"></script>
-<script src="js/_02_PlaySong/audioSocket.js"></script>							<!-- audio player javascript source-->			
+<script src="js/_05_DisplayDanmuku/missileLauncher.js"></script>			<!-- missile launcher javascript source-->
+<script src="js/_02_PlaySong/audioSocket.js"></script>						<!-- audio player javascript source-->	
+<script src="js/_02_PlaySong/playlist.js"></script>							<!-- audio player javascript source-->			
 <script src='http://skrollex-wp.x40.ru/anna/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
 <script>
 /* <![CDATA[ */
