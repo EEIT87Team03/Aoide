@@ -831,7 +831,7 @@ public class JdbcSongDAO implements SongDAO {
 	{
 		SongVO songVO = new SongVO();
 		songVO.setSongFile( "E:////" );
-		songVO.setName("ABCD");
+		songVO.setName("ABCDE");
 		
 		songVO.setMemberId( 1 );
 		songVO.setAlbumId(1);

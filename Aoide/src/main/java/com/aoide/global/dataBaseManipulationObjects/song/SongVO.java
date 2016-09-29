@@ -17,7 +17,7 @@ public class SongVO {
 	private String coverFile;
 	private String lyricsFile;
 	private Date updateDate;
-	private Timestamp lastclickDate;   
+	private Timestamp lastclickDate = new Timestamp(0);   
 	private Integer clicks;
 	private Integer favoriteCounts;
 	private Integer shares;

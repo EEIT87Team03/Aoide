@@ -39,7 +39,7 @@ $( "#loginForm" ).submit(function( event ) {
     	console.log(data);
 
     	if(data.loginState == "loginSuccess"){
-    		alert("welcome Aoide");
+    		// alert("welcome Aoide");
     		$("#id02").hide();
     		$("#loginBtn").hide();
     		$("#regstBtn").hide();
@@ -47,7 +47,7 @@ $( "#loginForm" ).submit(function( event ) {
     		$("#logoutBtn").css('display','block');
     		$("#memberLoginHead").attr("src", data.pictureSource).css('visibility', 'visible');
     	}else{
-    		alert("Please sign again");
+    		// alert("Please sign again");
     	}
     } );// end $.post()
 } ); // end submit()
@@ -76,11 +76,11 @@ $( "#regstForm" ).submit(function( event ) {
     var posting = $.post( url, { name: name,email: email, account: account, password: password }, function(data){
     	console.log("data: " + data);
     	if(data == "regstSuccess"){
-    		alert("Register Success");
+    		// alert("Register Success");
     		$("#id01").hide();
     		$("#regstBtn").remove();
     	}else{
-    		alert("Please register again");
+    		// alert("Please register again");
     	}
     } );// end $.post()
 } ); // end submit()
@@ -92,13 +92,13 @@ $( "#logoutBtn" ).click(function() {
     var posting = $.get( url, function(data){
     	console.log("data: " + data);
     	if(data == "logoutSuccess"){
-    		alert("Logout Success");
+    		// alert("Logout Success");
     		$("#logoutBtn").hide();
             $("#loginBtn").show();
             $("#regstBtn").show();
             $("#memberLoginHead").css('visibility', 'hidden');
     	}else{
-    		alert("Please Logout again");
+    		// alert("Please Logout again");
     	}
     } );// end $.post()
 
