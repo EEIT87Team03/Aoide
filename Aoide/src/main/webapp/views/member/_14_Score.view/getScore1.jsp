@@ -250,8 +250,7 @@
 			</div>
 		</div>
 	</div>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57ea63172c50a682"></script>
+<small>&lt;&lt;<a href="index.jsp">回前頁</a>&gt;&gt;</small>
 </body>
 </html>
 
