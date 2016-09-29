@@ -235,6 +235,7 @@ function control()
 	{
 		stop();
 		resetChart()
+		clearArrayList();
 	}
 }
 
@@ -249,6 +250,19 @@ function trackInfoReset( status )
 	progressBar.value = 0;
 }
 
+function clearArrayList()
+{
+	var rows = arrayList.rows.length;
+	
+	if ( rows > 0 )
+	{
+		for ( var i = 0; i < rows; i++ )
+		{
+			arrayList.deleteRow( 0 );
+		}
+	}
+	playlistFooter.innerHTML = "None";
+}
 function onToggle( event )
 {
 
