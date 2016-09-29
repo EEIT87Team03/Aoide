@@ -13,8 +13,8 @@ public class JdbcMemberDAO implements MemberDAO
 {
 	private static final String INSERT_STMT = 
 			"INSERT INTO member "
-			+ "( [account], [password], [name], [email], [introduction_file_path], [bank_info], [picture] ) " 
-			+ "VALUES ( ?, ?, ?, ?, ?, ?, ? )";
+			+ "( [account], [password], [name], [email], [introduction_file_path], [bank_info] ) " 
+			+ "VALUES ( ?, ?, ?, ?, ?, ? )";
 		
 	private static final String UPDATE_STMT = 
 			"UPDATE member SET "
