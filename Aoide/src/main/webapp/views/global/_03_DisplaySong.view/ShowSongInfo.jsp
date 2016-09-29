@@ -11,7 +11,9 @@
 </head>
 <body>
 
+
 <script type="text/javascript">
+
 
 
 function play( event )
@@ -24,15 +26,24 @@ function play( event )
 	 	{ 
 			if ( this.status == 200 ) 
 			{
+
 // 				alert( this.responseText );
+
+				console.log( this.responseText );
+
 			}
 			
 			
 			
 			
 		};
-		xhr.open( "get", "/Aoide/BuildPlaylist?songId="+ '${songVO.songId}',false);
-		xhr.send();
+
+// 		xhr.open( "get", "/Aoide/BuildPlaylist?songId="+ '${songVO.songId}',false);
+// 		xhr.send();
+
+
+	xhr.open( "get", "/Aoide/BuildPlaylist?songId=" + '${songVO.songId}', true );
+	xhr.send();
 
 } 
 
