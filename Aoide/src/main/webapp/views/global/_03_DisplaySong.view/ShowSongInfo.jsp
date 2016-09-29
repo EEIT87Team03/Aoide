@@ -24,13 +24,9 @@ function play( event )
 			{
 				alert( this.responseText );
 			}
-			else
-			{
-				
-	
-			}
+			
 		};
-	xhr.open( "get", "/Aoide/BuildPlaylist?songId=" + ${songVO.songId}, false);
+	xhr.open( "get", "/Aoide/BuildPlaylist?songId=" + ${songVO.songId}, false );
 	xhr.send();
 } 
 </script>		
