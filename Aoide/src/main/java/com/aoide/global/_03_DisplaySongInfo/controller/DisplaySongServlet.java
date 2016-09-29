@@ -71,17 +71,16 @@ public class DisplaySongServlet extends HttpServlet {
 
 	
 		  
-			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/views/global/_03_DisplaySong.view/ShowSongInfo.jsp");
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath + "/views/global/_03_DisplaySong.view/ShowSongInfo.jsp");
 
-		}
+	}
 			
 		
 		
 		
 
 	@Override
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
