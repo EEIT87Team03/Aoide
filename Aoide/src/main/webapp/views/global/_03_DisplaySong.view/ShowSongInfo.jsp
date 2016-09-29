@@ -25,7 +25,7 @@ function play( event )
 			}
 			
 		};
-	xhr.open( "get", "/Aoide/BuildPlaylist?songId=" + ${songVO.songId}, false );
+	xhr.open( "get", "/Aoide/BuildPlaylist?songId=" + ${songVO.songId}, true );
 	xhr.send();
 } 
 </script>		

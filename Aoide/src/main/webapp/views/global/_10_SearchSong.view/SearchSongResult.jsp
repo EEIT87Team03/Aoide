@@ -94,7 +94,7 @@ function play( event )
 			}
 			
 		};
-	xhr.open( "get", "/Aoide/BuildPlaylist?songId=" + event.target.id, false );
+	xhr.open( "get", "/Aoide/BuildPlaylist?songId=" + event.target.id, true );
 	xhr.send();
 } 
 </script>		
