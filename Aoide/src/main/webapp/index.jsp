@@ -116,7 +116,9 @@ var easy_fancybox_handler = function(){
 		<a href="home.jsp" target="aoide" title="回首頁"><span><span class="glyphicon glyphicon-home"></span></span></a>
 		<!-- audio player -->
 		<div id = "playbar" oncontextmenu = "window.event.returnValue = false">
-			<img src = "/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
+			<a id = "coverInfo" href = "#" target="aoide">
+				<img src = "/Aoide/files/song_cover_files/default.jpg" id = "cover" alt="cover" width = "50" height = "50">
+			</a>
 			<div id = "info">
 				<h5 id = "tip"></h5>
 				<span id = "trackName"></span>

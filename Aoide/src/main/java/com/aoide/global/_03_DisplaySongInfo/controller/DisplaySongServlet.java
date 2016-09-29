@@ -71,10 +71,10 @@ public class DisplaySongServlet extends HttpServlet {
 
 	
 		  
-			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/views/global/_03_DisplaySong.view/ShowSongInfo.jsp");
+		String contextPath = request.getContextPath();
+		response.sendRedirect(contextPath + "/views/global/_03_DisplaySong.view/ShowSongInfo.jsp");
 
-		}
+	}
 			
 		
 		

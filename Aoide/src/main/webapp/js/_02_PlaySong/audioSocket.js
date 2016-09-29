@@ -1,6 +1,7 @@
 /**
  * websocket and web audio api
  */
+var coverInfo = document.getElementById( "coverInfo" );
 var cover = document.getElementById( "cover" );
 var audio = document.getElementById( "track" );
 var trackName = document.getElementById( "trackName" );
@@ -121,6 +122,7 @@ function onMessage( event )
 		{
 			var track = JSON.parse( message.split( "[CURRENT]" )[ 1 ] );
 			cover.src = track.coverFile;
+			coverInfo.href = "DisplaySongServlet?id=" + track.songId;
 			trackName.innerHTML = track.name + " - "; 
 			singer.innerHTML = track.singer;
 			audio.src = track.songFile;
@@ -253,6 +255,7 @@ function trackInfoReset( status )
 	trackName.innerHTML = ""; 
 	singer.innerHTML = "";
 	cover.src = "/Aoide/files/song_cover_files/default.jpg";
+	coverInfo.href = "#"; 
 	playTime.innerHTML = "00:00 / 00:00"
 	progressBar.value = 0;
 }

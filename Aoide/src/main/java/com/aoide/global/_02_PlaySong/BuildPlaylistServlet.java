@@ -61,7 +61,7 @@ public class BuildPlaylistServlet extends HttpServlet
 
 	private boolean canPlay( TrackVO vo )
 	{	
-		int cooldown = 0 * 60 * 1000;
+		int cooldown = 1 * 60 * 1000;
 		long current = System.currentTimeMillis();
 		long lastClick = vo.getLastclickDate().getTime();
 		
