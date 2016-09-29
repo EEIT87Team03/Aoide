@@ -154,7 +154,7 @@
 															</form></td>
 
                                                      <form>
- 														<g:plusone href='http://localhost:8080/Aoide/DisplaySongServlet?=?id=${song.songId}' src="http://tomcat.apache.org/images/tomcat.png"></g:plusone>
+ 														<g:plusone href='http://www.aoide.ch/' src="http://tomcat.apache.org/images/tomcat.png"></g:plusone>
                                                                                        
 													</tr></form>
 												</c:forEach>
