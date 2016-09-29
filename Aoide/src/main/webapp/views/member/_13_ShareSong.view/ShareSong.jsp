@@ -164,7 +164,7 @@
 
 										<br>
 									</div>
-					
+					<a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" class="btn">back</a>
 				<!-- ========================================= -->
 			</div>
 			<div class="col-xs-6 col-md-3"></div>

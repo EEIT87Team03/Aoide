@@ -44,7 +44,7 @@
 									<tr>
 										<td><% out.print(i = i + 1); %></td>
 										<td><u><a href="<c:url value='/BuildPlaylistServlet?id=${aSong.songId}'/>">點歌</a></u></td>
-										<td><u><a href="<c:url value='/GetSongInfo?id=${aSong.songId}'/>">${aSong.name}</a></u></td>
+										<td><u><a href="<c:url value='/DisplaySongServlet?id=${aSong.songId}'/>">${aSong.name}</a></u></td>
 										<td>${aSong.singer}</td>
 										<td>${aSong.songType}</td>
 										<td>${aSong.songLanguage}</td>
@@ -53,6 +53,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						<a  class="btn" href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp">back</a>
 				        <!-- /.table -->
 				       </div>
 				        <!-- /.box-body -->

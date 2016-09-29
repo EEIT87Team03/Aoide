@@ -9,7 +9,7 @@
 <!-- head-library  -->
 <c:import url="/TestHTML/head_library.html"/>
 
-<script src="//cdn.ckeditor.com/4.5.10/basic/ckeditor.js"></script>
+<script src="/Aoide/template/plugins/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<div class="container-fluid">

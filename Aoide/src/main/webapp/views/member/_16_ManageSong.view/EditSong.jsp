@@ -40,17 +40,16 @@
 							<label>上傳封面圖片：</label><input type="file" name="coverFile">${errorMsg.emptyPartMsg}
 							<hr>
 								<label>歌名：</label><input type="text" name="name" placeholder="${song.name}"
-									value="${enteredText.name}">　${errorMsg.emptyNameMsg}
+									value="${song.name}">　${errorMsg.emptyNameMsg}
 							<hr>
 								<label>演出者：</label><input type="text" name="singer"
-									placeholder="${song.singer}" value="${enteredText.singer}">　${errorMsg.emptySingerMsg}
+									value="${song.singer}">　${errorMsg.emptySingerMsg}
 							<hr>
 								<label>類型：</label><input type="text" name="songType"
-									placeholder="${song.songType}" value="${enteredText.songType}">
+									 value="${song.songType}">
 							<hr>
 								<label>語言：</label><input type="text" name="songLanguage"
-									placeholder="${song.songLanguage}"
-									value="${enteredText.songLanguage}">
+									value="${song.songLanguage}">
 							<hr>
 								<label>歌曲簡介：</label>
 								<textarea name="introductionFile" id="introductionFile">${song.introductionFile}${enteredText.introductionFile}</textarea>

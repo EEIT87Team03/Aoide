@@ -127,7 +127,7 @@ var easy_fancybox_handler = function(){
 </p>
 
 <div id="loginStateBox">
-	<img class="img-circle" id = "memberLoginHead" src="data:image/*;base64,${member.picture}">
+<%-- 	<img class="img-circle" id = "memberLoginHead" src="data:image/*;base64,${member.picture}"> --%>
 	<br>
 	<button id="logoutBtn" class="button heading-x background-x hover-light">LOGOUT</button>
 </div>

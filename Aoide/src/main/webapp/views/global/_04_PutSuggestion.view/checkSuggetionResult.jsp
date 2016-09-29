@@ -16,8 +16,6 @@
 			<div class="col-xs-6 col-md-6" id="middleContent">
             <!-- ========================================= -->
 			
-			<input type="submit" class="btn" value="Submit">
-			
 			<!-- Main content -->
 		    <section class="content">
 			   <div class="box">
@@ -26,7 +24,7 @@
 	            </div>
 	            <!-- /.box-header -->
 	            <div class="box-body">
-	              <label>Suggestion</label>
+	              <label>您的建議:</label>
 	              <div class="box-body-content">
 	              	${suggestion.suggestionContentFile}
 	              </div>

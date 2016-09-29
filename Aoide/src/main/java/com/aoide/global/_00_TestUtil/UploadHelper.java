@@ -72,6 +72,7 @@ public class UploadHelper {
 			
 			MP3File f = (MP3File)AudioFileIO.read(file);
 			MP3AudioHeader audioHeader = (MP3AudioHeader)f.getAudioHeader();
+			System.out.println( "Length : " + audioHeader.getTrackLength());
 			return audioHeader.getTrackLength();	
 		} catch(Exception e) {
 			return -1;

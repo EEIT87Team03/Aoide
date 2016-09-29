@@ -60,9 +60,9 @@ public class DisplaySongServlet extends HttpServlet {
 		request.getSession().setAttribute("songVO", songVOinfo);
 		
        
-		ScoreVO value = new ScoreService().calculatorAVG(songId);
+//		ScoreVO value = new ScoreService().calculatorAVG(songId);
 		
-		request.getSession().setAttribute("value", value);
+//		request.getSession().setAttribute("value", value);
 		
 		
 		

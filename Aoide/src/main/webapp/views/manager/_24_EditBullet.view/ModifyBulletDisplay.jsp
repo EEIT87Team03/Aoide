@@ -21,14 +21,15 @@
 
 							<p>公告編號 : ${bulletVO.bulletId}</p>
 							<hr><p>公告日期：${bulletVO.date}</p>
-							<hr>公告標題：<p>${bulletVO.title}</p>
+							<hr>公告標題：<p>${bulletVO.contentFile}</p>
 							<hr>
 							<label>公告內容</label>
 							<div class="box-body-content">
-								${bulletVO.contentFile}
+							${bulletVO.title}
+								
 							</div>
 							<hr>
-								<a href="<c:url value ='/EditBulletList'/>">回上一頁</a>
+								<a href="<c:url value ='/EditBulletList.manager'/>">回上一頁</a>
 						</div>
 					</div>
 				</div>

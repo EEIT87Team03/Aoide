@@ -54,9 +54,9 @@ body {font-family: Verdana,sans-serif;}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 4.5s;
+  -webkit-animation-duration: 2.5s;
   animation-name: fade;
-  animation-duration: 4.5s;
+  animation-duration: 2.5s;
 }
 @-webkit-keyframes fade {
   from {opacity: .4}
@@ -102,17 +102,23 @@ body {font-family: Verdana,sans-serif;}
 <div class="slideshow-container" >
 
 <div class="mySlides fade">
-  <img alt=""src="/Aoide/files/song_cover_files/Songid01.jpg" width="300" height="300">
+	<a href="<c:url value='/DisplaySongServlet?id=1'/>">
+  		<img alt=""src="/Aoide/files/song_cover_files/Songid1.jpg" width="300" height="300">
+  	</a>
   <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
-  <img alt=""src="/Aoide/files/song_cover_files/Songid02.jpg" width="300" height="300">
+	<a href="<c:url value='/DisplaySongServlet?id=38'/>">
+  		<img alt=""src="/Aoide/files/song_cover_files/Songid38.jpg" width="300" height="300">
+    </a>
   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
-  <img alt=""src="/Aoide/files/song_cover_files/Songid03.jpg" width="300" height="300">
+	<a href="<c:url value='/DisplaySongServlet?id=48'/>">
+  		<img alt=""src="/Aoide/files/song_cover_files/Songid48.jpg" width="300" height="300">
+    </a>
   <div class="text">Caption Three</div>
 </div>
 
@@ -123,6 +129,7 @@ body {font-family: Verdana,sans-serif;}
   <span class="dot"></span>
   <span class="dot"></span>
   <span class="dot"></span>
+</div>
 </div>
 </center>
             <!-- ========================================= -->
@@ -151,7 +158,7 @@ function showSlides() {
     }
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 5000); // Change image every 2 seconds
+    setTimeout(showSlides, 3000); // Change image every 2 seconds
 }
 </script>
 </body>
