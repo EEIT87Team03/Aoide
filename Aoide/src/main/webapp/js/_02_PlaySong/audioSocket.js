@@ -1,7 +1,6 @@
 /**
  * websocket and web audio api
  */
-var asUri = "ws://localhost:8080/Aoide/play";
 var cover = document.getElementById( "cover" );
 var audio = document.getElementById( "track" );
 var trackName = document.getElementById( "trackName" );
@@ -18,7 +17,7 @@ var controlIcon = document.getElementById( "controlIcon" );
 
 var arrayList = document.getElementById( "list" );				  //playlist component
 var playlistFooter = document.getElementById( "playlistFooter" ); //playlist component
-
+var asUri;
 var playbarVisible;
 var aoideVolume;
 var drawChartTimerID;
@@ -45,6 +44,8 @@ function initial()
 		var divChild = document.createElement( "div" );
 		chart.appendChild( divChild );
 	}
+	
+	asUri = createWebSocketUrl( "/Aoide/play" );
 	
 	window.AudioContext = window.AudioContext || window.webkitAudioContext;
 	audioContext = new AudioContext();
@@ -84,8 +85,14 @@ function initial()
 	
 }
 
-function audioSocketInitialize()
+function createWebSocketUrl( s ) 
 {
+    var loc = window.location;
+    return ( ( loc.protocol === "https:") ? "wss://" : "ws://" ) + loc.host + s;
+}
+
+function audioSocketInitialize()
+{	
 	audioSocket = new WebSocket( asUri );
 	audioSocket.onopen = onOpen;
 	audioSocket.onmessage = onMessage;
