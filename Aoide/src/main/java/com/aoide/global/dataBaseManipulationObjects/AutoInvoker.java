@@ -45,7 +45,7 @@ public class AutoInvoker
 			System.out.println( "propertyCount = " + propertyCount );
 			
 			for( int i = 0; i < propertyCount; i++ )
-			{	
+			{	System.out.println("get" + propertyNames.get( i ));
 				Method voGetter = voClass.getMethod( "get" + propertyNames.get( i ) );
 				System.out.println( "vo." + voGetter.getName() + "() = " + voGetter.invoke( vo ) );
 				

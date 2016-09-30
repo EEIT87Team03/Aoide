@@ -127,34 +127,34 @@ public class SongVO {
 	public void setLastclickDate(Timestamp lastclickDate) {
 		this.lastclickDate = lastclickDate;
 	}
-	public int getClicks() {
+	public Integer getClicks() {
 		return clicks;
 	}
-	public void setClicks(int clicks) {
+	public void setClicks(Integer clicks) {
 		this.clicks = clicks;
 	}		   
 	public Integer getFavoriteCounts() {
 		return favoriteCounts;
 	}
-	public void setFavoriteCounts(int favoriteCounts) {
+	public void setFavoriteCounts(Integer favoriteCounts) {
 		this.favoriteCounts = favoriteCounts;
 	}
 	public Integer getShares() {
 		return shares;
 	}
-	public void setShares(int shares) {
+	public void setShares(Integer shares) {
 		this.shares = shares;
 	}
 	public Double getScore() {
 		return score;
 	}
-	public void setScore(double score) {
+	public void setScore(Double score) {
 		this.score = score;
 	}
 	public Integer getLength() {
 		return length;
 	}
-	public void setLength(int length) {
+	public void setLength(Integer length) {
 		this.length = length;
 	}
 	public String getSinger() {
