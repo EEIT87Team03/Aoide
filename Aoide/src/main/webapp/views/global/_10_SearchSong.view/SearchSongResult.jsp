@@ -43,7 +43,7 @@
 								<c:forEach var="result" items="${searchList}">
 									<tr>
 										<td><% out.print(i = i + 1); %></td>
-										<td><u><a href="<c:url value='/BuildPlaylist?songId=${result.songId}'/>">點歌</a></u></td>
+										<td><u><a id = "${result.songId}" href="#" onclick="play(event)">點歌</a></u></td>
 										<!-- <td><a href="<c:url value='/ShowSongInfo?id=${result.songId}'/>">${result.name}</a></td> -->
 										<td><u><a href="<c:url value='/DisplaySongServlet?id=${result.songId}'/>">${result.name}</a></u></td>
 										<td>${result.singer}</td>
@@ -79,5 +79,24 @@
     
 <!-- body-library  -->
 <c:import url="/TestHTML/body_library.html"/>
+<script>
+function play( event )
+{ 		  
+	event.preventDefault();
+	xhr = new XMLHttpRequest();
+
+	xhr.onload = 
+		function() 
+	 	{ 
+			if ( this.status == 200 ) 
+			{
+				console.log( this.responseText );
+			}
+			
+		};
+	xhr.open( "get", "/Aoide/BuildPlaylist?songId=" + event.target.id, true );
+	xhr.send();
+} 
+</script>		
 </body>
 </html>

@@ -55,11 +55,11 @@
 												//img.onload = function(){ window.URL.revokeObjectURL( img.src ) }
 												//img.style.height = img.style.width = "300px";
 												//document.body.appendChild( img );
-												alert( "Upload Success" );
+												displayProgressSpan.innerHTML = "Upload Success";
 											}
 											else
 											{
-												alert( "Upload Fail" );
+												displayProgressSpan.innerHTML = "Upload Fail";
 											}
 										 };
 						    xhr.open( "POST", "/Aoide/UploadImage" );
@@ -77,6 +77,6 @@
 		if ( event.lengthComputable )
 	    {
 			var progress = Math.round( event.loaded / event.total * 100 );
-			displayProgressSpan.innerHTML = " Progress " + progress + "%";
+			displayProgressSpan.innerHTML = progress + "%";
 	    }
 	}

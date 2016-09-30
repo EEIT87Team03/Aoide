@@ -10,11 +10,11 @@ import java.util.List;
 import com.aoide.global.dataBaseManipulationObjects.AutoInvoker;
 
 public class JdbcMemberDAO implements MemberDAO 
-{  //  [picture]
+{  
 	private static final String INSERT_STMT = 
 			"INSERT INTO member "
 			+ "( [account], [password], [name], [email], [introduction_file_path], [bank_info] ) " 
-			+ "VALUES ( ?, ?, ?, ?, ?, ?)";
+			+ "VALUES ( ?, ?, ?, ?, ?, ? )";
 		
 	private static final String UPDATE_STMT = 
 			"UPDATE member SET "

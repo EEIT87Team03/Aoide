@@ -21,7 +21,7 @@
 
 <%-- <link rel="canonical" href="<c:url value='/DisplaySongServlet?id=${result.songId}'/>" /> --%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>share Song</title>
+<title>分享吧~</title>
 
    <!-- You can use Open Graph tags to customize link previews.
     Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
@@ -112,8 +112,8 @@
 												<th>SongId</th>
 												<th>SongName</th>
 
-												<th>ShareLink</th>
-												<th>Share</th>
+<!-- 												<th>ShareLink</th> -->
+<!-- 												<th>Share</th> -->
 <!-- 												<th>Google+ Share</th> -->
 
 
@@ -142,9 +142,10 @@
 
 														<td><form>
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox_8lsh"></div>
 
-
-<div class="fb-share-button" data-href="<c:url value='Aoide/ShareServlet.member?id=${song.songId}'/>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2FAoide%2Findex.jsp&amp;src=sdkpreparse">分享</a></div>
+<%-- <div class="fb-share-button" data-href="<c:url value='Aoide/ShareServlet.member?id=${song.songId}'/>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2FAoide%2Findex.jsp&amp;src=sdkpreparse">分享</a></div> --%>
 
 <!-- 																<a id="otherid"  -->
 <%-- 																	src='${song.coverFile}' --%>
@@ -153,10 +154,10 @@
 																
 															</form></td>
 
-                                                     <form>
- 														<g:plusone href='http://www.aoide.ch/' src="http://tomcat.apache.org/images/tomcat.png"></g:plusone>
+<!--                                                      <form> -->
+<!--  														<g:plusone href='http://www.aoide.ch/' src="http://tomcat.apache.org/images/tomcat.png"></g:plusone> -->
                                                                                        
-													</tr></form>
+<!-- 													</tr></form> -->
 												</c:forEach>
 											</tbody>
 
@@ -173,6 +174,7 @@
 
 	<!-- body-library  -->
 	<c:import url="/TestHTML/body_library.html" />
-
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57ea63172c50a682"></script>
 </body>
 </html>
