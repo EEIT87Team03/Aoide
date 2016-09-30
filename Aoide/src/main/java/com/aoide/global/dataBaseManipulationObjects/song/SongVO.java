@@ -132,26 +132,26 @@ public class SongVO {
 	}
 	public void setClicks(int clicks) {
 		this.clicks = clicks;
-	}
-	public int getFavoriteCounts() {
+	}		   
+	public Integer getFavoriteCounts() {
 		return favoriteCounts;
 	}
 	public void setFavoriteCounts(int favoriteCounts) {
 		this.favoriteCounts = favoriteCounts;
 	}
-	public int getShares() {
+	public Integer getShares() {
 		return shares;
 	}
 	public void setShares(int shares) {
 		this.shares = shares;
 	}
-	public double getScore() {
+	public Double getScore() {
 		return score;
 	}
 	public void setScore(double score) {
 		this.score = score;
 	}
-	public int getLength() {
+	public Integer getLength() {
 		return length;
 	}
 	public void setLength(int length) {

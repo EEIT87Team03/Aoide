@@ -792,18 +792,19 @@ public class JdbcSongDAO implements SongDAO {
 
 	public static void main(String[] args) 
 	{
-//		SongVO songVO = new SongVO();
-//		songVO.setSongFile( "E:////" );
-//		songVO.setName("ABCDE");
-//		
-//		songVO.setMemberId( 1 );
-//		songVO.setAlbumId(1);
-//		songVO.setClicks( 20 );
-//		songVO.setLength(240);
-//		songVO.setSinger("12345");
-//		SongDAO dao = new JdbcSongDAO();
-//		System.out.println(dao.insert(songVO));
-//		System.out.println(dao.update(songVO));
+		SongVO songVO = new SongVO();
+		songVO.setSongId( 50 );
+		songVO.setSongFile( "E:////" );
+		songVO.setName("ABCDE");
+		
+		songVO.setMemberId( 1 );
+		songVO.setAlbumId(1);
+		songVO.setClicks( 20 );
+		songVO.setLength(240);
+		songVO.setSinger("12345");
+		SongDAO dao = new JdbcSongDAO();
+		System.out.println(dao.insert(songVO));
+		System.out.println(dao.update(songVO));
 		
 		System.out.println(UPDATE_STMT);
 	}
