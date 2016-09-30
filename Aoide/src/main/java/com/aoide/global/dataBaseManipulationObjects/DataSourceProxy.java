@@ -46,10 +46,10 @@ public class DataSourceProxy
 				exceptions.addSuppressed( ex );
 			}
 			
-			for ( Throwable t : exceptions.getSuppressed() )
-			{
-				t.printStackTrace();
-			}
+//			for ( Throwable t : exceptions.getSuppressed() )
+//			{
+//				t.printStackTrace();
+//			}
 		}
 		
 		return conn;

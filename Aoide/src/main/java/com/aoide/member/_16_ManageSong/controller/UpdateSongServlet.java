@@ -48,23 +48,23 @@ public class UpdateSongServlet extends HttpServlet {
 		String contextPath = request.getContextPath();
 		
 		final Part part = request.getPart("coverFile");
-		if(Validator.isEmptyPart(part)){
-			
-		}else{
-			if(!Validator.isImage(part)){
-				errorMsg.put("emptyPartMsg", "*只能上傳圖片檔案");
-			}else{
-				if(!Validator.isPartOverSize(part, 5242880)){
-					errorMsg.put("emptyPartMsg", "*圖片檔案上傳請勿超過5MB");
-				}else{
+//		if(Validator.isEmptyPart(part)){
+//			
+//		}else{
+//			if(!Validator.isImage(part)){
+//				errorMsg.put("emptyPartMsg", "*只能上傳圖片檔案");
+//			}else{
+//				if(!Validator.isPartOverSize(part, 5242880)){
+//					errorMsg.put("emptyPartMsg", "*圖片檔案上傳請勿超過5MB");
+//				}else{
 //					final String coverFilename = getFileName(part).trim();
 //					int index = coverFilename.lastIndexOf('.');
 //					String fileNameExtension = coverFilename.substring(index); // get .jpg
-					fileNameExtension = UploadHelper.getFileExtention(part);
-					System.out.println("圖檔：" + fileNameExtension);
-				}
-			}
-		}
+//					fileNameExtension = UploadHelper.getFileExtention(part);
+//					System.out.println("圖檔：" + fileNameExtension);
+//				}
+//			}
+//		}
 				
 //		OutputStream outputStream = null;
 //		InputStream inputStream = null;
