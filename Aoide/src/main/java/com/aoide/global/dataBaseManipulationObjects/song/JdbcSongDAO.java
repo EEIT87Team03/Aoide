@@ -22,24 +22,24 @@ public class JdbcSongDAO implements SongDAO {
 	
 	private static final String UPDATE_STMT = new StringBuffer().append("UPDATE song ")
 																.append("SET ")
-																.append("song_file = ?,")
-																.append("name = ?,")
-																.append("song_type = ?,")
-																.append("song_language = ?,")
-																.append("member_id = ?,")
-																.append("album_id = ?,")
-																.append("introduction_file = ?,")
-																.append("cover_file = ?,")
-																.append("lyrics_file = ?,")
-																.append("update_date = ?,")
-																.append("lastclick_date = ?,")
-																.append("clicks = ?,")
-																.append("favorite_counts = ?,")
-																.append("shares = ?,")
-																.append("score = ?,")
-																.append("length = ?,")
-																.append("singer = ? ")
-																.append("WHERE song_id = ?")
+																.append("[song_file] = ?, ")
+																.append("[name] = ?, ")
+																.append("[song_type] = ?, ")
+																.append("[song_language] = ?, ")
+																.append("[member_id] = ?, ")
+																.append("[album_id] = ?, ")
+																.append("[introduction_file] = ?, ")
+																.append("[cover_file] = ?, ")
+																.append("[lyrics_file] = ?, ")
+																.append("[update_date] = ?, ")
+																.append("[lastclick_date] = ?, ")
+																.append("[clicks] = ?, ")
+																.append("[favorite_counts] = ?, ")
+																.append("[shares] = ?, ")
+																.append("[score] = ?, ")
+																.append("[length] = ?, ")
+																.append("[singer] = ? ")
+																.append("WHERE [song_id] = ?")
 																.toString();
 
 	private static final String DELETE_STMT = "DELETE FROM song WHERE song_id = ?";
@@ -240,55 +240,18 @@ public class JdbcSongDAO implements SongDAO {
 	}
 
 	@Override
-	public int update(SongVO songVO) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
+	public int update( SongVO vo ) 
+	{
 		int updateCount = 0;
-		try {
-
-			con = ConnectionBean.getConnection();
-			pstmt = con.prepareStatement(UPDATE_STMT);
-
-			pstmt.setString(1, songVO.getSongFile());
-			pstmt.setString(2, songVO.getName());
-			pstmt.setString(3, songVO.getSongType());
-			pstmt.setString(4, songVO.getSongLanguage());
-			pstmt.setInt(5, songVO.getMemberId());
-			pstmt.setInt(6, songVO.getAlbumId());
-			pstmt.setString(7, songVO.getIntroductionFile());
-			pstmt.setString(8, songVO.getCoverFile());
-			pstmt.setString(9, songVO.getLyricsFile());
-			pstmt.setDate(10, songVO.getUpdateDate());
-			pstmt.setTimestamp(11, songVO.getLastclickDate());
-			pstmt.setInt(12, songVO.getClicks());
-			pstmt.setInt(13, songVO.getFavoriteCounts());
-			pstmt.setInt(14, songVO.getShares());
-			pstmt.setDouble(15, songVO.getScore());
-			pstmt.setInt(16, songVO.getLength());
-			pstmt.setString(17, songVO.getSinger());
-			pstmt.setInt(18, songVO.getSongId());
-
+		
+		try( Connection conn = DataSourceProxy.getConnection();
+			 PreparedStatement pstmt = AutoInvoker.invoke( conn, UPDATE_STMT, vo ) )
+		{
 			updateCount = pstmt.executeUpdate();
-
-			// Handle any SQL errors
-		} catch (SQLException se) {
-			throw new RuntimeException("A database error occured. " + se.getMessage());
-			// Clean up JDBC resources
-		} finally {
-			if (pstmt != null) {
-				try {
-					pstmt.close();
-				} catch (SQLException se) {
-					se.printStackTrace(System.err);
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (Exception e) {
-					e.printStackTrace(System.err);
-				}
-			}
+		}
+		catch( Exception e )
+		{
+			e.printStackTrace();
 		}
 		return updateCount;
 	}
@@ -829,17 +792,20 @@ public class JdbcSongDAO implements SongDAO {
 
 	public static void main(String[] args) 
 	{
-		SongVO songVO = new SongVO();
-		songVO.setSongFile( "E:////" );
-		songVO.setName("ABCDE");
+//		SongVO songVO = new SongVO();
+//		songVO.setSongFile( "E:////" );
+//		songVO.setName("ABCDE");
+//		
+//		songVO.setMemberId( 1 );
+//		songVO.setAlbumId(1);
+//		songVO.setClicks( 20 );
+//		songVO.setLength(240);
+//		songVO.setSinger("12345");
+//		SongDAO dao = new JdbcSongDAO();
+//		System.out.println(dao.insert(songVO));
+//		System.out.println(dao.update(songVO));
 		
-		songVO.setMemberId( 1 );
-		songVO.setAlbumId(1);
-		
-		songVO.setLength(240);
-		songVO.setSinger("12345");
-		SongDAO dao = new JdbcSongDAO();
-		System.out.println(dao.insert(songVO));
+		System.out.println(UPDATE_STMT);
 	}
 
 }

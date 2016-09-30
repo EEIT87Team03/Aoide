@@ -56,15 +56,15 @@ public class ScoreService {
 	}// end getUnreplySuggestions()
 
 	
-	public ScoreVO calculatorAVG(int songId) {
-		
-		ScoreVO avg = scoreDAO.findByPrimaryKey(songId);
-		avg.getScoreValue().equals(avg);
- 
-		return scoreDAO.calculatorAVG(songId);
-
-
-	}
+//	public ScoreVO calculatorAVG(int songId) {
+//		
+//		ScoreVO avg = scoreDAO.findByPrimaryKey(songId);
+//		avg.getScoreValue().equals(avg);
+// 
+//		return scoreDAO.calculatorAVG(songId);
+//
+//
+//	}
 	
 
 	

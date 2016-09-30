@@ -47,42 +47,42 @@ public class UploadSongServlet extends HttpServlet {
 		Integer memberId = member.getMemberId();
 
 		final Part part = request.getPart("songFile");
-		if(Validator.isEmptyPart(part)){
-			errorMsg.put("emptyPartMsg", "*請選擇歌曲");
-		}else{
-			if(!Validator.isAudio(part)){
-				errorMsg.put("emptyPartMsg", "*只能上傳音樂檔案");
-			}else{
-				if(!Validator.isPartOverSize(part, 26214400)){
-					errorMsg.put("emptyPartMsg", "*音樂檔案上傳請勿超過25MB");
-				}else{
-					//final String songFilename = getFileName(part).trim();
-					//int index = songFilename.lastIndexOf('.');
-					//String fileNameExtension = songFilename.substring(index); // get .mp3
-					fileNameExtension = UploadHelper.getFileExtention(part);
-					System.out.println("音檔：" + fileNameExtension);
-				}
-			}
-		}
+//		if(Validator.isEmptyPart(part)){
+//			errorMsg.put("emptyPartMsg", "*請選擇歌曲");
+//		}else{
+//			if(!Validator.isAudio(part)){
+//				errorMsg.put("emptyPartMsg", "*只能上傳音樂檔案");
+//			}else{
+//				if(!Validator.isPartOverSize(part, 26214400)){
+//					errorMsg.put("emptyPartMsg", "*音樂檔案上傳請勿超過25MB");
+//				}else{
+//					//final String songFilename = getFileName(part).trim();
+//					//int index = songFilename.lastIndexOf('.');
+//					//String fileNameExtension = songFilename.substring(index); // get .mp3
+//					fileNameExtension = UploadHelper.getFileExtention(part);
+//					System.out.println("音檔：" + fileNameExtension);
+//				}
+//			}
+//		}
 
 		final Part part2 = request.getPart("coverFile");
-		if(Validator.isEmptyPart(part2)){
-			
-		}else{
-			if(!Validator.isImage(part2)){
-				errorMsg.put("emptyPart2Msg", "*只能上傳圖片檔案");
-			}else{
-				if(!Validator.isPartOverSize(part2, 5242880)){
-					errorMsg.put("emptyPart2Msg", "*圖片檔案上傳請勿超過5MB");
-				}else{
-					// final String coverFilename = getFileName(part2).trim();
-					// int index2 = coverFilename.lastIndexOf('.');
-					// String fileNameExtension2 = coverFilename.substring(index2); // get.jpg
-					fileNameExtension2 = UploadHelper.getFileExtention(part2);
-					System.out.println("圖檔：" + fileNameExtension2);
-				}
-			}
-		}
+//		if(Validator.isEmptyPart(part2)){
+//			
+//		}else{
+//			if(!Validator.isImage(part2)){
+//				errorMsg.put("emptyPart2Msg", "*只能上傳圖片檔案");
+//			}else{
+//				if(!Validator.isPartOverSize(part2, 5242880)){
+//					errorMsg.put("emptyPart2Msg", "*圖片檔案上傳請勿超過5MB");
+//				}else{
+//					// final String coverFilename = getFileName(part2).trim();
+//					// int index2 = coverFilename.lastIndexOf('.');
+//					// String fileNameExtension2 = coverFilename.substring(index2); // get.jpg
+//					fileNameExtension2 = UploadHelper.getFileExtention(part2);
+//					System.out.println("圖檔：" + fileNameExtension2);
+//				}
+//			}
+//		}
 
 		//OutputStream outputStream = null;
 		//InputStream inputStream = null;
@@ -161,7 +161,7 @@ public class UploadSongServlet extends HttpServlet {
 				String path2 = folderPath2 + newCoverFilename;
 				System.out.println("圖檔path: " + path2);
 
-				// try to save upload in given path
+//              try to save upload in given path
 //				try {
 //					inputStream = part.getInputStream();// get file inputSteam
 //					outputStream = new FileOutputStream(new File(path)); // get FileOutputStream to write inputStrem into the file

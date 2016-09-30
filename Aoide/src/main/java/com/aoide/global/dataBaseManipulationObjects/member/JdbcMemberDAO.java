@@ -10,7 +10,7 @@ import java.util.List;
 import com.aoide.global.dataBaseManipulationObjects.AutoInvoker;
 
 public class JdbcMemberDAO implements MemberDAO 
-{
+{  
 	private static final String INSERT_STMT = 
 			"INSERT INTO member "
 			+ "( [account], [password], [name], [email], [introduction_file_path], [bank_info] ) " 

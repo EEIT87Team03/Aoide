@@ -4,7 +4,7 @@ window.onload = function ()/*regist function*/
     document.getElementById("email2").onblur = checkEmail;
     document.getElementById("account2").onblur = checkAccount;
     document.getElementById("password2").onblur = checkPassword;
-    document.getElementById("rePassword").onblur = checkRePassword;
+    //document.getElementById("rePassword").onblur = checkRePassword;
 }
 
 function checkName()

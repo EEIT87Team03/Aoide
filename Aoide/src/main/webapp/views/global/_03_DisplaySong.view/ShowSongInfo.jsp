@@ -109,6 +109,8 @@ function play( event )
 								</tr>
 								<tr>
 									<td><img alt="" src="${songVO.coverFile}"></td>
+									<table class="table">
+									
 									<td>${songVO.introductionFile}</td>
 								</tr>
 							</table>

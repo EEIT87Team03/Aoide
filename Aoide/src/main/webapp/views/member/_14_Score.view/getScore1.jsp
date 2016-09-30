@@ -91,7 +91,7 @@
 							}
 
 							function sendStat() {
-								alert(v);
+// 								alert(v);
 								//var formData = new FormData();
 								//formData.append("socreStar", G8);  上傳用mulitipart data
 
@@ -99,7 +99,7 @@
 
 								xhr.onload = function() {
 									if (this.status == 200) {
-										alert("評論已送出");
+// 										alert("評論已送出");
 										window.location.href = "<c:url value='/GetScoreServlet.member'/>"
 
 									} else {
@@ -160,7 +160,7 @@
 <!--   	                 <img src = "/Aoide/files/song_cover_files/Songid01.jpg">   -->
 
      	                                   <img src="${songOne.coverFile}"> 
-             
+                                  
 <!--                                                 </td>											</tr> -->
 										</c:forEach>
 									</tbody>
@@ -240,6 +240,7 @@
 
 									</table>
 <input type="button" onclick="sendStat()" class="btn" value="送出">
+<a href="/Aoide/views/global/_10_SearchSong.view/SearchSong.jsp" class="btn">back</a>
 
 									<br>
 								</div>
